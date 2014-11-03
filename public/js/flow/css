@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Signika';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Signika'), local('Signika-Regular'), url(http://themes.googleusercontent.com/static/fonts/signika/v4/CIKqu0ZApWLrJojeHmT3SQ.woff) format('woff');
+}
+@font-face {
+  font-family: 'Signika';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Signika-Semibold'), url(http://themes.googleusercontent.com/static/fonts/signika/v4/8-PQNacfI9IhpgehJGCuGBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}

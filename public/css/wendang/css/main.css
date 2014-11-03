@@ -1,0 +1,61 @@
+body {
+font-family: Tahoma;
+font-size: 10pt;
+line-height: 170%;
+padding: 0 10pt;
+}
+.iHeight{
+    height:800px;
+    margin: 0 0 0 20px;
+}
+nav {
+background: #1bbc9b;
+color: white;
+overflow-x: hidden;
+overflow-y: auto;
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+width: 200px;
+}
+
+header {
+padding-left: 200px;
+}
+
+article {
+padding-left: 200px;
+}
+
+footer {
+padding-left: 200px;
+}
+#ulCss{
+    margin-top: 50px;
+}
+#ulCss li a{
+    color: #ffffff;
+}
+.divTop{
+    height:20px;
+    width:100%
+}
+.imgMe{
+    border: 2px solid #1bbc9b;
+    position: absolute;
+    right: 50px;
+    top:90px;
+}
+.h1Bot{
+    margin-bottom: 30px;
+}
+.h3Bot{
+  
+}
+blockquote{
+    margin: 0;
+}
+ol.linenums{
+    padding: 0;
+}

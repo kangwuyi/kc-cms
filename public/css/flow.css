@@ -1,0 +1,25 @@
+#contion{
+	width:1200px;
+	height:600px;
+	 background: #fff;
+	margin:0 auto 0 auto;
+	z-index:1010;
+}
+/* sidebar left */
+ #contents {
+	float: right;
+	padding: 0;
+	width: auto;
+	float: none;
+	padding:30px 20px 30px 20px;
+}
+
+
+/* clearfix */
+.clearfix:after, .widget li:after, #body:after, #footer:after, footer:after, .pagenav:after, #main-nav:after, .menu:after, .gallery:after, #content:after
+{ visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.clearfix, .widget li, #body, #footer, footer, .pagenav, #main-nav, .menu, .gallery, #content
+{ display: inline-block; }
+/* clearfix for ie7 */
+.clearfix, .widget li, #body, #footer, footer, .pagenav, #main-nav, .menu, .gallery, #content
+{ display: block; zoom: 1; }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>KANGJIAN</title>
+		<link rel="stylesheet"  href="./assets/css/reader.css" type="text/css" media="all">
+		<script src="./assets/ckeditor/ckeditor.js"></script>
+		<script src="./assets/ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+			$( document ).ready( function() {
+				$( 'textarea#editor1' ).ckeditor();
+			} );
+		</script>
+	</head>
+	<body class="page page-id-918 page-template-default skin-default webkit not-ie default_width query-page query-post sidebar-none grid4" cz-shortcut-listen="true">
+	<%- include header %>
+		<!-- 中间部分开始 -->
+		<div id="contion"style="margin-top:100px;">
+			<div class="div-tags-header">
+			</div>
+			<div id="contents">
+			<form action="write/baocun" method="post">
+				<div>
+					标签：<input class="tags_names"  style="width:100px;" name="tags_names" type="text" id="pageIndex_input1" value="1">
+					</br>
+					标题：<input class="blogs_titles"  style="width:100px;" name="blogs_titles" type="text" id="pageIndex_input1" value="1"> 
+					</br>
+					<input class=""  style="width:100px;" name="" type="hidden" id="pageIndex_input1" value="1"> 
+					</br>
+					<span>年：</span>	<select name="blogs_year" class="blogs_year"  onchange="sel(this)">
+							<option value="2011">2011</option>					
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+						</select>  
+						
+						<span>月：</span>	<select name="blogs_yue" class="blogs_yue"  onchange="sel(this)">
+							<option value="Jan">JAN</option>					
+							<option value="Feb">FEB</option>
+							<option value="Mar">MAR</option>
+							<option value="Apr">APR</option>
+							<option value="May">MAY</option>					
+							<option value="Jun">JUN</option>
+							<option value="Jul">JUL</option>
+							<option value="Aug">AUG</option>
+							<option value="Sep">SEP</option>					
+							<option value="Oct">OCT</option>
+							<option value="Nov">NOV</option>
+							<option value="Dec">DEC</option>
+						</select>  
+						
+						<span>年：</span>	<select name="blogs_ri" class="blogs_ri"  onchange="sel(this)">
+							<option value="1">1</option>					
+							<option value="2">2</option>
+							<option value="3">3</option>					
+							<option value="4">4</option>
+							<option value="5">5</option>					
+							<option value="6">6</option>
+							<option value="7">7</option>					
+							<option value="8">8</option>
+							<option value="9">9</option>					
+							<option value="10">10</option>
+							<option value="11">11</option>					
+							<option value="12">12</option>
+								<option value="13">13</option>					
+							<option value="14">14</option>
+							<option value="15">15</option>					
+							<option value="16">16</option>
+							<option value="17">17</option>					
+							<option value="18">18</option>
+							<option value="19">19</option>					
+							<option value="20">20</option>
+							<option value="21">21</option>					
+							<option value="22">22</option>
+								<option value="23">23</option>					
+							<option value="24">24</option>
+							<option value="25">25</option>					
+							<option value="26">26</option>
+							<option value="27">27</option>					
+							<option value="28">28</option>
+							<option value="29">29</option>					
+							<option value="30">30</option>
+							<option value="31">31</option>
+
+						</select>  
+						</br>
+					<input class="blogs_dates"  style="width:200px;" name="blogs_dates" type="hidden" id="pageIndex_input1" value="<?php 
+						date_default_timezone_set('Asia/Chongqing'); //系统时间差8小时问题
+						$now = getdate(time()); 
+						$cur_wday=$now['wday'];
+						$date = date('Y-m-d H:i:s'); 
+						echo $date; 
+						//echo $showtime=date("Y-m-d H:i:s");
+						?>"> 
+						<input class="stochastic_figure"  style="width:200px;" name="stochastic_figure" type="hidden" id="pageIndex_input1" value="<?php 
+						$arr=range(1,10);
+						shuffle($arr);
+						foreach($arr as $values){
+							echo $values;
+						}
+						?>">
+				</div>
+				<textarea class="ckeditor" name="editor1"></textarea>
+				<p style="overflow: hidden">
+					<input style="float: left;margin-top:20px;" type="submit" value="Submit">
+				</p>
+			</div>	
+		</form>
+		</div>
+		<!-- 中间部分结束 -->
+		<%- include footer %>
+	</body>
+</html>

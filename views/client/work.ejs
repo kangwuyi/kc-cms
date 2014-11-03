@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<title>KANGJIAN</title>
+	<link rel="stylesheet"  href="./assets/css/work.css" type="text/css" media="all">
+	<script type="text/javascript" src="./assets/js/work.js"></script>
+	<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet"  href="./assets/css/style2.css" type="text/css" media="all">
+	<script type="text/javascript"  src="./assets/lib/jquery/jquery-2.1.1.min.js"></script>
+</head>
+<body >
+<%- include header %>
+	<!-- 中间部分开始 -->
+	<div id="contion">
+		<div id="contents">
+			<div class="main clearfix">
+				<div id="sidebar-wrap" class="clearfix">
+					<div id="sticky" class="clearfix">
+						<h2 class="sticky-title">归档</h2>
+						<table class="table table-striped"  style="color:#666;font-size:18px;">
+						  <?php foreach ($riqi_guidang as $item2) {?>
+							<tr>
+								<td class="td_juzhong">
+									<a href="./works/riqi_dates_to_sort?riqi_dates='.$item2-> kt_riqi_dates);?>">
+						  				<?php echo $item2-> kt_riqi_dates;?>
+									</a>
+								</td>
+							</tr>
+						<?php }?>
+						</table>
+					</div>
+				</div>
+				<div id="content2" class="filter-posts">
+				<?php foreach ($blogs_titles as $item) {?>
+					<div class="post clearfix">
+						<div class="box">
+							<div class="shadow clearfix">
+								<div class="frame">
+									<h2 class="entry-title">
+										<a href="./index/title_to_content?blogs_ids='.$item-> kt_blogs_ids.'&tags_ids='.$item-> kt_tags_ids);?>" title="#"  target="_blank" ><?php echo $item-> kt_blogs_titles;?></a>
+									</h2>
+									<p>
+										<?php echo mb_substr( $item-> kt_blogs_contents,0,100,'utf8');?>...
+									</p>
+								</div>
+							</div>
+							<div class="bar" >
+								<div class="bar-frame clearfix">
+									<div class="date">
+										<strong class="day"><?php echo $item-> kt_blogs_ri;?></strong>
+										<div class="holder">
+											<span class="month"><?php echo $item-> kt_blogs_yue;?></span>
+											<span class="year"><?php echo $item-> kt_blogs_year;?></span>
+										</div>
+									</div>
+									<div class="author">
+										<strong class="title">标签</strong>
+										<a href="./index/tags_to_sort?tags_ids='.$item-> kt_tags_ids);?>" title="#" rel="external"><?php echo $item-> kt_tags_name;?></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php }?>
+					<div class="post clearfix">
+						<div class="box">
+							<?php echo $this->pagination->create_links();?>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 中间部分结束 -->
+	<%- include footer %>
+</body>
+</html>

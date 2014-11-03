@@ -1,0 +1,47 @@
+
+#div-fenye{
+	width:400px;
+	height:30px;
+	line-height:30px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:100px;
+}
+#div-fenye p.mod_pagenav_main,p.mod_pagenav_option{
+display:block;
+
+
+}
+#div-fenye p.mod_pagenav_main{
+float:left;
+}
+#div-fenye a.c_tx{
+color:#1D1B1B;
+
+}
+#div-fenye p.mod_pagenav_main .mod_pagenav_count .current{
+color:#6DAF45;
+}
+#div-fenye  p.mod_pagenav_option{
+margin-left:60px;
+float:right;
+}
+#div-fenye  p.mod_pagenav_option .textinput{
+width:20px;
+}
+#div-fenye  p.mod_pagenav_option .bt_tx2{
+width:40px;
+height:22px;
+border: 1px solid #6DAF45;
+background-color: #74B959;
+color:#fff;
+}
+#div-fenye #shangyiye{
+color:red;
+}
+
+
+
+
+
+
