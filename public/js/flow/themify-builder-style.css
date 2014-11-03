@@ -1,0 +1,2937 @@
+/************************************************************************************
+GRID
+*************************************************************************************/
+.col4-1,
+.col4-2,
+.col4-3,
+.col3-1,
+.col3-2,
+.col2-1
+{
+	margin-left: 3.2%;
+	float: left;
+}
+.col4-1 {
+	width: 22.6%;
+}
+.col4-2, .col2-1 {
+	width: 48.4%;
+}
+.col4-3 {
+	width: 74.2%;
+}
+.col3-1 {
+	width: 31.2%;
+}
+.col3-2 {
+	width: 65.6%;
+}
+.col.first,
+.col4-1.first,
+.col4-2.first,
+.col4-3.first,
+.col3-1.first,
+.col3-2.first,
+.col2-1.first
+{
+	margin-left: 0;
+	clear: left;
+}
+
+/************************************************************************************
+CLEARFIX
+*************************************************************************************/
+.ui.nav:after,
+.ui.tab .tab-nav:after,
+.ui.window .bar:after,
+.ui.module-callout:after,
+.row_inner:after,
+.ui:after,
+.module:after,
+.tab-nav:after,
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/************************************************************************************
+UI ELEMENT STYLING
+*************************************************************************************/
+/*  RESETS
+=============================================== */
+.ui {
+	position: relative;
+}
+.ui,
+.ui > li,
+.ui.nav ul,
+.ui.module-tab .tab-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ui.nav,
+.ui.module-tab .tab-nav,
+.ui.window .bar,
+.ui.module-callout {
+	display: block;
+}
+
+.module li:before,
+.module li:after {
+	display: none;
+}
+
+/************************************************************************************
+SIZES
+*************************************************************************************/
+/* default button size */
+.ui.builder_button,
+.ui.nav li a,
+.ui.module-tab .tab-nav li a,
+.ui.window > div {
+	padding: .625em 1.25em;
+}
+
+.ui.builder_button.large,
+.ui.nav.large li a,
+.ui.module-tab.large .tab-nav li a {
+	font-size: 120%;
+	padding: 10px 20px;
+}
+
+.ui.builder_button.small,
+.ui.nav.small li a,
+.ui.module-tab.small .tab-nav li a {
+	font-size: 70%;
+	padding: 5px 10px;
+}
+
+/************************************************************************************
+BORDER-RADIUS
+*************************************************************************************/
+/* top left corner */
+.ui.rounded,
+.ui.builder_button.rounded:before,
+.ui.nav.rounded > li:first-child,
+.ui.nav.rounded.separate > li,
+.ui.nav.rounded.separate > li a:before,
+.ui.nav.rounded ul,
+.ui.nav.rounded ul > li:first-child,
+.ui.nav.rounded > li:first-child a,
+.ui.nav.rounded > li:first-child a:before,
+.ui.nav.rounded ul > li:first-child a:before,
+.ui.module-tab.vertical.rounded .tab-nav,
+.ui.module-tab.vertical.rounded .tab-nav li:first-child,
+.ui.module-tab.rounded .tab-nav li,
+.ui.window.rounded .bar:first-child,
+.ui.module-accordion.rounded li:first-child,
+.ui.module-accordion.rounded > li:first-child .accordion-title,
+.ui.module-accordion.rounded > li:first-child .accordion-title a:before,
+.ui.module-accordion.rounded.separate .accordion-title a:before,
+.ui.module-callout.rounded,
+.ui.module-callout.rounded:before,
+.ui.nav.rounded > li:first-child:before,
+.ui.nav.fullwidth.rounded:before,
+.ui.glossy.rounded .tab-nav > li a:before,
+.ui.nav.rounded.separate.vertical li:last-child:before,
+.ui.nav.rounded.vertical.separate > li:last-child a:before,
+.ui.module-tab.panel.rounded .tab-nav,
+.ui.module-tab.panel .tab-nav:before
+{
+	border-top-left-radius: 5px;
+}
+/* top right corner */
+.ui.rounded,
+.ui.builder_button.rounded:before,
+.ui.nav.vertical.rounded li:first-child,
+.ui.nav.rounded > li:last-child,
+.ui.nav.rounded.separate > li,
+.ui.nav.rounded.separate > li a:before,
+.ui.nav.rounded ul,
+.ui.nav.rounded ul > li:first-child,
+.ui.nav.rounded > li:last-child a:before,
+.ui.nav.rounded ul > li:first-child a:before,
+.ui.nav.rounded li:last-child a,
+.ui.module-tab.rounded .tab-nav li,
+.ui.window.rounded .bar:first-child,
+.ui.module-accordion.rounded li:first-child,
+.ui.module-accordion.rounded > li:first-child .accordion-title,
+.ui.module-accordion.rounded > li:first-child .accordion-title a:before,
+.ui.module-accordion.rounded.separate .accordion-title a:before,
+.ui.module-callout.rounded,
+.ui.module-callout.rounded:before,
+.ui.nav.rounded > li:last-child:before,
+.ui.nav.vertical.rounded > li:first-child:before,
+.ui.nav.fullwidth.rounded:before,
+.ui.glossy.rounded .tab-nav > li a:before,
+.ui.nav.rounded.separate.vertical li:last-child:before,
+.ui.nav.rounded li:last-child:before,
+.ui.nav.rounded.vertical li:first-child a:before,
+.ui.nav.rounded.vertical.separate > li:last-child a:before,
+.ui.module-tab.panel.rounded .tab-nav,
+.ui.module-tab.panel .tab-nav:before
+{
+	border-top-right-radius: 5px;
+}
+
+/* bottom right corner */
+.ui.rounded,
+.ui.nav.rounded > li:last-child,
+.ui.nav.rounded.separate > li,
+.ui.nav.rounded ul,
+.ui.nav.rounded ul > li:last-child,
+.ui.nav.rounded li:last-child a,
+.ui.window.rounded .bar:last-child,
+.ui.module-accordion.rounded li:last-child,
+.ui.module-accordion.rounded > li:last-child .accordion-title,
+.ui.module-accordion.separate.rounded li.current .accordion-content,
+.ui.module-accordion.rounded li:last-child .accordion-content,
+.ui.module-callout.rounded
+{
+	border-bottom-right-radius: 5px;
+}
+/* bottom left corner */
+.ui.rounded,
+.ui.nav.vertical.rounded li:last-child,
+.ui.nav.rounded > li:first-child,
+.ui.nav.rounded.separate > li,
+.ui.nav.rounded ul,
+.ui.nav.rounded ul > li:last-child,
+.ui.nav.rounded > li:first-child a,
+.ui.module-tab.vertical.rounded .tab-nav,
+.ui.module-tab.vertical.rounded .tab-nav li:last-child,
+.ui.window.rounded .bar:last-child,
+.ui.module-accordion.rounded li:last-child,
+.ui.module-accordion.rounded > li:last-child .accordion-title,
+.ui.module-accordion.separate.rounded li.current .accordion-content,
+.ui.module-accordion.rounded li:last-child .accordion-content,
+.ui.module-callout.rounded
+{
+	border-bottom-left-radius: 5px;
+}
+
+/* no top-left corner */
+.ui.nav.vertical.separate ul li:not(:first-child) a:before,
+.ui.tab.vertical .tab-nav li:not(:first-child) a:before,
+.ui.module-tab.panel.rounded .tab-content,
+.ui.module-tab.vertical li:last-child a:before {
+	border-top-left-radius: 0;
+}
+
+/* no top-right corner */
+.ui.nav.vertical.separate ul li:not(:first-child) a:before,
+.ui.tab.vertical .tab-nav li:not(:first-child) a:before,
+.ui.nav.fullwidth.rounded li:last-child a,
+.ui.nav.fullwidth.rounded li:last-child,
+.ui.nav.vertical.rounded li:last-child,
+.ui.module-tab.panel.rounded .tab-content,
+.ui.module-tab.vertical li:first-child a:before,
+.ui.module-tab.vertical li:last-child a:before {
+	border-top-right-radius: 0;
+}
+
+/* no bottom-left corner */
+.ui.nav.rounded.vertical > li:first-child,
+.ui.nav.rounded.vertical > li:first-child a,
+.ui.module-accordion.rounded > li:last-child.current .accordion-title,
+.ui.module-accordion.separate.rounded li.current .accordion-title {
+	border-bottom-left-radius: 0;
+}
+
+/* no bottom-right */
+.ui.nav.rounded.vertical > li:first-child,
+.ui.nav.rounded.vertical > li:first-child a,
+.ui.nav.fullwidth.rounded li:last-child a,
+.ui.nav.fullwidth.rounded li:last-child,
+.ui.module-accordion.rounded > li:last-child.current .accordion-title,
+.ui.module-accordion.separate.rounded li.current .accordion-title {
+	border-bottom-right-radius: 0;
+}
+
+/* all border-radius */
+.ui.nav.rounded.vertical.separate > li:first-child,
+.ui.nav.rounded.vertical.separate > li:first-child a,
+.ui.nav.rounded.vertical.separate > li:last-child,
+.ui.nav.rounded.vertical.separate > li:last-child a,
+.ui.module-accordion.separate.rounded li,
+.ui.module-accordion.separate.rounded .accordion-title,
+.ui.module-tab.rounded .tab-content
+{
+	border-radius: 5px;
+}
+
+/* no border-radius all */
+.ui.nav.rounded > li:last-child a,
+.ui.nav.rounded.vertical > li:last-child:before,
+.ui.module-tab.rounded.vertical .tab-nav li,
+.ui.nav.rounded.vertical > li:last-child a:before
+{
+	border-radius: 0;
+}
+
+/************************************************************************************
+STYLES
+*************************************************************************************/
+/* embossed */
+.ui.embossed.module-tab.vertical .tab-nav,
+.ui.embossed.builder_button,
+.ui.embossed.nav,
+.ui.embossed.module-callout,
+.ui.embossed.separate > li,
+.ui.embossed.module-accordion .accordion-title,
+.ui.embossed.module-box,
+.ui.embossed.module-tab .tab-content,
+.ui.embossed.window .bar {
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1);
+}
+.ui.embossed.separate {
+	box-shadow: none;
+}
+.ui.builder_button:active,
+.ui.nav li:active,
+.ui.module-tab .tab-nav li:active,
+.ui.pressed.separate > li {
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.35);
+}
+
+.ui.builder_button, .ui.nav, .ui .tab-nav > li { position: relative; }
+
+/* shadow */
+.ui.shadow.module-tab.vertical .tab-nav,
+.ui.shadow.builder_button,
+.ui.shadow.nav,
+.ui.shadow.module-callout,
+.ui.shadow.separate > li,
+.ui.shadow.separate > li.current,
+.ui.shadow.module-accordion .accordion-title,
+.ui.shadow.module-accordion li.current .accordion-content,
+.ui.shadow.module-box,
+.ui.shadow.module-tab .tab-content,
+.ui.shadow.window .bar {
+	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+.ui.shadow > li.current,
+.ui.shadow .tab-nav li.current  { 
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 1px 3px rgba(0,0,0,.3);
+}
+.ui.shadow.separate,
+.ui.shadow > li.current {
+	box-shadow: none;
+}
+.ui.shadow.builder_button:active,
+.ui.shadow.nav li:active,
+.ui.shadow.module-tab .tab-nav li:active,
+.ui.shadow.pressed.separate > li {
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.35);
+}
+
+.ui.shadow.embossed.module-tab.vertical .tab-nav,
+.ui.shadow.embossed.builder_button,
+.ui.shadow.embossed.module-callout,
+.ui.shadow.embossed.separate > li,
+.ui.shadow.embossed.module-accordion .accordion-title,
+.ui.shadow.embossed.module-box,
+.ui.shadow.embossed.module-tab .tab-content,
+.ui.shadow.embossed.window .bar {
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 0 rgba(0,0,0,.25), inset 0 -3px 0 rgba(255,255,255,.2), 0 1px 0 rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3);
+}
+.ui.shadow.embossed.builder_button:active,
+.ui.shadow.embossed.nav li:active,
+.ui.shadow.embossed.module-tab .tab-nav li:active,
+.ui.shadow.embossed.pressed.separate > li {
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.35);
+}
+
+/* glossy style */
+.ui.glossy.builder_button:before,
+.ui.glossy.nav > li a:before,
+.ui.glossy.nav.fullwidth:before,
+.ui.glossy .tab-nav > li a:before,
+.ui.glossy.module-accordion .accordion-title a:before,
+.ui.glossy.module-box-content:before,
+.ui.glossy.module-callout:before {
+	content: "";
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	
+	/* glossy overlay */
+	background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 100%);
+	background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 100%);
+	background-image: linear-gradient(top,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 100%);
+}
+.ui.nav.fullwidth > li:before,
+.ui.nav > li.current:before,
+.ui.glossy .tab-nav > li.current:before,
+.ui.nav.fullwidth.glossy a:before {
+	background: none;
+}
+
+.ui.nav.fullwidth.glossy:before {
+	height: 1em;
+	top: auto;
+	margin-top: 0;
+}
+
+/* reset link z-index */
+.ui.glossy.module-box-content a,
+.ui.glossy.module-callout a {
+	position: relative;
+	z-index: 1;
+}
+
+
+/* minimal */
+.ui.module-tab.minimal .tab-nav {
+	margin-left: 0;
+}
+.ui.module-tab.minimal .tab-content {
+	border-width: 1px 0 0 0;
+	padding: 1.3em 0 0;
+	box-shadow: none !important;
+	background: none;
+}
+.ui.module-tab.minimal.vertical .tab-content {
+	border-width: 0 0 0 1px;
+	padding: 10px 0 0 20px;
+}
+
+/* gradient */
+.ui.gradient > li,
+.ui.gradient.builder_button,
+.ui.gradient.nav,
+.ui.gradient.module-callout,
+.ui.gradient.separate > li,
+.ui.gradient.module-accordion .accordion-title,
+.ui.gradient.window .bar,
+.ui.gradient, 
+.ui.gradient.nav, 
+.ui.gradient.nav ul, 
+.ui.gradient.separate > li, 
+.ui.gradient.module-tab .tab-nav li, 
+.ui.gradient.vertical .tab-nav, 
+.ui.gradient.window .bar, 
+.ui.gradient.module-tab.panel .tab-nav, 
+.ui.gradien.module-box,
+.ui.gradient.module-callout,
+.ui.gradient.module-tab.panel .tab-nav:before {
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.45)), color-stop(100%,rgba(255,255,255,0)));
+	background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.45) 0%,rgba(255,255,255,0) 100%);
+	background-image: linear-gradient(to bottom,  rgba(255,255,255,0.45) 0%,rgba(255,255,255,0) 100%);
+}
+
+/************************************************************************************
+COLOURS
+*************************************************************************************/
+
+/*  DEFAULT COLOURS & BORDERS
+================================================ */
+.ui, .ui.nav li a, .ui.nav ul li a, .ui.module-tab .tab-nav li a { 
+	color: #5c5c5c; 
+}
+.ui, 
+.ui.nav, 
+.ui.nav ul, 
+.ui.separate > li, 
+.ui.module-tab .tab-nav li, 
+.ui.vertical .tab-nav, 
+.ui.window .bar, 
+.ui.module-tab.panel .tab-nav, 
+.ui.module-accordion .accordion-title, 
+.ui.module-callout   {
+	background-color: #e7e7e7;
+}
+.ui, 
+.ui.nav ul, 
+.ui.nav li, 
+.ui.module-tab .tab-nav li, 
+.ui.module-tab .tab-content, 
+.ui.window > div, 
+.ui.module-tab.panel .tab-nav, 
+.ui.module-accordion, 
+.ui.module-accordion > li, 
+.ui.module-callout {
+	border-color: #bbb;
+}
+
+.ui .tab-content,
+.ui.window .content,
+.ui.module-accordion .accordion-content { 
+	background: #fff; 
+	color: #333; 
+}
+.ui .tab-content a,
+.ui.window .content a,
+.ui.module-accordion .accordion-content a { 
+	color: inherit;
+}
+
+/* default hover */
+.ui.builder_button:hover,
+.ui.nav li:hover,
+.ui.module-accordion li:hover .accordion-title,
+.ui.module-tab .tab-nav li:hover { 
+	background: #d7d7d7;
+}
+
+.ui.module-tab .tab-nav li.current:hover { 
+	background: #fff !important; 
+}
+
+/* default current color */
+.ui > li.current,
+.ui > li.current:hover,
+.ui .tab-nav li.current  { 
+	background: #666; 
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2); 
+}
+.ui > li.current > a,
+.ui .tab-nav li a { 
+	color: #fff; 
+}
+
+.ui.module-tab ul.tab-nav li {
+	list-style: none;
+	margin-left: 0;
+	padding: 0;
+}
+.ui.module-tab ul.tab-nav li.current a { 
+	color: #333; 
+	cursor: default;
+}
+.ui.module-tab ul.tab-nav li.current   { 
+	background: #fff; 
+	border-bottom-color: #fff; 
+	border-bottom-width: 1px; 
+	border-bottom-style: solid; 
+	margin-bottom: -1px; 
+	box-shadow: none; 
+}
+
+.ui.module-tab.vertical .tab-nav > li.current { 
+	border-bottom-color: inherit;
+	position: relative;
+	z-index: 3;
+	border-right-width: 0; 
+}
+
+/*  BLUE COLOURS & BORDERS
+================================================ */
+.ui.blue,
+.ui.blue.nav li a, 
+.ui.blue.nav ul li a, 
+.ui.blue.module-tab .tab-nav li a { 
+	color: #edf3ff; 
+}
+.ui.blue, 
+.ui.blue.nav ul, 
+.ui.blue.separate > li, 
+.ui.blue.module-tab .tab-nav li, 
+.ui.blue.vertical .tab-nav,
+.ui.blue.module-accordion .accordion-title,
+.ui.blue.window .bar, 
+.ui.blue.module-tab.panel .tab-nav {
+	background-color: #4d7de1;
+}
+.ui.blue, 
+.ui.blue.nav ul, 
+.ui.blue.nav li,
+.ui.blue.nav.separate > li,
+.ui.blue.module-tab .tab-nav li, 
+.ui.blue.module-accordion li,
+.ui.blue.window > div, 
+.ui.blue.module-tab .tab-nav {
+	border-color: #3e65b2;
+}
+
+/* blue hover */
+.ui.blue.builder_button:hover,
+.ui.blue.nav li:hover,
+.ui.blue.module-accordion li:hover .accordion-title,
+.ui.blue.module-tab .tab-nav li:hover { 
+	background: #6b9df9; 
+}
+
+/* blue current color */
+.ui.blue > li.current,
+.ui.blue > li.current:hover,
+.ui.blue .tab-nav li.current { 
+	background: #214178; 
+}
+
+
+/*  PURPLE COLOURS & BORDERS
+================================================ */
+.ui.purple, 
+.ui.purple.nav li a, 
+.ui.purple.nav ul li a, 
+.ui.purple.module-tab .tab-nav li a { 
+	color: #eeedff; 
+}
+.ui.purple, 
+.ui.purple.nav ul, 
+.ui.purple.separate > li, 
+.ui.purple.module-tab .tab-nav li, 
+.ui.purple.vertical .tab-nav,
+.ui.purple.module-accordion .accordion-title,
+.ui.purple.window .bar, 
+.ui.purple.module-tab.panel .tab-nav {
+	background-color: #7a6bf8;
+}
+.ui.purple, 
+.ui.purple.nav ul, 
+.ui.purple.nav li,
+.ui.purple.nav.separate > li,
+.ui.purple.module-tab .tab-nav li, 
+.ui.purple.module-accordion li,
+.ui.purple.window > div, 
+.ui.purple.module-tab .tab-nav {
+	border-color: #584eb2;
+}
+
+/* purple hover */
+.ui.purple.builder_button:hover,
+.ui.purple.nav li:hover,
+.ui.purple.module-accordion li:hover .accordion-title,
+.ui.purple.module-tab .tab-nav li:hover { 
+	background: #9589ff; 
+}
+
+/* purple current color */
+.ui.purple > li.current,
+.ui.purple > li.current:hover,
+.ui.purple .tab-nav li.current { 
+	background: #321396; 
+}
+
+
+/*  RED COLOURS & BORDERS
+================================================ */
+.ui.red, 
+.ui.red.nav li a, 
+.ui.red.nav ul li a, 
+.ui.red.module-tab .tab-nav li a { 
+	color: #ffeeed; 
+}
+.ui.red, 
+.ui.red.nav ul, 
+.ui.red.separate > li, 
+.ui.red.module-tab .tab-nav li, 
+.ui.red.vertical .tab-nav,
+.ui.red.module-accordion .accordion-title,
+.ui.red.window .bar, 
+.ui.red.module-tab.panel .tab-nav {
+	background-color: #e8311f;
+}
+.ui.red, 
+.ui.red.nav ul, 
+.ui.red.nav li,
+.ui.red.nav.separate > li,
+.ui.red.module-tab .tab-nav li, 
+.ui.red.module-accordion li,
+.ui.red.window > div, 
+.ui.red.module-tab .tab-nav {
+	border-color: #9d1d14;
+}
+
+/* red hover */
+.ui.red.builder_button:hover,
+.ui.red.nav li:hover,
+.ui.red.module-accordion li:hover .accordion-title,
+.ui.red.module-tab .tab-nav li:hover { 
+	background: #ff7568; 
+}
+
+/* red current color */
+.ui.red > li.current,
+.ui.red > li.current:hover,
+.ui.red .tab-nav li.current { 
+	background: #7a2023; 
+}
+
+
+/*  GREEN COLOURS & BORDERS
+================================================ */
+.ui.green, 
+.ui.green.nav li a, 
+.ui.green.nav ul li a, 
+.ui.green.module-tab .tab-nav li a { 
+	color: #e9ffdb; 
+}
+.ui.green, 
+.ui.green.nav ul, 
+.ui.green.separate > li, 
+.ui.green.module-tab .tab-nav li, 
+.ui.green.vertical .tab-nav,
+.ui.green.module-accordion .accordion-title,
+.ui.green.window .bar, 
+.ui.green.module-tab.panel .tab-nav {
+	background-color: #4aab10;
+}
+.ui.green, 
+.ui.green.nav ul, 
+.ui.green.nav li,
+.ui.green.nav.separate > li,
+.ui.green.module-tab .tab-nav li, 
+.ui.green.module-accordion li,
+.ui.green.window > div, 
+.ui.green.module-tab .tab-nav {
+	border-color: #33720b;
+}
+
+/* green hover */
+.ui.green.builder_button:hover,
+.ui.green.nav li:hover,
+.ui.green.module-accordion li:hover .accordion-title,
+.ui.green.module-tab .tab-nav li:hover { 
+	background: #6bbf2f; 
+}
+
+/* green current color */
+.ui.green > li.current,
+.ui.green > li.current:hover,
+.ui.green .tab-nav li.current { 
+	background: #2c5b09; 
+}
+
+.ui.green.module-tab.vertical .tab-nav > li.current {
+	border-bottom-color: inherit;
+}
+
+
+/*  ORANGE COLOURS & BORDERS
+================================================ */
+.ui.orange, 
+.ui.orange.nav li a, 
+.ui.orange.nav ul li a, 
+.ui.orange.module-tab .tab-nav li a { 
+	color: #fff2ea; 
+}
+.ui.orange, 
+.ui.orange.nav ul, 
+.ui.orange.separate > li, 
+.ui.orange.module-tab .tab-nav li, 
+.ui.orange.vertical .tab-nav,
+.ui.orange.module-accordion .accordion-title,
+.ui.orange.window .bar, 
+.ui.orange.module-tab.panel .tab-nav {
+	background-color: #ff9600;
+}
+.ui.orange, 
+.ui.orange.nav ul, 
+.ui.orange.nav li,
+.ui.orange.nav.separate > li,
+.ui.orange.module-tab .tab-nav li, 
+.ui.orange.module-accordion li,
+.ui.orange.window > div, 
+.ui.orange.module-tab .tab-nav {
+	border-color: #bc6e00;
+}
+
+/* orange hover */
+.ui.orange.builder_button:hover,
+.ui.orange.nav li:hover,
+.ui.orange.module-accordion li:hover .accordion-title,
+.ui.orange.module-tab .tab-nav li:hover { 
+	background: #ffb651; 
+}
+
+/* orange current color */
+.ui.orange > li.current,
+.ui.orange > li.current:hover,
+.ui.orange .tab-nav li.current { 
+	background: #a55000; 
+}
+
+
+/*  BROWN COLOURS & BORDERS
+================================================ */
+.ui.brown, 
+.ui.brown.nav li a, 
+.ui.brown.nav ul li a, 
+.ui.brown.module-tab .tab-nav li a { 
+	color: #ffeee0; 
+}
+.ui.brown, 
+.ui.brown.nav ul, 
+.ui.brown.separate > li, 
+.ui.brown.module-tab .tab-nav li, 
+.ui.brown.vertical .tab-nav,
+.ui.brown.module-accordion .accordion-title,
+.ui.brown.window .bar, 
+.ui.brown.module-tab.panel .tab-nav {
+	background-color: #a35004;
+}
+.ui.brown, 
+.ui.brown.nav ul, 
+.ui.brown.nav li,
+.ui.brown.nav.separate > li,
+.ui.brown.module-tab .tab-nav li, 
+.ui.brown.module-accordion li,
+.ui.brown.window > div, 
+.ui.brown.module-tab .tab-nav {
+	border-color: #622d07;
+}
+
+/* brown hover */
+.ui.brown.builder_button:hover,
+.ui.brown.nav li:hover,
+.ui.brown.module-accordion li:hover .accordion-title,
+.ui.brown.module-tab .tab-nav li:hover { 
+	background: #d68035; 
+}
+
+/* brown current color */
+.ui.brown > li.current,
+.ui.brown > li.current:hover,
+.ui.brown .tab-nav li.current { 
+	background: #6b3100; 
+}
+
+
+/*  BLACK COLOURS & BORDERS
+================================================ */
+.ui.black, 
+.ui.black.nav li a, 
+.ui.black.nav ul li a, 
+.ui.black.module-tab .tab-nav li a { 
+	color: #eee; 
+}
+.ui.black, 
+.ui.black.nav ul, 
+.ui.black.separate > li, 
+.ui.black.module-tab .tab-nav li, 
+.ui.black.vertical .tab-nav,
+.ui.black.module-accordion .accordion-title,
+.ui.black.window .bar, 
+.ui.black.module-tab.panel .tab-nav {
+	background-color: #252525;
+}
+.ui.black, 
+.ui.black.nav ul, 
+.ui.black.nav li,
+.ui.black.nav.separate > li,
+.ui.black.module-tab .tab-nav li, 
+.ui.black.module-accordion li,
+.ui.black.window > div, 
+.ui.black.module-tab .tab-nav {
+	border-color: #000000;
+}
+
+/* black hover */
+.ui.black.builder_button:hover,
+.ui.black.nav li:hover,
+.ui.black.module-accordion li:hover .accordion-title,
+.ui.black.module-tab .tab-nav li:hover { 
+	background: #595959; 
+}
+
+/* black current color */
+.ui.black > li.current,
+.ui.black > li.current:hover,
+.ui.black .tab-nav li.current { 
+	background: #101010; 
+}
+
+
+/*  GRAY COLOURS & BORDERS
+================================================ */
+.ui.gray, 
+.ui.gray.nav li a, 
+.ui.gray.nav ul li a, 
+.ui.gray.module-tab .tab-nav li a { 
+	color: #eee; 
+}
+.ui.gray, 
+.ui.gray.nav ul, 
+.ui.gray.separate > li, 
+.ui.gray.module-tab .tab-nav li, 
+.ui.gray.vertical .tab-nav,
+.ui.gray.module-accordion .accordion-title,
+.ui.gray.window .bar, 
+.ui.gray.module-tab.panel .tab-nav {
+	background-color: #989797;
+}
+.ui.gray, 
+.ui.gray.nav ul, 
+.ui.gray.nav li,
+.ui.gray.nav.separate > li,
+.ui.gray.module-tab .tab-nav li, 
+.ui.gray.module-accordion li,
+.ui.gray.window > div, 
+.ui.gray.module-tab .tab-nav {
+	border-color: #666;
+}
+
+/* gray hover */
+.ui.gray.builder_button:hover,
+.ui.gray.nav li:hover,
+.ui.gray.module-accordion li:hover .accordion-title,
+.ui.gray.module-tab .tab-nav li:hover { 
+	background: #c9c9c9;
+}
+
+/* gray current color */
+.ui.gray > li.current,
+.ui.gray > li.current:hover,
+.ui.gray .tab-nav li.current { 
+	background: #636363; 
+}
+
+
+/*  LIGHT-BLUE COLOURS & BORDERS
+================================================ */
+.ui.light-blue, 
+.ui.light-blue.nav li a, 
+.ui.light-blue.nav ul li a, 
+.ui.light-blue.module-tab .tab-nav li a { 
+	color: #2a3e59; 
+}
+.ui.light-blue > li.current > a {
+	color: #FFF;
+}
+.ui.light-blue, 
+.ui.light-blue.nav ul, 
+.ui.light-blue.separate > li, 
+.ui.light-blue.module-tab .tab-nav li, 
+.ui.light-blue.vertical .tab-nav,
+.ui.light-blue.module-accordion .accordion-title,
+.ui.light-blue.window .bar, 
+.ui.light-blue.module-tab.panel .tab-nav {
+	background-color: #bdd9fd;
+}
+.ui.light-blue, 
+.ui.light-blue.nav ul, 
+.ui.light-blue.nav li,
+.ui.light-blue.nav.separate > li,
+.ui.light-blue.module-tab .tab-nav li, 
+.ui.light-blue.module-accordion li,
+.ui.light-blue.window > div, 
+.ui.light-blue.module-tab .tab-nav {
+	border-color: #6694d6;
+}
+
+/* light-blue hover */
+.ui.light-blue.builder_button:hover,
+.ui.light-blue.nav li:hover,
+.ui.light-blue.module-accordion li:hover .accordion-title,
+.ui.light-blue.module-tab .tab-nav li:hover { 
+	background: #d3e7ff; 
+}
+
+/* light-blue current color */
+.ui.light-blue > li.current,
+.ui.light-blue > li.current:hover,
+.ui.light-blue .tab-nav li.current { 
+	background: #7e98b5; 
+}
+
+
+/*  LIGHT-PURPLE COLOURS & BORDERS
+================================================ */
+.ui.light-purple, 
+.ui.light-purple.nav li a, 
+.ui.light-purple.nav ul li a, 
+.ui.light-purple.module-tab .tab-nav li a { 
+	color: #39355b; 
+}
+.ui.light-purple > li.current > a {
+	color: #FFF;
+}
+.ui.light-purple, 
+.ui.light-purple.nav ul, 
+.ui.light-purple.separate > li, 
+.ui.light-purple.module-tab .tab-nav li, 
+.ui.light-purple.vertical .tab-nav,
+.ui.light-purple.module-accordion .accordion-title,
+.ui.light-purple.window .bar, 
+.ui.light-purple.module-tab.panel .tab-nav {
+	background-color: #c1bafd;
+}
+.ui.light-purple, 
+.ui.light-purple.nav ul, 
+.ui.light-purple.nav li,
+.ui.light-purple.nav.separate > li,
+.ui.light-purple.module-tab .tab-nav li, 
+.ui.light-purple.module-accordion li,
+.ui.light-purple.window > div, 
+.ui.light-purple.module-tab .tab-nav {
+	border-color: #7f76cc;
+}
+
+/* light-purple hover */
+.ui.light-purple.builder_button:hover,
+.ui.light-purple.nav li:hover,
+.ui.light-purple.module-accordion li:hover .accordion-title,
+.ui.light-purple.module-tab .tab-nav li:hover { 
+	background: #d3ceff; 
+}
+
+/* light-purple current color */
+.ui.light-purple > li.current,
+.ui.light-purple > li.current:hover,
+.ui.light-purple .tab-nav li.current { 
+	background: #6c678c; 
+}
+
+
+/*  LIGHT-GREEN COLOURS & BORDERS
+================================================ */
+.ui.light-green, 
+.ui.light-green.nav li a, 
+.ui.light-green.nav ul li a, 
+.ui.light-green.module-tab .tab-nav li a { 
+	color: #293807; 
+}
+.ui.light-green > li.current > a {
+	color: #FFF;
+}
+.ui.light-green, 
+.ui.light-green.nav ul, 
+.ui.light-green.separate > li, 
+.ui.light-green.module-tab .tab-nav li, 
+.ui.light-green.vertical .tab-nav,
+.ui.light-green.module-accordion .accordion-title,
+.ui.light-green.window .bar, 
+.ui.light-green.module-tab.panel .tab-nav {
+	background-color: #9bd611;
+}
+.ui.light-green, 
+.ui.light-green.nav ul, 
+.ui.light-green.nav li,
+.ui.light-green.nav.separate > li,
+.ui.light-green.module-tab .tab-nav li, 
+.ui.light-green.module-accordion li,
+.ui.light-green.window > div, 
+.ui.light-green.module-tab .tab-nav {
+	border-color: #71a115;
+}
+
+/* light-green hover */
+.ui.light-green.builder_button:hover,
+.ui.light-green.nav li:hover,
+.ui.light-green.module-accordion li:hover .accordion-title,
+.ui.light-green.module-tab .tab-nav li:hover { 
+	background: #c1ed53; 
+}
+
+/* light-green current color */
+.ui.light-green > li.current,
+.ui.light-green > li.current:hover,
+.ui.light-green .tab-nav li.current { 
+	background: #6d9900; 
+}
+
+
+/*  PINK COLOURS & BORDERS
+================================================ */
+.ui.pink, 
+.ui.pink.nav li a, 
+.ui.pink.nav ul li a, 
+.ui.pink.module-tab .tab-nav li a { 
+	color: #441e32; 
+}
+.ui.pink > li.current > a {
+	color: #FFF;
+}
+.ui.pink, 
+.ui.pink.nav ul, 
+.ui.pink.separate > li, 
+.ui.pink.module-tab .tab-nav li, 
+.ui.pink.vertical .tab-nav,
+.ui.pink.module-accordion .accordion-title,
+.ui.pink.window .bar, 
+.ui.pink.module-tab.panel .tab-nav {
+	background-color: #feb4e4;
+}
+.ui.pink, 
+.ui.pink.nav ul, 
+.ui.pink.nav li,
+.ui.pink.nav.separate > li,
+.ui.pink.module-tab .tab-nav li, 
+.ui.pink.module-accordion li,
+.ui.pink.window > div, 
+.ui.pink.module-tab .tab-nav {
+	border-color: #b27e9d;
+}
+
+/* pink hover */
+.ui.pink.builder_button:hover,
+.ui.pink.nav li:hover,
+.ui.pink.module-accordion li:hover .accordion-title,
+.ui.pink.module-tab .tab-nav li:hover { 
+	background: #ffd1ee; 
+}
+
+/* pink current color */
+.ui.pink > li.current,
+.ui.pink > li.current:hover,
+.ui.pink .tab-nav li.current { 
+	background: #db6fa8; 
+}
+
+
+/*  YELLOW COLOURS & BORDERS
+================================================ */
+.ui.yellow, 
+.ui.yellow.nav li a, 
+.ui.yellow.nav ul li a, 
+.ui.yellow.module-tab .tab-nav li a { 
+	color: #594718;
+}
+.ui.yellow > li.current > a {
+	color: #FFF;
+}
+.ui.yellow, 
+.ui.yellow.nav ul, 
+.ui.yellow.separate > li, 
+.ui.yellow.module-tab .tab-nav li, 
+.ui.yellow.vertical .tab-nav,
+.ui.yellow.module-accordion .accordion-title,
+.ui.yellow.window .bar, 
+.ui.yellow.module-tab.panel .tab-nav {
+	background-color: #fff06c;
+}
+.ui.yellow, 
+.ui.yellow.nav ul, 
+.ui.yellow.nav li,
+.ui.yellow.nav.separate > li,
+.ui.yellow.module-tab .tab-nav li, 
+.ui.yellow.module-accordion li,
+.ui.yellow.window > div, 
+.ui.yellow.module-tab .tab-nav {
+	border-color: #dcb232;
+}
+
+/* yellow hover */
+.ui.yellow.builder_button:hover,
+.ui.yellow.nav li:hover,
+.ui.yellow.module-accordion li:hover .accordion-title,
+.ui.yellow.module-tab .tab-nav li:hover { 
+	background: #fff4b2; 
+}
+
+/* yellow current color */
+.ui.yellow > li.current,
+.ui.yellow > li.current:hover,
+.ui.yellow .tab-nav li.current { 
+	background: #b29e1c; 
+}
+
+
+/************************************************************************************
+ELEMENTS
+*************************************************************************************/
+
+/*  DEFAULTS
+================================================ */
+
+.ui.builder_button,
+.ui.nav li > a,
+.ui.module-tab .tab-nav > li > a { 
+	display: inline-block; 
+	text-decoration: none; 
+	line-height: 130%; 
+}
+
+.ui.builder_button:hover,
+.ui.nav li > a:hover,
+.ui.module-tab .tab-nav > li > a:hover {
+	display: inline-block;
+	text-decoration: none;
+}
+
+/* BORDER
+================================================ */
+
+.ui.builder_button,
+.ui.nav,
+.ui.nav ul,
+.ui.nav.separate > li,
+.ui.module-tab .tab-nav > li,
+.ui.module-tab .tab-content,
+.ui.module-tab.panel .tab-nav,
+.ui.module-accordion,
+.ui.module-accordion > li,
+.ui.module-callout {
+	border-style: solid;
+	border-width: 1px;
+}
+
+/* NAV
+================================================ */
+
+.ui.nav {
+	display: inline-block;
+	margin-bottom: 1.5em;
+	margin-left: 0 !important;
+}
+.ui.nav li {
+	float: left;
+	position: relative;
+}
+
+/* drop down */
+.ui.nav ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 999;
+	margin-left: -1px;
+}
+.ui.nav ul ul {
+	left: 100%; top: 0;
+}
+.ui.nav ul,
+.ui.nav ul > li {
+	width: 180px;
+	margin: 0;
+}
+.ui.nav ul > li > a,
+.ui.nav li:hover > ul {
+	display: block;
+}
+.ui.nav > li + li {
+	border-left-width: 1px;
+	border-left-style: solid;
+}
+.ui.nav.vertical > li + li {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-color: inherit;
+}
+
+/* vertical navigation */
+.ui.nav.vertical {
+	width: 180px;
+	max-width: 100%;
+}
+.ui.nav.vertical > li {
+	float: none;
+	border: none;
+}
+.ui.nav.vertical > li a {
+	display: block;
+}
+.ui.nav.vertical ul {
+	left: 100%;
+	top: 0;
+}
+
+/* separate nav items */
+.ui.nav.separate {
+	border: none;
+	background: none;
+}
+.ui.nav.separate li {
+	margin-right: 5px;
+}
+.ui.nav.separate.vertical li {
+	margin-right: 0;
+	margin-bottom: 5px;
+}
+.ui.nav.separate.vertical ul li {
+	margin-bottom: 0;
+}
+
+/* full width nav-bar */
+.ui.nav.fullwidth {
+	display: block;
+}
+.ui.nav.fullwidth > li,
+.ui.window > .nav > li {
+	border:none;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-color: inherit;
+}
+
+/* TAB
+================================================ */
+.ui.module-tab {
+	position: relative;
+	background: none;
+}
+.ui.module-tab .tab-nav {
+	display: block;
+	padding-left: 5px;
+	margin: 0 !important;
+}
+
+.ui.module-tab,
+.ui.module-tab .tab-nav > li a {
+	display: block;
+}
+.ui.module-tab .tab-nav > li {
+	display: inline-block;
+	margin-right: 2px;
+	margin-bottom: 1px;
+	border-bottom-width: 0;
+}
+.ui.module-tab .tab-content {
+	margin-top: -1px;
+	padding: 1.3em;
+	border-color: inherit;
+	clear: both;
+	overflow: hidden;
+}
+.ui.module-tab .tab-content.active {
+	display: block;
+	clear:both;
+}
+
+/* vertical tab */
+.ui.module-tab.vertical .tab-nav {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 160px;
+	padding-left: 0;
+}
+.ui.module-tab.vertical .tab-nav li {
+	display: block;
+	background: none;
+	margin: -1px -1px 0 0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+.ui.module-tab.vertical .module-title + .tab-nav {
+	top: 55px;
+}
+.ui.module-tab.vertical .tab-content {
+	position: relative;
+	margin-left: 160px;
+	min-height: 200px;
+	z-index: 2;
+}
+
+/*  tab panel */
+.ui.module-tab.panel .tab-nav {
+	padding-top: 5px;
+	border-bottom: none;
+	position: relative;
+	box-shadow: inset 0 -3px 3px rgba(0,0,0,.1);
+}
+.ui.module-tab.panel .tab-nav:before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.1);
+}
+
+/*  WINDOW
+================================================ */
+.ui.window .bar,
+.ui.window .content {
+	display: block;
+	cursor: default;
+	position: relative;
+}
+.ui.window {
+	border-width: 1px;
+	border-style: solid;
+}
+.ui.window .bar {
+	display: block;
+	box-shadow: none;
+}
+.ui.window .bar + .bar,
+.ui.window .bar + .content,
+.ui.window .content + .bar {
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.ui.window > .ui.bar {
+	margin: -1px -1px;
+}
+.ui.window > .ui.bar.tab + .content {
+	border-top: none;
+}
+.ui.window > .ui.bar.tab {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-color: inherit;
+	margin: 0;
+}
+
+.ui.window .tab {
+	padding-bottom: 0;
+}
+
+/* fix clearfix issue within containers using inline-block */
+.ui.window .nav {
+	display: block;
+}
+
+.ui.window .left {
+	float: left;
+}
+.ui.window .center {
+	overflow: hidden;
+	text-align: center;
+}
+.ui.window .right {
+	float: right;
+}
+
+/*  ACCORDION
+================================================ */
+.ui.module-accordion > li {
+	border-width: 1px 0 0;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.ui.module-accordion > li.current {
+	background: none;
+	box-shadow: none;
+}
+.ui.module-accordion > li.current .accordion-content {
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+}
+.ui.module-accordion .accordion-title {
+	font-size: 105%;
+	line-height: 140%;
+	font-weight: bold;
+	margin: 0;
+	position: relative;
+}
+.ui.module-accordion > li:first-child {
+	border-top-width: 0;
+}
+.ui.module-accordion .accordion-title a {
+	color: inherit;
+	text-decoration: none;
+	display: block;
+	padding: 5px 10px;
+}
+.ui.module-accordion .accordion-title a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* accordion separate */
+.ui.module-accordion.separate {
+	background: none;
+	border: none;
+}
+.ui.module-accordion.separate > li,
+.ui.module-accordion.separate > li:first-child {
+	margin-bottom: 5px;
+	border-width: 1px;
+}
+
+/************************************************************************************
+MODULE
+*************************************************************************************/
+.module-title {
+	font-size: 1.2em;
+	margin: .3em 0 1.2em;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+.module img {
+	border: none;
+	vertical-align: bottom;
+}
+.module h1:first-child,
+.module h2:first-child,
+.module h3:first-child,
+.module h4:first-child,
+.module h5:first-child,
+.module h6:first-child {
+	margin-top: 0;
+}
+
+/************************************************************************************
+IMAGE MODULE
+*************************************************************************************/
+.module-image {
+	margin-bottom: 2em;
+}
+.module-image .image-title {
+	margin: 0 0 .5em;
+	font-size: 1.3em;
+}
+.module-image .image-title a {
+	text-decoration: none;
+}
+
+/*  image layout
+================================================ */
+
+/* image top */
+.module-image .image-wrap {
+	margin: 0 0 1em 0;
+	vertical-align: top;
+	display: inline-block;
+	width: auto;
+	max-width: 100%;
+}
+.module-image .image-wrap img {
+	vertical-align: top;
+}
+
+/* image left */
+.module-image.image-left .image-wrap {
+	float: left;
+	margin: 0 1.5em 1em 0;
+}
+.module-image.image-left .image-content {
+	overflow: hidden;
+	min-width: 100px;
+}
+
+/* image right */
+.module-image.image-right .image-wrap {
+	float: right;
+	margin: 0 0 1em 1.5em;
+}
+
+/* image overlay */
+.module-image.image-overlay {
+	font-size: .85em;
+}
+.module-image.image-overlay .image-wrap {
+	position: relative;
+	margin: 0;
+}
+.module-image.image-overlay .image-wrap img {
+	width: 100%;
+}
+.module-image.image-overlay .image-content {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 2% 4%;
+	width: 100%;
+	background: #333;
+	background: rgba(0,0,0,.7);
+	color: #ccc;
+	line-height: 1.4em;
+}
+.module-image.image-overlay img + .image-content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.module-image.image-overlay p {
+	margin: 0 0 5px;
+}
+.module-image.image-overlay .image-title {
+	font-size: 1.1em;
+	color: #fff;
+	margin: 0 0 .4em;
+}
+.module-image.image-overlay a,
+.module-image.image-overlay a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+.module-image.image-overlay h1,
+.module-image.image-overlay h2,
+.module-image.image-overlay h3,
+.module-image.image-overlay h4,
+.module-image.image-overlay h5,
+.module-image.image-overlay h6 {
+	color: #fff;
+	margin: 0 0 .4em;
+}
+
+/*  image appearance
+================================================ */
+
+/* rounded */
+.module-image.rounded .image-wrap,
+.module-image.rounded .image-wrap img {
+	border-radius: 5px;
+}
+.module-image.rounded.image-overlay .image-content {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* border */
+.module-image.bordered .image-wrap img {
+	border: solid 1px #999;
+	background: #fff;
+	padding: 2px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* drop shadow */
+.module-image.drop-shadow .image-wrap {
+	box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+/* circle */
+.module-image.circle .image-wrap,
+.module-image.circle .image-wrap img {
+	border-radius: 50em;
+}
+.module-image.circle.image-overlay .image-content {
+	border-bottom-left-radius: 50em;
+	border-bottom-right-radius: 50em;
+	overflow: hidden;
+	text-align: center;
+}
+
+/************************************************************************************
+VIDEO MODULE
+*************************************************************************************/
+.module-video {
+	margin-bottom: 2em;
+}
+.module-video .video-title {
+	margin: 0 0 .5em;
+	font-size: 1.3em;
+}
+.video-wrap {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	font-size:.9em;
+	margin-bottom: 1em;
+}
+.video-wrap iframe,  
+.video-wrap object,  
+.video-wrap embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* video layout
+================================================ */
+
+/* video left */
+.module-video.video-left .video-wrap {
+	width: 50%;
+	margin-right: 1.5em;
+	margin-bottom: 1em;
+	float: left;
+}
+
+/* video right */
+.module-video.video-right .video-wrap {
+	width: 50%;
+	margin-left: 1.5em;
+	margin-bottom: 1em;
+	float: right;
+}
+
+/* video overlay */
+.module-video.video-overlay {
+	position: relative;
+	font-size: .85em;
+}
+.module-video.video-overlay .video-wrap {
+	margin: 0;
+	width: 100%;
+}
+.module-video.video-overlay .video-content {
+	padding: 2% 4%;
+	background: #333;
+	background: rgba(0,0,0,.7);
+	color: #ccc;
+	line-height: 1.4em;
+}
+.module-video.video-overlay .video-wrap + .video-content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.module-video.video-overlay .video-title {
+	font-size: 1.1em;
+	margin: 0 0 .4em;
+}
+.module-video.video-overlay p {
+	margin: 0 0 .4em;
+}
+.module-video.video-overlay a,
+.module-video.video-overlay a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+.module-video.video-overlay h1,
+.module-video.video-overlay h2,
+.module-video.video-overlay h3,
+.module-video.video-overlay h4,
+.module-video.video-overlay h5,
+.module-video.video-overlay h6 {
+	color: #fff;
+	margin: 0 0 .4em;
+}
+
+/* lightbox */
+.image-wrap .lightbox {
+	position: relative;
+	display: inline-block;
+	max-width: 100%;
+}
+.image-wrap .lightbox .zoom {
+	width: 40px;
+	height: 40px;
+	background: url(../img/icon-zoom.png) no-repeat center center;
+	margin: -20px 0 0 -20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 100%;
+}
+
+/************************************************************************************
+GALLERY MODULE
+*************************************************************************************/
+#body .module.gallery .gallery-item,
+.module.gallery .gallery-item {
+	vertical-align: top;
+	float: left;
+	display: block;
+	text-align: center;
+}
+
+/* gallery caption */
+.module.gallery .gallery-caption {
+	line-height: 120%;
+	font-size: 90%;
+	text-align: center;
+	margin: .4em 0 0 0;
+}
+
+.module-gallery .gallery-icon,
+.module-gallery .gallery-icon img {
+	margin: 0;
+	vertical-align: bottom;
+}
+
+.module-gallery.rounded .gallery-icon {
+	display: inline-block;
+	max-width: 100%; /* for FF */
+}
+
+/* rounded */
+.module-gallery.rounded .gallery-icon,
+.module-gallery.rounded .gallery-icon img {
+	border-radius: 5px;
+}
+
+/* border */
+.module-gallery.bordered .gallery-icon {
+	border: solid 1px #999;
+	background: #fff;
+	padding: 2px;
+}
+
+/* drop shadow */
+.module-gallery.drop-shadow .gallery-icon {
+	box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+/* circle */
+.module-gallery.circle .gallery-icon,
+.module-gallery.circle .gallery-icon img {
+	border-radius: 50em;
+}
+.module-gallery.circle .gallery-icon img {
+	border-bottom-left-radius: 50em;
+	border-bottom-right-radius: 50em;
+	overflow: hidden;
+	text-align: center;
+}
+
+/* GALLERY COLUMN
+================================================ */
+/* gallery column 1 (display all in one line) */
+.module .gallery-columns-1 .gallery-item {
+	width: auto;
+}
+.module.gallery-columns-1 br {
+	display: none !important;
+}
+
+/* gallery column 2 */
+.module.gallery-columns-2 .gallery-item {
+	width: 49.2%;
+}
+
+/* gallery column 3 */
+.module.gallery-columns-3 .gallery-item {
+	width: 32.3%;
+}
+/* gallery column 4 */
+.module.gallery-columns-4 .gallery-item {
+	width: 23.8%;
+}
+
+/* gallery column 5 */
+.module.gallery-columns-5 .gallery-item {
+	width: 18.8%;
+}
+
+/* gallery column 6 */
+.module.gallery-columns-6 .gallery-item {
+	width: 15.4%;
+}
+
+/* gallery column 7 */
+.module.gallery-columns-7 .gallery-item {
+	width: 13%;
+}
+
+/* gallery column 8 */
+.module.gallery-columns-8 .gallery-item {
+	width: 11.18%;
+}
+
+/* gallery column 9 */
+.module.gallery-columns-9 .gallery-item {
+	width: 9.77%;
+}
+
+/* set gallery item margin-right */
+.module.gallery-columns-1 .gallery-item,
+.module.gallery-columns-2 .gallery-item,
+.module.gallery-columns-3 .gallery-item,
+.module.gallery-columns-4 .gallery-item,
+.module.gallery-columns-5 .gallery-item,
+.module.gallery-columns-6 .gallery-item,
+.module.gallery-columns-7 .gallery-item,
+.module.gallery-columns-8 .gallery-item,
+.module.gallery-columns-9 .gallery-item {
+	margin: 0 1.5% 1.5% 0;
+}
+
+/* clear gallery item margin-right */
+.module.gallery-columns-9 .gallery-item:nth-of-type(9n),
+.module.gallery-columns-8 .gallery-item:nth-of-type(8n),
+.module.gallery-columns-7 .gallery-item:nth-of-type(7n),
+.module.gallery-columns-6 .gallery-item:nth-of-type(6n),
+.module.gallery-columns-5 .gallery-item:nth-of-type(5n),
+.module.gallery-columns-4 .gallery-item:nth-of-type(4n),
+.module.gallery-columns-3 .gallery-item:nth-of-type(3n),
+.module.gallery-columns-2 .gallery-item:nth-of-type(2n) {
+	margin-right: 0;
+}
+
+/************************************************************************************
+MAP MODULE
+*************************************************************************************/
+.module-map {
+	margin-bottom: 1.5em;
+}
+.module-map .map-container {
+	max-width: 100% !important;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.module-map .map-container img {
+	max-width: inherit;
+}
+.gmnoprint {
+	word-wrap: normal;
+}
+
+/************************************************************************************
+CALLOUT MODULE
+*************************************************************************************/
+.module-callout {
+	margin-bottom: 2em;
+	padding: 1em 1.5em;
+	position: relative;
+}
+.module-callout p {
+	margin: 0 0 5px;
+}
+.module-callout .callout-heading {
+	color: inherit;
+	font-size: 140%;
+	line-height: 130%;
+	margin: 0 0 5px;
+	padding: 0;
+}
+.module-callout .callout-content {
+	float: left;
+}
+.module-callout .callout-button {
+	margin-top: 5px;
+	float: right;
+	text-align: right;
+}
+
+/* button left */
+.module-callout.button-left .callout-content {
+	float: right;
+	width: 70%;
+}
+.module-callout.button-left .callout-button {
+	float: left;
+	width: 25%;
+	text-align: left;
+}
+
+/* button bottom */
+.module-callout.button-bottom .callout-content,
+.module-callout.button-bottom .callout-button {
+	width: auto !important;
+	float: none;
+	text-align: left;
+}
+.module-callout.button-bottom .callout-button {
+	margin-top: 15px;
+}
+
+/* button center */
+.module-callout.button-bottom-center .callout-content,
+.module-callout.button-bottom-center .callout-button {
+	width: auto !important;
+	float: none;
+	text-align: center;
+}
+.module-callout.button-bottom-center .callout-button {
+	margin-top: 15px;
+}
+
+/************************************************************************************
+ACCORDION MODULE
+*************************************************************************************/
+.module-accordion {
+	margin-bottom: 1em;
+	padding: 0;
+}
+.module-accordion .accordion-content {
+	padding: 1em 1.5em;
+}
+.module-accordion h1,
+.module-accordion h2,
+.module-accordion h3,
+.module-accordion h4,
+.module-accordion h5,
+.module-accordion h6 {
+	color: inherit;
+	margin-top: 0;
+}
+
+/************************************************************************************
+BOX MODULE
+*************************************************************************************/
+.module-box {
+	margin-bottom: 1.5em;
+}
+.module-box-content {
+	padding: 1.5em;
+}
+.module-box h1,
+.module-box h2,
+.module-box h3,
+.module-box h4,
+.module-box h5,
+.module-box h6 {
+	color: inherit;
+	margin-top: 0;
+}
+
+/************************************************************************************
+TAB MODULE
+*************************************************************************************/
+.module-tab {
+	margin-bottom: 2em;
+}
+.module-tab .tab-content h1,
+.module-tab .tab-content h2,
+.module-tab .tab-content h3,
+.module-tab .tab-content h4,
+.module-tab .tab-content h5,
+.module-tab .tab-content h6 {
+	color: inherit;
+	margin: .3em 0 .5em;
+}
+
+/************************************************************************************
+DIVIDER MODULE
+*************************************************************************************/
+.module-divider {
+	margin: 1.5em 0;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: none !important;
+}
+.module-divider.dashed {
+	border-style: dashed;
+}
+.module-divider.solid {
+	border-style: solid;
+}
+.module-divider.dotted {
+	border-style: dotted;
+}
+.module-divider.double {
+	border-style: double;
+}
+
+/************************************************************************************
+SLIDER MODULE
+*************************************************************************************/
+.module-slider {
+	margin-bottom: 2.5em;
+}
+.themify_builder_slider {
+    padding: 0;
+    margin: 0;
+    position: relative;
+	list-style: none;
+}
+.themify_builder_slider li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	text-align: center;
+	width: auto;
+}
+
+/* slider image */
+.themify_builder_slider .slide-image {
+	margin: 0 0 1em;
+}
+.themify_builder_slider .slide-image img {
+	vertical-align: bottom;
+}
+
+/* slider content */
+.themify_builder_slider .slide-content {
+	padding: 0 4%;
+}
+
+/* slider title */
+.themify_builder_slider .slide-title {
+	font-size: 1.2em;
+	margin: 0 0 .5em;
+}
+.themify_builder_slider .slide-title a {
+	text-decoration: none;
+}
+
+/* slider hide on load */
+.themify_builder_slider_wrap {
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/* slider loading animation */
+.themify_builder_slider_loader {
+    background: url(../img/slider-loader.gif) no-repeat 50% 50%;
+	width: 100%;
+}
+
+/*  slider appearance
+================================================ */
+/* slider overlay */
+.module-slider.slider-overlay li {
+	position: relative;
+}
+.module-slider.slider-overlay p {
+	margin: 0 0 .5em;
+}
+.module-slider.slider-overlay .slide-image {
+	margin-bottom: 0;
+}
+.module-slider.slider-overlay .slide-image img {
+	width: 100%;
+}
+.module-slider.slider-overlay .slide-content {
+	font-size: .9em;
+	padding: 2% 4%;
+	width: 100%;
+	background: #333;
+	background: rgba(0,0,0,.7);
+	color: #ccc;
+	line-height: 1.4em;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.module-slider.slider-overlay .slide-image + .slide-content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.module-slider.slider-overlay .slide-title {
+	margin: 0 0 .5em;
+}
+.module-slider.slider-overlay .slide-content a,
+.module-slider.slider-overlay .slide-title a {
+	color: #fff;
+	text-decoration: none;
+}
+.module-slider.slider-overlay .slide-content h1,
+.module-slider.slider-overlay .slide-content h2,
+.module-slider.slider-overlay .slide-content h3,
+.module-slider.slider-overlay .slide-content h4,
+.module-slider.slider-overlay .slide-content h5,
+.module-slider.slider-overlay .slide-content h6 {
+	color: #fff;
+	margin: 0 0 .4em;
+}
+
+/* slider caption overlay */
+.module-slider.slider-caption-overlay li {
+	position: relative;
+}
+.module-slider.slider-caption-overlay p {
+	margin: 0 0 7px;
+}
+.module-slider.slider-caption-overlay .slide-image img {
+	width: 100%;
+}
+.module-slider.slider-caption-overlay .slide-content {
+	font-size: .9em;
+	text-align: left;
+	padding: 1em 5%;
+	width: auto;
+	max-width: 75%;
+	background: #333;
+	background: rgba(0,0,0,.7);
+	color: #ccc;
+	line-height: 1.4em;
+}
+.module-slider.slider-caption-overlay .slide-image + .slide-content {
+	position: absolute;
+	bottom: 8%;
+	left: 0;
+}
+.module-slider.slider-caption-overlay .slide-title {
+	margin: 0 0 .5em;
+}
+.module-slider.slider-caption-overlay .slide-content a,
+.module-slider.slider-caption-overlay .slide-title a {
+	color: #fff;
+	text-decoration: none;
+}
+.module-slider.slider-caption-overlay .slide-content h1,
+.module-slider.slider-caption-overlay .slide-content h2,
+.module-slider.slider-caption-overlay .slide-content h3,
+.module-slider.slider-caption-overlay .slide-content h4,
+.module-slider.slider-caption-overlay .slide-content h5,
+.module-slider.slider-caption-overlay .slide-content h6 {
+	color: #fff;
+	margin: 0 0 .4em;
+}
+
+/*  slider elements
+================================================ */
+/* slider-nav */
+.module-slider .carousel-nav-wrap {
+	text-align: center;
+	margin: auto;
+	border: none;
+	padding: .5em 0;
+}
+
+/* slider next/prev button */
+.module-slider .carousel-nav-wrap .carousel-prev,
+.module-slider .carousel-nav-wrap .carousel-next {
+	position: static;
+	line-height: 100%;
+	text-decoration: none;
+	text-align: center;
+	text-indent: 0;
+	margin: 0 3px;
+	display: inline-block;
+	vertical-align: middle;
+    color: inherit;
+    text-shadow: none;
+    border-radius: 0;
+    border: none;
+	height: 26px;
+	width: 26px;
+	background: none;
+	font: normal 26px/100% Georgia, "Times New Roman", Times, serif;
+
+}
+
+/* carousel nav disabled */
+.module-slider .carousel-nav-wrap .disabled,
+.module-slider .carousel-nav-wrap .disabled {
+	opacity: 6; 
+	cursor: default;
+}
+
+/* carousel pager */
+.module-slider .carousel-pager {
+	clear: both;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 100%;
+	width: auto;
+}
+.module-slider .carousel-pager a {
+	text-indent: -900em;
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 2px 3px 0;
+	background: #e4e4e4;
+	background: rgba(165,165,165,.3);
+	border: solid 1px #666;
+	border-color: rbga(115,115,155,.7);
+	border-radius: 10em;
+	cursor: pointer;
+}
+.module-slider .carousel-pager a.selected  {
+	background: #fff;
+	background: rgba(255,255,255,.6);
+	border-color: #ccc;
+	border-color: rgba(165,165,165,.6);
+}
+
+/************************************************************************************
+POST MODULE
+*************************************************************************************/
+/* general post styling */
+.module .post {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 2.2em;
+	padding: 0;
+}
+.col-full .module .post {
+	margin-bottom: 3em;
+}
+
+/* post title */
+.module .post-title {
+	font-size: 2.1em;
+	margin: 0 0 .5em;
+	padding: 0;
+}
+.module .post-title a {
+	text-decoration: none;
+}
+
+/* post image */
+.module .post-image {
+	margin: 0 0 1em;
+}
+
+/* post video */
+.module .post-video {
+	margin: 0 0 1em;
+}
+
+/* post content */
+.module .post-content {
+	min-width: 120px;
+}
+.module .post-content p {
+	margin: 0 0 1.6em;
+}
+
+/* post meta */
+.module p.post-meta {
+	margin: 0 0 .6em;
+}
+.module .post-meta .post-author,
+.module .post-meta .post-category,
+.module .post-meta .post-tag,
+.module .post-meta .post-author,
+.module .post-meta .post-comment a,
+.module .post-meta span {
+	margin-right: .3em;
+}
+
+/* post date */
+.module .post-date {
+	margin: 0 0 .5em;
+	display: block;
+}
+
+/* more link wrap */
+.module .more-link-wrap {
+	text-align: right;
+	clear: both;
+	margin: .9em 0 1.3em;
+}
+
+/*
+Post layouts
+================================================ */
+/* list & fullwidth post */
+.module.loops-wrapper.list-post .post, 
+.module.loops-wrapper.fullwidth .post {
+	width: auto;
+}
+
+/* grid posts */
+.module.loops-wrapper.grid2 .post,
+.module.loops-wrapper.grid3 .post,
+.module.loops-wrapper.grid4 .post {
+  clear: none;
+}
+
+/* grid4 post */
+.module.loops-wrapper.grid4 .post {
+	width: 22.6%;
+	float: left;
+	margin-left: 3.2%;
+	margin-right: 0;
+	margin-bottom: 2em;
+}
+
+.module.loops-wrapper.grid4 .post-title {
+	font-size: 130%;
+}
+
+/* grid3 post */
+.module.loops-wrapper.grid3 .post {
+	width: 31.2%;
+	float: left;
+	margin-left: 3.2%;
+	margin-right: 0;
+	margin-bottom: 2.2em;
+}
+.col-full .module.loops-wrapper.grid3 .post {
+	margin-bottom: 2.7em;
+}
+.module.loops-wrapper.grid3 .post-title {
+	font-size: 150%;
+}
+.col3-1 .module.loops-wrapper.grid3 .post-title {
+	font-size: 130%;
+}
+.col4-1 .module.loops-wrapper.grid3 .post-title {
+	font-size: 130%;
+}
+
+/* grid2 post */
+.module.loops-wrapper.grid2 .post {
+	width: 48.4%;
+	float: left;
+	margin-left: 3.2%;
+	margin-right: 0;
+	margin-bottom: 2.2em;
+}
+.col-full .module.loops-wrapper.grid2 .post {
+	margin-bottom: 2.5em;
+}
+.module.loops-wrapper.grid2 .post-title {
+	font-size: 160%;
+}
+.col3-1 .module.loops-wrapper.grid2 .post-title {
+	font-size: 130%;
+}
+.col4-1 .module.loops-wrapper.grid2 .post-title {
+	font-size: 120%;
+}
+
+/* grid2-thumb post */
+.module.loops-wrapper.grid2-thumb .post {
+	width: 48.4%;
+	float: left;
+	margin-left: 3.2%;
+	text-align: left;
+	margin-bottom: 2.2em;
+}
+.col-full .module.loops-wrapper.grid2-thumb .post {
+	margin-bottom: 2.5em;
+}
+.module.loops-wrapper.grid2-thumb .post-title {
+	font-size: 160%;
+}
+.module.loops-wrapper.grid2-thumb .post-image {
+	width: 20%;
+	float: left;
+	margin: 0 1.5em 1em 0;
+}
+.module.loops-wrapper.grid2-thumb .post-content {
+	overflow: hidden;
+}
+
+/* list thumb post */
+.module.loops-wrapper.list-thumb-image .post {
+	text-align: left;
+	margin-bottom: 1em;
+}
+.col-full .module.loops-wrapper.list-thumb-image .post {
+	margin-bottom: 1.5em;
+}
+.module.loops-wrapper.list-thumb-image .post-title {
+	font-size: 140%;
+}
+.module.loops-wrapper.list-thumb-image .post-image {
+	max-width: 20%;
+	float: left;
+	margin: 0 1.5em 1em 0;
+}
+.module.loops-wrapper.list-thumb-image .post-image img {
+	width: 100%;
+}
+.module.loops-wrapper.list-thumb-image .post-content {
+	overflow: hidden;
+}
+
+/* list large image */
+.module.loops-wrapper.list-large-image .post {
+	text-align: left;
+}
+.module.loops-wrapper.list-large-image .post-image {
+	max-width: 64%;
+	float: left;
+	margin: 0 1.5em 1em 0;
+}
+.module.loops-wrapper.list-large-image .post-image img {
+	width: 100%;
+}
+.module.loops-wrapper.list-large-image .post-title {
+	font-size: 200%;
+}
+
+/*
+Clear grid layout posts
+================================================ */
+.module.loops-wrapper.grid4,
+.module.loops-wrapper.grid3,
+.module.loops-wrapper.grid2,
+.module.loops-wrapper.grid2-thumb {
+	clear: both;
+}
+
+.module.loops-wrapper.grid4 .post:nth-of-type(4n+1),
+.module.loops-wrapper.grid3 .post:nth-of-type(3n+1),
+.module.loops-wrapper.grid2 .post:nth-of-type(2n+1),
+.module.loops-wrapper.grid2-thumb .post:nth-of-type(2n+1) {
+	margin-left: 0;
+	clear: left;
+}
+
+/* reset post content min-width */
+.col2-1 .module-post.loops-wrapper.grid3 .post-content,
+.col2-1 .module-post.loops-wrapper.grid4 .post-content,
+.col3-1 .module-post.loops-wrapper.grid2 .post-content,
+.col3-1 .module-post.loops-wrapper.grid3 .post-content,
+.col3-1 .module-post.loops-wrapper.grid4 .post-content,
+.col3-2 .module-post.loops-wrapper.grid2 .post-content,
+.col3-2 .module-post.loops-wrapper.grid3 .post-content,
+.col3-2 .module-post.loops-wrapper.grid4 .post-content,
+.col4-1 .module-post.loops-wrapper.grid2 .post-content,
+.col4-1 .module-post.loops-wrapper.grid3 .post-content,
+.col4-1 .module-post.loops-wrapper.grid4 .post-content,
+.col4-2 .module-post.loops-wrapper.grid2 .post-content,
+.col4-2 .module-post.loops-wrapper.grid3 .post-content,
+.col4-2 .module-post.loops-wrapper.grid4 .post-content {
+	min-width: 50%;
+}
+
+/************************************************************************************
+HIGHLIGHT MODULE
+*************************************************************************************/
+.module-highlight .highlight-post {
+	text-align: left;
+}
+.module-highlight .highlight-post .post-image {
+	float: left;
+	margin: 0 1.5em .5em 0; 
+}
+.module-highlight .highlight-post .post-image img {
+	border-radius: 5px;
+}
+.module-highlight .highlight-post .post-content {
+	overflow: hidden;
+	min-width: 120px;
+}
+
+/************************************************************************************
+TESTIMONIAL MODULE
+*************************************************************************************/
+.module-testimonial .testimonial-post {
+	text-align: left;
+}
+.module-testimonial .testimonial-post .post-image {
+	float: left;
+	margin: 0 1.5em .4em 0; 
+}
+.module-testimonial .testimonial-post .post-image img,
+.module-testimonial .testimonial-post .post-image .image-wrap:after {
+	border-radius: 20em;
+}
+.module-testimonial .testimonial-post .post-content {
+	overflow: hidden;
+}
+.module-testimonial .testimonial-post .testimonial-author {
+	clear: both;
+	text-align: right;
+	margin: .7em 0 0;
+}
+.module-testimonial .testimonial-post .testimonial-author .dash {
+	width: 20px;
+	border-bottom: solid 1px #ddd;
+	margin: -10px 6px 0 0;
+	height: 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.module-testimonial .testimonial-post .testimonial-name {
+	font-style: normal;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+}
+.module-testimonial .testimonial-post .testimonial-title {
+	display: block;
+}
+
+/* testimonial title */
+.module-testimonial .testimonial-post .post-title {
+	font-size: 1.2em;
+	margin: 0 0 .5em;
+}
+.module-testimonial .testimonial-post .post-title a {
+	text-decoration: none;
+}
+.module-testimonial .testimonial-post .post-title a:hover {
+	text-decoration: underline;
+}
+
+/************************************************************************************
+PAGE NAVIGATION
+*************************************************************************************/
+.module .pagenav {
+    text-align: right;
+}
+
+/************************************************************************************
+WP GENERATED STYLES
+*************************************************************************************/
+.wp-caption {
+	max-width: 100%;
+}
+
+/************************************************************************************
+BACKGROUND IMAGE MODE
+*************************************************************************************/
+.themify_builder .repeat {
+	background-repeat: repeat !important;
+}
+.themify_builder .repeat-x {
+	background-repeat: repeat-x !important;
+}
+.themify_builder .repeat-y {
+	background-repeat: repeat-y !important;
+}
+.themify_builder .repeat-none {
+	background-repeat: no-repeat !important;
+}
+.themify_builder .fullcover {
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	background-size: cover !important;
+}
+.themify_builder .themify_builder_row.builder-parallax-scrolling {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+
+	width: auto;
+	background-repeat: no-repeat;
+}
+.themify_builder .themify_builder_row.fullwidth {
+	width: 100%;
+}
+.builder-is-touch .themify_builder_row.builder-parallax-scrolling {
+	background-attachment: scroll;
+}
+
+/************************************************************************************
+Parallax Animation
+*************************************************************************************/
+/* Hide element before animate */
+.animation-on:not(.themify_builder_active) .fly-in > .post,
+.animation-on:not(.themify_builder_active) .fade-in > .post,
+.animation-on:not(.themify_builder_active) .slide-up > .post,
+.animation-on:not(.themify_builder_active) .fly-in .row_inner > .tb-column,
+.animation-on:not(.themify_builder_active) .fade-in .row_inner > .tb-column,
+.animation-on:not(.themify_builder_active) .slide-up .row_inner > .tb-column,
+.animation-on:not(.themify_builder_active) .shortcode.col4-3.fly-in,
+.animation-on:not(.themify_builder_active) .shortcode.col4-2.fly-in,
+.animation-on:not(.themify_builder_active) .shortcode.col4-1.fly-in,
+.animation-on:not(.themify_builder_active) .shortcode.col3-2.fly-in,
+.animation-on:not(.themify_builder_active) .shortcode.col3-1.fly-in,
+.animation-on:not(.themify_builder_active) .shortcode.col2-1.fly-in,
+.animation-on:not(.themify_builder_active) .shortcode.col4-3.fade-in,
+.animation-on:not(.themify_builder_active) .shortcode.col4-2.fade-in,
+.animation-on:not(.themify_builder_active) .shortcode.col4-1.fade-in,
+.animation-on:not(.themify_builder_active) .shortcode.col3-2.fade-in,
+.animation-on:not(.themify_builder_active) .shortcode.col3-1.fade-in,
+.animation-on:not(.themify_builder_active) .shortcode.col2-1.fade-in,
+.animation-on:not(.themify_builder_active) .shortcode.col4-3.slide-up,
+.animation-on:not(.themify_builder_active) .shortcode.col4-2.slide-up,
+.animation-on:not(.themify_builder_active) .shortcode.col4-1.slide-up,
+.animation-on:not(.themify_builder_active) .shortcode.col3-2.slide-up,
+.animation-on:not(.themify_builder_active) .shortcode.col3-1.slide-up,
+.animation-on:not(.themify_builder_active) .shortcode.col2-1.slide-up {
+	opacity: 0;
+}
+
+.animated {
+	-webkit-backface-visibility: hidden;
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+.animation-running {
+	overflow-x: hidden; 
+}
+
+/* FLY IN ANIMATION */
+/* element first */
+.animation-on:not(.themify_builder_active) .grid4.fly-in .animated.post:nth-of-type(4n+1),
+.animation-on:not(.themify_builder_active) .grid3.fly-in .animated.post:nth-of-type(3n+1), 
+.animation-on:not(.themify_builder_active) .grid2.fly-in .animated.post:nth-of-type(2n+1), 
+.animation-on:not(.themify_builder_active) .grid2-thumb.fly-in .animated.post:nth-of-type(2n+1), 
+.animation-on:not(.themify_builder_active) .list-post.fly-in .animated.post:nth-of-type(2n+1),
+.animation-on:not(.themify_builder_active) .list-thumb-image.fly-in .animated.post:nth-of-type(2n+1),
+.animation-on:not(.themify_builder_active) .fly-in .animated.tb-column.first,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-1.first,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-2.first,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-3.first,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col3-1.first,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col3-2.first,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col2-1.first {
+	-webkit-animation-name: flyInLeft;
+	animation-name: flyInLeft;
+}
+
+/* element last */
+.animation-on:not(.themify_builder_active) .grid4.fly-in .animated.post:nth-of-type(4n+4),
+.animation-on:not(.themify_builder_active) .grid3.fly-in .animated.post:nth-of-type(3n+3),
+.animation-on:not(.themify_builder_active) .grid2.fly-in .animated.post:nth-of-type(2n+2),
+.animation-on:not(.themify_builder_active) .grid2-thumb.fly-in .animated.post:nth-of-type(2n+2),
+.animation-on:not(.themify_builder_active) .list-post.fly-in .animated.post:nth-of-type(2n+2),
+.animation-on:not(.themify_builder_active) .list-thumb-image.fly-in .animated.post:nth-of-type(2n+2),
+.animation-on:not(.themify_builder_active) .fly-in .animated.tb-column.last,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-1.last,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-2.last,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-3.last,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col3-2.last,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col3-1.last,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col2-1.last {
+	-webkit-animation-name: flyInRight;
+	animation-name: flyInRight;
+}
+
+/* element first second */
+.animation-on:not(.themify_builder_active) .grid4.fly-in .animated.post:nth-of-type(4n+2),
+.animation-on:not(.themify_builder_active) .fly-in .animated.tb-column.second,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-1.second {
+	-webkit-animation-name: flyInLeftSecond;
+	animation-name: flyInLeftSecond;
+}
+
+/* element last second */
+.animation-on:not(.themify_builder_active) .grid4.fly-in .animated.post:nth-of-type(4n+3),
+.animation-on:not(.themify_builder_active) .fly-in .animated.tb-column.third,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col4-1.third {
+	-webkit-animation-name: flyInRightSecond;
+	animation-name: flyInRightSecond;
+}
+
+/* element middle */
+.animation-on:not(.themify_builder_active) .grid3.fly-in .animated.post:nth-of-type(3n+2),
+.animation-on:not(.themify_builder_active) .fly-in .animated.tb-column.middle,
+.animation-on:not(.themify_builder_active) .fly-in.animated.col3-1.second {
+	-webkit-animation-name: flyInBottom;
+	animation-name: flyInBottom;
+}
+
+/* Fade In Animation */
+.animation-on:not(.themify_builder_active) .fade-in > .animated.post,
+.animation-on:not(.themify_builder_active) .fade-in .row_inner > .animated.tb-column,
+.animation-on:not(.themify_builder_active) .col4-1.animated.fade-in,
+.animation-on:not(.themify_builder_active) .col4-2.animated.fade-in,
+.animation-on:not(.themify_builder_active) .col4-3.animated.fade-in,
+.animation-on:not(.themify_builder_active) .col3-1.animated.fade-in,
+.animation-on:not(.themify_builder_active) .col3-2.animated.fade-in,
+.animation-on:not(.themify_builder_active) .col2-1.animated.fade-in {
+	-webkit-transition: opacity 0.5s ease-in;
+	-moz-transition: opacity 0.5s ease-in;
+	-o-transition: opacity 0.5s ease-in;
+	opacity: 1 !important;
+}
+
+/* Slide Up Animation */
+.animation-on:not(.themify_builder_active) .slide-up > .post,
+.animation-on:not(.themify_builder_active) .slide-up .row_inner > .tb-column {
+	-webkit-transform: translateY(88px);
+	-moz-transform: translateY(88px);
+	-o-transform: translateY(88px);
+	-ms-transform: translateY(88px);
+	transform: translateY(88px);
+}
+
+.animation-on:not(.themify_builder_active) .slide-up > .animated.post,
+.animation-on:not(.themify_builder_active) .slide-up .row_inner > .animated.tb-column {
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	-o-transform: translateY(0px);
+	-ms-transform: translateY(0px);
+	transform: translateY(0px);
+
+	-webkit-transition: -webkit-transform 350ms cubic-bezier(0.34, 1.61, 0.7, 1);
+	-moz-transition: -moz-transform 350ms cubic-bezier(0.34, 1.61, 0.7, 1);
+	-o-transition: -o-transform 350ms cubic-bezier(0.34, 1.61, 0.7, 1);
+	-ms-transition: -ms-transform 350ms cubic-bezier(0.34, 1.61, 0.7, 1);
+	transition: transform 350ms cubic-bezier(0.34, 1.61, 0.7, 1);
+
+	opacity: 1 !important;
+}
+
+@-webkit-keyframes flyInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(-400px, 200px);
+		-ms-transform: translate(-400px, 200px);
+		transform: translate(-400px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes flyInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(-400px, 200px);
+		-ms-transform: translate(-400px, 200px);
+		transform: translate(-400px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@-webkit-keyframes flyInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(400px, 200px);
+		-ms-transform: translate(400px, 200px);
+		transform: translate(400px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes flyInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(400px, 200px);
+		-ms-transform: translate(400px, 200px);
+		transform: translate(400px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@-webkit-keyframes flyInLeftSecond {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(-200px, 200px);
+		-ms-transform: translate(-200px, 200px);
+		transform: translate(-200px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes flyInLeftSecond {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(-200px, 200px);
+		-ms-transform: translate(-200px, 200px);
+		transform: translate(-200px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@-webkit-keyframes flyInRightSecond {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(200px, 200px);
+		-ms-transform: translate(200px, 200px);
+		transform: translate(200px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes flyInRightSecond {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(200px, 200px);
+		-ms-transform: translate(200px, 200px);
+		transform: translate(200px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@-webkit-keyframes flyInBottom {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(0px, 200px);
+		-ms-transform: translate(0px, 200px);
+		transform: translate(0px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes flyInBottom {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate(0px, 200px);
+		-ms-transform: translate(0px, 200px);
+		transform: translate(0px, 200px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+		transform: translate(0px, 0px);
+	}
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+@media screen and (max-width: 680px) {
+	.ui.module-callout .callout-content,
+	.ui.module-callout .callout-button {
+		float: none !important;
+		width: auto !important;
+	}
+	.ui.module-callout .callout-button {
+		margin-top: 15px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	
+	/* reset overlay element to static position */
+	.module-image .image-content,
+	.module-video .video-content,
+	.module-slider .slide-content {
+		position: static !important;
+	}
+	
+	/* nav */
+	.ui.builder_button,
+	.ui.nav li a,
+	.ui.module-tab .tab-nav li a,
+	.ui.window > div {
+		padding: .525em 1.15em;
+	}
+	
+	/* tab */
+	.ui.module-tab.vertical .tab-nav {
+		width: 120px;
+		font-size: 95%;
+	}
+	.ui.module-tab.vertical {
+		padding-left: 120px;
+	}
+	.ui.module-tab.vertical .tab-content {
+		margin-left: 0;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+	.col4-1,
+	.col4-2, .col2-1,
+	.col4-3,
+	.col3-1,
+	.col3-2	 {
+		margin-left: 0 !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+	.module.grid2 .post,
+	.module.grid3 .post,
+	.module.grid4 .post {
+		clear: both;
+		width: auto;
+		float: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.post-content {
+		overflow: visible !important;
+	}
+
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<title>KANGJIAN</title>
+	<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+	<link rel="stylesheet"  href="css/header.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	<script type="text/javascript" src="js/jquery-main-211.js"></script>
+	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body >
+	<div id="mb_background" class="mb_background">
+		<img class="mb_bgimage" src="img/puckered.png" alt="Background"/>
+		<div class="mb_overlay"></div>
+		<div class="mb_loading"></div>
+	</div>
+	<header id="header-top">
+	<div class="headerlogo">
+		<img src="img/benxiaolang.png" alt="">
+	</div>
+		<div class="header-auto">
+
+
+<div class="contion-div-tags" >
+			<ul class="tag_box">
+			<% PostTags.forEach(	function(PostTags){%>
+				<li>
+					<a href="./index/tags_to_sort?tags_ids='.$item3-> kt_tags_ids);?>">
+						<%= PostTags.kt_tags_name %>
+						<span><%= PostTags.blogs_tags_num %></span>
+					</a>
+				</li>
+				<% });%>
+			</ul>
+			<div class="clear-float"></div>
+		</div>
+		</div>
+		<a class="v-fork-me" href="https://github.com/kahn1990" target="_blank" rel="nofollow">
+			<img class="img-fork-me" src="img/forkme.png" alt="Fork me on GitHub">
+		</a>
+	</header>
+	<header id="header-back"class="sticky">
+		<div class="header-auto header-back-border">
+			<div class="div-title div-title-1" id="div-title-1">
+				<div class="bannerimg">
+					<a href="http://www.kangjian.asia" target="_blank">
+						<div class="cellcontent">
+							<h4 id="cellcontentH4">笨小狼:KANGJIAN.ASIA</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="div-title div-title-2" id="div-title-2">
+				<div class="bannerimg">
+					<a href="http://www.jibudao.com" target="_blank">
+						<div class="cellcontent">
+							<h4 id="cellcontentH4">吉布岛:JIBUDAO.COM</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="div-title div-title-3" id="div-title-3">
+				<div class="bannerimg">
+					<a href="http://www.edovip.com"  target="_blank">
+						<div class="cellcontent">
+							<h4 id="cellcontentH4">一度:EDOVIP.COM</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="clear-float"></div>
+		</div>
+		<nav class="header-nav" >
+			<div class="header-div-nav">
+				<ul class="header-ul-nav">
+					<li class="header-li-nav">
+						<a href="/" class="header-a-nav"><span class="header-span-nav size-14">Home</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/blogs" class="header-a-nav"><span class="header-span-nav size-14">Blogs</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/domainname" class="header-a-nav"><span class="header-span-nav size-14">Domain name</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/prose" class="header-a-nav"><span class="header-span-nav size-14">Prose</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/about" class="header-a-nav"><span class="header-span-nav size-14">About</span></a>
+					</li>
+					<div class="clear-float"></div>
+				</ul>
+			</div>
+		</nav>
+	</header>
+</body>
+</html>

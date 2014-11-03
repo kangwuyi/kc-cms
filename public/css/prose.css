@@ -1,0 +1,20 @@
+#contion{
+	width:1200px;
+padding: 30px 20px 30px 20px;
+	margin:0 auto 0 auto;
+	z-index:1010;
+	/*border-radius: 5px 5px 0 0;*/
+}
+
+#contents{
+	width:720px;
+	float: left;
+		background: #fff;
+	padding:20px 30px 30px 30px;
+}
+#pinglun{
+		width:400px;
+	float: right;
+		background: #fff;
+	padding:20px 30px 30px 30px;
+}

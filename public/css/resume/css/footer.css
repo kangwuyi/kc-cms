@@ -1,0 +1,42 @@
+.footer{
+	background: #1bbc9b;
+	color: #ffffff;
+	box-shadow: 0 0 50px rgba(0,0,0,0.8);
+	font-size: 14px;
+	width: auto;
+	height:700px;
+	overflow: hidden;
+	clear: both;
+	position: relative;
+}
+
+.footer-info {
+	padding: 56px 0 0;
+	border-bottom: 1px solid rgba(255,255,255,0.05);
+	padding-bottom: 56px;
+}
+.footer-info  a{
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 14px;
+}
+.footer-info ul {
+	margin: 28px 0 0;
+	list-style: none;
+	padding: 0;
+}
+.footer-thanks{
+	font-size: 36px;
+	width: 1140px;
+	position: absolute;
+	z-index: 2;
+	top: 50%;text-align: center;
+
+}
+.footer-name{
+	font-size: 20px;
+	width: 200px;top:600px;
+	position: absolute;
+	z-index: 2;
+	bottom: : 1%;right: 1%;
+}

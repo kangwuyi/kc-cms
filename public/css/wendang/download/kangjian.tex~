@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage[utf8]{inputenc}
+\usepackage{CJKutf8}
+\usepackage[scale=0.75]{geometry}
+\name{康}{健}
+\title{爱生活，爱前端}
+\phone[mobile]{+131-0088-8202}
+\email{kangjian1990@live.com}
+\homepage{www.kangjian.asia}
+\photo[64pt][0.4pt]{picture}
+\extrainfo{https://github.com/kahn1990}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\maketitle
+\section{90年生/178cm/65kg/双子座/哈尔滨}
+\cvitem{院校}{\small 哈尔滨理工大学/软件工程学院}
+\cvitem{专业}{\small 软件工程专业/嵌入式技术}
+\cvitem{年级}{\small 2011年入学/大学三年级/11级6班}
+\cvitem{意向}{\small web前端工程师及其相关职业}
+\cvitem{爱好}{\small 木雕/钓鱼/散文/互联网/电子商务/设计}
+\cvitem{喜欢}{\small 数学/哲学/经济学}
+\cvitem{优点}{\small 想象力丰富/喜欢钻研探索/富有责任心}
+\cvitem{}{\small }
+\cvitem{个人简介}{\small 2010年开始接触域名并对网络交互设计产生浓厚兴趣，从最初在易名中国到后来在godaddy，四年域名投资经历使我一直关注互联网的发展动态。2011年开始做个人站长到大学三年级关闭（2011年备案，备案号码：豫ICP备12000044号-1＆豫ICP备12000044号-2），最先开始使用过国内的虚拟空间，到后来ixwebhosting的站群和linode的vps,虽然一度每天熬夜到很晚，但我喜欢这样的生活，我喜欢互联网，2013年开始系统的自学前端技术，并规划为未来的职业方向，得益于我的站长经历，使我对运维（网站搭建），操作熟练，熟悉vps，略通seo，后端语言使用php的codeIgniter框架以及原生jsp，前端html、css、javascript必备技能熟练，js框架jquery、bootstrap等熟练，对node.js、mongodb熟练，喜欢html5、css3的响应式设计。}
+\section{专业技能}
+\cvlistitem{了解html5、css3、Javascript、ajax、json、seo等web页面技术；}
+\cvlistitem{简单掌握jquery、bootstrap等Javascript框架；}
+\cvlistitem{知道各种流行的浏览器的版本差别和各自特点；}
+\cvlistitem{了解node.js的优势和特点，可以独立应用node.js开发简单的项目，可以对mongodb数据库进行简单操作；}
+\cvlistitem{了解jsp、php两种web服务器脚本语言，并简单掌握node.js后端开发和环境部署；}
+\cvlistitem{熟悉linux相关操作，熟练掌握apache、nginx、node.js等web服务器的配置（日常应用操作系统为linux的ubuntu14.04）；}
+\cvlistitem{了解前端技术发展动向，能够根据需要合理解决问题，有良好的团队沟通能力。}
+\section{工作经历}
+\subsection{2011.06-2014.08}
+\cventry{简介：}{域名商}{易名中国、godaddy等域名交易平台}{哈尔滨}{}{}
+\cvitem{工作内容：}{\small 从2010年开始接触域名，到2011年开始在易名中国以及国外godaddy等在线域名交易平台进行域名投资交易，抢注和投资域名多为数字域名、英文小精品域名，熟悉域名交易规则以及域名价值预判，了解域名商业行情和内幕，关注互联网新闻，目前持有cloudcount.net，cloudpal.cn，4dgame.net，interconnected.cn以及印度koovs上市公司koovs.net域名和英国asos购物asosplc.cn、asospay.com等升值域名。}
+\subsection{2011.09-2013.07}
+\cventry{简介：}{个人站长}{yoogc网应用于淘宝客}{哈尔滨}{}{}
+\cvitem{工作内容：}{\small 建立yoogc网，vps架构网站，独立开发前端、后端以及seo优化，网站主要应用于淘宝客，广告联盟等（2011年备案，备案号码：豫ICP备12000044号），由于临近毕业等原因现已关闭。 }
+\subsection{2013.08-2014.03}
+\cventry{简介：}{研发人员}{哈尔滨唯创网讯科技开发有限公司}{哈尔滨}{}{}
+\cvitem{工作内容：}{\small 参与到蛐蛐网的开发，主要负责后台功能的简单维护和测试，有较强的思维逻辑和工作能力和坚持的态度，并且可以规范自己的代码书写和增强代码的可重用性。}
+\section{项目经历}
+\subsection{2014.03-2014.04}
+\cventry{简介：}{在线体育用品商店}{}{}{}{}
+\cvitem{项目内容：}{\small 基于jsp+servlet+jdbc+javabean在线体育用品商店，网站采用原生jsp语言，应用数据库为mysql，实现多用户注册、登陆、订单、购物车、广告栏、团购促销、联动菜单、后台管理等功能，前端、后端独立开发，演示地址：http://www.edovip.com/，源码地址：https://github.com/kahn1990/akahn-sportsShop-jsp/。 }
+\subsection{2014.05-2014.06}
+\cventry{简介：}{在线博客系统}{}{}{}{}
+\cvitem{项目内容：}{\small 基于php+codeIgniter+mysql在线博客系统，实现日期归档、标签归档、分页、轮播图广告栏等基本功能，适用于个人博客，演示地址：http://www.kangmoumou.com/，源码地址：https://github.com/kahn1990/akahn-myblog-php/。}
+\subsection{2014.06-2014.07}
+\cventry{简介：}{node博客框架}{}{}{}{}
+\cvitem{项目内容：}{\small 在github上很流行的N-blog博客是初学node.js+mongodb很好的示例，但express应用的是3+版本，不同版本的express有很大差异，所以我用express＠4.6.1重写了一遍N-blog，源码地址：https://github.com/kahn1990/akahn-myblog-nodejs/。}
+\subsection{2014.07-2014.08}
+\cventry{简介：}{在线简历系统}{}{}{}{}
+\cvitem{项目内容：}{\small 在线简历系统，使用jquery、bootstrap等js框架，应用前端技术有简单轮播图、视觉差、css3控制透明度、html5自适应屏幕等，演示地址：http://kangjian.net.cn/，源码地址：https://github.com/kahn1990/akahn-resume-html/。}
+\nocite{*}
+\clearpage\end{CJK}
+\end{document}

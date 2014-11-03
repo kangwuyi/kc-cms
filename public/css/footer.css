@@ -1,0 +1,31 @@
+/*===底部长条幅部分===*/
+#footer-photos{
+	margin-top:40px;
+	}
+#footer-photos div.contion-div {
+	/*===width: 100%;底部长条幅部分===*/
+	z-index:-6;
+	padding: 0px 1000px 0px;
+	margin-left: -1000px;
+	border-top: 20px solid #2d2d2d;
+	border-bottom: 20px solid #2d2d2d;
+	margin-top:20px;
+	overflow: hidden;
+	background-image: url(img/home-bg1.jpg);
+	position: relative;
+	background-position: center center;
+	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(218,222,225,0.86);
+	box-shadow: inset 0px 0px 0px 1px rgba(218,222,225,0.86);
+	}
+#footer-photos div.contion-div div.contion-div-relative {
+	z-index: 20;
+	position: relative;
+	width:1200px;
+	height:600px;
+	margin 0 auto 0 auto;
+	padding:220px 0 0 320px;
+	}
+#footer-photos div.contion-div div.contion-div-relative img.contion-div-img {
+	max-width: 100%;
+	height: auto;
+	}
