@@ -18,13 +18,12 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			res.render('client/index', { title: '主页',PostTags: PostTags});
 		});
 	//GET blogs页console.log(pagination.create_links());
-
-	Post.PostSorts_count_all_result( null,function (PostSorts_count_all_resultErr, PostSorts_count_all_result) {
-		if (PostSorts_count_all_resultErr) {
-			count_all_result = 1;
-		};
-		count_all_result = PostSorts_count_all_result[0].count_all_result;	//count_all_result是所有博客的总数量
-		router.get('/blogs', function (req, res) {
+	router.get('/blogs', function (req, res) {
+		Post.PostSorts_count_all_result( null,function (PostSorts_count_all_resultErr, PostSorts_count_all_result) {
+			if (PostSorts_count_all_resultErr) {
+				count_all_result = 1;
+			};//console.log(PostSorts_count_all_result);
+			count_all_result = PostSorts_count_all_result[0].count_all_result;	//count_all_result是所有博客的总数量
 			var per_pages = 1;
 			if(req.query.per_page){
 				per_pages = req.query.per_page;//console.log("get");
@@ -53,36 +52,50 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 	});
 
 	router.get('/domainname', function (req, res) {
-		Post.get( null,function (err, posts) {
-			if (err) {
-				posts = [];
-			}
-				console.log('这里是/routes/index，已经从/models/post收到数据，收到的数据为:');
-				console.log(posts);
-			res.render('client/index', { title: '主页',posts: posts});
+		Post.PostGetDomainsite( null,function (PostGetDomainsiteErr, PostGetDomainsite) {
+			Post.PostGetDomainsuffix( null,function (PostGetDomainsuffixErr, PostGetDomainsuffix) {
+				switch (PostGetDomainsiteErr || PostGetDomainsuffixErr){
+					case PostGetDomainsiteErr:
+						PostGetDomainsiteErr = [];
+						break;
+					case PostGetDomainsuffixErr:
+						PostGetDomainsuffixErr = [];
+						break;
+				}
+				res.render('client/domainname', { title: '主页',PostTags: PostTags,PostGetDomainsite:PostGetDomainsite,PostGetDomainsuffix:PostGetDomainsuffix});
+			});
 		});
 	});
 
 	router.get('/prose', function (req, res) {
-		Post.get( null,function (err, posts) {
+		Post.PostGetProse( null,function (err, PostGetProse) {
 			if (err) {
-				posts = [];
-			}
-				console.log('这里是/routes/index，已经从/models/post收到数据，收到的数据为:');
-				console.log(posts);
-			res.render('client/index', { title: '主页',posts: posts});
+				PostGetProse = [];
+			};
+			return PostGetProse;
+		});//console.log(PostGetProse);
+		res.render('client/prose', { title: '主页',PostTags: PostTags,PostGetProse: PostGetProse});
+	});
+
+	router.get('/catalogue', function (req, res) {
+		Post.PostCatalogueTag( null,function (err, PostCatalogueTag) {
+			if (err) {
+				PostCatalogueTag = [];
+			};//console.log(PostCatalogueTag);
+			//for(var i = 0; i<PostCataloguTag.length; i++){
+				//console.log(PostCataloguTag[i].kt_nav_tag_ids);
+				Post.PostCatalogue(null,function (err, PostCatalogue) {
+					if (err) {
+						PostCatalogue = [];
+					};//console.log(PostCatalogue);
+					res.render('client/catalogue', { title: '主页',PostTags: PostTags,PostCatalogueTag: PostCatalogueTag,PostCatalogue: PostCatalogue});
+				});
+			//}
 		});
 	});
 
 	router.get('/about', function (req, res) {
-		Post.get( null,function (err, posts) {
-			if (err) {
-				posts = [];
-			}
-				console.log('这里是/routes/index，已经从/models/post收到数据，收到的数据为:');
-				console.log(posts);
-			res.render('client/index', { title: '主页',posts: posts});
-		});
+			res.render('client/about', { title: '主页',PostTags: PostTags});
 	});
  });
 module.exports = router;

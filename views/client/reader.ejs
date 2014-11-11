@@ -2,73 +2,32 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<link rel="stylesheet"  href="./assets/css/reader.css" type="text/css" media="all">
-	<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/lib/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="./assets/lib/prettify/prettify.css"  >
-	<script type="text/javascript" src="./assets/lib/prettify/prettify.js"></script>
-
+	<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet"  href="css/reader.css" type="text/css" media="all">
+	<link rel="stylesheet" href="lib/prettify/prettify.css"  >
 </head>
 <body onload="prettyPrint();">
-<%- include header %>
+<%- include modulesTools/header %>
 	<!-- 中间部分开始 -->
 	<div id="contion">
-		<!--<div class="div-tags-header">
-		</div> -->
+		<%- include modulesTools/datas %>
+		<%- include modulesTools/article %>
 
-
-
-				<div id="sidebar-wrap" class="clearfix">
-					<div id="sticky" class="clearfix">
-						<h2 class="sticky-title">归档</h2>
-						<table class="table table-striped"  style="color:#666;font-size:18px;">
-						  <?php foreach ($riqi_guidang as $item2) {?>
-							<tr>
-								<td class="td_juzhong">
-									<a href="./works/riqi_dates_to_sort?riqi_dates='.$item2-> kt_riqi_dates);?>">
-						  				<?php echo $item2-> kt_riqi_dates;?>
-									</a>
-								</td>
-							</tr>
-						<?php }?>
-						</table>
-					</div>
-				</div>
-		<div id="contents">
-			<?php foreach ($blogs_titles as $item) { ?>
-			<div class="div-reader-title">
-				<p class="p-reader-title"><?php echo $item-> kt_blogs_titles;?></p>
-				<a class="a-reader-next a-hover" id="a_reader_next" href="./index/content_to_next?blogs_ids='.$item-> kt_blogs_ids.'&tags_ids='.$item-> kt_tags_ids);?>">Next
-				</a>
-				<a class="a-reader-prev a-hover" id="a_reader_prev" href="./index/content_to_prev?blogs_ids='.$item-> kt_blogs_ids.'&tags_ids='.$item-> kt_tags_ids);?>">Prev
-				</a>
-				<a class="a-reader-next a-hover" href="./index/tags_to_sort?tags_ids='.$item-> kt_tags_ids);?>">Menu
-				</a>
-			</div>
-			<div class="div-reader-text">
-				<p class="p-reader-text"><?php echo $item-> kt_blogs_contents;?></p>
-			</div>
-			<input class="tags_open_next" id="tags_open_next" style="height:0px;width:0px;" name="tags_open_next" type="hidden"  value="<?php echo $tags_open_next;?>">
-			<input class="tags_open_prev" id="tags_open_prev" style="height:0px;width:0px;" name="tags_open_prev" type="hidden"  value="<?php echo $tags_open_prev;?>">
-			<?php } ?>
-		</div>
-		<div style="clear:both;"></div>
 	</div>
-	<script type="text/javascript" src="./assets/js/reader.js"></script>
+	<!-- 中间部分结束 -->
+	<%- include modulesTools/footer %>
+	<script type="text/javascript" src="js/jquery-main-211.js"></script>
+	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/goto_back.js"></script>
+	<script type="text/javascript" src="js/reader.js"></script>
 	<script>
-	$(document).ready(function(){
-		//function addClass(){
-			//var element = document.getElementsByClass("linenums");
-			
-			//var element = $(".linenums").attr('class');
-			//alert(element);
-			//element += " "+"prettyprint";
-			//alert(element);
+		$(document).ready(function(){
 			 $(".linenums").addClass("prettyprint");
 		});
-		//addClass();
 	</script>
-	<!-- 中间部分结束 -->
-	<%- include footer %>
 </body>
 </html>

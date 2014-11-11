@@ -2,12 +2,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<link rel="stylesheet"  href="./assets/css/time.css" type="text/css" media="all" id="theme-style-css">
-	<script type="text/javascript" src="./assets/js/jquery-main-191.js"></script>
-	<script type="text/javascript" src="./assets/js/time/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="./assets/js/time/jquery.form.min.js"></script>
-	<script type="text/javascript" src="./assets/js/time/jquery.isotope.min.js"></script>
-	<script type="text/javascript" src="./assets/js/time/jquery.inview.js"></script>
+	<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+	<link rel="stylesheet"  href="css/prose.css" type="text/css" media="all" id="theme-style-css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+
 	<script type="text/javascript">
 		/* <![CDATA[ */
 		var themifyScript = {
@@ -36,10 +35,10 @@
 		};
 		/* ]]> */
 	</script>
-	<script type="text/javascript" src="./assets/js/time/themify.script.js"></script>
+	<script type="text/javascript" src="js/time/themify.script.js"></script>
 </head>
 <body class="home blog skin-default webkit not-ie default_width sidebar-none timeline" cz-shortcut-listen="true">
-<%- include header %>
+<%- include modulesTools/header %>
 	<!-- 中间部分开始 -->
 	<div id="contion">
 		<div id="content" class="clearfix">
@@ -55,18 +54,18 @@
 							</h3>
 							<div class="set-month isotope" >
 								<!-- 开始循环 -->
-								<?php foreach ($products_contents as $item) { ?>
-								<article itemscope="" itemtype="http://www.kangjian.net.cn" class="  status-publish format-link hentry category-link post clearfix isotope-item" style="position: absolute; left: 0px; top: 1822px;">									        
+								<% PostGetProse.forEach(	function(PostGetProse){%>
+								<article itemscope="" itemtype="http://www.kangjian.net.cn" class="  status-publish format-link hentry category-link post clearfix isotope-item" style="position: absolute; left: 0px; top: 1822px;">
 									<div class="post-inner clearfix">
 										<time class="post-date entry-date updated" itemprop="datePublished">
-											<span><?php echo $item-> kt_products_dates;?></span>
+											<span><%= PostGetProse.kt_prose_dates %></span>
 										</time>
 										<h1 class="post-title entry-title" itemprop="name">
-											<a href="#" title="#"><?php echo $item-> kt_products_titles;?></a>
+											<a href="#" title="#"><%= PostGetProse.kt_prose_titles %></a>
 										</h1>
 										<div class="post-content">
 											<div class="entry-content" >
-												<p><?php echo $item-> kt_products_contents;?></p>
+												<p><%- PostGetProse.kt_prose_contents %></p>
 
 											</div>
 											<p class="post-meta entry-meta">
@@ -92,7 +91,7 @@
 									</div>
 								</article>
 
-								<?php } ?>
+								<% });%>
 								<!-- 开始循环结束 -->
 							</div>
 						</div>
@@ -108,6 +107,15 @@
 		</div>
 	</div>
 	<!-- 中间部分结束 -->
-	<%- include footer %>
+	<%- include modulesTools/footer %>
+	<script type="text/javascript" src="js/jquery-main-211.js"></script>
+	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery-main-191.js"></script>
+	<script type="text/javascript" src="js/prose/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="js/prose/jquery.form.min.js"></script>
+	<script type="text/javascript" src="js/prose/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="js/prose/jquery.inview.js"></script>
+	<script type="text/javascript" src="js/goto_back.js"></script>
 </body>
 </html>

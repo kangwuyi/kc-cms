@@ -1,0 +1,16 @@
+<aside id="sidebar-wrap" class="clearfix">
+	<div id="sticky" class="clearfix">
+		<h2 class="sticky-title">归档</h2>
+		<table class="table table-striped"  style="color:#666;font-size:18px;">
+		<% PostRiqi.forEach(	function(PostRiqi){%>
+			<tr>
+  				<td class="td_juzhong">
+					<a href="/PageByData?riqi_dates='<%= PostRiqi.kt_riqi_dates %>'">
+						<%= PostRiqi.kt_riqi_dates %>
+					</a>
+				</td>
+			</tr>
+		<% });%>
+		</table>
+	</div>
+</aside>

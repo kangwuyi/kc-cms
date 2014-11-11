@@ -2,49 +2,26 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<link rel="stylesheet"  href="css/home.css" type="text/css" media="all">
-	<script type="text/javascript" src="js/jquery-main-211.js"></script>
-	<script type="text/javascript" src="js/home.js"></script>
-	<script type="text/javascript" src="js/home-prve-next.js"></script>
+	<link rel="shortcut icon" href="favicon.ico"   type="image/x-icon">
+	<link rel="stylesheet"  href="css/index.css" type="text/css" media="all">
+	<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
 </head>
 <body>
-<%- include header %>
+	<%- include modulesTools/header %>
 	<!-- 中间部分开始 -->
 	<div id="contion">
-		<!-- 中间部分轮播图 -->
-		<div class="content_warp">
-			<ul class="content_nav_ul"id="content_nav_ul">
-				<li>
-					<img src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456367212.png" width="100%" height="100%" data-load="ok" data-init="ok">
-				</li>
-				<li>
-					<img data-src="" width="100%" height="100%" src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456366655.png" data-init="ok" data-load="ok">
-				</li>
-				<li>
-					<img data-src="" width="100%" height="100%" src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456369056.png" data-init="ok" data-load="ok">
-				</li>
-				<li>
-					<img data-src="" width="100%" height="100%" src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456368107.png" data-init="ok" data-load="ok">
-				</li>
-				<li>
-					<img data-src="" width="100%" height="100%" src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456369595.png" data-init="ok" data-load="ok">
-				</li>
-				<li>
-					<img data-src="" width="100%" height="100%" src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456371037.png" data-init="ok" data-load="ok">
-				</li>
-				<li>
-					<img data-src="" width="100%" height="100%" src="http://ccjwg.img42.wal8.com/img42/498790_20141024225537/141456368762.png" data-init="ok" data-load="ok">
-				</li>
-			</ul>
-			<div class="clear-float"></div>
+		<div id="contents">
+
 		</div>
-		<div class="focus_btn">
-			<a class="banner_prev"id="banner_prev"href="javascript:void(0);"></a>
-			<a class="banner_next"id="banner_next"href="javascript:void(0);"></a>
-		</div>
-		<!-- 中间部分轮播图结束 -->
 	</div>
 	<!-- 中间部分结束 -->
-	<%- include footer %>
+	<%- include modulesTools/footer %>
+	<script type="text/javascript" src="js/jquery-main-211.js"></script>
+	<script type="text/javascript" src="js/header.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/goto_back.js"></script>
 </body>
 </html>

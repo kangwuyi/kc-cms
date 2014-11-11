@@ -1,0 +1,63 @@
+<header>
+	<div id="header_left_box" class="close">
+		<nav class="header-nav" >
+			<div class="header-div-nav">
+				<ul class="header-ul-nav">
+					<li class="header-li-nav">
+						<a href="/" class="header-a-nav"><span class="header-span-nav size-14">Home</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/blogs" class="header-a-nav"><span class="header-span-nav size-14">Blogs</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/domainname" class="header-a-nav"><span class="header-span-nav size-14">Domain name</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/prose" class="header-a-nav"><span class="header-span-nav size-14">Prose</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/Catalogue" class="header-a-nav"><span class="header-span-nav size-14">Catalogue</span></a>
+					</li>
+					<li class="header-li-nav">
+						<a href="/about" class="header-a-nav"><span class="header-span-nav size-14">About</span></a>
+					</li>
+					<div class="clear-float"></div>
+				</ul>
+			</div>
+		</nav>
+		<nav class="header-tags">
+			<ul class="tag_box">
+			<% PostTags.forEach(	function(PostTags){%>
+				<li>
+					<a href="/blogsByMenu?tags_ids=<%= PostTags.kt_tags_ids %>">
+						<%= PostTags.kt_tags_name %>
+						<span><%= PostTags.blogs_tags_num %></span>
+					</a>
+				</li>
+			<% });%>
+			</ul>
+		</nav>
+        		<div class="header_line">
+            			<div class="header_btn" title="kang.cool"></div>
+        		</div>
+    	</div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

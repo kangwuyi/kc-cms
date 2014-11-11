@@ -12,19 +12,23 @@ var express = require('express')
 	,session    = require('express-session')
 
 	,settings = require('./db')	//加载
-	,routes = require('./routes/index');	//加载路由
+	,routes = require('./routes/index')	//加载路由
+             ,blogs = require('./routes/blogs')
+             ,abouts = require('./routes/about');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(flash());
-app.use(favicon());
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
+app.use('/', blogs);
+app.use('/', abouts);
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
