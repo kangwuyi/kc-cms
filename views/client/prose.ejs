@@ -3,119 +3,38 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 	<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
-	<link rel="stylesheet"  href="css/prose.css" type="text/css" media="all" id="theme-style-css">
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
-
-	<script type="text/javascript">
-		/* <![CDATA[ */
-		var themifyScript = {
-			"loadingImg":"..\/assets\/css\/images\/loading.gif",
-			"maxPages":"9",
-			"autoInfinite":"auto",
-			"lightbox":{
-			"lightboxSelector":".lightbox",
-			"lightboxOn":true,
-			"lightboxContentImages":false,
-			"theme":"pp_default",
-			"social_tools":false,
-			"allow_resize":true,
-			"show_title":false,
-			"overlay_gallery":false,
-			"screenWidthNoLightbox":600,
-			"deeplinking":false,
-			"lightboxGalleryOn":true
-			},
-			"lightboxContext":"#pagewrap",
-			"isTouch":"false",
-			"isPrettyPermalink":"1",
-			"timeline_load_nonce":"952d2fd825",
-			"context":"archive",
-			"query_page_id":""
-		};
-		/* ]]> */
-	</script>
-	<script type="text/javascript" src="js/time/themify.script.js"></script>
 </head>
-<body class="home blog skin-default webkit not-ie default_width sidebar-none timeline" cz-shortcut-listen="true">
+<body >
 <%- include modulesTools/header %>
 	<!-- 中间部分开始 -->
-	<div id="contion">
-		<div id="content" class="clearfix">
-			<div class="loops-timeline infinite-scrolling sidebar-none timeline">
-				<div class="timeline-wrap">
-					<div class="timeline-bar"></div>
-					<div class="timeline-start-dot"></div>
-					<div class="timeline-content">
-						<div class="timeline-set-month">
-							<h3 class="timeline-month">
-								<a class="timeline-jump"></a>
-								<span>October 2014</span>
-							</h3>
-							<div class="set-month isotope" >
-								<!-- 开始循环 -->
-								<% PostGetProse.forEach(	function(PostGetProse){%>
-								<article itemscope="" itemtype="http://www.kangjian.net.cn" class="  status-publish format-link hentry category-link post clearfix isotope-item" style="position: absolute; left: 0px; top: 1822px;">
-									<div class="post-inner clearfix">
-										<time class="post-date entry-date updated" itemprop="datePublished">
-											<span><%= PostGetProse.kt_prose_dates %></span>
-										</time>
-										<h1 class="post-title entry-title" itemprop="name">
-											<a href="#" title="#"><%= PostGetProse.kt_prose_titles %></a>
-										</h1>
-										<div class="post-content">
-											<div class="entry-content" >
-												<p><%- PostGetProse.kt_prose_contents %></p>
-
-											</div>
-											<p class="post-meta entry-meta">
-												<span class="post-author">
-													<span class="author vcard"  >
-														<a class="url fn n" href="<?php echo $item-> kt_products_url_githubs;?>" target="_blank" >评论</a>
-													</span>
-													<em>⋅</em>
-												</span>
-												<span class="post-category">
-													<a href="<?php echo $item-> kt_products_url_links;?>  " target="_blank" title="#" >分享</a>
-													<em>⋅</em>
-												</span>
-												<span class="post-comment">
-													<a href="<?php echo $item-> kt_products_url_thinks;?> " target="_blank" title="#">
-														～＼（≧▽≦）／～赞
-													</a>
-												</span>
-											</p>
-										</div>
-										<div class="post-dot" style="display: block;"></div>
-										<div class="post-arrow" style="display: block;"></div>
-									</div>
-								</article>
-
-								<% });%>
-								<!-- 开始循环结束 -->
-							</div>
-						</div>
-						<div  class="timeline-set-month" >
-							<h3  class="timeline-month">
-								<a  class="timeline-jump"></a>
-								<span>January 2005</span>
-							</h3>
-						</div>
+	<div class="container" id="contents" >
+		<!-- 开始循环 -->
+		<% PostDataProse.forEach(	function(PostDataProse){%>
+		<div class="prose-tree">
+			<h2><a href="#"><%= PostDataProse %>年<i></i></a></h2>
+			<ul class="list">
+			<% PostGetProse.forEach(	function(PostGetProse){%>
+				<% if( PostDataProse ==  PostGetProse.dataYear){%>
+				<li class="cls">
+					<p class="date"><%= PostGetProse.dataMonth %>月</p>
+					<p class="intro"><%= PostGetProse.kt_prose_titles %></p>
+					<p class="version"><%= PostGetProse.kt_prose_dates %></p>
+					<div class="more">
+						<p><%- PostGetProse.kt_prose_contents %></p>
 					</div>
-				</div>
-			</div>
+				</li>
+				<%  } %>
+			<% });%>
+			<!-- 开始循环结束 -->
+			</ul>
 		</div>
+		<% });%>
 	</div>
 	<!-- 中间部分结束 -->
 	<%- include modulesTools/footer %>
 	<script type="text/javascript" src="js/jquery-main-211.js"></script>
 	<script type="text/javascript" src="js/header.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/jquery-main-191.js"></script>
-	<script type="text/javascript" src="js/prose/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="js/prose/jquery.form.min.js"></script>
-	<script type="text/javascript" src="js/prose/jquery.isotope.min.js"></script>
-	<script type="text/javascript" src="js/prose/jquery.inview.js"></script>
-	<script type="text/javascript" src="js/goto_back.js"></script>
 </body>
 </html>

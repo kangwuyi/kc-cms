@@ -6,6 +6,7 @@ var router = express.Router();
 var  objects = require('../models/object');
 module.exports = objects;
 var crypto = require('crypto');
+var kcool = require('../public/lib/kcool');
 var Post = require('../models/post');
 var Blogs = require('../models/blogs');
 var pagination = require('./pagination');
@@ -169,7 +170,7 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				var total_rows,per_page,base_url ;
 				total_rows = count_all_result ;
 				per_page = 4;
-				base_url = 'blogs?';
+				base_url = 'blogsByMenu?tags_ids='+tags_ids+'&';
 				var changePer_page = ( per_pages - 1 ) * per_page;//console.log(changePer_page);
 				Blogs.PageByTagId(tags_ids,changePer_page,per_page,function (PageByTagIdErr, PostGet_all) {
 					if (PageByTagIdErr) {
@@ -190,7 +191,7 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			Post.BlogsByData_count_all_result( riqi_dates,function (BlogsByData_count_all_resultErr, BlogsByData_count_all_result) {
 				if (BlogsByData_count_all_resultErr) {
 					count_all_result = 1;
-				};
+				};//console.log(BlogsByData_count_all_result);
 				count_all_result = BlogsByData_count_all_result[0].count_all_result;	//count_all_result是所有博客的总数量
 				var per_pages = 1;
 				if(req.query.per_page){
@@ -202,17 +203,17 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				var total_rows,per_page,base_url ;
 				total_rows = count_all_result ;
 				per_page = 4;
-				base_url = 'blogs?';
+				base_url = 'PageByData?riqi_dates='+riqi_dates+'&';
 				var changePer_page = ( per_pages - 1 ) * per_page;//console.log(changePer_page);
 				Blogs.PageByData(riqi_dates,changePer_page,per_page,function (PageByTagIdErr, PostGet_all) {
 					if (PageByTagIdErr) {
 						PostGet_all = [];
 					};//console.log(PostGet_all);
 					var Create_links = pagination.create_links(total_rows,per_page,per_pages,base_url);
-					Post.PostRiqi( null,function (PostRiqiErr, PostRiqi) {
+					Post.PostRiqi( null,function (PostRiqiErr, PostRiqi) {console.log(PostGet_all);
 						if (PostRiqiErr) {
 							PostRiqi = [];
-						};//console.log(PostRiqi);
+						};//console.log(total_rows+per_page+per_pages);
 						res.render('client/blogs', { title: '主页',PostGet_all: PostGet_all,PostRiqi: PostRiqi,PostTags: PostTags,Create_links:Create_links});
 					});
 				});

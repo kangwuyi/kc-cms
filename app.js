@@ -4,6 +4,7 @@ var express = require('express')
 	,favicon = require('static-favicon')
 	,logger = require('morgan')
 	,cookieParser = require('cookie-parser')
+            ,cookieSession = require('cookie-session')
 	,bodyParser = require('body-parser')
 	,partials = require('express-partials')	//模板
 	,http = require('http')
@@ -14,28 +15,45 @@ var express = require('express')
 	,settings = require('./db')	//加载
 	,routes = require('./routes/index')	//加载路由
              ,blogs = require('./routes/blogs')
+             ,pos = require('./routes/po')
              ,abouts = require('./routes/about');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(flash());
+app.use( cookieParser()); //cookie解析的中间件
+app.use(cookieSession({secret : 'kangcool'}));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use( session({ //提供会话支持
+    secret: "kangcool",//这个是session加密需要的，随便写的。
+    cookie : {
+            maxAge : 60000 * 20 //20 minutes
+        }
+}));
+app.use(function(req, res, next) {
+    var error = req.flash('error');
+    var success = req.flash('success');
+    res.locals.user = req.session ? req.session.user:'';
+    res.locals.error = error.length ? error : null;
+    res.locals.success = success ? success : null;
+    next();
+});
 app.use('/', routes);
 app.use('/', blogs);
 app.use('/', abouts);
-/// catch 404 and forward to error handler
+app.use('/', pos);
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
+    var error = req.flash('error');
+    res.locals.error = error.length ? error : null;
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
-
 /// error handlers
 
 // development error handler

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>KANGJIAN</title>
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+
+	</head>
+	<body>
+	<%- include ../modulesTools/header %>
+
+		<!-- 中间部分开始 -->
+		<div class="container" id="contents"style="margin-top:30px;">
+			<%- include header %>
+			<%- include nav %>
+			<!-- <form action="write/baocun" method="post"> -->
+				<div  style="width:20%;float:left;background:#fff;border:5px solid #459846;border-radius: 5px">
+				<table class="table table-striped" style="margin-bottom:0;">
+		<tr><td>
+					心情标题：
+		</td></tr>
+		<tr><td>
+			<input class="blogs_titles"  style="width:100％;" name="blogs_titles" type="text" id="pageIndex_input1" value="1">
+		</td></tr>
+		<tr><td>
+					<input class="blogs_dates"  style="width:200px;" name="blogs_dates" type="hidden" id="pageIndex_input1" value="
+					<%  %>
+					">
+					<input class="stochastic_figure"  style="width:200px;" name="stochastic_figure" type="hidden" id="pageIndex_input1" value="
+					<%  %>
+					">
+		</td></tr>
+		<tr><td>
+						<input style="width:100%;" type="submit" value="提交表单">
+		</td></tr>
+	</table>
+				</div>
+				<div style="width:80%;float:left;border:5px solid #564975;background:#564975;border-radius: 5px">
+					<textarea class="ckeditor" name="editor1"></textarea>
+				</div>
+		<!-- </form> -->
+		</div>
+				<script type="text/javascript" src="js/jquery-main-211.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script src="ckeditor/ckeditor.js"></script>
+		<script src="ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+			$( document ).ready( function() {
+				$( 'textarea#editor1' ).ckeditor();
+			} );
+		</script>
+	</body>
+</html>

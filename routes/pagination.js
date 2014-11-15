@@ -145,7 +145,7 @@ module.exports = pagination;
 	if ( next_link && cur_page < num_pages) {//console.log("kk");
 		cur_page = parseInt(cur_page);
 		if (use_page_numbers) {
-			i = cur_page + 1;console.log("i:"+i);console.log("cur_page:"+cur_page);
+			i = cur_page + 1;//console.log("i:"+i);console.log("cur_page:"+cur_page);
 		}
 		else {
 			i = (cur_page * per_page);

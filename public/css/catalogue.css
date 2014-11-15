@@ -1,32 +1,4 @@
-/*定义背景*/
-body{
-	background:url(../../img/bb.png);
-color: #cacaca;
-color: rgba(255,255,255,0.5);
-zoom: 1;
-font: 14px Arial,Helvetica,sans-serif;
--webkit-transition: color .5s ease;
--moz-transition: color .5s ease;
--ms-transition: color .5s ease;
--o-transition: color .5s ease;
-transition: color .5s ease;
-}
-#header_left_box {
-	background:url(../../img/bb.png);
-color: #fff;
-color: rgba(255,255,255,0.5);
-zoom: 1;
-font: 14px Arial,Helvetica,sans-serif;
--webkit-transition: color .5s ease;
--moz-transition: color .5s ease;
--ms-transition: color .5s ease;
--o-transition: color .5s ease;
-transition: color .5s ease;
-}/*定义背景结束*/#contents {
-padding: 30px 20px 30px 20px;
-z-index: 1098;
-}#contion {
-width: 1200px;
-height: 1000px;padding: 30px 20px 30px 20px;
-margin: 0 auto 0 auto;
+/* line 2, ../sass/catalogue.scss */
+#contents aside dl dd a {
+  text-decoration: none;
 }

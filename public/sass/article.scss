@@ -1,0 +1,176 @@
+@import 'definition';
+/*  文本详细 */
+.div-reader-title{
+	width:100%;
+	height:70px;
+	line-height:60px;
+	color:#A52A9B;
+	font-size:30px;
+	background: #fff;
+	padding:10px 30px 0 30px;
+	border: {
+		bottom: {
+  	 		width: 1px;
+       	 		style: solid;
+       	 		color:  #999999;
+		}
+	}
+}
+p.p-reader-title{
+	display:block;
+	float:left;
+}
+a.a-reader-prev,a.a-reader-next{
+ 	height:20px;
+	width:80px;
+	text-align:center;
+	line-height:20px;
+	color:#6DAF45;
+	font-size:18px;
+	margin:{
+		left:10px;
+		right:10px;
+		top:20px;
+	}
+	padding:{
+		top:5px;
+		bottom:5px;
+	}
+ 	display:block;
+	float:right;
+	cursor: auto;
+}
+.div-reader-text{
+	width:100%;
+	color:#3D3238;
+	font-size:20px;
+	background: #fff;
+	padding:20px 30px 30px 30px;
+}
+#prettyprint li {
+	list-style: inherit;
+}
+ #reader-right  #prettyprint  ol,ul,dl
+{
+	/* IE7: reset rtl list margin. (#7334) */
+	*margin-right: 0px;
+	/* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+	padding: 0 ;
+}
+#reader-right{
+	ol, ul {
+		list-style-type:decimal-leading-zero;
+	}
+	/* 富文本*/
+	.cke_editable{
+		font-size: 13px;
+		line-height: 1.6;
+	}
+	blockquote{
+		font-family: Georgia, Times, "Times New Roman", serif;
+		padding: 2px 0 0 20px;
+    		border:{
+    			@include readerRighBorder(0 0 0 5px);
+    		}
+	}
+	.cke_contents_ltr blockquote{
+		padding: {
+			left: 20px;
+			right: 8px;
+		}
+		border: {
+			left: {
+				width: 5px;
+			}
+		}
+	}
+	.cke_contents_rtl blockquote{
+		padding: {
+			left: 8px;
+			right: 20px;
+		}
+    		border: {
+       	 		right: {
+       	 			width: 5px;
+       	 		}
+    		}
+	}
+	a{
+		@include readerRightAColor;
+		& > img {
+			padding: 1px;
+			margin: 1px;
+			border: none;
+			outline:{
+       	 			width: 1px;
+       	 			style: solid;
+       	 			@include readerRightAColor;
+    			}
+		}
+	}
+	ol,ul,dl{
+		/* IE7: reset rtl list margin. (#7334) */
+		*margin:{
+			right: 0px;
+		}
+		/* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+	   	/*  padding: 0 40px;*/
+	}
+	h1,h2,h3,h4,h5,h6{
+		font:{
+			weight: normal;
+		}
+		line-height: 1.2;
+	}
+	hr{
+		border: 0px;
+		border:{
+			top:{
+				@include readerRighBorder(0 0 0 5px);
+			}
+		}
+	}
+	img.right{
+		border:{
+			@include readerRighBorder(1px);
+		}
+		float: right;
+		margin-left: 15px;
+		padding: 5px;
+	}
+	img.left{
+		border:{
+			@include readerRighBorder(1px);
+		}
+		float: left;
+		margin-right: 15px;
+		padding: 5px;
+	}
+	pre{
+		white-space: pre-wrap; /* CSS 2.1 */
+		word-wrap: break-word; /* IE7 */
+		@include tabSize(4);
+	}
+	.marker{
+		background-color: Yellow;
+	}
+	span[lang]{
+		font-style: italic;
+	}
+	figure{
+		text-align: center;
+		border:{
+			@include readerRighBorder(1px);
+		}
+		@include borderRadius(2px);
+		background: rgba(0,0,0,0.05);
+		padding: 10px;
+		margin: 10px 20px;
+		display: inline-block;
+		&> figcaption{
+			text-align: center;
+			display: block; /* For IE8 */
+		}
+	}
+
+}

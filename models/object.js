@@ -207,4 +207,8 @@
 		this.kt_nav_tag_ids = nav_tag_ids;
 		this.kt_nav_tag_name = nav_tag_name;
 	};
+	exports.user = function  (username) {
+		this.kt_nav_tag_ids = username;
+		this.kt_nav_tag_name = password;
+	};
 }).call(this);

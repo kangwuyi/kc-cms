@@ -48,7 +48,7 @@ objects.BlogsById_count_all_result =  function  BlogsById_count_all_result(blogs
     	});//mysql.end();
 };
 objects.BlogsByData_count_all_result =  function  BlogsByData_count_all_result(riqi_dates, callback) {
-	var sql ="select kt_blogs_ids from k_riqi where  kt_riqi_dates="+riqi_dates;
+	var sql ="select count(0) as count_all_result from k_riqi where  kt_riqi_dates="+riqi_dates+" order by count_all_result desc;";
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
