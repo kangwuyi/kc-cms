@@ -50,13 +50,13 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							tags_open_next= 1;console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
+							tags_open_next= 1;//console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsById,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						 }else{
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							console.log("tags_open_prev");//console.log(tags_open_prev);console.log(tags_open_next);
+							//console.log("tags_open_prev");//console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsById,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						}
 					});
@@ -95,13 +95,13 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							tags_open_next= 1;console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
+							tags_open_next= 1;//console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsByNext,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						 }else{
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							console.log("tags_open_prev");//console.log(tags_open_prev);console.log(tags_open_next);
+							//console.log("tags_open_prev");//console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsByNext,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						}
 					});
@@ -140,13 +140,13 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							tags_open_next= 1;console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
+							tags_open_next= 1;//console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsByPrev,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						 }else{
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							console.log("tags_open_prev");//console.log(tags_open_prev);//console.log(tags_open_next);
+							//console.log("tags_open_prev");//console.log(tags_open_prev);//console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsByPrev,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						}
 					});
@@ -210,7 +210,7 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 						PostGet_all = [];
 					};//console.log(PostGet_all);
 					var Create_links = pagination.create_links(total_rows,per_page,per_pages,base_url);
-					Post.PostRiqi( null,function (PostRiqiErr, PostRiqi) {console.log(PostGet_all);
+					Post.PostRiqi( null,function (PostRiqiErr, PostRiqi) {//console.log(PostGet_all);
 						if (PostRiqiErr) {
 							PostRiqi = [];
 						};//console.log(total_rows+per_page+per_pages);

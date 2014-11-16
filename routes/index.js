@@ -170,6 +170,10 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			//res.redirect('back');//返回之前的页面
 			res.render('client/index', { title: '主页',PostTags: PostTags});
 	});
+	router.get('/toPoIndex', checkLogin);
+	router.get('/toPoIndex', function (req, res) {
+			res.render('client/po/index', { title: '主页',PostTags: PostTags});
+	});
 	function checkLogin(req, res, next) {
 		if (!req.session.user) {
 			req.flash('error', '未登录!');

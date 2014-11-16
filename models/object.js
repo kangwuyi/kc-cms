@@ -13,7 +13,6 @@
 		this.kt_riqi_ids = id;
 		this.kt_riqi_dates = name;
 		this.kt_blogs_ids = blogs_tags_num;
-		this.kt_riqi_suijishu = suijishu;
 	};
 	exports.K_tags = function  (id,name) {
 		this.kt_tags_ids = id;
@@ -36,6 +35,12 @@
 		this.kt_blogs_yue = yue;
 		this.kt_blogs_ri = ri;
 	};
+	exports.k_domainnew = function  (domainnew_ids,domainnew_dates,domainnew_contents,domainnew_titles) {
+		this.kt_domainnew_ids = domainnew_ids;
+		this.kt_domainnew_dates = domainnew_dates;
+		this.kt_domainnew_contents = domainnew_contents;
+		this.kt_domainnew_titles = domainnew_titles;
+	};
 	exports.k_domainsite = function  (domainsite_ids,domainsite_name,domainsite_href,domainsite_text) {
 		this.kt_domainsite_ids = domainsite_ids;
 		this.kt_domainsite_name = domainsite_name;
@@ -54,6 +59,10 @@
 		this.kt_navigation_ids = navigation_ids;
 		this.kt_navigation_name = navigation_name;
 		this.kt_navigation_url = navigation_url;
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
+	};
+	exports.k_nav_tag = function  (nav_tag_ids,nav_tag_name) {
 		this.kt_nav_tag_ids = nav_tag_ids;
 		this.kt_nav_tag_name = nav_tag_name;
 	};
@@ -210,5 +219,63 @@
 	exports.user = function  (username) {
 		this.kt_nav_tag_ids = username;
 		this.kt_nav_tag_name = password;
+	};
+	exports.checkTag = function  (id,name) {
+		this.kt_tags_ids = id;
+		this.kt_tags_name = name;
+	};
+	exports.AddTagName = function  (id,name) {
+		this.kt_tags_ids = id;
+		this.kt_tags_name = name;
+	};
+	exports.toAddBlog = function  (blogs_ids,dates,contents,titles,stochastic_figure,tags_ids,year,yue,ri) {
+		this.kt_blogs_ids = blogs_ids;
+		this.kt_blogs_dates = dates;
+		this.kt_blogs_contents = contents;
+		this.kt_blogs_titles = titles;
+		this.stochastic_figure = stochastic_figure;
+		this.kt_tags_ids = tags_ids;
+		this.kt_blogs_year = year;
+		this.kt_blogs_yue = yue;
+		this.kt_blogs_ri = ri;
+	};
+	exports.dateBackBlogId = function  (blogs_ids,dates,contents,titles,stochastic_figure,tags_ids,year,yue,ri) {
+		this.kt_blogs_ids = blogs_ids;
+		this.kt_blogs_dates = dates;
+		this.kt_blogs_contents = contents;
+		this.kt_blogs_titles = titles;
+		this.stochastic_figure = stochastic_figure;
+		this.kt_tags_ids = tags_ids;
+		this.kt_blogs_year = year;
+		this.kt_blogs_yue = yue;
+		this.kt_blogs_ri = ri;
+	};
+	exports.toAddRiqi = function  (id,name,blogs_tags_num,suijishu) {
+		this.kt_riqi_ids = id;
+		this.kt_riqi_dates = name;
+		this.kt_blogs_ids = blogs_tags_num;
+	};
+	exports.addProse = function  (id,dates,contents,titles) {
+		this.kt_prose_ids = id;
+		this.kt_prose_dates = dates;
+		this.kt_prose_contents = contents;
+		this.kt_prose_titles = titles;
+	};
+	exports.addCatalogueType = function  (nav_tag_ids,nav_tag_name) {
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
+	};
+	exports.addCatalogue = function  (navigation_ids,navigation_name,navigation_url,nav_tag_ids,nav_tag_name) {
+		this.kt_navigation_ids = navigation_ids;
+		this.kt_navigation_name = navigation_name;
+		this.kt_navigation_url = navigation_url;
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
+	};
+	exports.addDomainNew = function  (domainnew_ids,domainnew_dates,domainnew_contents,domainnew_titles) {
+		this.kt_domainnew_ids = domainnew_ids;
+		this.kt_domainnew_dates = domainnew_dates;
+		this.kt_domainnew_contents = domainnew_contents;
+		this.kt_domainnew_titles = domainnew_titles;
 	};
 }).call(this);

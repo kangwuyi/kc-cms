@@ -59,8 +59,8 @@ width: 100%;">
 			<p>Copyright ©2014 kang.cool All Rights Reserved. 本站源码在 <a target="_blank" href="https://github.com/kahn1990">github.com/kahn1990</a>.</p>
 		</nav>
 	</article>
-	<% if (!locals.user) {%>
-	<form method="post" action='/login'>
+	<% if (!locals.user) { %>
+	<form method="post" action="/login">
 		<div class="header-login">
 			<div class="login-box">
 				<div class="close" title="关闭"></div>
@@ -93,7 +93,7 @@ width: 100%;">
 			</div>
 		</div>
 	</form>
-	<% } else{%>
+	<% } else{ %>
 	<form method="post" action='/leave'>
 		<div class="header-login">
 			<div class="login-box">
@@ -101,6 +101,7 @@ width: 100%;">
 				<div class="cont">
 					<div class="logina" style="height:100%;">
 						<span style="height:100px;line-height:100px;text-align:center;display:block">确定离开？</span>
+						<p style="margin:0;height:15px;">&nbsp;or&nbsp;&nbsp;<a href="/toPoIndex" style="width:100%;text-align:center;">进入管理系统</a></p>
 						<input style="background:#568437;margin:20px;"name="" type="submit" value="离 开" class="btn">
 					</div>
 				</div>

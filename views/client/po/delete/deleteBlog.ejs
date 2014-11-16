@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>KANGJIAN</title>
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+	<%- include ../../modulesTools/header %>
+
+		<!-- 中间部分开始 -->
+		<div class="container poContents">
+			<%- include ../header %>
+			<%- include nav %>
+				<div  class="poDeleteBox">
+				<table class="table table-striped">
+					<tr>
+						<th  class="col-md-2">Id</th>
+						<th  class="col-md-2">Title</th>
+						<th  class="col-md-2">Date</th>
+						<th  class="col-md-2">Content</th>
+						<th  class="col-md-2">Tag</th>
+						<th  class="col-md-2"class="ac">Operation</th>
+					</tr>
+					<% PostGet_all.forEach(	function(PostGet_all){%>
+					<tr>
+						<td  class="col-md-2"><%= PostGet_all.kt_blogs_ids %></td>
+						<td  class="col-md-2"><%= PostGet_all.kt_blogs_titles %></td>
+						<td  class="col-md-2"><%= PostGet_all.kt_blogs_year %>:<%= PostGet_all.kt_blogs_yue %>:<%= PostGet_all.kt_blogs_ri %></td>
+						<td  class="col-md-2"><%= PostGet_all.kt_blogs_contents.substring(0,10) %></td>
+						<td  class="col-md-2"><%= PostGet_all.kt_tags_name %></td>
+						<td  class="col-md-2"><a href="/delBlogById?blogs_ids=<%= PostGet_all.kt_blogs_ids %>">Del</a></td>
+					</tr>
+					<% });%>
+				</table>
+			</div>
+			<div id="pagination">
+				<%- Create_links %>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-main-211.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script src="ckeditor/ckeditor.js"></script>
+		<script src="ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+			$( document ).ready( function() {
+				$( 'textarea#editor1' ).ckeditor();
+			} );
+		</script>
+	</body>
+</html>

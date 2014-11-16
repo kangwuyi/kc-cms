@@ -9,12 +9,31 @@
 
 	</head>
 	<body>
-	<%- include ../modulesTools/header %>
+	<%- include ../../modulesTools/header %>
+
 		<!-- 中间部分开始 -->
 		<div class="container poContents"  id="contents">
-			<%- include header %>
-			<p class="poName">kang.cool</p>
-		</div>
+			<%- include ../header %>
+			<%- include nav %>
+			<form action="/addCatalogueType" method="post">
+			<div   class="poAddBox" style="width:100%;">
+				<table class="table table-striped" style="margin-bottom:0;">
+					<tr><td>
+						添加网站分类：<input class="catalogueTitle"  style="width:30%;" name="catalogueTitle" type="text" placeholder="请输入分类名称">
+							<% if (locals.success&&locals.success.length) { %>
+								<%= locals.success %>
+							<% } %>
+							<% if (locals.error&&locals.error.length) { %>
+								<%= locals.error %>
+							<% } %>
+						</td></tr>
+						<tr><td>
+										<input style="width:100%;" type="submit" value="提交表单">
+						</td></tr>
+					</table>
+				</div>
+			</form>
+			</div>
 		<script type="text/javascript" src="js/jquery-main-211.js"></script>
 		<script type="text/javascript" src="js/header.js"></script>
 		<script src="ckeditor/ckeditor.js"></script>

@@ -9,11 +9,30 @@
 
 	</head>
 	<body>
-	<%- include ../modulesTools/header %>
+	<%- include ../../modulesTools/header %>
+
 		<!-- 中间部分开始 -->
 		<div class="container poContents"  id="contents">
-			<%- include header %>
-			<p class="poName">kang.cool</p>
+			<%- include ../header %>
+			<%- include nav %>
+			<form action="toAddProse" method="post">
+			<div   class="poAddBox">
+				<table class="table table-striped" style="margin-bottom:0;">
+					<tr><td>
+						心情标题：
+					</td></tr>
+					<tr><td>
+						<input class="proseTitle"  style="width:100％;" name="proseTitle" type="text" placeholder="请输入心情标题">
+					</td></tr>
+					<tr><td>
+						<input style="width:100%;" type="submit" value="提交表单">
+					</td></tr>
+				</table>
+			</div>
+			<div class="poTextarea">
+				<textarea class="ckeditor" name="editor1"></textarea>
+			</div>
+			</form>
 		</div>
 		<script type="text/javascript" src="js/jquery-main-211.js"></script>
 		<script type="text/javascript" src="js/header.js"></script>
