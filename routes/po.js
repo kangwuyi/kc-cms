@@ -9,6 +9,7 @@ var crypto = require('crypto');
 var kcool = require('../public/lib/kcool');
 var Post = require('../models/post');
 var Po = require('../models/po');
+var Blogs = require('../models/blogs');
 var pagination = require('./pagination');
 Post.PostTags( null,function (PostTagsErr, PostTags) {
 	if (PostTagsErr) {
@@ -73,50 +74,114 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 		});
 	router.get('/poReviseBlogs', checkLogin);
 	router.get('/poReviseBlogs', function (req, res) {
-			res.render('client/po/revise/reviseBlog', { title: '主页',PostTags: PostTags});
+		Po.GetAllBlog(null,function (GetAllBlogErr, GetAllBlog) {
+				if (GetAllBlogErr) {
+					GetAllBlog = [];
+				};//console.log(PostGet_all);
+				res.render('client/po/revise/reviseBlog', { title: '主页',GetAllBlog: GetAllBlog,PostTags: PostTags});
 		});
+	});
+	router.get('/editBlogById', checkLogin);
+	router.get('/editBlogById', function (req, res) {
+		var blogs_ids = req.query.blogs_ids;
+		Blogs.BlogsById( blogs_ids,function (BlogsByIdErr, BlogsById) {
+				if (BlogsByIdErr) {
+					BlogsById = [];
+				};
+				res.render('client/po/revise/edit/editBlogs', { title: '主页',BlogsById: BlogsById,PostTags: PostTags});
+		});
+	});
+	router.post('/toEditBlog', function (req, res) {
+		var blogId = req.body.blogId ? kcool.trim(req.body.blogId):1;
+		var blogTitle = req.body.blogTitle ? kcool.trim(req.body.blogTitle):1;
+		var blogTagId = req.body.blogTagId ? kcool.trim(req.body.blogTagId):1;
+		var blogYear = req.body.blogYear ? kcool.trim(req.body.blogYear):1;
+		var blogYue = req.body.blogYue ? kcool.trim(req.body.blogYue):1;
+		var blogRi = req.body.blogRi ? kcool.trim(req.body.blogRi):1;
+		var blogDate = new Date().format("yyyy-MM-dd hh:mm:ss");
+		var blogContent = req.body.editor1 ? kcool.trim(req.body.editor1):1;
+		Po.toEditBlog(blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent,function (err, toEditBlog) {
+			var dateRiqi = blogYue+'.'+blogYear;
+			Po.toAddRiqi(dateRiqi,blogId,function (err, toAddRiqi) {
+				req.flash('success', '添加"'+blogTitle+'"文章成功!');
+				return res.redirect('back');
+			});
+		});
+	});
 	router.get('/poReviseDomain', checkLogin);
 	router.get('/poReviseDomain', function (req, res) {
 			res.render('client/po/revise/reviseDomain', { title: '主页',PostTags: PostTags});
 		});
 	router.get('/poReviseCatalogue', checkLogin);
 	router.get('/poReviseCatalogue', function (req, res) {
-			res.render('client/po/revise/reviseCatalogue', { title: '主页',PostTags: PostTags});
+		Post.PostCatalogue(null,function (err, PostCatalogue) {
+			if (err) {
+				PostCatalogue = [];
+			};//console.log(PostCatalogue);
+			res.render('client/po/revise/reviseCatalogue', { title: '主页',PostTags: PostTags,PostCatalogue: PostCatalogue});
 		});
+	});
+	router.get('/editCatalogueById', function (req, res) {
+		var navigation_ids = req.query.navigation_ids ? kcool.trim(req.query.navigation_ids):1;
+		Po.getCatalogueById(navigation_ids,function (err, getCatalogueById) {
+			Post.PostCatalogueTag( null,function (err, PostCatalogueTag) {
+				if (err) {
+					PostCatalogueTag = [];
+				};
+				res.render('client/po/revise/edit/editCatalogue', { title: '主页',PostCatalogueTag:PostCatalogueTag,getCatalogueById: getCatalogueById,PostTags: PostTags});
+			});
+		});
+	});
+	router.post('/toEditCatalogue', function (req, res) {
+		var catalogueId = req.body.catalogueId ? kcool.trim(req.body.catalogueId):1;
+		var catalogueTitle = req.body.catalogueTitle ? kcool.trim(req.body.catalogueTitle):1;
+		var catalogueUrl = req.body.catalogueUrl ? kcool.trim(req.body.catalogueUrl):1;
+		var catalogueTypeId = req.body.catalogueTypeId ? kcool.trim(req.body.catalogueTypeId):1;
+		Po.toEditCatalogue(catalogueId,catalogueTitle,catalogueUrl,catalogueTypeId,function (err, toEditCatalogue) {
+			req.flash('success', '添加"'+catalogueTitle+'"文章成功!');
+			return res.redirect('back');
+		});
+	});
 	router.get('/poReviseProse', checkLogin);
 	router.get('/poReviseProse', function (req, res) {
-			res.render('client/po/revise/reviseProse', { title: '主页',PostTags: PostTags});
+		Post.PostGetProse( null,function (err, PostGetProse) {
+			if (err) {
+				PostGetProse = [];
+			};
+			for(var p = 0; p < PostGetProse.length; p++){
+				PostGetProse[p].dataYear = new Date(PostGetProse[p].kt_prose_dates).format("yyyy");
+				PostGetProse[p].dataMonth = new Date(PostGetProse[p].kt_prose_dates).format("MM")
+			}
+			res.render('client/po/revise/reviseProse', { title: '主页',PostTags: PostTags,PostGetProse: PostGetProse});
 		});
+	});
+	router.get('/editProseById', function (req, res) {
+		var prose_ids = req.query.prose_ids ? kcool.trim(req.query.prose_ids):1;
+		Po.getProseById(prose_ids,function (err, getProseById) {
+			res.render('client/po/revise/edit/editProse', { title: '主页',getProseById: getProseById,PostTags: PostTags});
+		});
+	});
+	router.post('/toEditProse', function (req, res) {
+		var proseId = req.body.proseId ? kcool.trim(req.body.proseId):1;
+		var proseTitle = req.body.proseTitle ? kcool.trim(req.body.proseTitle):1;
+		var proseDate = new Date().format("yyyy-MM-dd hh:mm:ss");
+		var proseContent = req.body.editor1 ? kcool.trim(req.body.editor1):1;
+		Po.toEditProse(proseId,proseTitle,proseDate,proseContent,function (err, toEditProse) {
+			req.flash('success', '添加"'+proseTitle+'"文章成功!');
+			return res.redirect('back');
+		});
+	});
 	router.get('/poDelete', checkLogin);
 	router.get('/poDelete', function (req, res) {
 			res.render('client/po/delete/deleteIndex', { title: '主页',PostTags: PostTags});
 		});
 	router.get('/poDeleteBlogs', checkLogin);
 	router.get('/poDeleteBlogs', function (req, res) {
-		Post.PostSorts_count_all_result( null,function (PostSorts_count_all_resultErr, PostSorts_count_all_result) {
-			if (PostSorts_count_all_resultErr) {
-				count_all_result = 1;
-			};//console.log(PostSorts_count_all_result);
-			count_all_result = PostSorts_count_all_result[0].count_all_result;	//count_all_result是所有博客的总数量
-			var per_pages = 1;
-			if(req.query.per_page){
-				per_pages = req.query.per_page;//console.log("get");
-			};
-			if(req.body.per_page){
-				per_pages = req.body.per_page;//console.log("post");
-			}//console.log("per_pages");console.log(per_pages);
-			var total_rows,per_page,base_url ;
-			total_rows = count_all_result ;
-			per_page = 20;
-			base_url = 'poDeleteBlogs?';
-			var changePer_page = ( per_pages - 1 ) * per_page;//console.log(changePer_page);
-			Post.PostGet_all(changePer_page,per_page,function (PostGet_allErr, PostGet_all) {
-				if (PostGet_allErr) {
-					PostGet_all = [];
+		Po.GetAllBlog(null,function (GetAllBlogErr, GetAllBlog) {
+				if (GetAllBlogErr) {
+					GetAllBlog = [];
 				};//console.log(PostGet_all);
-				var Create_links = pagination.create_links(total_rows,per_page,per_pages,base_url);
-				res.render('client/po/delete/deleteBlog', { title: '主页',PostGet_all: PostGet_all,PostTags: PostTags,Create_links:Create_links});
-			});
+				res.render('client/po/delete/deleteBlog', { title: '主页',GetAllBlog: GetAllBlog,PostTags: PostTags});
 		});
 	});
 	router.get('/delBlogById', function (req, res) {
@@ -131,8 +196,19 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 		});
 	router.get('/poDeleteCatalogue', checkLogin);
 	router.get('/poDeleteCatalogue', function (req, res) {
-			res.render('client/po/delete/deleteCatalogue', { title: '主页',PostTags: PostTags});
+		Post.PostCatalogue(null,function (err, PostCatalogue) {
+			if (err) {
+				PostCatalogue = [];
+			};//console.log(PostCatalogue);
+			res.render('client/po/delete/deleteCatalogue', { title: '主页',PostTags: PostTags,PostCatalogue: PostCatalogue});
 		});
+	});
+	router.get('/delCatalogueById', function (req, res) {
+		var navigation_ids = req.query.navigation_ids;
+		Post.delCatalogueById(navigation_ids,function (err, delCatalogueById) {
+			return res.redirect('back');
+		});
+	});
 	router.get('/poDeleteProse', checkLogin);
 	router.get('/poDeleteProse', function (req, res) {
 		Post.PostGetProse( null,function (err, PostGetProse) {
@@ -144,6 +220,12 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				PostGetProse[p].dataMonth = new Date(PostGetProse[p].kt_prose_dates).format("MM")
 			}
 			res.render('client/po/delete/deleteProse', { title: '主页',PostTags: PostTags,PostGetProse: PostGetProse});
+		});
+	});
+	router.get('/delProseById', function (req, res) {
+		var prose_ids = req.query.prose_ids;
+		Post.delProseById(prose_ids,function (err, delProseById) {
+			return res.redirect('back');
 		});
 	});
 	//定义添加

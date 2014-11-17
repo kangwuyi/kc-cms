@@ -69,7 +69,8 @@ $(function(){
 	if (getCookie("MyCssSkin")!=null){
 		dynamicLoading.css(getCookie("MyCssSkin"));
 	}else{
-		dynamicLoading.css(getCookie(cssPath+styleID+'.css'));
+		setCookie(cssPath+styleID+'.css');
+		dynamicLoading.css(cssPath+styleID+'.css');
 	}
 });
 function getCookie(name){

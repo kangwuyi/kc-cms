@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
 	</head>
-	<body>
+	<body onLoad="goPage(1,15);">
 	<%- include ../../modulesTools/header %>
 
 		<!-- 中间部分开始 -->
@@ -16,24 +16,33 @@
 		<%- include nav %>
 			<!-- <form action="write/baocun" method="post"> -->
 				<div class="poReviseBox">
-				<table class="table table-striped">
+				<table class="table table-striped" id="idData" >
 							<tr >
-								<th  class="col-md-2">Id</th>
-								<th  class="col-md-2">Title</th>
-								<th  class="col-md-2">Date</th>
-								<th  class="col-md-2">Content</th>
-								<th  class="col-md-2"></th>
-								<th  class="col-md-2"class="ac">Operation</th>
+								<th  class="deleteProseTh20">Id</th>
+								<th  class="deleteProseTh20">Title</th>
+								<th  class="deleteProseTh20">Date</th>
+								<th  class="deleteProseTh20">Content</th>
+								<th  class="deleteProseTh20">Operation</th>
 							</tr>
+							<% PostGetProse.forEach(	function(PostGetProse){%>
 							<tr >
-								<td  class="col-md-2">111</td>
-								<td  class="col-md-2"> Lorem </td>
-								<td  class="col-md-2">12.05.09</td>
-								<td  class="col-md-2"></td>
-								<td  class="col-md-2">Administrator</td>
-								<td  class="col-md-2"><a href="#">Edit</a></td>
+								<td  class="deleteProseTh20"><%= PostGetProse.kt_prose_ids %></td>
+								<td  class="deleteProseTh20"><%= PostGetProse.kt_prose_titles %></td>
+								<td  class="deleteProseTh20"><%= PostGetProse.dataYear %>:<%= PostGetProse.dataMonth %></td>
+								<td  class="deleteProseTh20"><%- PostGetProse.kt_prose_contents.substring(0,10) %></td>
+								<td  class="deleteProseTh20"><a class="editImg" href="/editProseById?prose_ids=<%= PostGetProse.kt_prose_ids %>">Edit</a></td>
 							</tr>
-	</table>
+							<% });%>
+					</table>
+					<table width="100%">
+						<tr>
+							<td>
+								<div id="barcon" name="barcon"></div>
+							</td>
+						</td>
+					</table>
+				</div>
+				<script type="text/javascript" src="js/po/page.js"></script>
 				</div>
 		<!-- </form> -->
 		</div>

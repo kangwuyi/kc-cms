@@ -40,7 +40,7 @@
 				text-align:center;
 				margin:0;
 				padding:0;
-				a{
+				a.delImg{
 					background:url(../../img/po/del.gif);color: #9d9c9a;
 					font-size: 10px;
 					text-decoration: none;
@@ -88,7 +88,7 @@
 				text-align:center;
 				margin:0;
 				padding:0;
-				a{
+				a.editImg{
 					background:url(../../img/po/edit.gif);color: #9d9c9a;
 					font-size: 10px;
 					text-decoration: none;
@@ -115,5 +115,50 @@
 		border:5px solid #564975;
 		background:#564975;
 		border-radius: 5px
+	}
+}
+.deleteProseTh20{
+	width:20%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteCatalogueTh10{
+	width:10%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteCatalogueTh20{
+	width:20%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteCatalogueTh50{
+	width:50%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteBlogTh16{
+	width:16%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
 	}
 }

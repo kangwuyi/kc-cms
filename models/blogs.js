@@ -9,7 +9,7 @@ var app = express();
 
 
 objects.BlogsById =  function  BlogsById(blogs_ids, callback) {
-	var sql ="select kt_blogs_titles,kt_blogs_contents,kt_blogs_ids,kt_tags_ids from k_blogs where kt_blogs_ids="+blogs_ids;
+	var sql ="select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri  from k_blogs k, k_tags t where k.kt_tags_ids = t.kt_tags_ids and  k.kt_blogs_ids="+blogs_ids;
 	mysql.query(sql,function(err,rows,fields){//console.log('这里是/models/post，将要把查询到的数据集合传给/routes/index，集合中的数据为:');
  		if(err){
 			throw err;

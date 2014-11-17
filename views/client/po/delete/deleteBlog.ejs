@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
 	</head>
-	<body>
+	<body onLoad="goPage(1,10);">
 	<%- include ../../modulesTools/header %>
 
 		<!-- 中间部分开始 -->
@@ -15,30 +15,35 @@
 			<%- include ../header %>
 			<%- include nav %>
 				<div  class="poDeleteBox">
-				<table class="table table-striped">
+				<table class="table table-striped"  id="idData" >
 					<tr>
-						<th  class="col-md-2">Id</th>
-						<th  class="col-md-2">Title</th>
-						<th  class="col-md-2">Date</th>
-						<th  class="col-md-2">Content</th>
-						<th  class="col-md-2">Tag</th>
-						<th  class="col-md-2"class="ac">Operation</th>
+						<th  class="deleteBlogTh16">Id</th>
+						<th  class="deleteBlogTh16">Title</th>
+						<th  class="deleteBlogTh16">Date</th>
+						<th  class="deleteBlogTh16">Content</th>
+						<th  class="deleteBlogTh16">Tag</th>
+						<th  class="deleteBlogTh16">Operation</th>
 					</tr>
-					<% PostGet_all.forEach(	function(PostGet_all){%>
+					<% GetAllBlog.forEach(	function(GetAllBlog){%>
 					<tr>
-						<td  class="col-md-2"><%= PostGet_all.kt_blogs_ids %></td>
-						<td  class="col-md-2"><%= PostGet_all.kt_blogs_titles %></td>
-						<td  class="col-md-2"><%= PostGet_all.kt_blogs_year %>:<%= PostGet_all.kt_blogs_yue %>:<%= PostGet_all.kt_blogs_ri %></td>
-						<td  class="col-md-2"><%= PostGet_all.kt_blogs_contents.substring(0,10) %></td>
-						<td  class="col-md-2"><%= PostGet_all.kt_tags_name %></td>
-						<td  class="col-md-2"><a href="/delBlogById?blogs_ids=<%= PostGet_all.kt_blogs_ids %>">Del</a></td>
+						<td  class="deleteBlogTh16"><%= GetAllBlog.kt_blogs_ids %></td>
+						<td  class="deleteBlogTh16"><%= GetAllBlog.kt_blogs_titles %></td>
+						<td  class="deleteBlogTh16"><%= GetAllBlog.kt_blogs_year %>:<%= GetAllBlog.kt_blogs_yue %>:<%= GetAllBlog.kt_blogs_ri %></td>
+						<td  class="deleteBlogTh16"><%= GetAllBlog.kt_blogs_contents.substring(0,10) %></td>
+						<td  class="deleteBlogTh16"><%= GetAllBlog.kt_tags_name %></td>
+						<td  class="deleteBlogTh16"><a class="delImg" href="/delBlogById?blogs_ids=<%= GetAllBlog.kt_blogs_ids %>">Del</a></td>
 					</tr>
 					<% });%>
 				</table>
+				<table width="100%">
+					<tr>
+						<td>
+							<div id="barcon" name="barcon"></div>
+						</td>
+					</td>
+				</table>
 			</div>
-			<div id="pagination">
-				<%- Create_links %>
-			</div>
+			<script type="text/javascript" src="js/po/page.js"></script>
 		</div>
 		<script type="text/javascript" src="js/jquery-main-211.js"></script>
 		<script type="text/javascript" src="js/header.js"></script>

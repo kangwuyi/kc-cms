@@ -78,12 +78,12 @@
 		this.kt_riqi_dates = name;
 	};
 	//blogs页面获取全部文章
-	exports.K_blogs = function  (blogs_ids,dates,contents,titles,stochastic_figure,tags_ids,year,yue,ri) {
+	exports.K_blogs = function  (blogs_ids,dates,contents,titles,tags_name,tags_ids,year,yue,ri) {
 		this.kt_blogs_ids = blogs_ids;
 		this.kt_blogs_dates = dates;
 		this.kt_blogs_contents = contents;
 		this.kt_blogs_titles = titles;
-		this.stochastic_figure = stochastic_figure;
+		this.kt_tags_name = tags_name;
 		this.kt_tags_ids = tags_ids;
 		this.kt_blogs_year = year;
 		this.kt_blogs_yue = yue;
@@ -250,6 +250,12 @@
 		this.kt_blogs_yue = yue;
 		this.kt_blogs_ri = ri;
 	};
+	exports.delProseById = function  (id,dates,contents,titles) {
+		this.kt_prose_ids = id;
+		this.kt_prose_dates = dates;
+		this.kt_prose_contents = contents;
+		this.kt_prose_titles = titles;
+	};
 	exports.toAddRiqi = function  (id,name,blogs_tags_num,suijishu) {
 		this.kt_riqi_ids = id;
 		this.kt_riqi_dates = name;
@@ -277,5 +283,49 @@
 		this.kt_domainnew_dates = domainnew_dates;
 		this.kt_domainnew_contents = domainnew_contents;
 		this.kt_domainnew_titles = domainnew_titles;
+	};
+	exports.GetAllBlog = function  (blogs_ids,dates,contents,titles,tags_name,tags_ids,year,yue,ri) {
+		this.kt_blogs_ids = blogs_ids;
+		this.kt_blogs_dates = dates;
+		this.kt_blogs_contents = contents;
+		this.kt_blogs_titles = titles;
+		this.kt_tags_name = tags_name;
+		this.kt_tags_ids = tags_ids;
+		this.kt_blogs_year = year;
+		this.kt_blogs_yue = yue;
+		this.kt_blogs_ri = ri;
+	};
+	exports.delCatalogueById = function  (navigation_ids,navigation_name,navigation_url,nav_tag_ids,nav_tag_name) {
+		this.kt_navigation_ids = navigation_ids;
+		this.kt_navigation_name = navigation_name;
+		this.kt_navigation_url = navigation_url;
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
+	};
+	exports.getProseById = function  (id,dates,contents,titles) {
+		this.kt_prose_ids = id;
+		this.kt_prose_dates = dates;
+		this.kt_prose_contents = contents;
+		this.kt_prose_titles = titles;
+	};
+	exports.toEditProse = function  (id,dates,contents,titles) {
+		this.kt_prose_ids = id;
+		this.kt_prose_dates = dates;
+		this.kt_prose_contents = contents;
+		this.kt_prose_titles = titles;
+	};
+	exports.getCatalogueById = function  (navigation_ids,navigation_name,navigation_url,nav_tag_ids,nav_tag_name) {
+		this.kt_navigation_ids = navigation_ids;
+		this.kt_navigation_name = navigation_name;
+		this.kt_navigation_url = navigation_url;
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
+	};
+	exports.toEditCatalogue = function  (navigation_ids,navigation_name,navigation_url,nav_tag_ids,nav_tag_name) {
+		this.kt_navigation_ids = navigation_ids;
+		this.kt_navigation_name = navigation_name;
+		this.kt_navigation_url = navigation_url;
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
 	};
 }).call(this);
