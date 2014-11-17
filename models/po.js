@@ -107,6 +107,16 @@ objects.delBlogById =  function  delBlogById(blogs_ids,callback) {
         		}
     	});//mysql.end();
 };
+objects.delBlogRiqiById =  function  delBlogRiqiById(blogs_ids,callback) {
+	var sql ="DELETE FROM `kangcool`.`k_riqi` WHERE `k_riqi`.`kt_blogs_ids` = '"+blogs_ids+"' ";
+	mysql.query(sql,function(err,rows,fields){
+ 		if(err){
+			throw err;
+		}else{
+			callback(err,rows,fields);
+        		}
+    	});//mysql.end();
+};
 objects.delProseById =  function  delProseById(prose_ids,callback) {
 	var sql ="DELETE FROM `kangcool`.`k_prose` WHERE `k_prose`.`kt_prose_ids` = '"+prose_ids+"' ";
 	mysql.query(sql,function(err,rows,fields){

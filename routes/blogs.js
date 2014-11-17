@@ -29,13 +29,13 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 					BlogsById = [];
 				};
 				BlogsByIds = BlogsById;
-				var blogs_ids_add_one = blogs_ids+1;
+				var blogs_ids_add_one = blogs_ids;
 				var title_to_content_add_one;
 				Blogs.BlogsByNext( blogs_ids_add_one,tags_ids,function (BlogsByNextErr, BlogsByNext) {
 					if (BlogsByNextErr) {
 					BlogsByNext = [];
 					};
-					var blogs_ids_reduce_one = blogs_ids-1;
+					var blogs_ids_reduce_one = blogs_ids;
 					var title_to_content_reduce_one;
 					title_to_content_add_one = BlogsByNext;
 					Blogs.BlogsByPrev( blogs_ids_reduce_one,tags_ids,function (BlogsByPrevErr, BlogsByPrev) {
@@ -50,13 +50,13 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							tags_open_next= 1;//console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
+							tags_open_next= 1;console.log("tags_open_next");console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsById,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						 }else{
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
-							//console.log("tags_open_prev");//console.log(tags_open_prev);console.log(tags_open_next);
+							console.log("tags_open_prev");console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/reader', { title: '主页',PostTags: PostTags,PostRiqi: PostRiqi,BlogsById:BlogsById,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
 						}
 					});
@@ -204,7 +204,7 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				total_rows = count_all_result ;
 				per_page = 4;
 				base_url = 'PageByData?riqi_dates='+riqi_dates+'&';
-				var changePer_page = ( per_pages - 1 ) * per_page;//console.log(changePer_page);
+				var changePer_page = ( per_pages - 1 ) * per_page;console.log(changePer_page);
 				Blogs.PageByData(riqi_dates,changePer_page,per_page,function (PageByTagIdErr, PostGet_all) {
 					if (PageByTagIdErr) {
 						PostGet_all = [];

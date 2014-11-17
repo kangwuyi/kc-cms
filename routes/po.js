@@ -186,8 +186,10 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 	});
 	router.get('/delBlogById', function (req, res) {
 		var blogs_ids = req.query.blogs_ids;
-		Post.delBlogById(blogs_ids,function (PostGet_allErr, delBlogById) {
-			return res.redirect('back');
+		Post.delBlogById(blogs_ids,function (err, delBlogById) {
+			Post.delBlogRiqiById(blogs_ids,function (err, delBlogRiqiById) {
+				return res.redirect('back');
+			});
 		});
 	});
 	router.get('/poDeleteDomain', checkLogin);

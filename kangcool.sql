@@ -1232,7 +1232,6 @@ CREATE TABLE IF NOT EXISTS `k_riqi` (
   `kt_riqi_ids` int(20) NOT NULL AUTO_INCREMENT,
   `kt_riqi_dates` varchar(50) DEFAULT NULL,
   `kt_blogs_ids` int(20) NOT NULL,
-  `kt_riqi_suijishu` varchar(100) NOT NULL,
   PRIMARY KEY (`kt_riqi_ids`),
   UNIQUE KEY `kt_riqi_ids` (`kt_riqi_ids`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
@@ -1241,20 +1240,20 @@ CREATE TABLE IF NOT EXISTS `k_riqi` (
 -- 转存表中的数据 `k_riqi`
 --
 
-INSERT INTO `k_riqi` (`kt_riqi_ids`, `kt_riqi_dates`, `kt_blogs_ids`, `kt_riqi_suijishu`) VALUES
-(26, ' Aug.2014 ', 50, ' 92101368745 '),
-(27, ' Jul.2014 ', 51, ' 92101368745 '),
-(28, 'May.2014', 52, ' 92101368745 '),
-(29, 'May.2014', 53, ' 92101368745 '),
-(30, 'May.2014', 54, ' 92101368745 '),
-(31, 'May.2014', 55, ' 92101368745 '),
-(32, 'May.2014', 56, ' 92101368745 '),
-(33, 'May.2014', 57, ' 92101368745 '),
-(34, 'May.2014', 58, ' 92101368745 '),
-(35, ' Jan.2014', 59, ' 10693521874 '),
-(36, 'Oct.2014', 60, ' 62537108419 '),
-(37, 'Apr.2014', 61, ' 62537108419 '),
-(38, 'Aug.2014', 62, ' 36578910142 ');
+INSERT INTO `k_riqi` (`kt_riqi_ids`, `kt_riqi_dates`, `kt_blogs_ids`) VALUES
+(26, ' Aug.2014 ', 50 ),
+(27, ' Jul.2014 ', 51 ),
+(28, 'May.2014', 52 ),
+(29, 'May.2014', 53 ),
+(30, 'May.2014', 54 ),
+(31, 'May.2014', 55 ),
+(32, 'May.2014', 56 ),
+(33, 'May.2014', 57 ),
+(34, 'May.2014', 58 ),
+(35, ' Jan.2014', 59 ),
+(36, 'Oct.2014', 60),
+(37, 'Apr.2014', 61 ),
+(38, 'Aug.2014', 62 );
 
 -- --------------------------------------------------------
 
