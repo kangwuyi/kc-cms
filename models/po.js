@@ -197,3 +197,33 @@ objects.toEditCatalogue =  function  toEditCatalogue(catalogueId,catalogueTitle,
         		}
     	});//mysql.end();
 };
+objects.appBlogByData =  function  appBlogByData(riqi_dates, callback) {
+	var sql = "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t ,k_riqi r where  r.kt_riqi_dates='"+riqi_dates+"' and k.kt_tags_ids=t.kt_tags_ids and k.kt_blogs_ids=r.kt_blogs_ids ";
+	mysql.query(sql,function(err,rows,fields){//console.log('这里是/models/post，将要把查询到的数据集合传给/routes/index，集合中的数据为:');
+ 		if(err){
+			throw err;
+		}else{
+			callback(err,rows,fields);
+        		}//console.log('\n');for (var i in rows) {console.log(rows[i]);}
+    	});//mysql.end();
+}
+objects.appBlogByTag =  function  appBlogByTag(tags_ids,callback) {
+	var sql = "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t where  k.kt_tags_ids="+tags_ids+" and k.kt_tags_ids=t.kt_tags_ids ";
+	mysql.query(sql,function(err,rows,fields){//console.log('这里是/models/post，将要把查询到的数据集合传给/routes/index，集合中的数据为:');
+ 		if(err){
+			throw err;
+		}else{
+			callback(err,rows,fields);
+        		}//console.log('\n');for (var i in rows) {console.log(rows[i]);}
+    	});//mysql.end();
+}
+objects.appCatalogueType =  function  appCatalogueType(nav_tag_ids, callback) {
+	var sql ="select n.kt_navigation_ids,n.kt_navigation_name,n.kt_navigation_url,n.kt_nav_tag_ids,na.kt_nav_tag_name from k_navigation n,k_nav_tag na where n.kt_nav_tag_ids = na.kt_nav_tag_ids and na.kt_nav_tag_ids='"+nav_tag_ids+"'";
+	mysql.query(sql,function(err,rows,fields){
+ 		if(err){
+			throw err;
+		}else{
+			callback(err,rows,fields);
+        		}
+    	});//mysql.end();
+};

@@ -15,3 +15,15 @@ body {
 footer {
   margin-top: 40px;
 }
+
+/* line 7, ../sass/footer.scss */
+#gotop {
+  background: url(../../img/backup.png);
+  position: fixed;
+  z-index: 93;
+  right: 30px;
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
+  bottom: 50px;
+}

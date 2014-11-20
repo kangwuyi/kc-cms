@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title></title>
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+		<link type="text/css" rel="stylesheet" href="css/app/demo.css" />
+		<link type="text/css" rel="stylesheet" href="css/app/jquery.mmenu.all.css" />
+
+		<script type="text/javascript" src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/app/jquery.mmenu.min.all.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('nav#menu').mmenu();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="page">
+			<%- include modulesTools/nav %>
+			<div class="container">
+				<p style="color:#fff;font-size:46px;height:200px;line-height:200px;text-align:center;">kang.cool</p>
+
+			</div>
+
+		</div>
+	</body>
+</html>

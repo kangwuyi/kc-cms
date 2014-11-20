@@ -149,7 +149,7 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			}//console.log(user);
 			//检查密码是否一致
 			if (user[0].kt_user_password != password) {
-				req.flash('error', '密码错误!');//console.log(password);
+				req.flash('error', '用户不存在!');
 				return res.redirect('back');//返回之前的页面
 			}
 			//用户名密码都匹配后，将用户信息存入 session

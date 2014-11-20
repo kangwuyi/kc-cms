@@ -328,4 +328,33 @@
 		this.kt_nav_tag_ids = nav_tag_ids;
 		this.kt_nav_tag_name = nav_tag_name;
 	};
+	exports.appBlogByData = function  (blogs_ids,dates,contents,titles,stochastic_figure,tags_ids,year,yue,ri) {
+		this.kt_blogs_ids = blogs_ids;
+		this.kt_blogs_dates = dates;
+		this.kt_blogs_contents = contents;
+		this.kt_blogs_titles = titles;
+		this.stochastic_figure = stochastic_figure;
+		this.kt_tags_ids = tags_ids;
+		this.kt_blogs_year = year;
+		this.kt_blogs_yue = yue;
+		this.kt_blogs_ri = ri;
+	};
+	exports.appBlogByTag = function  (blogs_ids,dates,contents,titles,stochastic_figure,tags_ids,year,yue,ri) {
+		this.kt_blogs_ids = blogs_ids;
+		this.kt_blogs_dates = dates;
+		this.kt_blogs_contents = contents;
+		this.kt_blogs_titles = titles;
+		this.stochastic_figure = stochastic_figure;
+		this.kt_tags_ids = tags_ids;
+		this.kt_blogs_year = year;
+		this.kt_blogs_yue = yue;
+		this.kt_blogs_ri = ri;
+	};
+	exports.appCatalogueType = function  (navigation_ids,navigation_name,navigation_url,nav_tag_ids,nav_tag_name) {
+		this.kt_navigation_ids = navigation_ids;
+		this.kt_navigation_name = navigation_name;
+		this.kt_navigation_url = navigation_url;
+		this.kt_nav_tag_ids = nav_tag_ids;
+		this.kt_nav_tag_name = nav_tag_name;
+	};
 }).call(this);

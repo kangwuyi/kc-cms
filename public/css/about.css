@@ -1,0 +1,40 @@
+/* line 1, ../sass/about.scss */
+.itemAbout {
+  padding: 4px;
+  border: solid 1px #ddd;
+  margin-right: 20px;
+  margin-top: 20px;
+  height: 340px;
+  background: #fff;
+  float: left;
+  padding: 13px;
+  text-align: center;
+  border-radius: 4px;
+}
+/* line 12, ../sass/about.scss */
+.itemAbout a {
+  text-decoration: none;
+  color: #333;
+}
+/* line 15, ../sass/about.scss */
+.itemAbout a:hover {
+  text-decoration: none;
+}
+/* line 19, ../sass/about.scss */
+.itemAbout img {
+  border: 0;
+}
+/* line 22, ../sass/about.scss */
+.itemAbout h2 {
+  padding: 10px 0;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+/* line 31, ../sass/about.scss */
+.itemAbout p {
+  margin-bottom: 10px;
+}
