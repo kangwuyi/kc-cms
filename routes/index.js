@@ -3,13 +3,11 @@ var http = require("http");            //提供web服务
 var url = require("url");            //解析GET请求
 var query = require("querystring");    //解析POST请求
 var router = express.Router();
-var  objects = require('../models/object');
-module.exports = objects;
 var crypto = require('crypto');
 var kcool = require('../public/lib/kcool');
 var Post = require('../models/post');
 var User = require('../models/user');
-var pagination = require('./pagination');
+var pagination = require('pagination-api');
 var myDate = require('./dateFormat')();
 var base_url = 'blogs';
 Post.PostTags( null,function (PostTagsErr, PostTags) {

@@ -1,24 +1,13 @@
 var express = require('express')
 ,mysql = require('mysql')
 ,http = require('http');
-var  queryDb = require('../db');		//加载db.js模块
-mysql = queryDb.getMysqlConn();//加载db.js的getMysqlConn方法关联mysql数据库，并命名为mysql
-var  objects = require('./object');
-module.exports = objects;
+var  queryDb = require('../db');
+mysql = queryDb.getMysqlConn();
+var  mysqlString = require('./sql');
 var app = express();
 
-objects.PostTags =  function  PostTags(err, callback) {
-	var sql ="select b.kt_tags_ids,t.kt_tags_name , count(0) as blogs_tags_num from k_tags t,k_blogs b where t.kt_tags_ids=b.kt_tags_ids  group by b.kt_tags_ids order by blogs_tags_num desc;";
-	mysql.query(sql,function(err,rows,fields){
- 		if(err){
-			throw err;
-		}else{
-			callback(err,rows,fields);
-        		}//console.log('\n');for (var i in rows) {console.log(rows[i]);}
-    	});//mysql.end();
-};
-objects.PostRiqi =  function  PostRiqi(err, callback) {
-	var sql ="select kt_riqi_dates from k_riqi group by kt_riqi_dates;";
+exports.PostTags =  function (err, callback) {
+	var sql =mysqlString.k_tags_k_blogs.getTags;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -27,8 +16,8 @@ objects.PostRiqi =  function  PostRiqi(err, callback) {
         		}
     	});//mysql.end();
 };
-objects.PostSorts_count_all_result =  function  PostSorts_count_all_result(err, callback) {
-	var sql ="select count(0) as count_all_result from k_blogs ;";
+exports.PostRiqi =  function (err, callback) {
+	var sql =mysqlString.k_riqi.getAllRiqi;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -37,8 +26,8 @@ objects.PostSorts_count_all_result =  function  PostSorts_count_all_result(err, 
         		}
     	});//mysql.end();
 };
-objects.BlogsById_count_all_result =  function  BlogsById_count_all_result(blogs_ids, callback) {
-	var sql ="select count(0) as count_all_result from k_blogs where kt_tags_ids="+blogs_ids+" order by count_all_result desc;";
+exports.PostSorts_count_all_result =  function  (err, callback) {
+	var sql =mysqlString.k_blogs.getSorts_count_all_result;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -47,8 +36,8 @@ objects.BlogsById_count_all_result =  function  BlogsById_count_all_result(blogs
         		}
     	});//mysql.end();
 };
-objects.BlogsByData_count_all_result =  function  BlogsByData_count_all_result(riqi_dates, callback) {
-	var sql ="select count(0) as count_all_result from k_riqi where  kt_riqi_dates="+riqi_dates+" order by count_all_result desc;";
+exports.BlogsById_count_all_result =  function  (blogs_ids, callback) {
+	var sql =mysqlString.k_blogs.getBlogsById_count_all_result(blogs_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -57,11 +46,21 @@ objects.BlogsByData_count_all_result =  function  BlogsByData_count_all_result(r
         		}
     	});//mysql.end();
 };
-objects.PostGet_all =  function  PostGet_all(changePer_page,per_page,callback) {
+exports.BlogsByData_count_all_result =  function  (riqi_dates, callback) {
+	var sql =mysqlString.k_riqi.getBlogsByData_count_all_result(riqi_dates);
+	mysql.query(sql,function(err,rows,fields){
+ 		if(err){
+			throw err;
+		}else{
+			callback(err,rows,fields);
+        		}
+    	});//mysql.end();
+};
+exports.PostGet_all =  function  (changePer_page,per_page,callback) {
 	if(changePer_page==''){
 		changePer_page=0;
-	};//console.log(changePer_page);console.log(per_page);
-	var sql ="select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t   where k.kt_tags_ids=t.kt_tags_ids order by k.kt_tags_ids desc limit "+changePer_page+" ,"+per_page;
+	};
+	var sql =mysqlString.k_tags_k_blogs.getAll(changePer_page,per_page);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -70,8 +69,8 @@ objects.PostGet_all =  function  PostGet_all(changePer_page,per_page,callback) {
         		}
     	});//mysql.end();
 };
-objects.PostGetDomainsite =  function  PostGetDomainsite(err,callback) {
-	var sql ="select * from k_domainsite";
+exports.PostGetDomainsite =  function  (err,callback) {
+	var sql =mysqlString.k_domainsite.getDomainsite;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -80,8 +79,8 @@ objects.PostGetDomainsite =  function  PostGetDomainsite(err,callback) {
         		}
     	});//mysql.end();
 };
-objects.PostGetDomainsuffix =  function  PostGetDomainsuffix(err,callback) {
-	var sql ="select * from k_domainsuffix";
+exports.PostGetDomainsuffix =  function  (err,callback) {
+	var sql =mysqlString.k_domainsuffix.getDomainsuffix;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -90,8 +89,8 @@ objects.PostGetDomainsuffix =  function  PostGetDomainsuffix(err,callback) {
         		}
     	});//mysql.end();
 };
-objects.PostGetProse =  function  PostGetProse(err,callback) {
-	var sql ="select * from k_prose";
+exports.PostGetProse =  function  (err,callback) {
+	var sql =mysqlString.k_prose.getProse;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -100,8 +99,8 @@ objects.PostGetProse =  function  PostGetProse(err,callback) {
         		}
     	});//mysql.end();
 };
-objects.PostCatalogue =  function  PostCatalogue(err,callback) {
-	var sql ="select n.kt_navigation_ids,n.kt_navigation_name,n.kt_navigation_url,n.kt_nav_tag_ids,na.kt_nav_tag_name from k_navigation n,k_nav_tag na where n.kt_nav_tag_ids = na.kt_nav_tag_ids";
+exports.PostCatalogue =  function  (err,callback) {
+	var sql =mysqlString.k_navigation_k_nav_tag.getCatalogue;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -110,8 +109,8 @@ objects.PostCatalogue =  function  PostCatalogue(err,callback) {
         		}
     	});//mysql.end();
 };
-objects.PostCatalogueTag =  function  PostCatalogueTag(err,callback) {
-	var sql ="select kt_nav_tag_ids,kt_nav_tag_name from k_nav_tag";
+exports.PostCatalogueTag =  function  (err,callback) {
+	var sql =mysqlString.k_nav_tag.getCatalogueTag;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;

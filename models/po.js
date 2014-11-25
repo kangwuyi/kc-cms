@@ -3,12 +3,11 @@ var express = require('express')
 ,http = require('http');
 var  queryDb = require('../db');		//加载db.js模块
 mysql = queryDb.getMysqlConn();//加载db.js的getMysqlConn方法关联mysql数据库，并命名为mysql
-var  objects = require('./object');
-module.exports = objects;
+var  mysqlString = require('./sql');
 var app = express();
 
-objects.checkTag =  function  checkTag(tagName, callback) {
-	var sql ="select * from k_tags where kt_tags_name='"+tagName+"' ";
+exports.checkTag =  function  (tagName, callback) {
+	var sql =mysqlString.k_tags.getCheckTag(tagName);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -17,8 +16,8 @@ objects.checkTag =  function  checkTag(tagName, callback) {
         		}
     	});//mysql.end();
 };
-objects.AddTagName =  function  AddTagName(tagName, callback) {
-	var sql ="INSERT INTO `k_tags` (`kt_tags_ids`, `kt_tags_name`) VALUES (NULL, '"+tagName+"'); ";
+exports.AddTagName =  function  (tagName, callback) {
+	var sql =mysqlString.k_tags.postAddTagName(tagName);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -27,8 +26,8 @@ objects.AddTagName =  function  AddTagName(tagName, callback) {
         		}
     	});//mysql.end();
 };
-objects.toAddBlog =  function  toAddBlog(blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent, callback) {
-	var sql ="INSERT INTO `k_blogs` (`kt_blogs_ids`, `kt_blogs_titles`, `kt_tags_ids`, `kt_blogs_year`, `kt_blogs_yue`, `kt_blogs_ri`, `kt_blogs_dates`, `kt_blogs_contents`) VALUES (NULL, '"+blogTitle+"', '"+blogTagId+"', '"+blogYear+"', '"+blogYue+"', '"+blogRi+"', '"+blogDate+"', '"+blogContent+"'); ";
+exports.toAddBlog =  function  (blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent, callback) {
+	var sql =mysqlString.k_blogs.postAddBlog(blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -37,8 +36,8 @@ objects.toAddBlog =  function  toAddBlog(blogTitle, blogTagId,blogYear,blogYue,b
         		}
     	});//mysql.end();
 };
-objects.dateBackBlogId =  function  dateBackBlogId(blogDate, callback) {
-	var sql ="select kt_blogs_ids from k_blogs where kt_blogs_dates='"+blogDate+"' ";
+exports.dateBackBlogId =  function  (blogDate, callback) {
+	var sql =mysqlString.k_blogs.getDateBackBlogId(blogDate);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -47,8 +46,8 @@ objects.dateBackBlogId =  function  dateBackBlogId(blogDate, callback) {
         		}
     	});//mysql.end();
 };
-objects.toAddRiqi =  function  toAddRiqi(dateRiqi,blogId, callback) {
-	var sql ="INSERT INTO `k_riqi` (`kt_riqi_ids`, `kt_riqi_dates`, `kt_blogs_ids`) VALUES (NULL, '"+dateRiqi+"', '"+blogId+"'); ";
+exports.toAddRiqi =  function  (dateRiqi,blogId, callback) {
+	var sql =mysqlString.k_riqi.postAddRiqi(dateRiqi,blogId);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -57,8 +56,8 @@ objects.toAddRiqi =  function  toAddRiqi(dateRiqi,blogId, callback) {
         		}
     	});//mysql.end();
 };
-objects.addProse =  function  addProse(proseTitle,proseDate,proseContent, callback) {
-	var sql ="INSERT INTO `k_prose` (`kt_prose_ids`, `kt_prose_dates`, `kt_prose_titles`, `kt_prose_contents`) VALUES (NULL, '"+proseDate+"', '"+proseTitle+"', '"+proseContent+"'); ";
+exports.addProse =  function  (proseTitle,proseDate,proseContent, callback) {
+	var sql =mysqlString.k_prose.postAddProse(proseTitle,proseDate,proseContent);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -67,8 +66,8 @@ objects.addProse =  function  addProse(proseTitle,proseDate,proseContent, callba
         		}
     	});//mysql.end();
 };
-objects.addCatalogueType =  function  addCatalogueType(catalogueTitle, callback) {
-	var sql ="INSERT INTO `k_nav_tag` (`kt_nav_tag_ids`, `kt_nav_tag_name`) VALUES (NULL, '"+catalogueTitle+"'); ";
+exports.addCatalogueType =  function  (catalogueTitle, callback) {
+	var sql =mysqlString.k_nav_tag.postAddCatalogueType(catalogueTitle);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -77,8 +76,8 @@ objects.addCatalogueType =  function  addCatalogueType(catalogueTitle, callback)
         		}
     	});//mysql.end();
 };
-objects.addCatalogue =  function  addCatalogue(catalogueTitle,catalogueUrl,catalogueTypeId,callback) {
-	var sql ="INSERT INTO `k_navigation` (`kt_navigation_ids`, `kt_navigation_name`, `kt_navigation_url`, `kt_nav_tag_ids`) VALUES (NULL, '"+catalogueTitle+"', '"+catalogueUrl+"', '"+catalogueTypeId+"'); ";
+exports.addCatalogue =  function  (catalogueTitle,catalogueUrl,catalogueTypeId,callback) {
+	var sql =mysqlString.k_navigation.postAddCatalogue(catalogueTitle,catalogueUrl,catalogueTypeId);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -87,8 +86,8 @@ objects.addCatalogue =  function  addCatalogue(catalogueTitle,catalogueUrl,catal
         		}
     	});//mysql.end();
 };
-objects.addDomainNew =  function  addDomainNew(DomainNewTitle,DomainNewContent,callback) {
-	var sql ="INSERT INTO `k_domainnew` (`kt_domainnew_ids`, `kt_domainnew_dates`, `kt_domainnew_contents`, `kt_domainnew_titles`) VALUES (NULL, NULL, '"+DomainNewTitle+"', '"+DomainNewContent+"'); ";
+exports.addDomainNew =  function  (DomainNewTitle,DomainNewContent,callback) {
+	var sql =mysqlString.k_domainnew.postAddDomainNew(DomainNewTitle,DomainNewContent);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -97,8 +96,8 @@ objects.addDomainNew =  function  addDomainNew(DomainNewTitle,DomainNewContent,c
         		}
     	});//mysql.end();
 };
-objects.delBlogById =  function  delBlogById(blogs_ids,callback) {
-	var sql ="DELETE FROM `kangcool`.`k_blogs` WHERE `k_blogs`.`kt_blogs_ids` = '"+blogs_ids+"' ";
+exports.delBlogById =  function  (blogs_ids,callback) {
+	var sql =mysqlString.k_blogs.postDelBlogById(blogs_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -107,8 +106,8 @@ objects.delBlogById =  function  delBlogById(blogs_ids,callback) {
         		}
     	});//mysql.end();
 };
-objects.delBlogRiqiById =  function  delBlogRiqiById(blogs_ids,callback) {
-	var sql ="DELETE FROM `kangcool`.`k_riqi` WHERE `k_riqi`.`kt_blogs_ids` = '"+blogs_ids+"' ";
+exports.delBlogRiqiById =  function  (blogs_ids,callback) {
+	var sql =mysqlString.k_riqi.postDelBlogRiqiById(blogs_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -117,8 +116,8 @@ objects.delBlogRiqiById =  function  delBlogRiqiById(blogs_ids,callback) {
         		}
     	});//mysql.end();
 };
-objects.delProseById =  function  delProseById(prose_ids,callback) {
-	var sql ="DELETE FROM `kangcool`.`k_prose` WHERE `k_prose`.`kt_prose_ids` = '"+prose_ids+"' ";
+exports.delProseById =  function  (prose_ids,callback) {
+	var sql =mysqlString.k_prose.postDelProseById(prose_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -127,8 +126,8 @@ objects.delProseById =  function  delProseById(prose_ids,callback) {
         		}
     	});//mysql.end();
 };
-objects.delCatalogueById =  function  delCatalogueById(navigation_ids,callback) {
-	var sql ="DELETE FROM `kangcool`.`k_navigation` WHERE `k_navigation`.`kt_navigation_ids` = '"+navigation_ids+"' ";
+exports.delCatalogueById =  function  (navigation_ids,callback) {
+	var sql =mysqlString.k_navigation.postDelCatalogueById(navigation_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -137,8 +136,8 @@ objects.delCatalogueById =  function  delCatalogueById(navigation_ids,callback) 
         		}
     	});//mysql.end();
 };
-objects.GetAllBlog =  function  GetAllBlog(err, callback) {
-	var sql ="select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t where  k.kt_tags_ids=t.kt_tags_ids";
+exports.GetAllBlog =  function  (err, callback) {
+	var sql =mysqlString.k_tags_k_blogs.getAllBlog;
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -147,8 +146,8 @@ objects.GetAllBlog =  function  GetAllBlog(err, callback) {
         		}
     	});//mysql.end();
 };
-objects.toEditBlog =  function  toEditBlog(blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent, callback) {
-	var sql ="UPDATE  `kangcool`.`k_blogs` SET  `kt_blogs_titles` =  '"+blogTitle+"',`kt_tags_ids` = '"+blogTagId+"', `kt_blogs_year` = '"+blogYear+"',`kt_blogs_yue` = '"+blogYue+"',`kt_blogs_ri` = '"+blogRi+"',`kt_blogs_dates` = '"+blogDate+"',`kt_blogs_contents` = '"+blogContent+"' WHERE  `k_blogs`.`kt_blogs_ids` ='"+blogId+"';";
+exports.toEditBlog =  function  (blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent, callback) {
+	var sql =mysqlString.k_blogs.postEditBlog(blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -157,8 +156,8 @@ objects.toEditBlog =  function  toEditBlog(blogId,blogTitle, blogTagId,blogYear,
         		}
     	});//mysql.end();
 };
-objects.getProseById =  function  getProseById(prose_ids, callback) {
-	var sql ="select * from k_prose where kt_prose_ids='"+prose_ids+"' ";
+exports.getProseById =  function  (prose_ids, callback) {
+	var sql =mysqlString.k_prose.getProseById(prose_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -167,8 +166,8 @@ objects.getProseById =  function  getProseById(prose_ids, callback) {
         		}
     	});//mysql.end();
 };
-objects.toEditProse =  function  toEditProse(proseId,proseTitle,proseDate,proseContent, callback) {
-	var sql ="UPDATE  `kangcool`.`k_prose` SET  `kt_prose_titles` =  '"+proseTitle+"',`kt_prose_dates` = '"+proseDate+"',`kt_prose_contents` = '"+proseContent+"' WHERE  `k_prose`.`kt_prose_ids` ='"+proseId+"';";
+exports.toEditProse =  function  (proseId,proseTitle,proseDate,proseContent, callback) {
+	var sql =mysqlString.k_prose.postEditProse(proseId,proseTitle,proseDate,proseContent);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -177,8 +176,8 @@ objects.toEditProse =  function  toEditProse(proseId,proseTitle,proseDate,proseC
         		}
     	});//mysql.end();
 };
-objects.getCatalogueById =  function  getCatalogueById(navigation_ids, callback) {
-	var sql ="select n.kt_navigation_ids,n.kt_navigation_name,n.kt_navigation_url,n.kt_nav_tag_ids,na.kt_nav_tag_name from k_navigation n,k_nav_tag na where n.kt_nav_tag_ids = na.kt_nav_tag_ids and n.kt_navigation_ids='"+navigation_ids+"'";
+exports.getCatalogueById =  function  (navigation_ids, callback) {
+	var sql =mysqlString.k_navigation_k_nav_tag.getCatalogueById(navigation_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -187,8 +186,8 @@ objects.getCatalogueById =  function  getCatalogueById(navigation_ids, callback)
         		}
     	});//mysql.end();
 };
-objects.toEditCatalogue =  function  toEditCatalogue(catalogueId,catalogueTitle,catalogueUrl,catalogueTypeId, callback) {
-	var sql ="UPDATE  `kangcool`.`k_navigation` SET  `kt_navigation_name` =  '"+catalogueTitle+"',`kt_navigation_url` = '"+catalogueUrl+"',`kt_nav_tag_ids` = '"+catalogueTypeId+"' WHERE  `k_navigation`.`kt_navigation_ids` ='"+catalogueId+"';";
+exports.toEditCatalogue =  function  (catalogueId,catalogueTitle,catalogueUrl,catalogueTypeId, callback) {
+	var sql =mysqlString.k_navigation.postEditCatalogue(catalogueId,catalogueTitle,catalogueUrl,catalogueTypeId);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
@@ -197,28 +196,28 @@ objects.toEditCatalogue =  function  toEditCatalogue(catalogueId,catalogueTitle,
         		}
     	});//mysql.end();
 };
-objects.appBlogByData =  function  appBlogByData(riqi_dates, callback) {
-	var sql = "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t ,k_riqi r where  r.kt_riqi_dates='"+riqi_dates+"' and k.kt_tags_ids=t.kt_tags_ids and k.kt_blogs_ids=r.kt_blogs_ids ";
-	mysql.query(sql,function(err,rows,fields){//console.log('这里是/models/post，将要把查询到的数据集合传给/routes/index，集合中的数据为:');
+exports.appBlogByData =  function  (riqi_dates, callback) {
+	var sql = mysqlString.k_tags_k_blogs_k_riqi.getAppBlogByData(riqi_dates);
+	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
 		}else{
 			callback(err,rows,fields);
-        		}//console.log('\n');for (var i in rows) {console.log(rows[i]);}
+        		}
     	});//mysql.end();
 }
-objects.appBlogByTag =  function  appBlogByTag(tags_ids,callback) {
-	var sql = "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t where  k.kt_tags_ids="+tags_ids+" and k.kt_tags_ids=t.kt_tags_ids ";
-	mysql.query(sql,function(err,rows,fields){//console.log('这里是/models/post，将要把查询到的数据集合传给/routes/index，集合中的数据为:');
+exports.appBlogByTag =  function  (tags_ids,callback) {
+	var sql = mysqlString.k_tags_k_blogs.getAppBlogByTag(tags_ids);
+	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;
 		}else{
 			callback(err,rows,fields);
-        		}//console.log('\n');for (var i in rows) {console.log(rows[i]);}
+        		}
     	});//mysql.end();
 }
-objects.appCatalogueType =  function  appCatalogueType(nav_tag_ids, callback) {
-	var sql ="select n.kt_navigation_ids,n.kt_navigation_name,n.kt_navigation_url,n.kt_nav_tag_ids,na.kt_nav_tag_name from k_navigation n,k_nav_tag na where n.kt_nav_tag_ids = na.kt_nav_tag_ids and na.kt_nav_tag_ids='"+nav_tag_ids+"'";
+exports.appCatalogueType =  function  (nav_tag_ids, callback) {
+	var sql =mysqlString.k_navigation_k_nav_tag.getAppCatalogueType(nav_tag_ids);
 	mysql.query(sql,function(err,rows,fields){
  		if(err){
 			throw err;

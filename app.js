@@ -16,6 +16,7 @@ var express = require('express')
 	,routes = require('./routes/index')	//加载路由
              ,blogs = require('./routes/blogs')
              ,pos = require('./routes/po')
+             ,apps = require('./routes/app')
              ,abouts = require('./routes/about');
 
 var app = express();
@@ -46,6 +47,7 @@ app.use('/', routes);
 app.use('/', blogs);
 app.use('/', abouts);
 app.use('/', pos);
+app.use('/', apps);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
     var error = req.flash('error');
