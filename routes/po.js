@@ -31,7 +31,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 	//定义跳转
 	router.get('/poHome', checkLogin);
 	router.get('/poHome', function (req, res) {
-<<<<<<< HEAD
 		res.render('client/po/index', { title: '主页',PostTags: PostTags});
 	});
 	router.get('/poAdds', checkLogin);
@@ -61,25 +60,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 	router.get('/poDomains', checkLogin);
 	router.get('/poProse', function (req, res) {
 		res.render('client/po/add/prose', { title: '主页',PostTags: PostTags});
-=======
-			res.render('client/po/index', { title: '主页',PostTags: PostTags});
-		});
-	router.get('/poAdds', checkLogin);
-	router.get('/poAdds', function (req, res) {
-			res.render('client/po/add/addIndex', { title: '主页',PostTags: PostTags});
-		});
-	router.get('/poBlogs', checkLogin);
-	router.get('/poBlogs', function (req, res) {
-			res.render('client/po/add/blogs', { title: '主页',PostTags: PostTags});
-		});
-	router.get('/poDomains', checkLogin);
-	router.get('/poDomains', function (req, res) {
-			res.render('client/po/add/domain', { title: '主页',PostTags: PostTags});
-	});
-	router.get('/poDomains', checkLogin);
-	router.get('/poProse', function (req, res) {
-			res.render('client/po/add/prose', { title: '主页',PostTags: PostTags});
->>>>>>> origin/master
 	});
 	router.get('/poCatalogue', checkLogin);
 	router.get('/poCatalogue', function (req, res) {
@@ -92,7 +72,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 	});
 	router.get('/poAddCatalogueType', checkLogin);
 	router.get('/poAddCatalogueType', function (req, res) {
-<<<<<<< HEAD
 		res.render('client/po/add/catalogueType', { title: '主页',PostTags: PostTags});
 	});
 	router.get('/poAddBlogType', checkLogin);
@@ -111,18 +90,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 	router.get('/poRevise', function (req, res) {
 		res.render('client/po/revise/reviseIndex', { title: '主页',PostTags: PostTags});
 	});
-=======
-			res.render('client/po/add/catalogueType', { title: '主页',PostTags: PostTags});
-		});
-	router.get('/poAddBlogType', checkLogin);
-	router.get('/poAddBlogType', function (req, res) {
-			res.render('client/po/add/blogType', { title: '主页',PostTags: PostTags});
-		});
-	router.get('/poRevise', checkLogin);
-	router.get('/poRevise', function (req, res) {
-			res.render('client/po/revise/reviseIndex', { title: '主页',PostTags: PostTags});
-		});
->>>>>>> origin/master
 	router.get('/poReviseBlogs', checkLogin);
 	router.get('/poReviseBlogs', function (req, res) {
 		Po.GetAllBlog(null,function (GetAllBlogErr, GetAllBlog) {
@@ -132,7 +99,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				res.render('client/po/revise/reviseBlog', { title: '主页',GetAllBlog: GetAllBlog,PostTags: PostTags});
 		});
 	});
-<<<<<<< HEAD
 	router.get('/poReviseNotes', function (req, res) {
 		Po.GetAllNote(null,function (GetAllNoteErr, GetAllNote) {
 				if (GetAllNoteErr) {
@@ -149,8 +115,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				res.render('client/po/revise/reviseFeel', { title: '主页',GetAllFeel: GetAllFeel,PostTags: PostTags});
 		});
 	});
-=======
->>>>>>> origin/master
 	router.get('/editBlogById', checkLogin);
 	router.get('/editBlogById', function (req, res) {
 		var blogs_ids = req.query.blogs_ids;
@@ -161,7 +125,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				res.render('client/po/revise/edit/editBlogs', { title: '主页',BlogsById: BlogsById,PostTags: PostTags});
 		});
 	});
-<<<<<<< HEAD
 	router.get('/editNoteById', function (req, res) {
 		var notes_ids = req.query.notes_ids;
 		Blogs.NotesById( notes_ids,function (NotesByIdErr, NotesById) {
@@ -184,8 +147,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			});
 		});
 	});
-=======
->>>>>>> origin/master
 	router.post('/toEditBlog', function (req, res) {
 		var blogId = req.body.blogId ? kcool.trim(req.body.blogId):1;
 		var blogTitle = req.body.blogTitle ? kcool.trim(req.body.blogTitle):1;
@@ -203,7 +164,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			});
 		});
 	});
-<<<<<<< HEAD
 	router.post('/toEditNote', function (req, res) {
 		var noteId = req.body.noteId ? kcool.trim(req.body.noteId):1;
 		var noteTitle = req.body.noteTitle ? kcool.trim(req.body.noteTitle):1;
@@ -238,8 +198,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			});
 		});
 	});
-=======
->>>>>>> origin/master
 	router.get('/poReviseDomain', checkLogin);
 	router.get('/poReviseDomain', function (req, res) {
 			res.render('client/po/revise/reviseDomain', { title: '主页',PostTags: PostTags});
@@ -316,7 +274,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 				res.render('client/po/delete/deleteBlog', { title: '主页',GetAllBlog: GetAllBlog,PostTags: PostTags});
 		});
 	});
-<<<<<<< HEAD
 	router.get('/poDeleteNotes', function (req, res) {
 		Po.GetAllNote(null,function (GetAllNoteErr, GetAllNote) {
 				if (GetAllNoteErr) {
@@ -353,12 +310,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 		var feels_ids = req.query.feels_ids;
 		Po.delFeelById(feels_ids,function (err, delFeelById) {
 			Po.delFeelRiqiById(feels_ids,function (err, delFeelRiqiById) {
-=======
-	router.get('/delBlogById', function (req, res) {
-		var blogs_ids = req.query.blogs_ids;
-		Post.delBlogById(blogs_ids,function (err, delBlogById) {
-			Post.delBlogRiqiById(blogs_ids,function (err, delBlogRiqiById) {
->>>>>>> origin/master
 				return res.redirect('back');
 			});
 		});
@@ -417,7 +368,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			}
 		});
 	});
-<<<<<<< HEAD
 	router.post('/toAddNoteType', function (req, res) {
 		var tagName = req.body.tagName ? kcool.trim(req.body.tagName):1;
 		//检查标签是否存在
@@ -448,8 +398,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			}
 		});
 	});
-=======
->>>>>>> origin/master
 	router.post('/toAddBlog', function (req, res) {
 		var blogTitle = req.body.blogTitle ? kcool.trim(req.body.blogTitle):1;
 		var blogTagId = req.body.blogTagId ? kcool.trim(req.body.blogTagId):1;
@@ -469,7 +417,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			});
 		});
 	});
-<<<<<<< HEAD
 	router.post('/toAddNote', function (req, res) {
 		var noteTitle = req.body.noteTitle ? kcool.trim(req.body.noteTitle):1;
 		var noteTagId = req.body.noteTagId ? kcool.trim(req.body.noteTagId):1;
@@ -508,8 +455,6 @@ Post.PostTags( null,function (PostTagsErr, PostTags) {
 			});
 		});
 	});
-=======
->>>>>>> origin/master
 	router.post('/toAddProse', function (req, res) {
 		var proseTitle = req.body.proseTitle ? kcool.trim(req.body.proseTitle):1;
 		var proseDate = new Date().format("yyyy-MM-dd hh:mm:ss");
