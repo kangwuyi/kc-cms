@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>KANGJIAN</title>
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+
+	</head>
+	<body>
+	<%- include ../../../modulesTools/header %>
+
+		<!-- 中间部分开始 -->
+		<div class="container poContents"  id="contents">
+			<%- include ../../header %>
+			<%- include ../nav %>
+			<form action="/toEditCatalogue" method="post">
+			<% getCatalogueById.forEach(  function(getCatalogueById){%>
+				<div   class="poAddBox" style="width:100%;">
+				<table class="table table-striped" style="margin-bottom:0;">
+					<tr><td>
+						网站名称：<input class="catalogueTitle"  style="width:30%;" name="catalogueTitle" type="text" placeholder="请输入网站名称" value="<%= getCatalogueById.kt_navigation_name %>">
+						<% if (locals.success&&locals.success.length) { %>
+							<%= locals.success %>
+						<% } %>
+						<% if (locals.error&&locals.error.length) { %>
+							<%= locals.error %>
+						<% } %>
+					</td></tr>
+					<tr><td>
+						所在分类：<%= getCatalogueById.kt_nav_tag_name %>
+						<input class="catalogueId"  style="width:100%;" name="catalogueId" type="hidden" value="<%= getCatalogueById.kt_navigation_ids %>">
+					</td></tr>
+					<tr><td>
+						网站地址：<input class="catalogueUrl"  style="width:60%;" name="catalogueUrl" type="text" placeholder="请输入网站地址" value="<%= getCatalogueById.kt_navigation_url %>">
+					</td></tr>
+					<tr><td>
+						分类：
+						<select name="catalogueTypeId" class="catalogueTypeId"  style="width:20%;"onchange="sel(this)">
+						<% PostCatalogueTag.forEach(  function(PostCatalogueTag){%>
+							<option value="<%= PostCatalogueTag.kt_nav_tag_ids %>"><%= PostCatalogueTag.kt_nav_tag_name %></option>
+						<% });%>
+						</select><a href="/poAddCatalogueType">添加分类</a>
+					</td></tr>
+					<tr><td>
+						<input style="width:100%;" type="submit" value="提交表单">
+					</td></tr>
+				</table>
+			</div>
+		<% });%>
+		</form>
+		</div>
+		<script type="text/javascript" src="js/jquery-main-211.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script src="ckeditor/ckeditor.js"></script>
+		<script src="ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+			$( document ).ready( function() {
+				$( 'textarea#editor1' ).ckeditor();
+			} );
+		</script>
+	</body>
+</html>

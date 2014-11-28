@@ -1,0 +1,164 @@
+.poContents{
+	margin-top:30px;
+	.poName{
+		color:#fff;
+		font-size:100px;
+		width:100%;
+		height:300px;
+		line-height:300px;
+		text-align:center;
+	}
+	.poHeader{
+		height:80px;
+		line-height:80px;
+		width:100%;
+		float:left;
+		border:5px solid #934642;
+		background:#154673;
+		border-radius: 5px;
+		text-align: center;
+	}
+	.poDeleteBox{
+		width:100%;
+		float:left;
+		background:#fff;
+		border:5px solid #459846;
+		border-radius: 5px;
+		table{
+			margin:0;
+			padding:0;
+			tr{
+				margin:0;
+				padding:0;
+			}
+			th{
+				text-align:center;
+				margin:0;
+				padding:0;
+			}
+			td{
+				text-align:center;
+				margin:0;
+				padding:0;
+				a.delImg{
+					background:url(../../img/po/del.gif);color: #9d9c9a;
+					font-size: 10px;
+					text-decoration: none;
+					padding: 0 0 0 14px;
+					background-repeat: no-repeat;
+					background-position: 0 0;
+				}
+			}
+		}
+	}
+	.poAddBox{
+		width:20%;
+		float:left;
+		background:#fff;
+		border:5px solid #459846;
+		border-radius: 5px;
+		table{
+			margin:0;
+			padding:0;
+			tr{
+				margin:0;
+				padding:0;
+			}
+		}
+	}
+	.poReviseBox{
+		width:100%;
+		float:left;
+		background:#fff;
+		border:5px solid #459846;
+		border-radius: 5px;
+		table{
+			margin:0;
+			padding:0;
+			tr{
+				margin:0;
+				padding:0;
+			}
+			th{
+				text-align:center;
+				margin:0;
+				padding:0;
+			}
+			td{
+				text-align:center;
+				margin:0;
+				padding:0;
+				a.editImg{
+					background:url(../../img/po/edit.gif);color: #9d9c9a;
+					font-size: 10px;
+					text-decoration: none;
+					padding: 0 0 0 14px;
+					background-repeat: no-repeat;
+					background-position: 0 0;
+				}
+			}
+		}
+	}
+	.poNav{
+		height:80px;
+		line-height:80px;
+		width:100%;
+		float:left;
+		border:5px solid #647863;
+		background:#652347;
+		border-radius: 5px;
+		text-align: center;
+	}
+	.poTextarea{
+		width:80%;
+		float:left;
+		border:5px solid #564975;
+		background:#564975;
+		border-radius: 5px
+	}
+}
+.deleteProseTh20{
+	width:20%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteCatalogueTh10{
+	width:10%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteCatalogueTh20{
+	width:20%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteCatalogueTh50{
+	width:50%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}
+.deleteBlogTh16{
+	width:16%;
+	display: block;
+	float: left;
+	p{
+		margin:0;
+		padding:0;
+	}
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>KANGJIAN</title>
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+	<%- include ../../modulesTools/header %>
+
+		<!-- 中间部分开始 -->
+		<div class="container poContents">
+			<%- include ../header %>
+			<%- include nav %>
+			<!-- <form action="write/baocun" method="post"> -->
+				<div  class="poDeleteBox">
+				<table class="table table-striped">
+							<tr >
+								<th  class="col-md-2">Id</th>
+								<th  class="col-md-2">Title</th>
+								<th  class="col-md-2">Date</th>
+								<th  class="col-md-2">Content</th>
+								<th  class="col-md-2"></th>
+								<th  class="col-md-2"class="ac">Operation</th>
+							</tr>
+							<tr >
+								<td  class="col-md-2">111</td>
+								<td  class="col-md-2"> Lorem </td>
+								<td  class="col-md-2">12.05.09</td>
+								<td  class="col-md-2"></td>
+								<td  class="col-md-2">Administrator</td>
+								<td  class="col-md-2"><a class="delImg" href="#">Del</a></td>
+							</tr>
+	</table>
+				</div>
+		<!-- </form> -->
+		</div>
+		<script type="text/javascript" src="js/jquery-main-211.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script src="ckeditor/ckeditor.js"></script>
+		<script src="ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+			$( document ).ready( function() {
+				$( 'textarea#editor1' ).ckeditor();
+			} );
+		</script>
+	</body>
+</html>

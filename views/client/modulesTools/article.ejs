@@ -1,0 +1,18 @@
+<aside id="reader-right" class="col-md-10">
+	<% BlogsById.forEach(	function(BlogsById){%>
+	<div class="div-reader-title">
+		<p class="p-reader-title"><%= BlogsById.kt_blogs_titles %></p>
+		<a class="a-reader-next a-hover" id="a_reader_next" href="/content_to_next?blogs_ids=<%= BlogsById.kt_blogs_ids %>&tags_ids=<%= BlogsById.kt_tags_ids %>">Next
+		</a>
+		<a class="a-reader-prev a-hover" id="a_reader_prev" href="/content_to_prev?blogs_ids=<%= BlogsById.kt_blogs_ids %>&tags_ids=<%= BlogsById.kt_tags_ids %>">Prev
+		</a>
+		<a class="a-reader-next a-hover" href="/blogsByMenu?tags_ids='<%= BlogsById.kt_tags_ids %>'">Menu
+		</a>
+	</div>
+	<div class="div-reader-text">
+		<p class="p-reader-text"><%- BlogsById.kt_blogs_contents %></p>
+	</div><% });%>
+	<input class="tags_open_next" id="tags_open_next" style="height:0px;width:0px;" name="tags_open_next" type="hidden"  value="<%= tags_open_next %>">
+	<input class="tags_open_prev" id="tags_open_prev" style="height:0px;width:0px;" name="tags_open_prev" type="hidden"  value="<%= tags_open_prev %>">
+</aside>
+<div style="clear:both;"></div>

@@ -1,0 +1,16 @@
+<nav class="header-skin container-fluid">
+	<ul class="skin-box col-md-12">
+		<li class="skin-link"><a id="skin1" style="background:url(../../img/gb/1.gif)  center no-repeat;">skin1</a></li>
+		<li class="skin-link"><a id="skin2" style="background:url(../../img/gb/3.gif)  center no-repeat;">skin2</a></li>
+		<li class="skin-link"><a id="skin3" style="background:url(../../img/gb/4.gif)  center no-repeat;">skin3</a></li>
+		<li class="skin-link"><a id="skin4" style="background:url(../../img/gb/9.gif)  center no-repeat;">skin4</a></li>
+		<li class="skin-link"><a id="skin5" style="background:url(../../img/gb/13.gif)  center no-repeat;">skin5</a></li>
+		<li>
+		<% if (!locals.user) {%>
+			<div class="conrol_btn  login" title="登录">[Login]</div>
+		<% } else{%>
+			<div id="header-skin-leave"class="conrol_btn  login" title="离开">[Leave]</div>
+		<% }%>
+		</li>
+	</ul>
+</nav>

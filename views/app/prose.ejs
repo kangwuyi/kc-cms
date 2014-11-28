@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=gbk" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+		<link type="text/css" rel="stylesheet" href="css/app/demo.css" />
+		<link type="text/css" rel="stylesheet" href="css/app/jquery.mmenu.all.css" />
+
+		<script type="text/javascript" src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/app/jquery.mmenu.min.all.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('nav#menu').mmenu();
+			});
+		</script>
+
+	</head>
+	<body onLoad="goPage(1,5);">
+		<div id="page">
+			<%- include modulesTools/nav %>
+			<div class="container">
+			    <article class="scroll">
+			        <ul id="mainList" class="mainList list">
+			        <% PostGetProse.forEach(	function(PostGetProse){%>
+<li>
+
+            <h2 class="ng-binding"><%= PostGetProse.kt_prose_titles %></h2>
+            <p class="ng-binding"><%- PostGetProse.kt_prose_contents %></p>
+</li>
+<% });%>
+			        </ul>
+
+							<div id="barcon" name="barcon" >
+							</div>
+
+				<script type="text/javascript" src="js/app/appPage.js"></script>
+				</article>
+			</div>
+
+		</div>
+	</body>
+</html>

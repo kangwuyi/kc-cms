@@ -1,0 +1,50 @@
+<% if (!locals.user) { %>
+<form method="post" action="/login">
+	<div class="header-login">
+		<div class="login-box">
+			<div class="close" title="关闭"></div>
+			<div class="cont">
+				<ul class="logintag">
+					<li class="on" style=" left:0; border-left:0" rel="0"><span>账号登录</span></li>
+					<li rel="1"><span>关注微信</span></li>
+				</ul>
+				<div class="logina" style="height:100%;">
+					<p class="on">
+						<i class="user"></i>
+						<input name="username" type="text" class="txt" placeholder="请输入用户名">
+					</p>
+					<p>
+						<i class="pw"></i>
+						<input name="password" type="password" class="txt" placeholder="请输入密码">
+					</p>
+					<p class="remeber">
+						<input name="remebername" type="checkbox" value="" style="width:20px;padding-top:3px;">记住用户名
+						<input name="" type="submit" value="登 录" class="btn">
+					</p>
+				</div>
+				<div class="loginb" style="height:100%; display:none">
+					<div class="codeP">
+						<img src="img/icon/showqrcode" height="100%">
+					</div>
+					<h3>使用微信扫描二维码添加关注</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<% } else{ %>
+<form method="post" action='/leave'>
+	<div class="header-login">
+		<div class="login-box">
+			<div class="close" title="关闭"></div>
+			<div class="cont">
+				<div class="logina" style="height:100%;">
+					<span style="height:100px;line-height:100px;text-align:center;display:block">确定离开？</span>
+					<p style="margin:0;height:15px;">&nbsp;or&nbsp;&nbsp;<a href="/toPoIndex" style="width:100%;text-align:center;">进入管理系统</a></p>
+					<input style="background:#568437;margin:20px;"name="" type="submit" value="离 开" class="btn">
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<% }%>

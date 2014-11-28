@@ -1,0 +1,15 @@
+/* line 2, ../sass/catalogue.scss */
+#contents {
+  /* aside dl{
+  	background: #EA5124;
+  }
+  
+  aside dt{
+  	background: #fff;
+  	text-align: center;
+  } */
+}
+/* line 2, ../sass/catalogue.scss */
+#contents aside dl dd a {
+  text-decoration: none;
+}

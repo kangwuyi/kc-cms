@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	<script type="text/javascript"  src="lib/jquery/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<table class="table table-striped"  style="color:#666;font-size:18px;">
+		<tr>
+			<td>文章标题</td>
+			<td>文章内容</td>
+		</tr>
+		<% PostGet_all.forEach(	function(PostGet_all){%>
+		<tr>
+			<td><%= PostGet_all.kt_blogs_titles %></td>
+			<td><%- PostGet_all.kt_blogs_contents.substring(0,20) %></td>
+		</tr>
+		<% });%>
+	</table>
+<%- Create_links %>
+</body>
+</html>

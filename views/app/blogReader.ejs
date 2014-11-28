@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=gbk" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+		<link type="text/css" rel="stylesheet" href="css/app/demo.css" />
+		<link type="text/css" rel="stylesheet" href="css/app/jquery.mmenu.all.css" />
+
+		<script type="text/javascript" src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/app/jquery.mmenu.min.all.js"></script>
+		<script type="text/javascript" src="js/header.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('nav#menu').mmenu();
+			});
+		</script>
+
+	</head>
+	<body  >
+		<div id="page">
+			<%- include modulesTools/nav %>
+			<div class="container">
+				<aside id="reader-right" class="col-md-10">
+					<% BlogsById.forEach(	function(BlogsById){%>
+					<div class="div-reader-title">
+						<p style="margin:0;padding:0;" class="p-reader-title"><%= BlogsById.kt_blogs_titles %></p>
+					</div>
+					<div style="width:100%;height:40px;margin:0;padding:0;background:#fff;border:none;">
+						<a style="margin:0;padding:0;height:40px;width:33%;line-height:40px;" class="a-reader-next a-hover" id="a_reader_next" href="/appBlogReaderNext?blogs_ids=<%= BlogsById.kt_blogs_ids %>&tags_ids=<%= BlogsById.kt_tags_ids %>">
+						Next
+						</a>
+						<a style="margin:0;padding:0;height:40px;width:33%;line-height:40px;" class="a-reader-prev a-hover" id="a_reader_prev" href="/appBlogReaderPrev?blogs_ids=<%= BlogsById.kt_blogs_ids %>&tags_ids=<%= BlogsById.kt_tags_ids %>">
+						Prev
+						</a>
+						<a style="margin:0;padding:0;height:40px;width:33%;line-height:40px;" class="a-reader-next a-hover" href="/appBlogByTag?tags_ids='<%= BlogsById.kt_tags_ids %>'">Menu
+						</a>
+					</div>
+					<div class="div-reader-text">
+						<p class="p-reader-text"><%- BlogsById.kt_blogs_contents %></p>
+					</div><% });%>
+					<input class="tags_open_next" id="tags_open_next" style="height:0px;width:0px;" name="tags_open_next" type="hidden"  value="<%= tags_open_next %>">
+					<input class="tags_open_prev" id="tags_open_prev" style="height:0px;width:0px;" name="tags_open_prev" type="hidden"  value="<%= tags_open_prev %>">
+				</aside>
+				
+			</div>
+
+		</div>
+	</body>
+</html>

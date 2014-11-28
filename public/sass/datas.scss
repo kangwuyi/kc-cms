@@ -1,0 +1,28 @@
+@import 'definition';
+/*===日期===*/
+.left-data {
+	float: left;
+	width: 200px;
+	height: auto;
+	margin-top: 0px;
+	@include borderRadius(rgba(0,0,0, 0.1) 0px 0px 3px);
+	table {
+		color:#666;
+		font-size:18px;
+		margin-bottom: 0;
+		background:#eee;
+	}
+	table td{
+		text-align:center;
+	}
+}
+.left-data-title {
+	background: url(../../img/darkbg.jpg);
+	padding: 10px;
+	color: #fff;
+	font-size: 12px;
+	font-family: 'Play', Helvetica, sans-serif;
+	font-weight: bold;
+	margin-bottom: 0px;
+	margin-top: 0;
+}
