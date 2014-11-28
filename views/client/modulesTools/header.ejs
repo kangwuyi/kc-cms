@@ -2,7 +2,11 @@
 <header id="header-left-box" class="left-close skin1">
 	<nav class="header-nav container-fluid" >
 		<ul>
+<<<<<<< HEAD
 			<li class="col-md-2" ><a href="/home" ><span>Home</span></a></li>
+=======
+			<li class="col-md-2" ><a href="/" ><span>Home</span></a></li>
+>>>>>>> origin/master
 			<li class="col-md-2"><a href="/blogs" ><span>Blogs</span></a></li>
 			<li class="col-md-2"><a href="/domainname" ><span>Domain</span></a></li>
 			<li class="col-md-2"><a href="/prose" ><span>Prose</span></a></li>
@@ -13,12 +17,112 @@
 	<article class="container-fluid"style="position: absolute;
 bottom: 20px;
 width: 100%;">
+<<<<<<< HEAD
 		<%- include tags %>
 		<%- include icons %>
 		<%- include skins %>
 
 	</article>
 	<%- include login %>
+=======
+		<nav class="header-tags container-fluid">
+			<ul class="tag-box col-md-12">
+			<% PostTags.forEach(	function(PostTags){%>
+				<li class="tag-link">
+					<a href="/blogsByMenu?tags_ids=<%= PostTags.kt_tags_ids %>">
+						<%= PostTags.kt_tags_name %>
+					</a>
+					<span><%= PostTags.blogs_tags_num %></span>
+				</li>
+			<% });%>
+			</ul>
+		</nav>
+		<nav class="header-icon container-fluid">
+			<ul class="icon-box col-md-12">
+				<li class="icon-link"><a href="http://weibo.com/kangxiaolang"  target="_blank"style="background:url(../../img/icon/weibo.png)  center no-repeat;">weibo</a></li>
+				<li class="icon-link"><a href=""  target="_blank"style="background:url(../../img/icon/github.png)  center no-repeat;">github</a></li>
+				<li class="icon-link"><a href=""  target="_blank"style="background:url(../../img/icon/facebook.png)  center no-repeat;">weibo</a></li>
+				<li ></li>
+				<li class="icon-link"><a href=""  target="_blank"style="background:url(../../img/icon/google.png)  center no-repeat;">weibo</a></li>
+				<li class="icon-link"><a href=""  target="_blank"style="background:url(../../img/icon/linkedin.png)  center no-repeat;">github</a></li>
+				<li class="icon-link"><a href=""  target="_blank"style="background:url(../../img/icon/rss.png)  center no-repeat;">weibo</a></li>
+				<li class="icon-link"><a href=""  target="_blank"style="background:url(../../img/icon/twitter.png)  center no-repeat;">rss</a></li>
+				<li class="icon-link"><a href="http://user.qzone.qq.com/122478499/main"  target="_blank"style="background:url(../../img/icon/qq.png)  center no-repeat;">qq</a></li>
+				<li class="icon-link"><a href="http://tool.kang.cool/"  target="_blank"style="background:url(../../img/icon/side_icon01.png)  center no-repeat;">tool</a></li>
+				<li class="icon-link"><a href="http://tieba.baidu.com/f?kw=%BF%B5%BD%A1"  target="_blank"style="background:url(../../img/icon/side_icon02.png)  center no-repeat;">tieba</a></li>
+				<li ></li>
+			</ul>
+		</nav>
+		<nav class="header-skin container-fluid">
+			<ul class="skin-box col-md-12">
+				<li class="skin-link"><a id="skin1" style="background:url(../../img/gb/1.gif)  center no-repeat;">skin1</a></li>
+				<li class="skin-link"><a id="skin2" style="background:url(../../img/gb/3.gif)  center no-repeat;">skin2</a></li>
+				<li class="skin-link"><a id="skin3" style="background:url(../../img/gb/4.gif)  center no-repeat;">skin3</a></li>
+				<li class="skin-link"><a id="skin4" style="background:url(../../img/gb/9.gif)  center no-repeat;">skin4</a></li>
+				<li class="skin-link"><a id="skin5" style="background:url(../../img/gb/13.gif)  center no-repeat;">skin5</a></li>
+				<li>
+				<% if (!locals.user) {%>
+					<div class="conrol_btn  login" title="登录">[Login]</div>
+				<% } else{%>
+					<div id="header-skin-leave"class="conrol_btn  login" title="离开">[Leave]</div>
+				<% }%>
+				</li>
+			</ul>
+			<p> ©2011-2014 YOOGC.COM.</p>
+			<p>Copyright ©2014 kang.cool All Rights Reserved. 本站源码在 <a target="_blank" href="https://github.com/kahn1990">github.com/kahn1990</a>.</p>
+		</nav>
+	</article>
+	<% if (!locals.user) { %>
+	<form method="post" action="/login">
+		<div class="header-login">
+			<div class="login-box">
+				<div class="close" title="关闭"></div>
+				<div class="cont">
+					<ul class="logintag">
+						<li class="on" style=" left:0; border-left:0" rel="0"><span>账号登录</span></li>
+						<li rel="1"><span>关注微信</span></li>
+					</ul>
+					<div class="logina" style="height:100%;">
+						<p class="on">
+							<i class="user"></i>
+							<input name="username" type="text" class="txt" placeholder="请输入用户名">
+						</p>
+						<p>
+							<i class="pw"></i>
+							<input name="password" type="password" class="txt" placeholder="请输入密码">
+						</p>
+						<p class="remeber">
+							<input name="remebername" type="checkbox" value="" style="width:20px;padding-top:3px;">记住用户名
+							<input name="" type="submit" value="登 录" class="btn">
+						</p>
+					</div>
+					<div class="loginb" style="height:100%; display:none">
+						<div class="codeP">
+							<img src="img/icon/showqrcode" height="100%">
+						</div>
+						<h3>使用微信扫描二维码添加关注</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<% } else{ %>
+	<form method="post" action='/leave'>
+		<div class="header-login">
+			<div class="login-box">
+				<div class="close" title="关闭"></div>
+				<div class="cont">
+					<div class="logina" style="height:100%;">
+						<span style="height:100px;line-height:100px;text-align:center;display:block">确定离开？</span>
+						<p style="margin:0;height:15px;">&nbsp;or&nbsp;&nbsp;<a href="/toPoIndex" style="width:100%;text-align:center;">进入管理系统</a></p>
+						<input style="background:#568437;margin:20px;"name="" type="submit" value="离 开" class="btn">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<% }%>
+>>>>>>> origin/master
     	<div class="header-line">
         		<div class="header-btn" title="kang.cool"></div>
     	</div>

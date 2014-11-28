@@ -7,6 +7,7 @@ var crypto = require('crypto');
 var kcool = require('../public/lib/kcool');
 var Post = require('../models/post');
 var User = require('../models/user');
+<<<<<<< HEAD
 var object = require('../models/object');
 var Po = require('../models/po');
 var pagination = require('pagination-api');
@@ -24,6 +25,20 @@ var aa = Post.PostTags( null,function (PostTagsErr, PostTags) {
 	router.get('/home', function (req, res) {
 		res.render('client/home', { title: '主页',PostTags: PostTags});
 	});
+=======
+var pagination = require('pagination-api');
+var myDate = require('./dateFormat')();
+var base_url = 'blogs';
+Post.PostTags( null,function (PostTagsErr, PostTags) {
+	if (PostTagsErr) {
+		PostTags = [];
+	}//console.log(pagination.create_links());
+	//GET 根目录
+	router.get('/', function (req, res) {//console.log('这里是/routes/index，已经从/models/post收到数据，收到的数据为:');console.log(PostTags);
+			res.render('client/index', { title: '主页',PostTags: PostTags});
+		});
+	//GET blogs页console.log(pagination.create_links());
+>>>>>>> origin/master
 	router.get('/blogs', function (req, res) {
 		Post.PostSorts_count_all_result( null,function (PostSorts_count_all_resultErr, PostSorts_count_all_result) {
 			if (PostSorts_count_all_resultErr) {
@@ -136,7 +151,10 @@ var aa = Post.PostTags( null,function (PostTagsErr, PostTags) {
 		});
 	});
 
+<<<<<<< HEAD
 	//router.get('/about', object.checkLogin);
+=======
+>>>>>>> origin/master
 	router.get('/about', function (req, res) {
 			res.render('client/about', { title: '主页',PostTags: PostTags});
 	});
@@ -174,6 +192,7 @@ var aa = Post.PostTags( null,function (PostTagsErr, PostTags) {
 			//res.redirect('back');//返回之前的页面
 			res.render('client/index', { title: '主页',PostTags: PostTags});
 	});
+<<<<<<< HEAD
 	router.get('/toPoIndex', object.checkLogin);
 	router.get('/toPoIndex', function (req, res) {
 			res.render('client/po/index', { title: '主页',PostTags: PostTags});
@@ -181,4 +200,26 @@ var aa = Post.PostTags( null,function (PostTagsErr, PostTags) {
 
  });
 console.log('aa='+aa)
+=======
+	router.get('/toPoIndex', checkLogin);
+	router.get('/toPoIndex', function (req, res) {
+			res.render('client/po/index', { title: '主页',PostTags: PostTags});
+	});
+	function checkLogin(req, res, next) {
+		if (!req.session.user) {
+			req.flash('error', '未登录!');
+			res.redirect('back');//返回之前的页面
+		}
+		next();
+	};
+
+	function checkNotLogin(req, res, next) {
+		if (req.session.user) {
+			req.flash('error', '已登录!');
+			res.redirect('back');//返回之前的页面
+		}
+		next();
+	};
+ });
+>>>>>>> origin/master
 module.exports = router;
