@@ -1,0 +1,12 @@
+<aside class="header-tags container-fluid">
+	<ul class="tag-box col-md-12">
+	<% PostBlogTag.forEach(	function(PostBlogTag){%>
+		<li class="tag-link">
+			<a href="/in/blogsByMenu?tags_ids=<%= PostBlogTag.kt_tags_ids %>">
+				<%= PostBlogTag.kt_tags_name %>
+			</a>
+			<span><%= PostBlogTag.blogs_tags_num %></span>
+		</li>
+	<% });%>
+	</ul>
+</aside>

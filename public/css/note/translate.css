@@ -1,0 +1,80 @@
+/* line 19, ../../sass/definition.scss */
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/* line 3, ../../sass/note/translate.scss */
+.translateList {
+  /* padding-top: 20px; */
+}
+
+/* line 6, ../../sass/note/translate.scss */
+.translateBox {
+  background: #fff;
+  padding-top: 1px;
+}
+
+/* line 9, ../../sass/note/translate.scss */
+.translateBoxImage {
+  float: left;
+  height: 160px;
+  margin-bottom: 20px;
+  margin-right: 18px;
+  margin-top: 5px;
+  overflow: hidden;
+  width: 160px;
+}
+
+/* line 18, ../../sass/note/translate.scss */
+.translateBoxTitle {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* line 21, ../../sass/note/translate.scss */
+.translateBoxTitle .translateBoxTitleH3 {
+  font-size: 25px;
+  font-weight: normal;
+  height: 40px;
+  margin-bottom: 0px;
+}
+
+/* line 26, ../../sass/note/translate.scss */
+.translateBoxDate {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* line 29, ../../sass/note/translate.scss */
+.translateBoxDate .translateBoxDateH3 {
+  height: 20px;
+  font-size: 11px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+/* line 34, ../../sass/note/translate.scss */
+.translateBoxbody .translateBoxbodyP {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  height: 110px;
+  line-height: 1.42857143;
+  color: #333;
+}
+
+/* line 40, ../../sass/note/translate.scss */
+.translateBoxMore .translateBoxMoreP {
+  font-style: italic;
+  height: 40px;
+  color: #363738;
+  font-size: 12px;
+  padding-right: 100px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: right;
+}

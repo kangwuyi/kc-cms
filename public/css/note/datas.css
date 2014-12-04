@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* line 19, ../../sass/definition.scss */
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/*===日期===*/
+/* line 3, ../../sass/note/datas.scss */
+.right-data {
+  height: auto;
+  margin-top: 0px;
+}
+
+/* line 7, ../../sass/note/datas.scss */
+.left-data {
+  float: left;
+  width: 200px;
+  height: auto;
+  margin-top: 0px;
+  -webkit-border-radius: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+  -moz-border-radius: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+  -ms-border-radius: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+  -o-border-radius: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+  border-radius: rgba(0, 0, 0, 0.1) 0px 0px 3px;
+}
+/* line 13, ../../sass/note/datas.scss */
+.left-data table {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 0;
+  background: #eee;
+}
+/* line 19, ../../sass/note/datas.scss */
+.left-data table td {
+  text-align: center;
+}
+
+/* line 23, ../../sass/note/datas.scss */
+.left-data-title {
+  background: url(../../img/darkbg.jpg);
+  padding: 10px;
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Play', Helvetica, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0;
+}

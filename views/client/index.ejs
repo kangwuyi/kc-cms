@@ -1,61 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-	<link rel="shortcut icon" href="favicon.ico"   type="image/x-icon">
-	<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
-	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<meta content="yes" name="apple-mobile-web-app-capable">
-	<meta content="black" name="apple-mobile-web-app-status-bar-style">
-	<meta content="telephone=no" name="format-detection">
-	<link rel="apple-touch-icon" href="favicon.png">
-	<script language=javascript>
-		  if(screen.width<='1024'){
-		  window.location = "/appIndex";
-		}
-		else{};
-	</script>
-</head>
-<body>
+<%- include modulesTools/headerLoader %>
 	<%- include modulesTools/header %>
-	<!-- 中间部分开始 -->
-	<div class="container" id="contents" >
-	<div class="col-md-4"><aside class=" well " style="background: #fff;"><h3 >十页书</h3>			<div ><p><a href="http://shiyeshu.com/" rel="home" title="">十页书</a>(shiyeshu.com)，我们关注Web前端开发技术，移动前端开发，前端资讯，同时分享前端资源和工具等，期待你的参与,<a rel="nofollow" target="_blank" href="/about">了解更多..</a></p>
-<%- include modulesTools/icons %>
-</div>
-		</aside></div>
-<div class="col-md-8">
-<aside class=" well " style="background: #fff;">
-	<% GetAllNote.forEach(	function(GetAllNote){%>
-	<article class="right-blogs-box clearfix">
-		<div class="right-blogs-frame col-md-10">
-			<h2 class="right-blogs-title">
-				<a href="/notesById?notes_ids=<%= GetAllNote.kt_notes_ids %>&tags_ids=<%= GetAllNote.kt_tags_ids %>" title="<%= GetAllNote.kt_notes_titles %>"  target="_blank" ><%= GetAllNote.kt_notes_titles %></a>
-			</h2>
-		</div>
-		<div class="right-blogs-bar col-md-2" >
-			<div class="right-bar-date">
-				<strong class="right-bar-day"><%= GetAllNote.kt_notes_ri %></strong>
-				<div class="right-bar-holder">
-					<span class="right-bar-month"><%= GetAllNote.kt_notes_yue %></span>
-					<span class="right-bar-year"><%= GetAllNote.kt_notes_year %></span>
+	<%- include modulesTools/menu %>
+	<div class="wrapper">
+		<div class="container">
+			<div class="col-md-12" style="height:40px;"></div>
+			<div class="col-md-4" style="color:#423D3D;">
+				<div style="background:#ff6600;height:400px;border: 1px solid #fff;
+border-radius: 3px;">
+				<h2 style="text-align: center;background:#ff6600;height:40px;color:#fff;margin:0 0 20px 0;padding:10px;">念奴娇·赤壁怀古</h2>
+				<p style="margin:0px;padding-right:40px;text-align:right;color:#fff;font-size:10px;">苏轼</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">大江东去，浪淘尽，千古风流人物</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">故垒西边，人道是，三国周郎赤壁</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">乱石穿空，惊涛拍岸，卷起千堆雪</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">江山如画，一时多少豪杰</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">遥想公瑾当年，小乔初嫁了，雄姿英发</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">羽扇纶巾，谈笑间，樯橹灰飞烟灭</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">故国神游，多情应笑我，早生华发</p>
+<p  style="text-align: center;background:#ff6600;color:#fff;margin:0px;padding:10px;">人生如梦，一尊还酹江月</p>
 				</div>
 			</div>
-			<div class="right-bar-tag">
-				<strong class="right-bar-title">标签</strong>
-				<a href="/blogsByMenu?blogs_ids=<%= GetAllNote.kt_notes_ids %>&tags_ids=<%= GetAllNote.kt_note_tags_ids %>" title="#" rel="external"><%= GetAllNote.kt_note_tags_name %></a>
+			<div class="col-md-8">
+				<div style="background:#fff;height:400px;color:#423D3D;border: 1px solid #ff6600;
+border-radius: 3px;">
+					<h3 style="background:#ff6600;height:40px;color:#fff;margin:0px;padding:10px;"></h3>
+					<div class="col-md-12" style="padding:20px;">
+						<div class="col-md-12"  style="height:320px;background:#ff6600;padding:20px;border: 1px solid #fff;
+border-radius: 3px;">
+<img src="../img/ground.png" height="100%"alt="" style="background:#fff;border: 1px solid #fff;
+border-radius: 20px;">
+<img src="../img/a3.png" width="10%"alt="" style="position: absolute;
+top: 40px;
+right: 20px;">
+<img src="../img/a4.png" width="20%"alt="" style="position: absolute;
+top: 100px;
+right: 100px;">
+<img src="../img/a5.png" width="20%"alt="" style="position: absolute;
+top: 60px;
+right: 20px;">
+<img src="../img/a5.png" width="10%"alt="" style="position: absolute;
+top: 200px;
+right: 40px;">
+<img src="../img/a4.png" width="20%"alt="" style="position: absolute;
+top: 280px;
+right: 100px;">
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</article>
-	<% });%>
-		</aside>
-</div>
 	</div>
-	<!-- 中间部分结束 -->
-	<%- include modulesTools/footer %>
-	<script type="text/javascript" src="js/jquery-main-211.js"></script>
-	<script type="text/javascript" src="js/header.js"></script>
-</body>
-</html>
+<%- include modulesTools/footerLoader %>

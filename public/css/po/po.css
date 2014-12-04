@@ -1,0 +1,215 @@
+/* line 19, ../../sass/definition.scss */
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/* line 9, ../../sass/po/po.scss */
+table, tr, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 13, ../../sass/po/po.scss */
+.poContents {
+  margin-top: 30px;
+}
+/* line 15, ../../sass/po/po.scss */
+.poContents .poName {
+  color: #fff;
+  font-size: 100px;
+  width: 100%;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+}
+/* line 23, ../../sass/po/po.scss */
+.poContents .poHeader {
+  height: 80px;
+  line-height: 80px;
+  width: 100%;
+  float: left;
+  border: 5px solid #934642;
+  background: #154673;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 3, ../../sass/po/po.scss */
+.poContents .poHeader ul > li {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+}
+/* line 33, ../../sass/po/po.scss */
+.poContents .poDeleteBox {
+  width: 100%;
+  float: left;
+  background: #fff;
+  border: 5px solid #459846;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 40, ../../sass/po/po.scss */
+.poContents .poDeleteBox table th {
+  text-align: center;
+}
+/* line 43, ../../sass/po/po.scss */
+.poContents .poDeleteBox table td {
+  text-align: center;
+}
+/* line 45, ../../sass/po/po.scss */
+.poContents .poDeleteBox table td a.delImg {
+  background: url(../../img/po/del.gif);
+  color: #9d9c9a;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 0 0 0 14px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+/* line 56, ../../sass/po/po.scss */
+.poContents .poAddBox {
+  width: 20%;
+  float: left;
+  background: #fff;
+  border: 5px solid #459846;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 63, ../../sass/po/po.scss */
+.poContents .poReviseBox {
+  width: 100%;
+  float: left;
+  background: #fff;
+  border: 5px solid #459846;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 70, ../../sass/po/po.scss */
+.poContents .poReviseBox table th {
+  text-align: center;
+}
+/* line 73, ../../sass/po/po.scss */
+.poContents .poReviseBox table td {
+  text-align: center;
+}
+/* line 75, ../../sass/po/po.scss */
+.poContents .poReviseBox table td a.editImg {
+  background: url(../../img/po/edit.gif);
+  color: #9d9c9a;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 0 0 0 14px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+/* line 86, ../../sass/po/po.scss */
+.poContents .poNav {
+  height: 80px;
+  line-height: 80px;
+  width: 100%;
+  float: left;
+  border: 5px solid #647863;
+  background: #652347;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 3, ../../sass/po/po.scss */
+.poContents .poNav ul > li {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+}
+/* line 96, ../../sass/po/po.scss */
+.poContents .poTextarea {
+  width: 80%;
+  float: left;
+  border: 5px solid #564975;
+  background: #564975;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 112, ../../sass/po/po.scss */
+.deleteProseTh20 {
+  width: 20%;
+  display: block;
+  float: left;
+}
+/* line 107, ../../sass/po/po.scss */
+.deleteProseTh20 p {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 116, ../../sass/po/po.scss */
+.deleteCatalogueTh10 {
+  width: 10%;
+  display: block;
+  float: left;
+}
+/* line 107, ../../sass/po/po.scss */
+.deleteCatalogueTh10 p {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 120, ../../sass/po/po.scss */
+.deleteCatalogueTh20 {
+  width: 20%;
+  display: block;
+  float: left;
+}
+/* line 107, ../../sass/po/po.scss */
+.deleteCatalogueTh20 p {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 124, ../../sass/po/po.scss */
+.deleteCatalogueTh50 {
+  width: 50%;
+  display: block;
+  float: left;
+}
+/* line 107, ../../sass/po/po.scss */
+.deleteCatalogueTh50 p {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 128, ../../sass/po/po.scss */
+.deleteBlogTh16 {
+  width: 16%;
+  display: block;
+  float: left;
+}
+/* line 107, ../../sass/po/po.scss */
+.deleteBlogTh16 p {
+  margin: 0;
+  padding: 0;
+}

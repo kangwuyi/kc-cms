@@ -1,0 +1,21 @@
+@import '../definition';
+.noteList{
+	color:$colorWhite;
+	h3 a{
+		color:$colorWhite;
+	}
+	.noteBox{
+		margin: 0;
+		padding: 1px 15px 1px 15px;
+		background: $colorWhite;
+		.noteLink{
+			text-decoration: none;
+			list-style-type: none;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			.noteBoxDate{
+				text-align: right;
+			}
+		}
+	}
+}

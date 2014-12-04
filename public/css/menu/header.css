@@ -1,0 +1,107 @@
+/* line 19, ../../sass/definition.scss */
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/* line 2, ../../sass/menu/header.scss */
+.headerWrapper {
+  width: 100%;
+  /* position: fixed; */
+  z-index: 99999;
+}
+
+/* line 8, ../../sass/menu/header.scss */
+.headerDiv {
+  padding-top: 30px;
+  height: 100px;
+}
+
+/* line 12, ../../sass/menu/header.scss */
+.logo {
+  float: left;
+  width: 400px;
+  height: 100%;
+}
+
+/* line 16, ../../sass/menu/header.scss */
+.logo span {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* line 21, ../../sass/menu/header.scss */
+.logo span i {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+/* line 25, ../../sass/menu/header.scss */
+.search {
+  float: right;
+  border: #cccccc 1px solid;
+  width: 250px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-right: 26px;
+}
+
+/* line 34, ../../sass/menu/header.scss */
+.searchIn {
+  padding-left: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 220px;
+  font-size: 13px;
+  line-height: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+}
+
+/* line 46, ../../sass/menu/header.scss */
+.submitSearch {
+  width: 16px;
+  height: 16px;
+  background: url(http://docs.alibabagroup.com/assets2/images/cn/global/search_btn.png) top no-repeat;
+  text-indent: -9999px;
+  border: none;
+  vertical-align: top;
+  margin-top: 5px;
+}
+
+/* line 55, ../../sass/menu/header.scss */
+.lanageWrapper {
+  width: 60px;
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  color: #fff;
+}
+/* line 61, ../../sass/menu/header.scss */
+.lanageWrapper a {
+  color: #fff;
+}
+/* line 63, ../../sass/menu/header.scss */
+.lanageWrapper a:hover {
+  color: #fff;
+}
+
+/* line 68, ../../sass/menu/header.scss */
+.loginWrapper {
+  width: 60px;
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  color: #fff;
+}

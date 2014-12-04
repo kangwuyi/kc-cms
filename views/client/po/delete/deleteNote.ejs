@@ -1,58 +1,36 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-		<title>KANGJIAN</title>
-		<link rel="stylesheet"  href="css/base.css" type="text/css" media="all">
-		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
-	</head>
-	<body onLoad="goPage(1,10);">
-	<%- include ../../modulesTools/header %>
-
-		<!-- 中间部分开始 -->
-		<div class="container poContents">
-			<%- include ../header %>
-			<%- include nav %>
-				<div  class="poDeleteBox">
-				<table class="table table-striped"  id="idData" >
-					<tr>
-						<th  class="deleteBlogTh16">Id</th>
-						<th  class="deleteBlogTh16">Title</th>
-						<th  class="deleteBlogTh16">Date</th>
-						<th  class="deleteBlogTh16">Content</th>
-						<th  class="deleteBlogTh16">Tag</th>
-						<th  class="deleteBlogTh16">Operation</th>
-					</tr>
-					<% GetAllNote.forEach(	function(GetAllNote){%>
-					<tr>
-						<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_ids %></td>
-						<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_titles %></td>
-						<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_year %>:<%= GetAllNote.kt_notes_yue %>:<%= GetAllNote.kt_notes_ri %></td>
-						<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_contents.substring(0,10) %></td>
-						<td  class="deleteBlogTh16"><%= GetAllNote.kt_note_tags_name %></td>
-						<td  class="deleteBlogTh16"><a class="delImg" href="/delNoteById?notes_ids=<%= GetAllNote.kt_notes_ids %>">Del</a></td>
-					</tr>
-					<% });%>
-				</table>
-				<table width="100%">
-					<tr>
-						<td>
-							<div id="barcon" name="barcon"></div>
-						</td>
+<%- include ../poHeaderLoader %>
+	<div class="container poContents">
+		<%- include ../header %>
+		<%- include nav %>
+			<div  class="poDeleteBox">
+			<table class="table table-striped"  id="idData" >
+				<tr>
+					<th  class="deleteBlogTh16">Id</th>
+					<th  class="deleteBlogTh16">Title</th>
+					<th  class="deleteBlogTh16">Date</th>
+					<th  class="deleteBlogTh16">Content</th>
+					<th  class="deleteBlogTh16">Tag</th>
+					<th  class="deleteBlogTh16">Operation</th>
+				</tr>
+				<% GetAllNote.forEach(	function(GetAllNote){%>
+				<tr>
+					<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_ids %></td>
+					<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_titles %></td>
+					<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_year %>:<%= GetAllNote.kt_notes_yue %>:<%= GetAllNote.kt_notes_ri %></td>
+					<td  class="deleteBlogTh16"><%= GetAllNote.kt_notes_contents.substring(0,10) %></td>
+					<td  class="deleteBlogTh16"><%= GetAllNote.kt_note_tags_name %></td>
+					<td  class="deleteBlogTh16"><a class="delImg" href="/delNoteById?notes_ids=<%= GetAllNote.kt_notes_ids %>">Del</a></td>
+				</tr>
+				<% });%>
+			</table>
+			<table width="100%">
+				<tr>
+					<td>
+						<div id="barcon" name="barcon"></div>
 					</td>
-				</table>
-			</div>
-			<script type="text/javascript" src="js/po/page.js"></script>
+				</td>
+			</table>
 		</div>
-		<script type="text/javascript" src="js/jquery-main-211.js"></script>
-		<script type="text/javascript" src="js/header.js"></script>
-		<script src="ckeditor/ckeditor.js"></script>
-		<script src="ckeditor/adapters/jquery.js"></script>
-		<script type="text/javascript">
-			$( document ).ready( function() {
-				$( 'textarea#editor1' ).ckeditor();
-			} );
-		</script>
-	</body>
-</html>
+		<script type="text/javascript" src="js/po/page.js"></script>
+	</div>
+<%- include ../poFooterLoader %>

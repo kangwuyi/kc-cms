@@ -4,181 +4,131 @@ var url = require("url");            //解析GET请求
 var query = require("querystring");    //解析POST请求
 var router = express.Router();
 var crypto = require('crypto');
-var kcool = require('../public/lib/kcool');
-var Post = require('../models/post');
-var User = require('../models/user');
-var object = require('../models/object');
-var Po = require('../models/po');
-var pagination = require('pagination-api');
+var Home = require('./api/home');
+var Blog = require('./api/blog');
+var Note = require('./api/note');
+var Feel = require('./api/feel');
+var About = require('./api/about');
+var Prose = require('./api/prose');
+var User = require('./api/user');
+var Catalogue = require('./api/catalogue');
+var Domains = require('./api/domain');
+var Translate = require('./api/translate');
+var object = require('../models/api/object');
 var myDate = require('./dateFormat')();
-var base_url = 'blogs';
-var aa = Post.PostTags( null,function (PostTagsErr, PostTags) {
-	if (PostTagsErr) {
-		PostTags = [];
-	}
-	router.get('/', function (req, res) {
-		Po.GetAllNote( null,function (getAllNoteErr, GetAllNote) {
-			res.render('client/index', { title: '主页',PostTags: PostTags,GetAllNote: GetAllNote});
-		});
-	});
-	router.get('/home', function (req, res) {
-		res.render('client/home', { title: '主页',PostTags: PostTags});
-	});
-	router.get('/blogs', function (req, res) {
-		Post.PostSorts_count_all_result( null,function (PostSorts_count_all_resultErr, PostSorts_count_all_result) {
-			if (PostSorts_count_all_resultErr) {
-				count_all_result = 1;
-			};//console.log(PostSorts_count_all_result);
-			count_all_result = PostSorts_count_all_result[0].count_all_result;	//count_all_result是所有博客的总数量
-			var per_pages = 1;
-			if(req.query.per_page){
-				per_pages = req.query.per_page;//console.log("get");
-			};
-			if(req.body.per_page){
-				per_pages = req.body.per_page;//console.log("post");
-			}//console.log("per_pages");console.log(per_pages);
-			var total_rows,per_page,base_url ;
-			total_rows = count_all_result ;
-			per_page = 4;
-			base_url = 'blogs?';
-			var changePer_page = ( per_pages - 1 ) * per_page;//console.log(changePer_page);
-			Post.PostGet_all(changePer_page,per_page,function (PostGet_allErr, PostGet_all) {
-				if (PostGet_allErr) {
-					PostGet_all = [];
-				};//console.log(PostGet_all);
-				var Create_links = pagination.create_links(total_rows,per_page,per_pages,base_url);
-				Post.PostRiqi( null,function (PostRiqiErr, PostRiqi) {
-					if (PostRiqiErr) {
-						PostRiqi = [];
-					};//console.log(PostRiqi);
-					res.render('client/blogs', { title: '主页',PostGet_all: PostGet_all,PostRiqi: PostRiqi,PostTags: PostTags,Create_links:Create_links});
-				});
-			});
-		});
-	});
 
-	router.get('/domainname', function (req, res) {
-		Post.PostGetDomainsite( null,function (PostGetDomainsiteErr, PostGetDomainsite) {
-			Post.PostGetDomainsuffix( null,function (PostGetDomainsuffixErr, PostGetDomainsuffix) {
-				switch (PostGetDomainsiteErr || PostGetDomainsuffixErr){
-					case PostGetDomainsiteErr:
-						PostGetDomainsiteErr = [];
-						break;
-					case PostGetDomainsuffixErr:
-						PostGetDomainsuffixErr = [];
-						break;
-				}
-				res.render('client/domainname', { title: '主页',PostTags: PostTags,PostGetDomainsite:PostGetDomainsite,PostGetDomainsuffix:PostGetDomainsuffix});
-			});
-		});
-	});
 
-	router.get('/prose', function (req, res) {
-			Date.prototype.Format = function (fmt) {
-				var o = {
-					"M+": this.getMonth() + 1, //月份
-					"d+": this.getDate(), //日
-					"h+": this.getHours(), //小时
-					"m+": this.getMinutes(), //分
-					"s+": this.getSeconds(), //秒
-					"q+": Math.floor((this.getMonth() + 3) / 3), //季度
-					"S": this.getMilliseconds() //毫秒
-				};
-				if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-				for (var k in o)
-				if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-				return fmt;
-			}
-		Post.PostGetProse( null,function (err, PostGetProse) {
-			if (err) {
-				PostGetProse = [];
-			};
-			var PostDataProse = new Array();
-			for(var p = 0; p < PostGetProse.length; p++){
-				var dataProse = {
-					dataYear:new Date(PostGetProse[p].kt_prose_dates).format("yyyy"),
-				}
-				PostDataProse.push(dataProse.dataYear);
-			}
-			for(var p = 0; p < PostGetProse.length; p++){
-				PostGetProse[p].dataYear = new Date(PostGetProse[p].kt_prose_dates).format("yyyy");
-				PostGetProse[p].dataMonth = new Date(PostGetProse[p].kt_prose_dates).format("MM")
-			}
-			function unique(arr) {
-				var result = [], hash = {};
-				for (var i = 0, elem; (elem = arr[i]) != null; i++) {
-					if (!hash[elem]) {
-						result.push(elem);
-						hash[elem] = true;
-					}
-				}
-				return result;
-			}
-			PostDataProse = new unique(PostDataProse);//console.log(PostDataProse)
-			res.render('client/prose', { title: '主页',PostTags: PostTags,PostGetProse: PostGetProse,PostDataProse:PostDataProse});
-		});
-	});
+//前台
+router.get('/', Home.indexs);
+router.get('/in/toPoIndex',Home.toPoIndex );
+router.get('/in/about',Home.about);
+router.get('/in/photo',Home.photo);
+router.get('/in/design',Home.design);
+router.get('/in/assembly',Home.assembly);
 
-	router.get('/catalogue', function (req, res) {
-		Post.PostCatalogueTag( null,function (err, PostCatalogueTag) {
-			if (err) {
-				PostCatalogueTag = [];
-			};//console.log(PostCatalogueTag);
-			//for(var i = 0; i<PostCataloguTag.length; i++){
-				//console.log(PostCataloguTag[i].kt_nav_tag_ids);
-				Post.PostCatalogue(null,function (err, PostCatalogue) {
-					if (err) {
-						PostCatalogue = [];
-					};//console.log(PostCatalogue);
-					res.render('client/catalogue', { title: '主页',PostTags: PostTags,PostCatalogueTag: PostCatalogueTag,PostCatalogue: PostCatalogue});
-				});
-			//}
-		});
-	});
+router.get('/in/blog', Blog.allBlog);
+router.get('/in/blogsById',Blog.blogsById);
+router.get('/in/content_to_next',Blog.content_to_next);
+router.get('/in/content_to_prev',Blog.content_to_prev);
+router.get('/in/blogsByMenu', Blog.blogsByMenu);
+router.get('/in/PageByData', Blog.PageByData);
 
-	//router.get('/about', object.checkLogin);
-	router.get('/about', function (req, res) {
-			res.render('client/about', { title: '主页',PostTags: PostTags});
-	});
+router.get('/in/feel', Feel.allFeel);
+router.get('/in/feelsById',Feel.feelsById);
+router.get('/in/feelsByNext',Feel.feelsByNext);
+router.get('/in/feelsByPrev',Feel.feelsByPrev);
+router.get('/in/feelsByMenu', Feel.feelsByMenu);
+router.get('/in/pageByFeelData', Feel.pageByFeelData);
 
-	router.post('/login', function (req, res) {
-		//生成密码的 md5 值
-		var md5 = crypto.createHash('md5'),
-		password = md5.update(req.body.password).digest('hex');
-		//检查用户是否存在
-		User.get(req.body.username, function (err, user) {
-			if (user.length<1) {
-				req.flash('error', '用户不存在!');
-				return res.redirect('back');//返回之前的页面
-			}//console.log(user);
-			//检查密码是否一致
-			if (user[0].kt_user_password != password) {
-				req.flash('error', '用户不存在!');
-				return res.redirect('back');//返回之前的页面
-			}
-			//用户名密码都匹配后，将用户信息存入 session
-			//console.log(user[0].kt_user_name);
-			req.session.user = user[0].kt_user_name;//console.log("session:"+req.session.user);
-			req.flash('success', '登陆成功!');
-			// res.send(req.session.user);
-			//res.redirect('back');//返回之前的页面
-			res.render('client/po/index', { title: '主页',PostTags: PostTags});
-		});
-	});
-	router.post('/leave', function (req, res) {
-			//用户名密码都匹配后，将用户信息存入 session
-			//console.log(user[0].kt_user_name);
-			req.session.user = '';//console.log("session:"+req.session.user);
-			req.flash('success', '退出成功!');
-			// res.send(req.session.user);
-			//res.redirect('back');//返回之前的页面
-			res.render('client/index', { title: '主页',PostTags: PostTags});
-	});
-	router.get('/toPoIndex', object.checkLogin);
-	router.get('/toPoIndex', function (req, res) {
-			res.render('client/po/index', { title: '主页',PostTags: PostTags});
-	});
+router.get('/in/note', Note.allNote);
+router.get('/in/notesByMenu', Note.notesByMenu);
 
- });
-console.log('aa='+aa)
+router.get('/in/translate', Translate.allTranslate);
+router.get('/in/translatesById',Translate.translatesById);
+router.get('/in/translatesByNext',Translate.translatesByNext);
+router.get('/in/translatesByPrev',Translate.translatesByPrev);
+router.get('/in/translatesByMenu', Translate.translatesByMenu);
+
+router.get('/in/domain', Domains.domains);
+
+router.get('/in/prose', Prose.prose);
+
+router.get('/in/catalogue', Catalogue.catalogue);
+
+router.get('/in/toPoIndex', object.checkLogin);
+
+router.get('/in/wendang',About.wendang);
+router.get('/in/resume',About.resume);
+router.get('/in/enresume',About.enresume);
+router.get('/in/pagination-api',About.paginationApi);
+router.get('/in/pagination-api-source',About.paginationApiSource);
+router.get('/in/kcool',About.kcool);
+router.get('/in/kcool-source',About.kcoolSource);
+
+router.post('/in/login', User.login);
+router.post('/in/leave', User.leave);
+
+
+//后台
+router.get('/poHome', Home.poHome);
+router.get('/poAdds', Home.poAdds);
+router.get('/poRevise', Home.poRevise);
+router.get('/poDelete', Home.poDelete);
+
+router.get('/poBlogs', Blog.poBlogs);
+router.get('/poAddBlogType', Blog.poAddBlogType);
+router.post('/toAddBlogType', Blog.toAddBlogType);
+router.post('/toAddBlog',Blog.toAddBlog);
+router.get('/poReviseBlogs', Blog.poReviseBlogs);
+router.get('/editBlogById', Blog.editBlogById);
+router.post('/toEditBlog', Blog.toEditBlog);
+router.get('/poDeleteBlogs', Blog.poDeleteBlogs);
+router.get('/delBlogById', Blog.delBlogById);
+
+router.get('/poFeels', Feel.poFeels);
+router.get('/poAddFeelType', Feel.poAddFeelType);
+router.post('/toAddFeelType', Feel.toAddFeelType);
+router.post('/toAddFeel', Feel.toAddFeel);
+router.get('/poReviseFeels', Feel.poReviseFeels);
+router.get('/editFeelById', Feel.editFeelById);
+router.post('/toEditFeel', Feel.toEditFeel);
+router.get('/poDeleteFeels', Feel.poDeleteFeels);
+router.get('/delFeelById', Feel.delFeelById);
+
+router.get('/poTranslate', Translate.poTranslate);
+router.post('/addTranslateNew', Translate.addTranslateNew);
+router.get('/poReviseTranslate', Translate.poReviseTranslate);
+router.get('/editTranslateById', Translate.editTranslateById);
+router.post('/toEditTranslate', Translate.toEditTranslate);
+router.get('/poDeleteTranslate', Translate.poDeleteTranslate);
+router.get('/delTranslateById', Translate.delTranslateById);
+
+router.get('/poProse', Prose.poProse);
+router.post('/toAddProse',Prose.toAddProse );
+router.get('/poReviseProse', Prose.poReviseProse);
+router.get('/editProseById', Prose.editProseById);
+router.post('/toEditProse', Prose.toEditProse);
+router.get('/poDeleteProse', Prose.poDeleteProse);
+router.get('/delProseById', Prose.delProseById);
+
+router.get('/poCatalogue', Catalogue.poCatalogue);
+router.get('/poAddCatalogueType', Catalogue.poAddCatalogueType);
+router.post('/addCatalogueType', Catalogue.addCatalogueType);
+router.post('/addCatalogue', Catalogue.addCatalogue);
+router.get('/poReviseCatalogue', Catalogue.poReviseCatalogue);
+router.get('/editCatalogueById', Catalogue.editCatalogueById);
+router.post('/toEditCatalogue', Catalogue.toEditCatalogue);
+router.get('/poDeleteCatalogue', Catalogue.poDeleteCatalogue);
+router.get('/delCatalogueById', Catalogue.delCatalogueById);
+
+router.get('/poAddNoteType', Note.poAddNoteType);
+router.get('/poNotes', Note.PostNotesTag);
+router.post('/toAddNoteType', Note.toAddNoteType);
+router.post('/toAddNote',Note.toAddNote);
+router.get('/poReviseNotes', Note.poReviseNotes);
+router.get('/editNoteById', Note.editNoteById);
+router.post('/toEditNote', Note.toEditNote);
+router.get('/poDeleteNotes', Note.poDeleteNotes);
+router.get('/delNoteById', Note.delNoteById);
+
 module.exports = router;

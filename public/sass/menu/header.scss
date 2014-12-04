@@ -1,0 +1,74 @@
+@import '../definition';
+.headerWrapper{
+width: 100%;
+/* position: fixed; */
+
+z-index: 99999;
+}
+.headerDiv{
+	padding-top: 30px;
+height: 100px;
+}
+.logo{
+	float: left;
+width: 400px;height: 100%;
+}
+.logo span{
+	color:#fff;
+	font-size:30px;
+	 font-weight:bold;font-family: Georgia,"Times New Roman",Times,serif;
+}
+.logo span i{
+	font-size:10px;
+	 font-weight:normal;
+}
+.search{
+	float: right;
+border: #cccccc 1px solid;
+width: 250px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+margin-right: 26px;
+}
+.searchIn{
+	padding-left: 10px ;
+	-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+	width: 220px;
+font-size: 13px;
+line-height: 30px;
+height: 30px;
+border: none;
+background: none;
+}
+.submitSearch{
+	width: 16px;
+height: 16px;
+background: url(http://docs.alibabagroup.com/assets2/images/cn/global/search_btn.png) top no-repeat;
+text-indent: -9999px;
+border: none;
+vertical-align: top;
+margin-top: 5px;
+}
+.lanageWrapper {
+	width: 60px;
+	float: right;
+	position: relative;
+	margin-top: 10px;
+	color:$colorWhite;
+	a{
+		color:$colorWhite;
+		&:hover{
+			color:$colorWhite;
+		}
+	}
+}
+.loginWrapper {
+	width: 60px;
+	float: right;
+	position: relative;
+	margin-top: 10px;
+	color:$colorWhite;
+}

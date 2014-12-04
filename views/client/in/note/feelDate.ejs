@@ -1,0 +1,15 @@
+<aside class="left-data col-md-4">
+	<h2 class="left-data-title">归档</h2>
+	<%- include feelTag %>
+	<table class="table table-striped">
+	<% PostFeelDate.forEach(	function(PostFeelDate){%>
+		<tr>
+			<td>
+				<a href="/in/pageByFeelData?riqi_dates='<%= PostFeelDate.kt_feel_riqi_dates %>'">
+					<%= PostFeelDate.kt_feel_riqi_dates %>
+				</a>
+			</td>
+		</tr>
+	<% });%>
+	</table>
+</aside>

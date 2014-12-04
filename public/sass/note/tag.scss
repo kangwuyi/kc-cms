@@ -1,0 +1,71 @@
+@import '../definition';
+.tag-box {
+	background: url(../../img/darkbg.jpg);
+	display: block;
+	overflow: hidden;
+	list-style: disc;
+	margin: 0 0 9px 25px;
+	font-size: 13px;
+	line-height: 18px;
+	list-style-type: disc;
+	@include tagBox(before, after,start, end);
+	font-family:$fontStack3;
+	.tag-link {
+		text-decoration: none;
+		list-style-type: none;
+		float: left;
+		margin: 0 10px 6px 0;
+		line-height: 1.8;
+		display: list-item;
+		text-align: -webkit-match-parent;
+		a {
+			display: inline-block;
+			text-decoration: none;
+			font: #{$fontStack4} 12px;
+			color: $colorWhite;
+			height: 18px;
+			line-height: 18px;
+			margin: 5px 0 5px 8px;
+			padding: 0 5px 0 12px;
+			position: relative;
+			@include borderRadius(0 5px 5px 0);
+			&:-webkit-any-link {
+				cursor: auto;
+			}
+			&:hover {
+				opacity: 0.8;
+				color: $colorWhite;
+			}
+			&:before {
+				content: " ";
+				width: 0px;
+				height: 0px;
+				position: absolute;
+				top: 0;
+				left: -18px;
+				border: 9px solid transparent;
+				border-right-color: $colorWhite;
+			}
+			&:after {
+				content: " ";
+				width: 4px;
+				height: 4px;
+				background-color: $colorWhite;
+				@include borderRadius(4px);
+				@include box-shadow(0px 0px 0px 1px rgba(0,0,0,0.3));
+				position: absolute;
+				top: 7px;
+				left: 2px;
+			}
+		}
+		span {
+			vertical-align: super;
+			font-size: 0.8em;
+			color: $colorWhite;
+			padding-left: 3px;
+			padding-right: 3px;
+			@include box-shadow(0em 0em 0em 0em #ffffff);
+			@include borderRadius(50%);
+		}
+	}
+}

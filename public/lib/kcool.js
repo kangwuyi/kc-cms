@@ -16,8 +16,6 @@ exports.rtrim = function (str){ //删除右边的空格
 exports.route_3 = function (str){
 	return str=str.replace(/\/[^\/]+\/[^\/]+$/,"/");
 }
-
-
 //Date原生对象扩展格式化输出
 			exports.format = function (string) {
 				var self = this;

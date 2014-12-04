@@ -1,0 +1,29 @@
+<article class="noteList col-md-9">
+	<ul class="noteBox">
+	<% PostNoteGet_all.forEach(	function(PostNoteGet_all){%>
+		<li class="noteLink container-fluid">
+			<div class="noteBoxTitle col-md-8">
+				<h3 class="container-fluid">
+					<p  title="<%= PostNoteGet_all.kt_notes_titles %>" target="_blank"><%= PostNoteGet_all.kt_notes_titles %></p>
+				</h3>
+			</div>
+			<div class="noteBoxDate col-md-4">
+				<span class="container-fluid">
+				<%= PostNoteGet_all.kt_note_tags_name %> |
+					<%= PostNoteGet_all.kt_notes_ri %>
+					<%= PostNoteGet_all.kt_notes_yue %>
+					<%= PostNoteGet_all.kt_notes_year %>
+				</span>
+			</div>
+			<div class="noteBoxbody col-md-12">
+				<p class="container-fluid"><%- PostNoteGet_all.kt_notes_contents %>
+				</p>
+			</div>
+		</li>
+	<% });%>
+	</ul>
+	<div id="pagination">
+		<%- Create_links %>
+	</div>
+	<div style="clear:both;"></div>
+</article>

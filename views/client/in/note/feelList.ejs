@@ -1,0 +1,29 @@
+
+<div class="leftFeel col-md-8">
+	<article class="leftFeelBox clearfix">
+		<ul class="feelBoxList">
+		<% PostFeelGet_all.forEach(	function(PostFeelGet_all){%>
+			<li class="feelBoxListLi">
+				<a class="container-fluid" href="/in/feelsById?feels_ids=<%= PostFeelGet_all.kt_feels_ids %>&tags_ids=<%= PostFeelGet_all.kt_feel_tags_ids %>"  target="_blank">
+					<span class="feelInco col-md-1"></span>
+					<span class="feelTitle col-md-5" title="<%= PostFeelGet_all.kt_feels_titles %>"><%= PostFeelGet_all.kt_feels_titles %></span>
+					<span class="feelTag col-md-4">
+						《
+						<%= PostFeelGet_all.kt_feel_tags_name %>
+						》
+					</span>
+					<span class="feelDate col-md-2">
+						<%= PostFeelGet_all.kt_feels_ri %>
+						<%= PostFeelGet_all.kt_feels_yue %>
+						<%= PostFeelGet_all.kt_feels_year %>
+					</span>
+				</a>
+			</li>
+		<% });%>
+		</ul>
+	</article>
+	<div id="pagination">
+		<%- Create_links %>
+	</div>
+	<div style="clear:both;"></div>
+</div>

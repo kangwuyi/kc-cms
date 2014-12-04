@@ -1,0 +1,37 @@
+/* line 19, ../../sass/definition.scss */
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/* line 2, ../../sass/note/note.scss */
+.noteList {
+  color: #fff;
+}
+/* line 4, ../../sass/note/note.scss */
+.noteList h3 a {
+  color: #fff;
+}
+/* line 7, ../../sass/note/note.scss */
+.noteList .noteBox {
+  margin: 0;
+  padding: 1px 15px 1px 15px;
+  background: #fff;
+}
+/* line 11, ../../sass/note/note.scss */
+.noteList .noteBox .noteLink {
+  text-decoration: none;
+  list-style-type: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* line 16, ../../sass/note/note.scss */
+.noteList .noteBox .noteLink .noteBoxDate {
+  text-align: right;
+}

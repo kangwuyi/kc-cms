@@ -13,11 +13,8 @@ var express = require('express')
 	,session    = require('express-session')
 
 	,settings = require('./db')	//加载
-	,routes = require('./routes/index')	//加载路由
-             ,blogs = require('./routes/blogs')
-             ,pos = require('./routes/po')
-             ,apps = require('./routes/app')
-             ,abouts = require('./routes/about');
+	,routes = require('./routes/index')
+             ,apps = require('./routes/app');	//加载路由
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -39,14 +36,12 @@ app.use(function(req, res, next) {
     var error = req.flash('error');
     var success = req.flash('success');
     res.locals.user = req.session ? req.session.user:'';
+    res.locals.cache = req.session ? req.session.cache:'';
     res.locals.error = error.length ? error : null;
     res.locals.success = success ? success : null;
     next();
 });
 app.use('/', routes);
-app.use('/', blogs);
-app.use('/', abouts);
-app.use('/', pos);
 app.use('/', apps);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {

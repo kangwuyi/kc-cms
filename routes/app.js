@@ -5,9 +5,7 @@ var query = require("querystring");    //解析POST请求
 var router = express.Router();
 var crypto = require('crypto');
 var kcool = require('../public/lib/kcool');
-var Post = require('../models/post');
-var Po = require('../models/po');
-var Blogs = require('../models/blogs');
+
 var pagination = require('pagination-api');
 	Date.prototype.Format = function (fmt) {
 		var o = {

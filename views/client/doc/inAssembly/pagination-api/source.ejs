@@ -1,0 +1,313 @@
+<!doctype HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>pagination-api</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../lib/prettify/prettify.css">
+    <link rel="stylesheet" href="../css/wendang/main.css">
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../lib/prettify/prettify.js"></script>
+        <style>
+    .prettyprint {
+background-color: #141424;
+}
+.kwd, .linenums .tag {
+color: #E562D0;
+}
+.pln {
+color: #0EDBE4;
+}.pun, .opn, .clo {
+color: #2EA016;
+}.str, .atv {
+color: #ED5353;
+}
+ol.linenums li {
+text-shadow:none;color: #05A391;
+}
+    </style>
+</head>
+<body onload="prettyPrint();">
+<h1 class="h1Bot" style="color:#fff;">pagination-api源码</h1>
+<blockquote><article style="padding-left:0;">
+<pre class="prettyprint linenums">
+<p>var express = require(&#39;express&#39;);
+var kcool = require(&#39;./lib/kcool&#39;);
+var &nbsp;objects = require(&#39;./lib/object&#39;);
+var pagination = new objects.kangjian;
+module.exports = pagination;</p>
+
+<p>&nbsp;pagination.create_links = function create_links(total_rows,per_page,per_pages,base_url) {</p>
+<p>&nbsp;&nbsp; &nbsp;var base_url&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= base_url; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// 定义路径
+&nbsp;&nbsp; &nbsp;var total_rows&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;total_rows; &nbsp;&nbsp; &nbsp;//数据库返回博客总数量数据
+&nbsp;&nbsp; &nbsp;var per_page&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;per_page; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//每页显示文章数目
+&nbsp;&nbsp; &nbsp;var num_links&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;4;
+&nbsp;&nbsp; &nbsp;var cur_page&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;0;
+&nbsp;&nbsp; &nbsp;var use_page_numbers&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= per_pages; &nbsp;&nbsp; &nbsp;// 当前所就收的页码
+&nbsp;&nbsp; &nbsp;var first_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;First&#39;;
+&nbsp;&nbsp; &nbsp;var next_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&raquo;&#39;;
+&nbsp;&nbsp; &nbsp;var prev_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&laquo;&#39;;
+&nbsp;&nbsp; &nbsp;var last_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;Last&#39;;
+&nbsp;&nbsp; &nbsp;var uri_segment&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= 4;
+&nbsp;&nbsp; &nbsp;var full_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;div class=&quot;pagination pagination-centered&quot;&gt;&lt;ul class=&quot;pagination pagination-lg&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var full_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/ul&gt;&lt;/div&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var first_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;prev page&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var first_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var last_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;next page&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var last_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var cur_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var cur_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/a&gt;&lt;/li&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var next_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;next page&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var next_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var prev_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;prev page&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var prev_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var num_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;page&quot;&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var num_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
+&nbsp;&nbsp; &nbsp;var page_query_string&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;TRUE&#39;;
+&nbsp;&nbsp; &nbsp;var query_string_segment &nbsp;&nbsp; &nbsp;= &#39;per_page&#39;;
+&nbsp;&nbsp; &nbsp;var display_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;TRUE&#39;;
+&nbsp;&nbsp; &nbsp;var display_next_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;
+&nbsp;&nbsp; &nbsp;var display_last_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;
+&nbsp;&nbsp; &nbsp;var display_prev_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;
+&nbsp;&nbsp; &nbsp;var display_first_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;&nbsp;&nbsp; &nbsp;//FALSE
+&nbsp;&nbsp; &nbsp;var start,end,loop,num_pages,first_url;
+&nbsp;&nbsp; &nbsp;use_page_numbers = parseInt(use_page_numbers);
+&nbsp;&nbsp; &nbsp;num_links = parseInt(num_links);
+&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;if (total_rows == 0 || per_page == 0) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return &#39;&#39;;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;num_pages = Math.ceil(total_rows / per_page);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//Math.ceil()向上取整,有小数就整数部分加1;num_pages是页数
+&nbsp;&nbsp; &nbsp;if (num_pages == 1) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return &#39;&#39;;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_page = 1;
+&nbsp;&nbsp; &nbsp;}else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_page = 0;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;if (use_page_numbers &amp;&amp; cur_page == 0) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = use_page_numbers;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;if (num_links &lt; 1) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;show_error(&#39;Your number of links must be a positive number+&#39;);
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;if ( isNaN(cur_page)) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = base_page;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (cur_page &gt; num_pages) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = num_pages;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (cur_page &gt; total_rows) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = (num_pages - 1) * per_page;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;uri_page_number = cur_page;
+&nbsp;&nbsp; &nbsp;if ( ! use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = floor((cur_page/per_page) + 1);
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;start = ((cur_page - num_links) &gt; 0) ? cur_page - (num_links - 1) : 1;
+&nbsp;&nbsp; &nbsp;end &nbsp; = ((cur_page + num_links) &lt; num_pages) ? cur_page + num_links : num_pages;
+&nbsp;&nbsp; &nbsp;if ( page_query_string === &#39;TRUE&#39;) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_url = kcool.trim(base_url)+query_string_segment+&#39;=&#39;;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_url = kcool.rtrim(base_url, &#39;/&#39;) +&#39;/&#39;;
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;// 编辑分页插件
+&nbsp;&nbsp; &nbsp;output = &#39;&#39;;
+&nbsp;&nbsp; &nbsp;// definition &quot;First&quot; link 定义第一页
+&nbsp;&nbsp; &nbsp;if (display_first_pages !== &#39;TRUE&#39;) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if &nbsp;( first_link &nbsp;&amp;&amp; cur_page &gt; (num_links + 1)) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;first_url = (first_url == undefined ) ? base_url+1 : &#39;&#39;;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += first_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+first_link+&#39;&lt;/a&gt;&#39;+first_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;first_url = (first_url == undefined ) ? base_url+1 : &#39;&#39;;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == 1){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += first_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+first_link+&#39;&lt;/a&gt;&#39;+first_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += first_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+first_link+&#39;&lt;/a&gt;&#39;+first_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;// definition &quot;previous&quot; link 定义上一页
+&nbsp;&nbsp; &nbsp;if (display_prev_pages !== &#39;TRUE&#39;) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if &nbsp;( prev_link &nbsp;&amp;&amp; cur_page != 1) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - 1;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - per_page;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (i == 0 &amp;&amp; first_url != undefined) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (i == 0) ? &#39;&#39; : i;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - 1;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - per_page;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == 1){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (i == 0) ? &#39;&#39; : i;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (i == 0) ? &#39;&#39; : i;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;// definition pages 定义分页中间部分
+&nbsp;&nbsp; &nbsp;if (display_pages !== &#39;FALSE&#39;) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;for (loop = start -1; loop &lt;= end; loop++) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = loop;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (loop * per_page) - per_page;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (i &gt;= base_page) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (cur_page == loop) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += cur_tag_open+loop+cur_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;n = (i == base_page) ? 1 : i;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (n == &#39;&#39; &amp;&amp; first_url != undefined) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;n = (n == &#39;&#39;) ? &#39;&#39; : n;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( (use_page_numbers &lt;= 3) || ( use_page_numbers +3 &gt; num_pages )) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var cache1 = (( (use_page_numbers +3&gt; num_pages )&amp;&amp;(use_page_numbers +2 &lt;= num_pages)&amp;&amp;(use_page_numbers &gt; 3) ) ? use_page_numbers : &#39;&#39;);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var cache2 = (( (use_page_numbers +2&gt; num_pages )&amp;&amp;(use_page_numbers +1&lt;= num_pages )&amp;&amp;(use_page_numbers &gt; 3)) ? use_page_numbers : &#39;&#39;);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var cache3 = (( (use_page_numbers +1&gt; num_pages )&amp;&amp;(use_page_numbers &lt;= num_pages )&amp;&amp;(use_page_numbers &gt; 3)) ? use_page_numbers : &#39;&#39;);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;switch( use_page_numbers ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case 1://console.log(&quot;use_page_numbers=case1&quot;+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= use_page_numbers &amp;&amp; n &lt;= (use_page_numbers + 3) ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case 2://console.log(&quot;use_page_numbers=case2&quot;+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-1) &amp;&amp; n &lt;= (use_page_numbers + 2) ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case 3://console.log(&quot;use_page_numbers=case3&quot;+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-2) &amp;&amp; n &lt;= (use_page_numbers + 1) ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case cache1://console.log(&quot;use_page_numbers=cache1*&quot;+cache1+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-1) &amp;&amp; n &lt;= (use_page_numbers + 2) ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case cache2://console.log(&quot;use_page_numbers=cache2*&quot;+cache2+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-2) &amp;&amp; n &lt;= (use_page_numbers + 1) ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case cache3://console.log(&quot;use_page_numbers=cache3*&quot;+cache3+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-3) &amp;&amp; n &lt;= use_page_numbers ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{//console.log(&quot;----------&quot;+&quot;--n=&quot;+n+&quot;------------use_page_numbers=&quot;+use_page_numbers+&quot;----(use_page_numbers - 2)=&quot;+(use_page_numbers - 2)+&quot;---------(use_page_numbers + 1)=&quot;+(use_page_numbers + 1))
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers - 2) &amp;&amp; n &lt;=(use_page_numbers + 1) ){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;if (display_next_pages !== &#39;TRUE&#39;) {
+&nbsp;&nbsp; &nbsp;// definition &quot;next&quot; link 定义下一页
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if ( next_link &amp;&amp; cur_page &lt; num_pages) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = cur_page + 1;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (cur_page * per_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += next_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = cur_page + 1;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (cur_page * per_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == num_pages){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += next_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += next_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;// definition &quot;Last&quot; link 定义最后一页链接按钮
+&nbsp;&nbsp; &nbsp;if (display_last_pages !== &#39;TRUE&#39;) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if ( last_link &amp;&amp; (cur_page + num_links) &lt; num_pages) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = num_pages;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = ((num_pages * per_page) - per_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += last_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = num_pages;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = ((num_pages * per_page) - per_page);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == num_pages){
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += last_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += last_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;}
+&nbsp;&nbsp; &nbsp;output = output.replace(&quot;#([^:])//+#&quot;, &quot;\\1/&quot;);
+&nbsp;&nbsp; &nbsp;output = full_tag_open+output+full_tag_close;
+&nbsp;&nbsp; &nbsp;return output;
+}</p></pre>
+     </blockquote>
+    </article>
+
+    <style>
+    #gotop {
+background: url(../../img/backup.png);
+position: fixed;
+z-index: 93;
+right: 30px;color: none;
+cursor: pointer;
+width: 33px;
+height: 33px;
+bottom: 50px;
+}
+    </style>
+    <div class="gobackheader">
+        <a id="gotop" href="javascript:void(0)" ></a>
+    </div>
+</body>
+</html>

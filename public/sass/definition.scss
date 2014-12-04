@@ -70,3 +70,30 @@ body{
 	-o-border-radius:$borderRadius;
 	border-radius:$borderRadius;
 }
+@mixin tagBox($before, $after,$start, $end, $em: 1em, $px: 0px) {
+	-webkit-margin-#{$before}: $em;
+	-webkit-margin-#{$after}: $em;
+	-webkit-margin-#{$start}: $px;
+	-webkit-margin-#{$end}: $px;
+	-webkit-padding-#{$start}: $px;
+	margin-#{$before}: $em;
+	margin-#{$after}: $em;
+	margin-#{$start}: $px;
+	margin-#{$end}: $px;
+	padding-#{$start}: $px;
+	-o-margin-#{$before}: $em;
+	-o-margin-#{$after}: $em;
+	-o-margin-#{$start}: $px;
+	-o-margin-#{$end}: $px;
+	-o-padding-#{$start}: $px;
+	-ms-margin-#{$before}: $em;
+	-ms-margin-#{$after}: $em;
+	-ms-margin-#{$start}: $px;
+	-ms-margin-#{$end}: $px;
+	-ms-padding-#{$start}: $px;
+	-moz-margin-#{$before}: $em;
+	-moz-margin-#{$after}: $em;
+	-moz-margin-#{$start}: $px;
+	-moz-margin-#{$end}: $px;
+	-moz-padding-#{$start}: $px;
+}

@@ -1,0 +1,134 @@
+/* line 19, ../../sass/definition.scss */
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/* line 2, ../../sass/note/tag.scss */
+.tag-box {
+  background: url(../../img/darkbg.jpg);
+  display: block;
+  overflow: hidden;
+  list-style: disc;
+  margin: 0 0 9px 25px;
+  font-size: 13px;
+  line-height: 18px;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  margin-before: 1em;
+  margin-after: 1em;
+  margin-start: 0px;
+  margin-end: 0px;
+  padding-start: 0px;
+  -o-margin-before: 1em;
+  -o-margin-after: 1em;
+  -o-margin-start: 0px;
+  -o-margin-end: 0px;
+  -o-padding-start: 0px;
+  -ms-margin-before: 1em;
+  -ms-margin-after: 1em;
+  -ms-margin-start: 0px;
+  -ms-margin-end: 0px;
+  -ms-padding-start: 0px;
+  -moz-margin-before: 1em;
+  -moz-margin-after: 1em;
+  -moz-margin-start: 0px;
+  -moz-margin-end: 0px;
+  -moz-padding-start: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 13, ../../sass/note/tag.scss */
+.tag-box .tag-link {
+  text-decoration: none;
+  list-style-type: none;
+  float: left;
+  margin: 0 10px 6px 0;
+  line-height: 1.8;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+/* line 21, ../../sass/note/tag.scss */
+.tag-box .tag-link a {
+  display: inline-block;
+  text-decoration: none;
+  font: Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace 12px;
+  color: #fff;
+  height: 18px;
+  line-height: 18px;
+  margin: 5px 0 5px 8px;
+  padding: 0 5px 0 12px;
+  position: relative;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  -ms-border-radius: 0 5px 5px 0;
+  -o-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+}
+/* line 32, ../../sass/note/tag.scss */
+.tag-box .tag-link a:-webkit-any-link {
+  cursor: auto;
+}
+/* line 35, ../../sass/note/tag.scss */
+.tag-box .tag-link a:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+/* line 39, ../../sass/note/tag.scss */
+.tag-box .tag-link a:before {
+  content: " ";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0;
+  left: -18px;
+  border: 9px solid transparent;
+  border-right-color: #fff;
+}
+/* line 49, ../../sass/note/tag.scss */
+.tag-box .tag-link a:after {
+  content: " ";
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 7px;
+  left: 2px;
+}
+/* line 61, ../../sass/note/tag.scss */
+.tag-box .tag-link span {
+  vertical-align: super;
+  font-size: 0.8em;
+  color: #fff;
+  padding-left: 3px;
+  padding-right: 3px;
+  -webkit-box-shadow: 0em 0em 0em 0em #ffffff;
+  -moz-box-shadow: 0em 0em 0em 0em #ffffff;
+  -ms-box-shadow: 0em 0em 0em 0em #ffffff;
+  -o-box-shadow: 0em 0em 0em 0em #ffffff;
+  box-shadow: 0em 0em 0em 0em #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}

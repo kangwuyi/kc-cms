@@ -1,0 +1,17 @@
+<aside id="reader-right" class="col-md-8">
+	<% FeelsById.forEach(	function(FeelsById){%>
+	<div class="div-reader-title">
+		<p class="p-reader-title"><%= FeelsById.kt_feels_titles %></p>
+		<a class="a-reader-next a-hover" id="a_reader_next" href="/in/feelsByNext?feels_ids=<%= FeelsById.kt_feels_ids %>&tags_ids=<%= FeelsById.kt_feel_tags_ids %>">Next
+		</a>
+		<a class="a-reader-prev a-hover" id="a_reader_prev" href="/in/feelsByPrev?feels_ids=<%= FeelsById.kt_feels_ids %>&tags_ids=<%= FeelsById.kt_feel_tags_ids %>">Prev
+		</a>
+		<a class="a-reader-next a-hover" href="/in/feelsByMenu?tags_ids='<%= FeelsById.kt_feel_tags_ids %>'">Menu
+		</a>
+	</div>
+	<div class="div-reader-text">
+		<p class="p-reader-text"><%- FeelsById.kt_feels_contents %></p>
+	</div><% });%>
+	<input class="tags_open_next" id="tags_open_next" style="height:0px;width:0px;" name="tags_open_next" type="hidden"  value="<%= tags_open_next %>">
+	<input class="tags_open_prev" id="tags_open_prev" style="height:0px;width:0px;" name="tags_open_prev" type="hidden"  value="<%= tags_open_prev %>">
+</aside>
