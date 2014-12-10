@@ -45,6 +45,9 @@
 			postDelBlogRiqiById: function(blogs_ids){
 				return "DELETE FROM `kangcool`.`k_riqi` WHERE `k_riqi`.`kt_blogs_ids` = '"+blogs_ids+"' ";
 			},
+			postUpdateRiqi: function(dateRiqi,blogId){
+				return "UPDATE  `kangcool`.`k_riqi` SET  `kt_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_riqi`.`kt_blogs_ids` ='"+blogId+"';";
+			},
 		},
 		k_note_riqi: {
 			getAllRiqi: "select kt_note_riqi_dates from k_note_riqi group by kt_note_riqi_dates;",
@@ -57,6 +60,9 @@
 			postDelNoteRiqiById: function(notesId){
 				return "DELETE FROM `kangcool`.`k_note_riqi` WHERE `k_note_riqi`.`kt_notes_ids` = '"+notesId+"' ";
 			},
+			postUpdateNoteRiqi: function(dateRiqi,blogId){
+				return "UPDATE  `kangcool`.`k_note_riqi` SET  `kt_note_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_note_riqi`.`kt_notes_ids` ='"+blogId+"';";
+			},
 		},
 		k_feel_riqi: {
 			getAllRiqi: "select kt_feel_riqi_dates from k_feel_riqi group by kt_feel_riqi_dates;",
@@ -68,6 +74,9 @@
 			},
 			postDelFeelRiqiById: function(blogs_ids){
 				return "DELETE FROM `kangcool`.`k_feel_riqi` WHERE `k_feel_riqi`.`kt_feels_ids` = '"+blogs_ids+"' ";
+			},
+			postUpdateFeelRiqi: function(dateRiqi,blogId){
+				return "UPDATE  `kangcool`.`k_feel_riqi` SET  `kt_feel_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_feel_riqi`.`kt_feels_ids` ='"+blogId+"';";
 			},
 		},
 		k_tags_k_blogs: {

@@ -76,7 +76,7 @@ exports.toEditFeel = function (req, res) {
 	var feelContent = req.body.editor1 ? kcool.trim(req.body.editor1):1;
 	Feel.toEditFeel(feelId,feelTitle, feelTagId,feelYear,feelYue,feelRi,feelDate,feelContent,function (err, toEditFeel) {
 		var dateRiqi = feelYue+'.'+feelYear;
-		Feel.toAddFeelRiqi(dateRiqi,feelId,function (err, toAddFeelRiqi) {
+		Feel.toUpdateFeelRiqi(dateRiqi,feelId,function (err, toUpdateFeelRiqi) {
 			req.flash('success', '添加"'+feelTitle+'"文章成功!');
 			return res.redirect('back');
 		});

@@ -57,6 +57,10 @@ exports.toAddFeelRiqi =  function  (dateRiqi,feelId, callback) {
 	var sql =mysqlString.k_feel_riqi.postAddFeelRiqi(dateRiqi,feelId);
 	object.queryMysql(sql,callback);
 };
+exports.toUpdateFeelRiqi =  function  (dateRiqi,feelId, callback) {
+	var sql =mysqlString.k_feel_riqi.postUpdateFeelRiqi(dateRiqi,feelId);
+	object.queryMysql(sql,callback);
+};
 exports.delFeelById =  function  (feels_ids,callback) {
 	var sql =mysqlString.k_feels.postDelFeelById(feels_ids);
 	object.queryMysql(sql,callback);

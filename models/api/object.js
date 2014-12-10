@@ -10,6 +10,7 @@
 	var object;
 	object = {
 		queryMysql: function (sql ,callback){
+			//console.log(sql);
 			mysql.query(sql,function(err,rows,fields){
 		 		if(err){
 					throw err;

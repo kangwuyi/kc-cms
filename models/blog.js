@@ -54,6 +54,10 @@ exports.toAddRiqi =  function  (dateRiqi,blogId, callback) {
 	var sql =mysqlString.k_riqi.postAddRiqi(dateRiqi,blogId);
 	object.queryMysql(sql,callback);
 };
+exports.toUpdateRiqi =  function  (dateRiqi,blogId, callback) {
+	var sql =mysqlString.k_riqi.postUpdateRiqi(dateRiqi,blogId);
+	object.queryMysql(sql,callback);
+};
 exports.delBlogById =  function  (blogs_ids,callback) {
 	var sql =mysqlString.k_blogs.postDelBlogById(blogs_ids);
 	object.queryMysql(sql,callback);

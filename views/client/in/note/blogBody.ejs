@@ -1,3 +1,27 @@
+<script>
+	$(document).ready(function(){
+		 $(".linenums").addClass("prettyprint");
+		 $("body").attr("onload","prettyPrint();");
+	});
+</script>
+<style>
+	.prettyprint {
+		background-color: #141424;
+	}
+	.kwd, .linenums .tag {
+		color: #E562D0;
+	}
+	.pln {
+		color: #0EDBE4;
+	}.pun, .opn, .clo {
+		color: #2EA016;
+	}.str, .atv {
+		color: #ED5353;
+	}
+	ol.linenums li {
+		text-shadow:none;color: #05A391;
+	}
+</style>
 <aside id="reader-right" class="col-md-9">
 	<% BlogsById.forEach(	function(BlogsById){%>
 	<div class="div-reader-title">

@@ -57,6 +57,10 @@ exports.toAddNoteRiqi =  function  (dateRiqi,noteId, callback) {
 	var sql =mysqlString.k_note_riqi.postAddNoteRiqi(dateRiqi,noteId);
 	object.queryMysql(sql,callback);
 };
+exports.toUpdateNoteRiqi =  function  (dateRiqi,noteId, callback) {
+	var sql =mysqlString.k_note_riqi.postUpdateNoteRiqi(dateRiqi,noteId);
+	object.queryMysql(sql,callback);
+};
 exports.delNoteById =  function  (notes_ids,callback) {
 	var sql =mysqlString.k_notes.postDelNoteById(notes_ids);
 	object.queryMysql(sql,callback);

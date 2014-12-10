@@ -1245,17 +1245,18 @@ a.a-reader-prev, a.a-reader-next {
 .leftFeel .leftFeelBox .feelBoxList {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-/* line 14, ../sass/note/feel.scss */
+/* line 15, ../sass/note/feel.scss */
 .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi {
   list-style: none;
   border-top: 1px solid #e5e5e5;
 }
-/* line 17, ../sass/note/feel.scss */
+/* line 18, ../sass/note/feel.scss */
 .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi a {
   position: relative;
   display: block;
-  padding: 15px 64px 15px 30px;
+  padding: 15px 0px 15px 10px;
   font-size: 14px;
   color: #4183c4;
   text-decoration: none;
@@ -1263,16 +1264,24 @@ a.a-reader-prev, a.a-reader-next {
   list-style: none;
   font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
-/* line 28, ../sass/note/feel.scss */
+/* line 29, ../sass/note/feel.scss */
 .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelInco {
-  background: url("../../img/book.png") no-repeat;
+  background: url("../../img/book.png") no-repeat center;
   height: 20px;
 }
-/* line 32, ../sass/note/feel.scss */
+/* line 33, ../sass/note/feel.scss */
 .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelTag {
   text-align: right;
 }
-/* line 35, ../sass/note/feel.scss */
+/* line 36, ../sass/note/feel.scss */
+.leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelTag::before {
+  content: "《";
+}
+/* line 39, ../sass/note/feel.scss */
+.leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelTag::after {
+  content: "》";
+}
+/* line 42, ../sass/note/feel.scss */
 .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelDate {
   text-align: right;
 }

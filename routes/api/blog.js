@@ -125,7 +125,7 @@ exports.content_to_next = function (req, res) {
 							};
 							tags_open_next= 1;//console.log("tags_open_next");//console.log(tags_open_prev);console.log(tags_open_next);
 							res.render('client/in/blogReader', { title: passTitle,PostBlogTag: PostBlogTag,PostBlogDate: PostBlogDate,BlogsById:BlogsByNext,tags_open_prev: tags_open_prev,tags_open_next: tags_open_next});
-						 }else{
+						}else{
 							if(title_to_content_reduce_one.length<1){
 								tags_open_prev= 1;
 							};
@@ -298,8 +298,9 @@ exports.toEditBlog = function (req, res) {
 	var blogContent = req.body.editor1 ? kcool.trim(req.body.editor1):1;
 	Blog.toEditBlog(blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent,function (err, toEditBlog) {
 		var dateRiqi = blogYue+'.'+blogYear;
-		Blog.toAddRiqi(dateRiqi,blogId,function (err, toAddRiqi) {
+		Blog.toUpdateRiqi(dateRiqi,blogId,function (err, toUpdateRiqi) {
 			req.flash('success', '添加"'+blogTitle+'"文章成功!');
+			debugger;
 			return res.redirect('back');
 		});
 	});

@@ -79,7 +79,7 @@ exports.toEditNote = function (req, res) {
 	var noteContent = req.body.editor1 ? kcool.trim(req.body.editor1):1;
 	Note.toEditNote(noteId,noteTitle, noteTagId,noteYear,noteYue,noteRi,noteDate,noteContent,function (err, toEditNote) {
 		var dateRiqi = noteYue+'.'+noteYear;
-		Note.toAddNoteRiqi(dateRiqi,noteId,function (err, toAddNoteRiqi) {
+		Note.toUpdateNoteRiqi(dateRiqi,noteId,function (err, toUpdateNoteRiqi) {
 			req.flash('success', '添加"'+noteTitle+'"文章成功!');
 			return res.redirect('back');
 		});
