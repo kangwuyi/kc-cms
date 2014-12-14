@@ -43,10 +43,10 @@
 				return "INSERT INTO `k_riqi` (`kt_riqi_ids`, `kt_riqi_dates`, `kt_blogs_ids`) VALUES (NULL, '"+dateRiqi+"', '"+blogId+"'); ";
 			},
 			postDelBlogRiqiById: function(blogs_ids){
-				return "DELETE FROM `kangcool`.`k_riqi` WHERE `k_riqi`.`kt_blogs_ids` = '"+blogs_ids+"' ";
+				return "DELETE FROM `kcool`.`k_riqi` WHERE `k_riqi`.`kt_blogs_ids` = '"+blogs_ids+"' ";
 			},
 			postUpdateRiqi: function(dateRiqi,blogId){
-				return "UPDATE  `kangcool`.`k_riqi` SET  `kt_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_riqi`.`kt_blogs_ids` ='"+blogId+"';";
+				return "UPDATE  `kcool`.`k_riqi` SET  `kt_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_riqi`.`kt_blogs_ids` ='"+blogId+"';";
 			},
 		},
 		k_note_riqi: {
@@ -58,10 +58,10 @@
 				return "INSERT INTO `k_note_riqi` (`kt_note_riqi_ids`, `kt_note_riqi_dates`, `kt_notes_ids`) VALUES (NULL, '"+dateRiqi+"', '"+notesId+"'); ";
 			},
 			postDelNoteRiqiById: function(notesId){
-				return "DELETE FROM `kangcool`.`k_note_riqi` WHERE `k_note_riqi`.`kt_notes_ids` = '"+notesId+"' ";
+				return "DELETE FROM `kcool`.`k_note_riqi` WHERE `k_note_riqi`.`kt_notes_ids` = '"+notesId+"' ";
 			},
 			postUpdateNoteRiqi: function(dateRiqi,blogId){
-				return "UPDATE  `kangcool`.`k_note_riqi` SET  `kt_note_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_note_riqi`.`kt_notes_ids` ='"+blogId+"';";
+				return "UPDATE  `kcool`.`k_note_riqi` SET  `kt_note_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_note_riqi`.`kt_notes_ids` ='"+blogId+"';";
 			},
 		},
 		k_feel_riqi: {
@@ -73,10 +73,10 @@
 				return "INSERT INTO `k_feel_riqi` (`kt_feel_riqi_ids`, `kt_feel_riqi_dates`, `kt_feels_ids`) VALUES (NULL, '"+dateRiqi+"', '"+blogId+"'); ";
 			},
 			postDelFeelRiqiById: function(blogs_ids){
-				return "DELETE FROM `kangcool`.`k_feel_riqi` WHERE `k_feel_riqi`.`kt_feels_ids` = '"+blogs_ids+"' ";
+				return "DELETE FROM `kcool`.`k_feel_riqi` WHERE `k_feel_riqi`.`kt_feels_ids` = '"+blogs_ids+"' ";
 			},
 			postUpdateFeelRiqi: function(dateRiqi,blogId){
-				return "UPDATE  `kangcool`.`k_feel_riqi` SET  `kt_feel_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_feel_riqi`.`kt_feels_ids` ='"+blogId+"';";
+				return "UPDATE  `kcool`.`k_feel_riqi` SET  `kt_feel_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_feel_riqi`.`kt_feels_ids` ='"+blogId+"';";
 			},
 		},
 		k_tags_k_blogs: {
@@ -145,10 +145,10 @@
 				return "INSERT INTO `k_blogs` (`kt_blogs_ids`, `kt_blogs_titles`, `kt_tags_ids`, `kt_blogs_year`, `kt_blogs_yue`, `kt_blogs_ri`, `kt_blogs_dates`, `kt_blogs_contents`) VALUES (NULL, '"+blogTitle+"', '"+blogTagId+"', '"+blogYear+"', '"+blogYue+"', '"+blogRi+"', '"+blogDate+"', '"+blogContent+"'); ";
 			},
 			postDelBlogById: function(blogs_ids){
-				return "DELETE FROM `kangcool`.`k_blogs` WHERE `k_blogs`.`kt_blogs_ids` = '"+blogs_ids+"' ";
+				return "DELETE FROM `kcool`.`k_blogs` WHERE `k_blogs`.`kt_blogs_ids` = '"+blogs_ids+"' ";
 			},
 			postEditBlog: function(blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent){
-				return "UPDATE  `kangcool`.`k_blogs` SET  `kt_blogs_titles` =  '"+blogTitle+"',`kt_tags_ids` = '"+blogTagId+"', `kt_blogs_year` = '"+blogYear+"',`kt_blogs_yue` = '"+blogYue+"',`kt_blogs_ri` = '"+blogRi+"',`kt_blogs_dates` = '"+blogDate+"',`kt_blogs_contents` = '"+blogContent+"' WHERE  `k_blogs`.`kt_blogs_ids` ='"+blogId+"';";
+				return "UPDATE  `kcool`.`k_blogs` SET  `kt_blogs_titles` =  '"+blogTitle+"',`kt_tags_ids` = '"+blogTagId+"', `kt_blogs_year` = '"+blogYear+"',`kt_blogs_yue` = '"+blogYue+"',`kt_blogs_ri` = '"+blogRi+"',`kt_blogs_dates` = '"+blogDate+"',`kt_blogs_contents` = '"+blogContent+"' WHERE  `k_blogs`.`kt_blogs_ids` ='"+blogId+"';";
 			},
 		},
 		k_notes: {
@@ -169,10 +169,10 @@
 				return "INSERT INTO `k_notes` (`kt_notes_ids`, `kt_notes_titles`, `kt_note_tags_ids`, `kt_notes_year`, `kt_notes_yue`, `kt_notes_ri`, `kt_notes_dates`, `kt_notes_contents`) VALUES (NULL, '"+noteTitle+"', '"+noteTagId+"', '"+noteYear+"', '"+noteYue+"', '"+noteRi+"', '"+noteDate+"', '"+noteContent+"'); ";
 			},
 			postDelNoteById: function(notesId){
-				return "DELETE FROM `kangcool`.`k_notes` WHERE `k_notes`.`kt_notes_ids` = '"+notesId+"' ";
+				return "DELETE FROM `kcool`.`k_notes` WHERE `k_notes`.`kt_notes_ids` = '"+notesId+"' ";
 			},
 			postEditNote: function(noteId,noteTitle, noteTagId,noteYear,noteYue,noteRi,noteDate,noteContent){
-				return "UPDATE  `kangcool`.`k_notes` SET  `kt_notes_titles` =  '"+noteTitle+"',`kt_note_tags_ids` = '"+noteTagId+"', `kt_notes_year` = '"+noteYear+"',`kt_notes_yue` = '"+noteYue+"',`kt_notes_ri` = '"+noteRi+"',`kt_notes_dates` = '"+noteDate+"',`kt_notes_contents` = '"+noteContent+"' WHERE  `k_notes`.`kt_notes_ids` ='"+noteId+"';";
+				return "UPDATE  `kcool`.`k_notes` SET  `kt_notes_titles` =  '"+noteTitle+"',`kt_note_tags_ids` = '"+noteTagId+"', `kt_notes_year` = '"+noteYear+"',`kt_notes_yue` = '"+noteYue+"',`kt_notes_ri` = '"+noteRi+"',`kt_notes_dates` = '"+noteDate+"',`kt_notes_contents` = '"+noteContent+"' WHERE  `k_notes`.`kt_notes_ids` ='"+noteId+"';";
 			},
 		},
 		k_feels: {
@@ -193,10 +193,10 @@
 				return "INSERT INTO `k_feels` (`kt_feels_ids`, `kt_feels_titles`, `kt_feel_tags_ids`, `kt_feels_year`, `kt_feels_yue`, `kt_feels_ri`, `kt_feels_dates`, `kt_feels_contents`) VALUES (NULL, '"+feelTitle+"', '"+feelTagId+"', '"+feelYear+"', '"+feelYue+"', '"+feelRi+"', '"+feelDate+"', '"+feelContent+"'); ";
 			},
 			postDelFeelById: function(feelsId){
-				return "DELETE FROM `kangcool`.`k_feels` WHERE `k_feels`.`kt_feels_ids` = '"+feelsId+"' ";
+				return "DELETE FROM `kcool`.`k_feels` WHERE `k_feels`.`kt_feels_ids` = '"+feelsId+"' ";
 			},
 			postEditFeel: function(feelId,feelTitle, feelTagId,feelYear,feelYue,feelRi,feelDate,feelContent){
-				return "UPDATE  `kangcool`.`k_feels` SET  `kt_feels_titles` =  '"+feelTitle+"',`kt_feel_tags_ids` = '"+feelTagId+"', `kt_feels_year` = '"+feelYear+"',`kt_feels_yue` = '"+feelYue+"',`kt_feels_ri` = '"+feelRi+"',`kt_feels_dates` = '"+feelDate+"',`kt_feels_contents` = '"+feelContent+"' WHERE  `k_feels`.`kt_feels_ids` ='"+feelId+"';";
+				return "UPDATE  `kcool`.`k_feels` SET  `kt_feels_titles` =  '"+feelTitle+"',`kt_feel_tags_ids` = '"+feelTagId+"', `kt_feels_year` = '"+feelYear+"',`kt_feels_yue` = '"+feelYue+"',`kt_feels_ri` = '"+feelRi+"',`kt_feels_dates` = '"+feelDate+"',`kt_feels_contents` = '"+feelContent+"' WHERE  `k_feels`.`kt_feels_ids` ='"+feelId+"';";
 			},
 		},
 		k_tags_k_blogs_k_riqi: {
@@ -240,13 +240,13 @@
 				return "select * from k_translates where kt_translates_ids < "+translatesId+"  ORDER BY kt_translates_ids DESC LIMIT 1";
 			},
 			postAddTranslateNew: function(date,content,title,country,author,url,introduction,year,yue,ri,img,tag){
-				return "INSERT INTO  `kangcool`.`k_translates` (`kt_translates_ids` ,`kt_translates_dates` ,`kt_translates_contents` ,`kt_translates_titles` ,`kt_translates_country` ,`kt_translates_author` ,`kt_translates_url` ,`kt_translates_introduction` ,`kt_translates_year` ,`kt_translates_yue` ,`kt_translates_ri` ,`kt_translates_img` ,`kt_translates_tags`) VALUES (NULL ,'"+date+"','"+content+"','"+title+"','"+country+"','"+author+"','"+url+"','"+introduction+"','"+year+"','"+yue+"','"+ri+"','"+img+"','"+tag+"' );";
+				return "INSERT INTO  `kcool`.`k_translates` (`kt_translates_ids` ,`kt_translates_dates` ,`kt_translates_contents` ,`kt_translates_titles` ,`kt_translates_country` ,`kt_translates_author` ,`kt_translates_url` ,`kt_translates_introduction` ,`kt_translates_year` ,`kt_translates_yue` ,`kt_translates_ri` ,`kt_translates_img` ,`kt_translates_tags`) VALUES (NULL ,'"+date+"','"+content+"','"+title+"','"+country+"','"+author+"','"+url+"','"+introduction+"','"+year+"','"+yue+"','"+ri+"','"+img+"','"+tag+"' );";
 			},
 			postToEditTranslate: function(translateId,date,content,title,country,author,url,introduction,year,yue,ri,img,tag){
-				return "UPDATE  `kangcool`.`k_translates` SET  `kt_translates_dates` =  '"+date+"',`kt_translates_contents` =  '"+content+"',`kt_translates_titles` =  '"+title+"',`kt_translates_country` =  '"+country+"',`kt_translates_author` =  '"+author+"',`kt_translates_url` =  '"+url+"',`kt_translates_introduction` =  '"+introduction+"',`kt_translates_year` =  '"+year+"',`kt_translates_yue` =  '"+yue+"',`kt_translates_ri` =  '"+ri+"',`kt_translates_img` =  '"+img+"',`kt_translates_tags` =  '"+tag+"' WHERE  `k_translates`.`kt_translates_ids` ='"+translateId+"';";
+				return "UPDATE  `kcool`.`k_translates` SET  `kt_translates_dates` =  '"+date+"',`kt_translates_contents` =  '"+content+"',`kt_translates_titles` =  '"+title+"',`kt_translates_country` =  '"+country+"',`kt_translates_author` =  '"+author+"',`kt_translates_url` =  '"+url+"',`kt_translates_introduction` =  '"+introduction+"',`kt_translates_year` =  '"+year+"',`kt_translates_yue` =  '"+yue+"',`kt_translates_ri` =  '"+ri+"',`kt_translates_img` =  '"+img+"',`kt_translates_tags` =  '"+tag+"' WHERE  `k_translates`.`kt_translates_ids` ='"+translateId+"';";
 			},
 			postDelTranslateById : function(translateId){
-				return "DELETE FROM `kangcool`.`k_translates` WHERE `k_translates`.`kt_translates_ids` = '"+translateId+"' ";
+				return "DELETE FROM `kcool`.`k_translates` WHERE `k_translates`.`kt_translates_ids` = '"+translateId+"' ";
 			},
 		},
 		k_prose: {
@@ -258,10 +258,10 @@
 				return "INSERT INTO `k_prose` (`kt_prose_ids`, `kt_prose_dates`, `kt_prose_titles`, `kt_prose_contents`) VALUES (NULL, '"+proseDate+"', '"+proseTitle+"', '"+proseContent+"'); ";
 			},
 			postEditProse: function(proseId,proseTitle,proseDate,proseContent){
-				return "UPDATE  `kangcool`.`k_prose` SET  `kt_prose_titles` =  '"+proseTitle+"',`kt_prose_dates` = '"+proseDate+"',`kt_prose_contents` = '"+proseContent+"' WHERE  `k_prose`.`kt_prose_ids` ='"+proseId+"';";
+				return "UPDATE  `kcool`.`k_prose` SET  `kt_prose_titles` =  '"+proseTitle+"',`kt_prose_dates` = '"+proseDate+"',`kt_prose_contents` = '"+proseContent+"' WHERE  `k_prose`.`kt_prose_ids` ='"+proseId+"';";
 			},
 			postDelProseById: function(prose_ids){
-				return "DELETE FROM `kangcool`.`k_prose` WHERE `k_prose`.`kt_prose_ids` = '"+prose_ids+"' ";
+				return "DELETE FROM `kcool`.`k_prose` WHERE `k_prose`.`kt_prose_ids` = '"+prose_ids+"' ";
 			},
 		},
 		k_nav_tag: {
@@ -281,10 +281,10 @@
 				return "INSERT INTO `k_navigation` (`kt_navigation_ids`, `kt_navigation_name`, `kt_navigation_url`, `kt_nav_tag_ids`) VALUES (NULL, '"+catalogueTitle+"', '"+catalogueUrl+"', '"+catalogueTypeId+"'); ";
 			},
 			postEditCatalogue: function(catalogueId,catalogueTitle,catalogueUrl,catalogueTypeId){
-				return "UPDATE  `kangcool`.`k_navigation` SET  `kt_navigation_name` =  '"+catalogueTitle+"',`kt_navigation_url` = '"+catalogueUrl+"',`kt_nav_tag_ids` = '"+catalogueTypeId+"' WHERE  `k_navigation`.`kt_navigation_ids` ='"+catalogueId+"';";
+				return "UPDATE  `kcool`.`k_navigation` SET  `kt_navigation_name` =  '"+catalogueTitle+"',`kt_navigation_url` = '"+catalogueUrl+"',`kt_nav_tag_ids` = '"+catalogueTypeId+"' WHERE  `k_navigation`.`kt_navigation_ids` ='"+catalogueId+"';";
 			},
 			postDelCatalogueById: function(navigation_ids){
-				return "DELETE FROM `kangcool`.`k_navigation` WHERE `k_navigation`.`kt_navigation_ids` = '"+navigation_ids+"' ";
+				return "DELETE FROM `kcool`.`k_navigation` WHERE `k_navigation`.`kt_navigation_ids` = '"+navigation_ids+"' ";
 			},
 		},
 		k_navigation_k_nav_tag: {
