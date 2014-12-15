@@ -4,8 +4,121 @@
 	<div class="wrapper">
 		<div class="container">
 			<div class="col-md-12" style="height:40px;"></div>
-			<div class="col-md-12">
-				<img src="../img/home.jpg" alt="" width="100%" height="100%"  style="border-radius: 5px;border: 1px solid #fff;">
+			<link type="text/css" rel="stylesheet" href="../lib/d3-tree/style/jsmind.css" />
+			<script type="text/javascript" src="../lib/d3-tree/js/jsmind.js"></script>
+			<div class="col-md-12"  id="jsmind_container" style="height:1050px;background:#fff;border-radius: 100px;">
+			<style>
+				#jsmind_container .root{
+					color: #fff;background: #095DBD;
+				}
+				jmnodes.primary jmnode[nodeid^=node3_]{
+					background: #fff;padding: 1px;color: #EC1F7C;
+				}
+				jmnodes.primary jmnode[nodeid^=node2_]{
+					background: #C80B8C;color: #fff;border-radius: 50%;
+				}
+				#jsmind_container .jsmind-inner {
+					overflow: hidden;
+				}
+				#jsmind_container {
+					color: #ff6600;
+				}
+			</style>
+				<script type="text/javascript">
+    function load_jsmind(){
+        var mind = {
+            "meta":{
+                "name":"demo",
+                "author":"hizzgdev@163.com",
+                "version":"0.2",
+            },
+            "format":"node_tree",
+             "data":{"id":"root","topic":"前端工程师","children":[
+                {"id":"node2_a","topic":"应用","direction":"left","children":[
+                    {"id":"node3_a1","topic":"网站应用"},
+                    {"id":"node3_a2","topic":"手机应用"},
+                    {"id":"node3_a3","topic":"桌面应用"},
+                    {"id":"node3_a4","topic":"游戏/Canvas"},
+                    {"id":"node3_a5","topic":"Comet"},
+                ]},
+                {"id":"node2_b","topic":"语言","direction":"right","children":[
+                    {"id":"node3_b1","topic":"HTML/HTML5"},
+                    {"id":"node3_b2","topic":"CSS/CSS3"},
+                    {"id":"node3_b3","topic":"Javascript"},
+                    {"id":"node3_b4","topic":"Flex/ActionScript/AIR"},
+                    {"id":"node3_b5","topic":"Python/PHP等服务器端脚本语言"},
+                    {"id":"node3_b6","topic":"XML/JSON"},
+                ]},
+                {"id":"node2_c","topic":"开发工具","direction":"right","children":[
+                    {"id":"node3_c1","topic":"JSDoc,YUIDoc"},
+                    {"id":"node3_c2","topic":"VIM,Aptana,DW,Textmate,PS"},
+                    {"id":"node3_c3","topic":"Firebug,Companion,Fiddle,Charles"},
+                    {"id":"node3_c4","topic":"Cygwin,SVN,ant"},
+                    {"id":"node3_c5","topic":"JSLint,YSlow,YUICompressor,Smushit"},
+                ]},
+                {"id":"node2_d","topic":"业内标准","direction":"left","children":[
+                    {"id":"node3_d1","topic":"UWA,OpenSocial"},
+                    {"id":"node3_d2","topic":"W3C(DOM,CSS,HTML)"},
+                    {"id":"node3_d3","topic":"POSH,XOXO,RSS/ATOM,RDF,XSPF"},
+                    {"id":"node3_d4","topic":"YAML,JSONP,JSON-RPC,Bayeux"},
+                    {"id":"node3_d5","topic":"Microformat,HTML5,WF2.0"},
+                ]},
+                {"id":"node2_e","topic":"ARIA","direction":"left","children":[
+                ]},
+                {"id":"node2_f","topic":"开发流程/方法","direction":"left","children":[
+                ]},
+                {"id":"node2_g","topic":"设计模式/方法","direction":"right","children":[
+                ]},
+                {"id":"node2_h","topic":"各种浏览器","direction":"left","children":[
+                    {"id":"node3_h1","topic":"IE 6/7/8/9/10"},
+                    {"id":"node3_h2","topic":"Firefox"},
+                    {"id":"node3_h3","topic":"Opera"},
+                    {"id":"node3_h4","topic":"Safari"},
+                    {"id":"node3_h5","topic":"Google Chrome"},
+                    {"id":"node3_h6","topic":"手机"},
+                ]},
+                {"id":"node2_i","topic":"交互/设计","direction":"left","children":[
+                ]},
+                {"id":"node2_j","topic":"沟通方法/表现力","direction":"right","children":[
+                ]},
+                {"id":"node2_k","topic":"开源项目","direction":"right","children":[
+                ]},
+                {"id":"node2_l","topic":"Hack技术","direction":"left","children":[
+                ]},
+                {"id":"node2_m","topic":"开放服务","direction":"right","children":[
+                    {"id":"node3_m1","topic":"YAP,BOSS,SearchMonkey"},
+                    {"id":"node3_m2","topic":"AppEngine"},
+                    {"id":"node3_m3","topic":"Google Ajax API,Flickr Services,Search API"},
+                    {"id":"node3_m4","topic":"Google Map,51Map等地图服务"},
+                ]},
+                {"id":"node2_n","topic":"性能/安全","direction":"left","children":[
+                    {"id":"node3_n1","topic":"XSRF/CSRF,Caja"},
+                    {"id":"node3_n2","topic":"YSlow,Smushit,34Rules"},
+                    {"id":"node3_n3","topic":"SEO"},
+                ]},
+                {"id":"node2_o","topic":"框架","direction":"right","children":[
+                    {"id":"node3_o1","topic":"Symfony/Zend"},
+                    {"id":"node3_o2","topic":"Django"},
+                    {"id":"node3_o3","topic":"YUI"},
+                    {"id":"node3_o4","topic":"JQuery"},
+                    {"id":"node3_o5","topic":"SoundManager"},
+                    {"id":"node3_o6","topic":"ASTRA"},
+                ]},
+            ]}
+        };
+        var options = {
+            container:'jsmind_container',
+            editable:true,
+            theme:'primary'
+        }
+        var jm = jsMind.show(options,mind);
+        // jm.set_readonly(true);
+        // var mind_data = jm.get_data();
+        // alert(mind_data);
+    }
+
+    load_jsmind();
+			</script>
 			</div>
 		</div>
 	</div>
