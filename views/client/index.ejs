@@ -3,10 +3,22 @@
 	<%- include modulesTools/menu %>
 	<div class="wrapper">
 		<div class="container">
-			<div class="col-md-12" style="height:40px;"></div>
 			<link type="text/css" rel="stylesheet" href="../lib/d3-tree/style/jsmind.css" />
 			<script type="text/javascript" src="../lib/d3-tree/js/jsmind.js"></script>
-			<div class="col-md-12"  id="jsmind_container" style="height:1050px;background:#fff;border-radius: 100px;">
+			<div class="col-md-12" id="nodeAfter" style="height:40px;"></div>
+			<script>
+				if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)){
+					function addNode(){
+						$("#nodeAfter").after('<div class="col-md-12"><img src="../img/home.jpg" alt="" width="100%" height="100%" style="border-radius: 5px;border: 1px solid #fff;"></div>');
+					};
+					addNode();
+				}else{
+					function addNode(){
+						$("#nodeAfter").after('<div class="col-md-12"  id="jsmind_container"></div>');
+					};
+					addNode();
+				}
+			</script>
 			<style>
 				#jsmind_container .root{
 					color: #fff;background: #095DBD;
@@ -21,7 +33,7 @@
 					overflow: hidden;
 				}
 				#jsmind_container {
-					color: #ff6600;
+					color: #ff6600;height:1050px;background:#fff;border-radius: 100px;
 				}
 			</style>
 				<script type="text/javascript">
@@ -119,7 +131,6 @@
 
     load_jsmind();
 			</script>
-			</div>
 		</div>
 	</div>
 <%- include modulesTools/footerLoader %>
