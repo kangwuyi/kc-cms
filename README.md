@@ -2,6 +2,8 @@
 
 #*kcoolBlog*     [![Build Status](https://travis-ci.org/kahn1990/kcoolBlog.svg?branch=master)](https://travis-ci.org/kahn1990/kcoolBlog)
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kahn1990/kcoolBlog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ----------
 
 **Project introduction：**
