@@ -37,7 +37,6 @@
 
   - kcoolBlog[Nodejs](http://nodejs.org/ "Nodejs")+[express](http://expressjs.com/)来提供Restful API.
   - 数据库采用 [mysql](http://www.mysql.com/)。
-  - kcoolBlog前台采用[AngularJs](http://angularjs.org/)进行开发。
   - 前端UI使用了[bootstrap](https://github.com/twitter/bootstrap)。
   - kcoolBlog使用强大的grunt对项目进行构建工作。
   - kcoolBlog全部代码托管在GitHub上，使用travis-ci进行持续集成。
