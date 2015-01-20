@@ -39,8 +39,8 @@
   - 数据库采用 [mysql](http://www.mysql.com/)。
   - kcoolBlog前台采用[AngularJs](http://angularjs.org/)进行开发。
   - 前端UI使用了[bootstrap](https://github.com/twitter/bootstrap)。
-  - NJBlog使用强大的grunt对项目进行构建工作。
-  - NJBlog全部代码托管在GitHub上，使用travis-ci进行持续集成。
+  - kcoolBlog使用强大的grunt对项目进行构建工作。
+  - kcoolBlog全部代码托管在GitHub上，使用travis-ci进行持续集成。
 
 **获得并运行项目：**
 
