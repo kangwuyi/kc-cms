@@ -4,9 +4,12 @@
 [![Build Status](https://travis-ci.org/kahn1990/kcoolBlog.svg?branch=master)](https://travis-ci.org/kahn1990/kcoolBlog)
 [![node version][node-image]][node-url]
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kahn1990/kcoolBlog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![David deps][david-image]][david-url]
 
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
+[david-image]: https://img.shields.io/david/kahn1990/kcoolBlog.svg?style=flat-square
+[david-url]: https://david-dm.org/kahn1990/kcoolBlog
 ----------
 
 **Project introduction：**
