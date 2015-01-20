@@ -35,7 +35,7 @@
 		if(!maxWidthOnMobile){
 			maxWidthOnMobile=768;
 		};
-		initialize=function(){
+		initialize=function(){alert('ka')
 			if(!$('.five-part-content-action').length){
 				var $testimonial=$('<blockquote  class="five-part-content-action text-center box-center col-md-8 col-xs-12 col-sm-10"></blockquote >').appendTo($container);
 				var $image=$elements.filter('.active').find('img'),
@@ -53,7 +53,7 @@
 				$(this).html(testimonialText).fadeIn(300)
 			});
 		}
-		hoverEvent=function(e){
+		hoverEvent=function(e){alert('k')
 			activate($(this));
 		}
 		initialize();
@@ -68,7 +68,7 @@
 					},
 					sliderDuration);
 				}
-				else{
+				else{alert('kk')
 					clearInterval(sliderInterval);
 					$elements.on('hover',hoverEvent);
 				}

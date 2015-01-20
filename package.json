@@ -3,17 +3,26 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "~4.2.0",
+    "express-partials": ">= 0.3.0",
+    "express-session": ">= 1.7.0",
     "static-favicon": "~1.0.0",
     "morgan": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
     "ejs": "~0.8.5",
-    "connect-mongo": ">= 0.1.7",
-    "mongodb": ">= 0.9.9"
+    "kcool": "~0.0.1",
+    "connect-flash": ">= 0.1.1",
+    "connect-parser": ">= 1.0.1",
+    "connect-session": ">= 1.1.0",
+    "debug": ">= 0.7.4",
+    "url": ">= 0.10.1",
+    "querystring": ">= 0.2.0",
+    "node-mysql": ">= 0.4.0",
+    "pagination-api": ">= 0.1.0",
+    "mysql": ">= 2.5.2"
   }
 }

@@ -4,6 +4,17 @@ exports.indexs = function (req, res) {
 exports.about = function (req, res) {
 	res.render('client/in/about', { title: '十页书｜友链'});
 }
+exports.abcd = function (req, res) {
+	var idss;
+	if(req.query.idss){
+		idss = req.query.idss;//console.log("get");
+	};
+	if(req.body.idss){
+		idss = req.body.idss;//console.log("post");
+	}
+	console.log(idss);
+	res.render('client/in/design', { title: '十页书｜友链'});
+}
 exports.design = function (req, res) {
 	res.render('client/in/design', { title: '十页书｜设计'});
 }

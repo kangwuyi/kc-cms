@@ -26,6 +26,7 @@ width: 960px;
 height: 68px;
 margin: 0;
 padding:0;
+
 }.ulMenu > li {
 cursor: pointer;
 text-decoration: none;
@@ -33,18 +34,18 @@ list-style-type:none;
 text-align:center;
 color: #fff;
 float: left;
-/* padding: 0px 30px; */
+padding: 0 88px 0 0;
 
 }.ulMenu > li span {
-display: block;
+  display: inline-block;
 color:#ff6600;
-padding: 28px 88px 20px 55px;
+padding: 28px 10px 20px 55px;
 }.submenuWrapper {
 position: absolute;
 cursor: auto;
 /* height: 172px; */
 width: 100%;
-left: 0px;
+ left: 0px;
 top: 68px;
 z-index: 9999;
 display: none;
@@ -96,27 +97,27 @@ text-transform: none;
 	color:#fff;
 }
  .carat {
-position: absolute;
+  display: inline-block;
 margin-top: -2px;
 border: 4px solid transparent;
 border-top: 5px solid #ff6600;
 }
-.caratOne{
-	left: 220px;
+/* .caratOne{
+	left: 148px;
 top: 37px;
 }
 .caratTwo{
-	left: 440px;
+	left:  362px;
 top: 37px;
 }
 .caratThree{
-	left: 640px;
+	left: 568px;
 top: 37px;
 }
 .caratFour{
-	left: 860px;
+	left: 788px;
 top: 37px;
-}
+} */
 li.liColorOne .caratOne{
 	border-bottom: 5px solid #fff;border-top: 4px solid transparent;margin-top: -6px;
 }

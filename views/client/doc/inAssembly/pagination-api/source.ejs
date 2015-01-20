@@ -34,263 +34,195 @@ text-shadow:none;color: #05A391;
 <h1 class="h1Bot" style="color:#fff;">pagination-api源码</h1>
 <blockquote><article style="padding-left:0;">
 <pre class="prettyprint linenums">
-<p>var express = require(&#39;express&#39;);
+var express = require(&#39;express&#39;);
 var kcool = require(&#39;./lib/kcool&#39;);
-var &nbsp;objects = require(&#39;./lib/object&#39;);
+var  objects = require(&#39;./lib/object&#39;);
 var pagination = new objects.kangjian;
-module.exports = pagination;</p>
+module.exports = pagination;
 
-<p>&nbsp;pagination.create_links = function create_links(total_rows,per_page,per_pages,base_url) {</p>
-<p>&nbsp;&nbsp; &nbsp;var base_url&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= base_url; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// 定义路径
-&nbsp;&nbsp; &nbsp;var total_rows&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;total_rows; &nbsp;&nbsp; &nbsp;//数据库返回博客总数量数据
-&nbsp;&nbsp; &nbsp;var per_page&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;per_page; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//每页显示文章数目
-&nbsp;&nbsp; &nbsp;var num_links&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;4;
-&nbsp;&nbsp; &nbsp;var cur_page&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &nbsp;0;
-&nbsp;&nbsp; &nbsp;var use_page_numbers&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= per_pages; &nbsp;&nbsp; &nbsp;// 当前所就收的页码
-&nbsp;&nbsp; &nbsp;var first_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;First&#39;;
-&nbsp;&nbsp; &nbsp;var next_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&raquo;&#39;;
-&nbsp;&nbsp; &nbsp;var prev_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&laquo;&#39;;
-&nbsp;&nbsp; &nbsp;var last_link&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;Last&#39;;
-&nbsp;&nbsp; &nbsp;var uri_segment&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= 4;
-&nbsp;&nbsp; &nbsp;var full_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;div class=&quot;pagination pagination-centered&quot;&gt;&lt;ul class=&quot;pagination pagination-lg&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var full_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/ul&gt;&lt;/div&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var first_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;prev page&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var first_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var last_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;next page&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var last_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var cur_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var cur_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/a&gt;&lt;/li&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var next_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;next page&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var next_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var prev_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;prev page&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var prev_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var num_tag_open&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;li class=&quot;page&quot;&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var num_tag_close&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;&lt;/li&gt;&#39;;
-&nbsp;&nbsp; &nbsp;var page_query_string&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;TRUE&#39;;
-&nbsp;&nbsp; &nbsp;var query_string_segment &nbsp;&nbsp; &nbsp;= &#39;per_page&#39;;
-&nbsp;&nbsp; &nbsp;var display_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;TRUE&#39;;
-&nbsp;&nbsp; &nbsp;var display_next_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;
-&nbsp;&nbsp; &nbsp;var display_last_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;
-&nbsp;&nbsp; &nbsp;var display_prev_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;
-&nbsp;&nbsp; &nbsp;var display_first_pages&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;= &#39;FALSE&#39;;&nbsp;&nbsp; &nbsp;//FALSE
-&nbsp;&nbsp; &nbsp;var start,end,loop,num_pages,first_url;
-&nbsp;&nbsp; &nbsp;use_page_numbers = parseInt(use_page_numbers);
-&nbsp;&nbsp; &nbsp;num_links = parseInt(num_links);
-&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;if (total_rows == 0 || per_page == 0) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return &#39;&#39;;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;num_pages = Math.ceil(total_rows / per_page);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//Math.ceil()向上取整,有小数就整数部分加1;num_pages是页数
-&nbsp;&nbsp; &nbsp;if (num_pages == 1) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return &#39;&#39;;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_page = 1;
-&nbsp;&nbsp; &nbsp;}else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_page = 0;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;if (use_page_numbers &amp;&amp; cur_page == 0) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = use_page_numbers;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;if (num_links &lt; 1) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;show_error(&#39;Your number of links must be a positive number+&#39;);
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;if ( isNaN(cur_page)) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = base_page;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (cur_page &gt; num_pages) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = num_pages;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (cur_page &gt; total_rows) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = (num_pages - 1) * per_page;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;uri_page_number = cur_page;
-&nbsp;&nbsp; &nbsp;if ( ! use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = floor((cur_page/per_page) + 1);
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;start = ((cur_page - num_links) &gt; 0) ? cur_page - (num_links - 1) : 1;
-&nbsp;&nbsp; &nbsp;end &nbsp; = ((cur_page + num_links) &lt; num_pages) ? cur_page + num_links : num_pages;
-&nbsp;&nbsp; &nbsp;if ( page_query_string === &#39;TRUE&#39;) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_url = kcool.trim(base_url)+query_string_segment+&#39;=&#39;;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;base_url = kcool.rtrim(base_url, &#39;/&#39;) +&#39;/&#39;;
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;// 编辑分页插件
-&nbsp;&nbsp; &nbsp;output = &#39;&#39;;
-&nbsp;&nbsp; &nbsp;// definition &quot;First&quot; link 定义第一页
-&nbsp;&nbsp; &nbsp;if (display_first_pages !== &#39;TRUE&#39;) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if &nbsp;( first_link &nbsp;&amp;&amp; cur_page &gt; (num_links + 1)) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;first_url = (first_url == undefined ) ? base_url+1 : &#39;&#39;;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += first_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+first_link+&#39;&lt;/a&gt;&#39;+first_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;first_url = (first_url == undefined ) ? base_url+1 : &#39;&#39;;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == 1){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += first_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+first_link+&#39;&lt;/a&gt;&#39;+first_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += first_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+first_link+&#39;&lt;/a&gt;&#39;+first_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;// definition &quot;previous&quot; link 定义上一页
-&nbsp;&nbsp; &nbsp;if (display_prev_pages !== &#39;TRUE&#39;) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if &nbsp;( prev_link &nbsp;&amp;&amp; cur_page != 1) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - 1;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - per_page;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (i == 0 &amp;&amp; first_url != undefined) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (i == 0) ? &#39;&#39; : i;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - 1;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = uri_page_number - per_page;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == 1){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (i == 0) ? &#39;&#39; : i;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (i == 0) ? &#39;&#39; : i;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;// definition pages 定义分页中间部分
-&nbsp;&nbsp; &nbsp;if (display_pages !== &#39;FALSE&#39;) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;for (loop = start -1; loop &lt;= end; loop++) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = loop;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (loop * per_page) - per_page;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (i &gt;= base_page) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (cur_page == loop) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += cur_tag_open+loop+cur_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;n = (i == base_page) ? 1 : i;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (n == &#39;&#39; &amp;&amp; first_url != undefined) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+first_url+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;n = (n == &#39;&#39;) ? &#39;&#39; : n;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( (use_page_numbers &lt;= 3) || ( use_page_numbers +3 &gt; num_pages )) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var cache1 = (( (use_page_numbers +3&gt; num_pages )&amp;&amp;(use_page_numbers +2 &lt;= num_pages)&amp;&amp;(use_page_numbers &gt; 3) ) ? use_page_numbers : &#39;&#39;);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var cache2 = (( (use_page_numbers +2&gt; num_pages )&amp;&amp;(use_page_numbers +1&lt;= num_pages )&amp;&amp;(use_page_numbers &gt; 3)) ? use_page_numbers : &#39;&#39;);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var cache3 = (( (use_page_numbers +1&gt; num_pages )&amp;&amp;(use_page_numbers &lt;= num_pages )&amp;&amp;(use_page_numbers &gt; 3)) ? use_page_numbers : &#39;&#39;);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;switch( use_page_numbers ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case 1://console.log(&quot;use_page_numbers=case1&quot;+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= use_page_numbers &amp;&amp; n &lt;= (use_page_numbers + 3) ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case 2://console.log(&quot;use_page_numbers=case2&quot;+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-1) &amp;&amp; n &lt;= (use_page_numbers + 2) ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case 3://console.log(&quot;use_page_numbers=case3&quot;+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-2) &amp;&amp; n &lt;= (use_page_numbers + 1) ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case cache1://console.log(&quot;use_page_numbers=cache1*&quot;+cache1+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-1) &amp;&amp; n &lt;= (use_page_numbers + 2) ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case cache2://console.log(&quot;use_page_numbers=cache2*&quot;+cache2+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-2) &amp;&amp; n &lt;= (use_page_numbers + 1) ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;case cache3://console.log(&quot;use_page_numbers=cache3*&quot;+cache3+&quot;--use_page_numbers=&quot;+use_page_numbers+&quot;--n=&quot;+n);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers-3) &amp;&amp; n &lt;= use_page_numbers ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;break;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{//console.log(&quot;----------&quot;+&quot;--n=&quot;+n+&quot;------------use_page_numbers=&quot;+use_page_numbers+&quot;----(use_page_numbers - 2)=&quot;+(use_page_numbers - 2)+&quot;---------(use_page_numbers + 1)=&quot;+(use_page_numbers + 1))
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( n &gt;= (use_page_numbers - 2) &amp;&amp; n &lt;=(use_page_numbers + 1) ){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+loop+&#39;&lt;/a&gt;&#39;+num_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;if (display_next_pages !== &#39;TRUE&#39;) {
-&nbsp;&nbsp; &nbsp;// definition &quot;next&quot; link 定义下一页
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if ( next_link &amp;&amp; cur_page &lt; num_pages) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = cur_page + 1;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (cur_page * per_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += next_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = cur_page + 1;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = (cur_page * per_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == num_pages){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += next_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += next_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;// definition &quot;Last&quot; link 定义最后一页链接按钮
-&nbsp;&nbsp; &nbsp;if (display_last_pages !== &#39;TRUE&#39;) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if ( last_link &amp;&amp; (cur_page + num_links) &lt; num_pages) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = num_pages;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = ((num_pages * per_page) - per_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += last_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;cur_page = parseInt(cur_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (use_page_numbers) {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = num_pages;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;else {
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;i = ((num_pages * per_page) - per_page);
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if( use_page_numbers == num_pages){
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += last_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}else{
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;output += last_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
-&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;}
-&nbsp;&nbsp; &nbsp;output = output.replace(&quot;#([^:])//+#&quot;, &quot;\\1/&quot;);
-&nbsp;&nbsp; &nbsp;output = full_tag_open+output+full_tag_close;
-&nbsp;&nbsp; &nbsp;return output;
-}</p></pre>
+pagination.create_links = function create_links(total_rows,per_page,per_pages,base_url) {
+
+    var query_string_segment     = &#39;per_page&#39;;
+    var base_url            =  kcool.trim(base_url)+query_string_segment+&#39;=&#39;;         // 定义路径
+    var total_rows            =  total_rows;     //数据库返回博客总数量数据
+    var per_page            =  per_page;         //每页显示文章数目
+    var num_links            =  4;//定义大于num_links时显示第一页和最后一页
+    var use_page_numbers        = parseInt(per_pages);     // 当前所就收的页码
+    var first_link            = &#39;First&#39;;
+    var next_link            = &#39;&raquo;&#39;;
+    var prev_link            = &#39;&laquo;&#39;;
+    var last_link            = &#39;Last&#39;;
+    var full_tag_open        = &#39;&lt;div class=&quot;pagination pagination-centered&quot;&gt;&lt;ul class=&quot;pagination pagination-lg&quot;&gt;&#39;;
+    var full_tag_close        = &#39;&lt;/ul&gt;&lt;/div&gt;&#39;;
+    var first_tag_open        = &#39;&lt;li class=&quot;prev page&quot;&gt;&#39;;
+    var first_tag_close        = &#39;&lt;/li&gt;&#39;;
+    var last_tag_open        = &#39;&lt;li class=&quot;next page&quot;&gt;&#39;;
+    var last_tag_close        = &#39;&lt;/li&gt;&#39;;
+    var cur_tag_open        = &#39;&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&#39;;
+    var cur_tag_close        = &#39;&lt;/a&gt;&lt;/li&gt;&#39;;
+    var next_tag_open        = &#39;&lt;li class=&quot;next page&quot;&gt;&#39;;
+    var next_tag_close        = &#39;&lt;/li&gt;&#39;;
+    var prev_tag_open        = &#39;&lt;li class=&quot;prev page&quot;&gt;&#39;;
+    var prev_tag_close        = &#39;&lt;/li&gt;&#39;;
+    var num_tag_open        = &#39;&lt;li class=&quot;page&quot;&gt;&#39;;
+    var num_tag_close        = &#39;&lt;/li&gt;&#39;;
+    var display_pages        = &#39;TRUE&#39;;
+    var display_next_pages        = &#39;FALSE&#39;;
+    var display_last_pages        = &#39;FALSE&#39;;
+    var display_prev_pages        = &#39;FALSE&#39;;
+    var display_first_pages        = &#39;FALSE&#39;;    //FALSE
+    var start,
+    end,
+    i,
+    output = &#39;&#39;,// 编辑分页插件
+    cache_page,//缓存当前页码
+    first_url,
+    base_page = 1,
+    num_pages = parseInt(Math.ceil(total_rows / per_page));//定义总的页数,Math.ceil()向上取整,有小数就整数部分加1;num_pages是页数
+    if (use_page_numbers) {
+        cache_page = use_page_numbers;
+        if ( isNaN(cache_page)) {//如果缓存的页码不是数字则定义缓存页码为１
+            cache_page = base_page;
+        };
+        if (cache_page &gt; num_pages) {//如果缓存的页码大于总的页数
+            cache_page = num_pages;
+        }
+    }else {
+        cache_page = num_pages;//接收不到所在页码use_page_numbers时，则设定缓存页码为最后一张页数
+    }
+    var output_string = {
+        first_pages_onclick: function(a,b,c,d){
+            return a+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+b+&#39;&quot;&gt;&#39;+c+&#39;&lt;/a&gt;&#39;+d;
+        },
+        first_pages_no_onclick: function(a,b,c){
+            return a+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+b+&#39;&lt;/a&gt;&#39;+c;
+        },
+        prev_pages_onclick: function(prev_tag_open,base_url,prev_link,prev_tag_close,cache_page){
+            var i = ((cache_page - 1) == 0) ? &#39;&#39; : (cache_page - 1);
+            return prev_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+i+&#39;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
+        },
+        prev_pages_no_onclick: function(prev_tag_open,prev_link,prev_tag_close){
+            return prev_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+prev_link+&#39;&lt;/a&gt;&#39;+prev_tag_close;
+        },
+        pages: function(num_tag_open,base_url,n,i,num_tag_close){
+            return num_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+n+&#39;&quot;&gt;&#39;+i+&#39;&lt;/a&gt;&#39;+num_tag_close;
+        },
+        next_pages_onclick: function(next_tag_open,base_url,next_link,next_tag_close,cache_page){
+            return next_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+(cache_page + 1)+&#39;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
+        },
+        next_pages_no_onclick: function(next_tag_open,next_link,next_tag_close){
+            return next_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+next_link+&#39;&lt;/a&gt;&#39;+next_tag_close;
+        },
+        last_pages_onclick: function(last_tag_open,base_url,last_link,last_tag_close,num_pages){
+            return last_tag_open+&#39;&lt;a &#39;+&#39;href=&quot;&#39;+base_url+num_pages+&#39;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
+        },
+        last_pages_no_onclick: function(last_tag_open,last_link,last_tag_close){
+            return last_tag_open+&#39;&lt;a style=&quot;background-color: #428bca;color: #fff;border-color: #428bca;&quot;&gt;&#39;+last_link+&#39;&lt;/a&gt;&#39;+last_tag_close;
+        },
+    };
+    // definition &quot;First&quot; link 定义第一页
+    if (display_first_pages !== &#39;TRUE&#39;) {
+        if  ( first_link  &amp;&amp; cache_page &gt; num_links) {//当存在第一页标识且页数大于设定的num_links时，显示第一页
+            first_url = (first_url == undefined ) ? base_url+1 : &#39;&#39;;//第一页的链接路径
+            output += output_string.first_pages_onclick(first_tag_open,first_url,first_link,first_tag_close);
+        }
+    }else{//固定显示第一页
+        first_url = (first_url == undefined ) ? base_url+1 : &#39;&#39;;//第一页的链接路径
+        if( use_page_numbers == 1){//如果是第一页则禁止点击
+            output += output_string.first_pages_no_onclick(first_tag_open,first_link,first_tag_close);
+        }else{
+            output += output_string.first_pages_onclick(first_tag_open,first_url,first_link,first_tag_close);
+        }
+    }
+    // definition &quot;previous&quot; link 定义上一页
+    if (display_prev_pages !== &#39;TRUE&#39;) {
+        if  ( prev_link  &amp;&amp; cache_page != 1) {//存在上一页且不为第一页
+            output += output_string.prev_pages_onclick(prev_tag_open,base_url,prev_link,prev_tag_close,cache_page);
+        }
+    }else{
+        if( use_page_numbers == 1){
+            output += output_string.prev_pages_no_onclick(prev_tag_open,prev_link,prev_tag_close);
+        }else{
+            output += output_string.prev_pages_onclick(prev_tag_open,base_url,prev_link,prev_tag_close,cache_page);
+        }
+    }
+    // definition pages 定义分页中间部分
+    if (display_pages !== &#39;FALSE&#39;) {
+        start = ((cache_page - num_links) &gt; 0) ? cache_page - (num_links - 1) : 1;
+        end   = ((cache_page + num_links) &lt; num_pages) ? cache_page + num_links : num_pages;
+        for (i = start -1; i &lt;= end; i++) {
+            if (i &gt;= base_page) {
+                if (cache_page == i) {//缓存的页码等于i，即当前选中的页码
+                    output += cur_tag_open+i+cur_tag_close;
+                }else {
+                    n = (i == base_page) ? 1 : i;
+                    if( (use_page_numbers &lt;= 3) || ( use_page_numbers +3 &gt; num_pages )) {
+                        var cache1 = (( (use_page_numbers +3&gt; num_pages )&amp;&amp;(use_page_numbers +2 &lt;= num_pages)&amp;&amp;(use_page_numbers &gt; 3) ) ? use_page_numbers : &#39;&#39;);
+                        var cache2 = (( (use_page_numbers +2&gt; num_pages )&amp;&amp;(use_page_numbers +1&lt;= num_pages )&amp;&amp;(use_page_numbers &gt; 3)) ? use_page_numbers : &#39;&#39;);
+                        var cache3 = (( (use_page_numbers +1&gt; num_pages )&amp;&amp;(use_page_numbers &lt;= num_pages )&amp;&amp;(use_page_numbers &gt; 3)) ? use_page_numbers : &#39;&#39;);
+                        switch( use_page_numbers ){
+                            case 1:if( n &gt;= use_page_numbers &amp;&amp; n &lt;= (use_page_numbers + 3) ){
+                                    output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                                }
+                            break;
+                            case 2:if( n &gt;= (use_page_numbers-1) &amp;&amp; n &lt;= (use_page_numbers + 2) ){
+                                    output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                                }
+                            break;
+                            case 3:if( n &gt;= (use_page_numbers-2) &amp;&amp; n &lt;= (use_page_numbers + 1) ){
+                                    output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                                }
+                            break;
+                            case cache1:if( n &gt;= (use_page_numbers-1) &amp;&amp; n &lt;= (use_page_numbers + 2) ){
+                                    output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                                }
+                            break;
+                            case cache2:if( n &gt;= (use_page_numbers-2) &amp;&amp; n &lt;= (use_page_numbers + 1) ){
+                                    output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                                }
+                            break;
+                            case cache3:if( n &gt;= (use_page_numbers-3) &amp;&amp; n &lt;= use_page_numbers ){
+                                    output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                                }
+                            break;
+                        }
+                    }else{
+                        if( n &gt;= (use_page_numbers - 2) &amp;&amp; n &lt;=(use_page_numbers + 1) ){
+                            output += output_string.pages(num_tag_open,base_url,n,i,num_tag_close);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // definition &quot;next&quot; link 定义下一页
+    if (display_next_pages !== &#39;TRUE&#39;) {
+        if ( next_link &amp;&amp; cache_page &lt; num_pages) {
+            output += output_string.next_pages_onclick(next_tag_open,base_url,next_link,next_tag_close,cache_page);
+        }
+    }else{
+        if( use_page_numbers == num_pages){
+            output += output_string.next_pages_no_onclick(next_tag_open,next_link,next_tag_close);
+        }else{
+            output += output_string.next_pages_onclick(next_tag_open,base_url,next_link,next_tag_close,cache_page);
+        }
+    }
+    // definition &quot;Last&quot; link 定义最后一页链接按钮
+    if (display_last_pages !== &#39;TRUE&#39;) {
+        if ( last_link &amp;&amp; (cache_page + num_links) &lt;= num_pages) {
+            output += output_string.last_pages_onclick(last_tag_open,base_url,last_link,last_tag_close,num_pages);
+        }
+    }else{
+        if( use_page_numbers == num_pages){
+            output += output_string.last_pages_no_onclick(last_tag_open,last_link,last_tag_close);
+        }else{
+            output += output_string.last_pages_onclick(last_tag_open,base_url,last_link,last_tag_close,num_pages);
+        }
+    }
+    output = output.replace(&quot;#([^:])//+#&quot;, &quot;\\1/&quot;);
+    output = full_tag_open+output+full_tag_close;
+    return output;
+}</pre>
      </blockquote>
     </article>
 

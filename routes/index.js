@@ -25,6 +25,7 @@ router.get('/in/about',Home.about);
 router.get('/in/photo',Home.photo);
 router.get('/in/design',Home.design);
 router.get('/in/assembly',Home.assembly);
+router.post('/abcd', Home.abcd);
 
 router.get('/in/blog', Blog.allBlog);
 router.get('/in/blogsById',Blog.blogsById);
@@ -64,6 +65,8 @@ router.get('/in/pagination-api',About.paginationApi);
 router.get('/in/pagination-api-source',About.paginationApiSource);
 router.get('/in/kcool',About.kcool);
 router.get('/in/kcool-source',About.kcoolSource);
+router.get('/in/colorGradient',About.colorGradient);
+router.post('/in/colorCount',About.colorCount);
 
 router.post('/in/login', User.login);
 router.post('/in/leave', User.leave);
