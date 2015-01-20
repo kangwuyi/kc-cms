@@ -4,5 +4,4 @@ node_js:
 services:
   - mysql
 
-script: make test-cov
-after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
