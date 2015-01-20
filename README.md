@@ -5,7 +5,7 @@
 [![node version][node-image]][node-url]
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kahn1990/kcoolBlog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![David deps][david-image]][david-url]
-[![Coverage Status](https://img.shields.io/coveralls/kahn1990/kcoolBlog.svg?style=flat-square)](https://coveralls.io/r/kahn1990/kcoolBlog?branch=master)
+[![Coverage Status](https://coveralls.io/repos/kahn1990/kcoolBlog/badge.svg)](https://coveralls.io/r/kahn1990/kcoolBlog)
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [david-image]: https://img.shields.io/david/kahn1990/kcoolBlog.svg?style=flat-square
