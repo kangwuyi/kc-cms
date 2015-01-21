@@ -4,4 +4,5 @@ node_js:
 services:
   - mysql
 
+cover -test -report coveralls
 
