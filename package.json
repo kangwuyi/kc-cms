@@ -19,7 +19,7 @@
     "url": ">= 0.10.1",
     "querystring": ">= 0.2.0",
     "node-mysql": ">= 0.4.0",
-    "pagination-api": ">= 0.1.0",
+    "pagination-api": ">= 0.1.1",
     "mysql": ">= 2.5.2"
   }
 }
