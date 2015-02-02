@@ -1,0 +1,99 @@
+$fontStack:    Helvetica, sans-serif;
+$fontStack1: Georgia, Times, "Times New Roman", serif;
+$fontStack2: Arial, Helvetica, sans-serif;
+$fontStack3: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$fontStack4: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+$fontStack5: 'Play', Helvetica, sans-serif;
+$fontStack6: 'Play', arial, serif;
+$fontStack7: Georgia, Times, "Times New Roman", serif;
+$font1: 14px Arial,Helvetica,sans-serif;
+$primaryColor: #333;
+$colorWhite: #fff;
+@mixin transition ($transition) {
+    	-webkit-transition:$transition;
+      	-moz-transition:$transition;
+	-ms-transition:$transition;
+	-o-transition:$transition;
+	transition:$transition;
+}
+body{
+	color: rgba(255,255,255,0.5);
+	zoom: 1;
+	font: $font1;
+	@include transition(color .5s ease);
+}
+@mixin box-shadow ($boxShadow) {
+    	-webkit-box-shadow:$boxShadow;
+      	-moz-box-shadow:$boxShadow;
+	-ms-box-shadow:$boxShadow;
+	-o-box-shadow:$boxShadow;
+	box-shadow:$boxShadow;
+}
+@mixin transform ($transform) {
+    	-webkit-transform:$transform;
+      	-moz-transform:$transform;
+	-ms-transform:$transform;
+	-o-transform:$transform;
+	transform:$transform;
+}
+@mixin transformOrigin ($transformOrigin) {
+    	-webkit-transform-origin:$transformOrigin;
+      	-moz-transform-origin:$transformOrigin;
+	-ms-transform-origin:$transformOrigin;
+	-o-transform-origin:$transformOrigin;
+	transform-origin:$transformOrigin;
+}
+@mixin tabSize ($tabSize) {
+    	-webkit-tab-size:$tabSize;
+      	-moz-tab-size:$tabSize;
+	-ms-tab-size:$tabSize;
+	-o-tab-size:$tabSize;
+	tab-size:$tabSize;
+}
+@mixin readerRighBorder ($readerRighBorderWidth,$readerRighBorderColor: #ccc) {
+    	width: $readerRighBorderWidth;
+       	style: solid;
+       	color: $readerRighBorderColor;
+}
+@mixin Border ($BorderWidth,$BorderColor) {
+    	width: $BorderWidth;
+       	style: solid;
+       	color: $BorderColor;
+}
+@mixin readerRightAColor ($readerRightAColor: #0782C1) {
+	color: $readerRightAColor;
+}
+@mixin borderRadius ($borderRadius) {
+    	-webkit-border-radius:$borderRadius;
+      	-moz-border-radius:$borderRadius;
+	-ms-border-radius:$borderRadius;
+	-o-border-radius:$borderRadius;
+	border-radius:$borderRadius;
+}
+@mixin tagBox($before, $after,$start, $end, $em: 1em, $px: 0px) {
+	-webkit-margin-#{$before}: $em;
+	-webkit-margin-#{$after}: $em;
+	-webkit-margin-#{$start}: $px;
+	-webkit-margin-#{$end}: $px;
+	-webkit-padding-#{$start}: $px;
+	margin-#{$before}: $em;
+	margin-#{$after}: $em;
+	margin-#{$start}: $px;
+	margin-#{$end}: $px;
+	padding-#{$start}: $px;
+	-o-margin-#{$before}: $em;
+	-o-margin-#{$after}: $em;
+	-o-margin-#{$start}: $px;
+	-o-margin-#{$end}: $px;
+	-o-padding-#{$start}: $px;
+	-ms-margin-#{$before}: $em;
+	-ms-margin-#{$after}: $em;
+	-ms-margin-#{$start}: $px;
+	-ms-margin-#{$end}: $px;
+	-ms-padding-#{$start}: $px;
+	-moz-margin-#{$before}: $em;
+	-moz-margin-#{$after}: $em;
+	-moz-margin-#{$start}: $px;
+	-moz-margin-#{$end}: $px;
+	-moz-padding-#{$start}: $px;
+}

@@ -1,0 +1,27 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+.noteList {
+  color: #fff; }
+  .noteList h3 a {
+    color: #fff; }
+  .noteList .noteBox {
+    margin: 0;
+    padding: 1px 15px 1px 15px;
+    background: #fff; }
+    .noteList .noteBox .noteLink {
+      text-decoration: none;
+      list-style-type: none;
+      margin-top: 15px;
+      margin-bottom: 15px; }
+      .noteList .noteBox .noteLink .noteBoxDate {
+        text-align: right; }
+
+/*# sourceMappingURL=note.css.map */

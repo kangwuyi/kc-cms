@@ -1,0 +1,13 @@
+<aside>
+<% PostCatalogueTag.forEach(  function(PostCatalogueTag){%>
+      <dl style="display:block;float:left;width:100%">
+
+        <dt style="color:#EA5124;"><%= PostCatalogueTag.kt_nav_tag_name %></dt>
+
+        <% PostCatalogue.forEach(  function(PostCatalogue){%>
+          <% if( PostCatalogueTag.kt_nav_tag_ids ==  PostCatalogue.kt_nav_tag_ids){%>
+      <dd style="display:block;float:left;margin:20px;"> <a style="color:#fff;" href="<%= PostCatalogue.kt_navigation_url %>" target="_blank" rel="nofollow" title="<%= PostCatalogue.kt_navigation_name %>"><%= PostCatalogue.kt_navigation_name %></a></dd>
+          <%  } %>
+  <% });%>
+      </dl><% });%>
+</aside>

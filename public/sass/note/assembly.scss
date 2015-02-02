@@ -1,0 +1,10 @@
+@import '../definition';
+.assemblyListPre::before{
+  content: "$ ";
+}
+.assemblyListPre{
+  font-size: 20px;
+padding: 0.4em 0;
+margin-top: 10px;
+border: none;
+}

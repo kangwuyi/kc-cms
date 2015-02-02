@@ -1,0 +1,62 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+.translateList {
+  /* padding-top: 20px; */ }
+
+.translateBox {
+  background: #fff;
+  padding-top: 1px; }
+
+.translateBoxImage {
+  float: left;
+  height: 160px;
+  margin-bottom: 20px;
+  margin-right: 18px;
+  margin-top: 5px;
+  overflow: hidden;
+  width: 160px; }
+
+.translateBoxTitle {
+  font-family: Georgia,"Times New Roman",Times,serif; }
+
+.translateBoxTitle .translateBoxTitleH3 {
+  font-size: 25px;
+  font-weight: normal;
+  height: 40px;
+  margin-bottom: 0px; }
+
+.translateBoxDate {
+  font-family: Georgia,"Times New Roman",Times,serif; }
+
+.translateBoxDate .translateBoxDateH3 {
+  height: 20px;
+  font-size: 11px;
+  margin-top: 0;
+  margin-bottom: 5px; }
+
+.translateBoxbody .translateBoxbodyP {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  height: 110px;
+  line-height: 1.42857143;
+  color: #333; }
+
+.translateBoxMore .translateBoxMoreP {
+  font-style: italic;
+  height: 40px;
+  color: #363738;
+  font-size: 12px;
+  padding-right: 100px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: right; }
+
+/*# sourceMappingURL=translate.css.map */

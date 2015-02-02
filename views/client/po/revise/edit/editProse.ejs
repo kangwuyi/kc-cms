@@ -1,0 +1,27 @@
+<%- include ../../poHeaderLoader %>
+		<div class="container poContents"  id="contents">
+			<%- include ../../header %>
+			<%- include ../nav %>
+			<form action="toEditProse" method="post">
+			<% getProseById.forEach(	function(getProseById){%>
+			<div   class="poAddBox">
+				<table class="table table-striped" style="margin-bottom:0;">
+					<tr><td>
+						心情标题：
+					</td></tr>
+					<tr><td>
+						<input class="proseTitle"  style="width:100％;" name="proseTitle" type="text" placeholder="请输入心情标题" value="<%= getProseById.kt_prose_titles %>">
+					</td></tr>
+					<tr><td>
+						<input style="width:100%;" type="submit" value="提交表单">
+						<input class="proseId"  style="width:100%;" name="proseId" type="hidden" value="<%= getProseById.kt_prose_ids %>">
+					</td></tr>
+				</table>
+			</div>
+			<div class="poTextarea">
+				<textarea class="ckeditor" name="editor1"><%- getProseById.kt_prose_contents %></textarea>
+			</div>
+			<% });%>
+			</form>
+		</div>
+<%- include ../../poFooterLoader %>

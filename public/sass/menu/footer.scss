@@ -1,0 +1,36 @@
+@import '../definition';
+#gotop {
+	background: url(../../img/backup.png);
+	position: fixed;
+	z-index: 93;
+	right: 30px;
+	cursor: pointer;
+	width: 33px;
+	height: 33px;
+	bottom: 50px;
+}
+.site-footer {
+	position: relative;
+	margin-top: 40px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #FFF;
+	border-top: 1px solid #eee;
+	.right {
+		float: right;
+	}
+	.site-footer-links {
+		margin: 0;
+		list-style: none;
+		li {
+			display: inline-block;
+			line-height: 16px;
+		}
+		a {
+			color: #4183c4;
+			text-decoration: none;background: transparent;
+		}
+	}
+}

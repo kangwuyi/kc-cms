@@ -1,0 +1,36 @@
+<%- include ../poHeaderLoader %>
+	<div class="container poContents">
+		<%- include ../header %>
+		<%- include nav %>
+		<!-- <form action="write/baocun" method="post"> -->
+			<div  class="poDeleteBox">
+			<table class="table table-striped"   id="idData">
+						<tr >
+							<th  class="deleteCatalogueTh10">Id</th>
+							<th  class="deleteCatalogueTh20">Name</th>
+							<th  class="deleteCatalogueTh50">Url</th>
+							<th  class="deleteCatalogueTh10">Type</th>
+							<th  class="deleteCatalogueTh10">Operation</th>
+						</tr>
+						<% PostCatalogue.forEach(  function(PostCatalogue){%>
+						<tr >
+							<td  class="deleteCatalogueTh10"><%= PostCatalogue.kt_navigation_ids %></td>
+							<td  class="deleteCatalogueTh20"><%= PostCatalogue.kt_navigation_name %></td>
+							<td  class="deleteCatalogueTh50"><a target="_blank" href="<%= PostCatalogue.kt_navigation_url %>"><%= PostCatalogue.kt_navigation_url %></a></td>
+							<td  class="deleteCatalogueTh10"><%= PostCatalogue.kt_nav_tag_name %></td>
+							<td  class="deleteCatalogueTh10"><a class="delImg"href="/delCatalogueById?navigation_ids=<%= PostCatalogue.kt_navigation_ids %>">Del</a></td>
+						</tr>
+						<% });%>
+			</table>
+			<table width="100%">
+				<tr>
+					<td>
+						<div id="barcon" name="barcon"></div>
+					</td>
+				</td>
+			</table>
+			<script type="text/javascript" src="js/po/page.js"></script>
+			</div>
+	<!-- </form> -->
+	</div>
+<%- include ../poFooterLoader %>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+
+	<title>kcool</title>
+	<link rel="stylesheet" href="../css/pagination-api/screen.css">
+	<script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+	<script src="../js/index.js"></script>
+</head>
+<body>
+	<div class="backdrop">
+		<header>
+			<div class="container">
+				<h1 class="logo" style="color:#666;">kcool.js
+				</h1>
+				<p class="lead">
+					A JavaScript Library.
+				</p>
+				<div class="credits">
+					<p>
+						<h2>Created by kahn1990</h2>
+					</p>
+				</div>
+								<div class="primary-actions">
+					<a href="https://codeload.github.com/kahn1990/kcool.js/zip/master" class="button">
+						Download
+					</a>
+					<a href="https://github.com/kahn1990/kcool.js" class="button">
+						View on Github
+					</a>
+				</div>
+			</div>
+		</header>
+
+	</div><!-- .backdrop -->
+
+	<div class="content" id="backgroundAll">
+		<section id="how-to-use" class="how-to-use-section">
+			<div class="container">
+				<h2>How to use</h2>
+				<h3>Step 1 - Load the kcool</h3>
+				<ol>
+					<li>The browser environment.
+						<pre><code>&lt;script src=&quot;kcool.js&quot;&gt;&lt;/script&gt;</code></pre>
+					</li>
+					<li>Node.js environment.
+						<pre><code>npm install kcool</code></pre>
+					</li>
+				</ol>
+				<h3>Step 2 - Document</h3>
+			<ul>
+					<li>tools. 工具
+<pre>
+<code>
+<em>global_variable() 打印全局变量</em>
+<em>trim(str) 删除左右两端的空格</em>
+<em>ltrim(str) 删除左边的空格</em>
+<em>rtrim (str) 删除右边的空格</em>
+<em>route_3(str) 获得上上级文件目录</em>
+<em>parseDate(date) 日期字符串格转日期</em>
+<em>parseJSON(jsonString) Json字符串转对象</em>
+<em>getUid() 取不重复唯一值</em>
+<em>random(n1, n2) 获取指定范围的随机数</em>
+<em>s2ms(str) 秒转换为毫秒</em>
+<em>ms2s(str) 毫秒转换为秒</em>
+<em>num2number(num, n) 数字转换为编号</em>
+<em>num2gb(n) 数字转化为中文</em>
+<em>getXY(ev) 获取鼠标位置</em>
+<em>drag(obj, obj2) 绑定拖动事件</em>
+<em>sliderX(obj, x1, x2, overEvent, upEvent) 绑定横向滚动事件</em>
+<em>sliderY(obj, y1, y2, overEvent, upEvent) 绑定竖向滚动事件</em>
+<em>each(obj, func, context) 遍历</em>
+<em>getPlayer(url, width, height, param) 播放器生成代码</em>
+<em>getFlash(url, width, height, param) Flash生成代码</em>
+<em>docReady(func) Dom加载</em>
+</code></pre>
+	</li>
+<li>extend. 对象继承或属性合并
+<pre><code>
+<em>inspect(originalObject) 一个静态方法, 传入一个对象, 返回对象的字符串表示</em>
+<em>keys(originalObject) 一个静态方法, 传入一个对象, 返回该对象中所有的属性, 构成数组返回</em>
+<em>values(originalObject) 一个静态方法, 传入一个对象, 返回该对象中所有属性所对应的值, 构成数组返回</em>
+<em>clone(originalObject) 一个静态方法, 传入一个对象, 克隆一个新对象并返回</em>
+</code></pre>
+</li>
+<li>assembly. 组件
+<pre><code>
+<em>setOpacity(node,level) 设置透明度setOpacity，node 类名 level 透明度</em>
+<em>hide(elem) 隐藏或显示元素</em>
+<em>show(elem) 隐藏或显示元素</em>
+<em>toggle(elem) 隐藏或显示元素</em>
+<em>loadimages() 图像预加载</em>
+</code></pre>
+</li>
+<li>judge. 判断
+<pre><code>
+<em>isArray(v) 是否为数组</em>
+<em>isfunction(v) 是否为函数体</em>
+<em>isNumber(v) 是否为数字</em>
+<em>isDate(v) 是否为日期</em>
+<em>isElement(v) 是否为Dom元素节点</em>
+</code></pre>
+</li>
+<li>acquire. 获得值
+<pre><code>
+<em>getId(id) 取id元素</em>
+<em>getName(name) 取name元素集合</em>
+<em>getTag(tag, root) 取tag元素集合</em>
+<em>getAll(attrName, attrValue, tag, root) 按属性名(是否包含)、值、范围取元素集合</em>
+<em>getBody 取body元素</em>
+<em>getClass(attrValue, tag, root) 取Class属性元素集合</em>
+<em>getWinWidth 取浏览器窗体宽度</em>
+<em>getWinHeight 取浏览器窗体高度</em>
+<em>getStyle(elem, name) 取元素样式</em>
+<em>getPosition() 获取元素屏幕坐标值</em>
+<em>xmlhttp() 获取XMLHttp对象</em>
+<em>get(url, callBack) Get数据</em>
+<em>post(url, arg, callBack) Post数据</em>
+</code></pre>
+</li>
+<li>browser. 浏览器
+<pre><code>
+<em>isOpera</em>
+<em>isChrome</em>
+<em>isWebKit</em>
+<em>isSafari</em>
+<em>isIe</em>
+<em>isIe6</em>
+<em>isFirefox</em>
+<em>isQuirks</em>
+<em>getVersion</em>
+</code></pre>
+</li>
+<li>dom. Dom操作
+						<pre><code>
+<em>(-------------------未完待续----------------------)</em>
+					</code></pre></li>
+			</div>
+		</section>
+		<section id="donate" class="donate-section">
+			<div class="container">
+			<a href="/in/kcool-source" class="button">
+						View source
+					</a>
+			</div>
+		</section>
+
+	</div>
+		<style>
+	#gotop {
+background: url(../../img/backup.png);
+position: fixed;
+z-index: 93;
+right: 30px;color: none;
+cursor: pointer;
+width: 33px;
+height: 33px;
+bottom: 50px;
+}
+	</style>
+	<div class="gobackheader">
+		<a id="gotop" href="javascript:void(0)" ></a>
+	</div>
+	<script>
+		function getBackground(){
+			function getCookie(name){
+				var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+				if(arr=document.cookie.match(reg)){
+					return unescape(arr[2]);
+				}
+				else{
+					return null;
+				}
+			}
+			var backgroundCssUrl = getCookie('MyCssSkin');
+			var bodyBackground;
+			switch (backgroundCssUrl){
+				case '../css/skin/skin1.css':
+					bodyBackground = '../../img/gb/1.gif'
+					break;
+				case '../css/skin/skin2.css':
+					bodyBackground = '../../img/gb/3.gif'
+					break;
+				case '../css/skin/skin3.css':
+					bodyBackground = '../../img/gb/4.gif'
+					break;
+				case '../css/skin/skin4.css':
+					bodyBackground = '../../img/gb/9.gif'
+					break;
+				case '../css/skin/skin5.css':
+					bodyBackground = '../../img/gb/13.gif'
+					break;
+
+				default : bodyBackground = '../../img/gb/1.gif'
+				break;
+			}
+			document.getElementById("backgroundAll").style.backgroundImage="url("+bodyBackground+")";
+		};
+		getBackground();
+	</script>
+</body>
+</html>

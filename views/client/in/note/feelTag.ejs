@@ -1,0 +1,12 @@
+<aside class="header-tags container-fluid">
+	<ul class="tag-box col-md-12">
+	<% PostFeelTag.forEach(	function(PostFeelTag){%>
+		<li class="tag-link">
+			<a href="/in/feelsByMenu?tags_ids=<%= PostFeelTag.kt_feel_tags_ids %>">
+				<%= PostFeelTag.kt_feel_tags_name %>
+			</a>
+			<span><%= PostFeelTag.feels_tags_num %></span>
+		</li>
+	<% });%>
+	</ul>
+</aside>

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAkBA,IAAI;EACH,KAAK,EAAE,wBAAqB;EAC5B,IAAI,EAAE,CAAC;EACP,IAAI,EAbG,iCAAU;EAIb,kBAAkB,EAUF,eAAc;EAT5B,eAAe,EASD,eAAc;EARlC,cAAc,EAQM,eAAc;EAPlC,aAAa,EAOO,eAAc;EANlC,UAAU,EAMU,eAAc;;ACrBnC,aAAa;EACZ,eAAe,EAAE,IAAI",
+"sources": ["../../sass/definition.scss","../../sass/about/catalogue.scss"],
+"names": [],
+"file": "catalogue.css"
+}

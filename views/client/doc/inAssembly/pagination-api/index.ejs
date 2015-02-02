@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+
+	<title>pagination-api</title>
+	<link rel="stylesheet" href="../css/pagination-api/screen.css">
+	    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+</head>
+<body>
+
+	<div class="backdrop" style="background:#1bbc9b;">
+		<header>
+			<div class="container">
+				<h1 class="logo" style="color:#fff;">pagination-api
+				</h1>
+				<p class="lead">
+					Pagination for nodejs, support bootstrap and custom the css style, support mysql and mongodb.
+				</p>
+				<div class="credits">
+					<p>
+						<h2>Created by kahn1990</h2>
+					</p>
+				</div>
+								<div class="primary-actions">
+					<a href="https://codeload.github.com/kahn1990/pagination-api/zip/master" class="button">
+						Download
+					</a>
+					<a href="https://github.com/kahn1990/pagination-api" class="button">
+						View on Github
+					</a>
+				</div>
+			</div>
+		</header>
+
+	</div><!-- .backdrop -->
+
+	<div class="content" id="backgroundAll">
+		<section id="how-to-use" class="how-to-use-section">
+			<div class="container">
+				<h2>How to use</h2>
+				<h3>Step 1 - Load the pagination-api</h3>
+				<ol>
+					<li>Download  the latest version of pagination-api from npm.
+						<pre><code>npm install pagination-api</code></pre>
+					</li>
+				</ol>
+				<h3>Step 2 - Definitions in routes</h3>
+			<ul>
+					<li>The definition of the variable
+<pre><code>var pagination = require(&#39;pagination-api&#39;);    //Loading &#39;pagination&#39; module</code></pre></li>
+					<li>var total_rows;    //&#39;total_rows&#39; return all article number . &#39;total_rows&#39; is returns from the database.
+						<pre><code>total_rows = PostSorts_count_all_result[0].count_all_result;</code></pre>
+					</li>
+					<li>var per_pages;    //&#39;per_pages&#39; is the URL received the current page.
+						<pre><code><em>var per_pages = 1;</em>
+<em>f(req.query.per_page){</em>
+    <em>per_pages = req.query.per_page;</em>
+<em>};</em>
+<em>if(req.body.per_page){</em>
+    <em>per_pages = req.body.per_page;</em>
+<em>};</em></code></pre>
+					</li>
+					<li>var per_page;    //&#39;per_page&#39; is set the page displayed a few articles.
+						<pre><code>per_page = 4;</code></pre>
+					</li>
+					<li>var base_url;    //&#39;base_url&#39; is the definition of URL.
+						<pre><code>base_url = &#39;blogs?&#39;;</code></pre>
+					</li>
+					<li>var changePer_page;    //&#39;changePer_page&#39; is parameters used to read database pagination.
+						<pre><code>changePer_page = ( per_pages - 1 ) * per_page;</code></pre>
+					</li>
+					<li>var Create_links;    //&#39;Create_links&#39; is create a page.
+						<pre><code>Create_links = pagination.create_links(total_rows,per_page,per_pages,base_url);</code></pre>
+					</li>
+					<li>Last, sent to the views.
+						<pre><code>res.render(&#39;/&#39;,{Create_links:Create_links});</code></pre>
+					</li>
+				</ul>
+				<h3>Step 3 - Definitions in views</h3>
+				<ol>
+					<li>Create_links Di in views.
+						<pre><code>&lt;%- Create_links %&gt;</code></pre>
+					</li>
+				</ol>
+			</div>
+		</section>
+		<section id="donate" class="donate-section">
+			<div class="container">
+			<a href="/in/pagination-api-source" class="button">
+						View source
+					</a>
+			</div>
+		</section>
+
+	</div>
+	<style>
+	#gotop {
+background: url(../../img/backup.png);
+position: fixed;
+z-index: 93;
+right: 30px;color: none;
+cursor: pointer;
+width: 33px;
+height: 33px;
+bottom: 50px;
+}
+	</style>
+	<div class="gobackheader">
+		<a id="gotop" href="javascript:void(0)" ></a>
+	</div>
+	<script>
+		function getBackground(){
+			function getCookie(name){
+				var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+				if(arr=document.cookie.match(reg)){
+					return unescape(arr[2]);
+				}
+				else{
+					return null;
+				}
+			}
+			var backgroundCssUrl = getCookie('MyCssSkin');
+			var bodyBackground;
+			switch (backgroundCssUrl){
+				case '../css/skin/skin1.css':
+					bodyBackground = '../../img/gb/1.gif'
+					break;
+				case '../css/skin/skin2.css':
+					bodyBackground = '../../img/gb/3.gif'
+					break;
+				case '../css/skin/skin3.css':
+					bodyBackground = '../../img/gb/4.gif'
+					break;
+				case '../css/skin/skin4.css':
+					bodyBackground = '../../img/gb/9.gif'
+					break;
+				case '../css/skin/skin5.css':
+					bodyBackground = '../../img/gb/13.gif'
+					break;
+
+				default : bodyBackground = '../../img/gb/1.gif'
+				break;
+			}
+			document.getElementById("backgroundAll").style.backgroundImage="url("+bodyBackground+")";
+		};
+		getBackground();
+	</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+
+<nav id="menu">
+	<ul>
+		<li class="Selected">
+			<a href="/appIndex">
+				<i class=""></i>Home
+			</a>
+		</li>
+		<li>
+			<a >Blog</a>
+			<ul>
+				<li><a href="/appAllBlog">All Blog</a></li>
+				<li>
+					<a>Date</a>
+					<ul>
+						<% PostRiqi.forEach(	function(PostRiqi){%>
+						<li>
+							<a href="/appBlogByData?riqi_dates=<%= PostRiqi.kt_riqi_dates %>">
+								<%= PostRiqi.kt_riqi_dates %>
+							</a>
+						</li>
+						<% });%>
+					</ul>
+				</li>
+				<li>
+					<a>Tag</a>
+					<ul>
+						<% PostTags.forEach(	function(PostTags){%>
+						<li>
+							<a href="/appBlogByTag?tags_ids=<%= PostTags.kt_tags_ids %>"><%= PostTags.kt_tags_name %>
+								<i><%= PostTags.blogs_tags_num %></i>
+							</a>
+						</li>
+						<% });%>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/appProse">
+				<i class=" "></i>Prose
+			</a>
+		</li>
+		<li>
+			<a>Catalogue</a>
+					<ul>
+						<% PostCatalogueTag.forEach(	function(PostCatalogueTag){%>
+						<li>
+							<a href="/appCatalogueType?nav_tag_ids=<%= PostCatalogueTag.kt_nav_tag_ids %>">
+								<%= PostCatalogueTag.kt_nav_tag_name %>
+							</a>
+						</li>
+						<% });%>
+					</ul>
+		</li>
+		<li>
+			<a href="/appAbout">
+				<i class=" "></i>About
+			</a>
+		</li>
+	</ul>
+</nav>
+
+    	<div class="header-line" id="app-header-line">
+        		<a href="#menu" class="header-btn" title="kang.cool"></a>
+    	</div>
+		<nav id="app-header-skin" class="header-skin container-fluid">
+			<ul class="skin-box col-md-12">
+				<li class="skin-link"><a id="skin1" >skin1</a></li>
+				<li class="skin-link"><a id="skin2" >skin2</a></li>
+				<li class="skin-link"><a id="skin3" >skin3</a></li>
+				<li class="skin-link"><a id="skin4" >skin4</a></li>
+				<li class="skin-link"><a id="skin5" >skin5</a></li>
+				<li>
+			</ul>
+		</nav>
+			<div class="appGobackheader">
+		<a id="gotop" href="javascript:void(0)" ></a>
+	</div>

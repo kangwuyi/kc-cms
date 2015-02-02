@@ -1,0 +1,35 @@
+<%- include ../poHeaderLoader %>
+	<div class="container poContents"  id="contents">
+		<%- include ../header %>
+		<%- include nav %>
+		<form action="/addCatalogue" method="post">
+			<div   class="poAddBox" style="width:100%;">
+			<table class="table table-striped" style="margin-bottom:0;">
+				<tr><td>
+					网站名称：<input class="catalogueTitle"  style="width:30%;" name="catalogueTitle" type="text" placeholder="请输入网站名称">
+					<% if (locals.success&&locals.success.length) { %>
+						<%= locals.success %>
+					<% } %>
+					<% if (locals.error&&locals.error.length) { %>
+						<%= locals.error %>
+					<% } %>
+				</td></tr>
+				<tr><td>
+					网站地址：<input class="catalogueUrl"  style="width:60%;" name="catalogueUrl" type="text" placeholder="请输入网站地址">
+				</td></tr>
+				<tr><td>
+					分类：
+					<select name="catalogueTypeId" class="catalogueTypeId"  style="width:20%;"onchange="sel(this)">
+					<% PostCatalogueTag.forEach(  function(PostCatalogueTag){%>
+						<option value="<%= PostCatalogueTag.kt_nav_tag_ids %>"><%= PostCatalogueTag.kt_nav_tag_name %></option>
+					<% });%>
+					</select><a href="/poAddCatalogueType">添加分类</a>
+				</td></tr>
+				<tr><td>
+					<input style="width:100%;" type="submit" value="提交表单">
+				</td></tr>
+			</table>
+		</div>
+	</form>
+	</div>
+<%- include ../poFooterLoader %>

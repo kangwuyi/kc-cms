@@ -1,0 +1,20 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+.assemblyListPre::before {
+  content: "$ "; }
+
+.assemblyListPre {
+  font-size: 20px;
+  padding: 0.4em 0;
+  margin-top: 10px;
+  border: none; }
+
+/*# sourceMappingURL=assembly.css.map */

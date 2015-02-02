@@ -1,0 +1,18 @@
+@import '../definition';
+#droptabs{
+	padding: {
+		left: 15px;
+		right:15px;
+	}
+	a{
+		color:#fff;
+		&:hover{
+			color:#333;
+		}
+	}
+	.active{
+		a{
+			color:#333;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+.itemAbout {
+  padding: 4px;
+  border: solid 1px #ddd;
+  margin-right: 20px;
+  margin-top: 20px;
+  height: 340px;
+  background: #fff;
+  float: left;
+  padding: 13px;
+  text-align: center;
+  border-radius: 4px; }
+  .itemAbout a {
+    text-decoration: none;
+    color: #333; }
+    .itemAbout a:hover {
+      text-decoration: none; }
+  .itemAbout img {
+    border: 0; }
+  .itemAbout h2 {
+    padding: 10px 0;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit; }
+  .itemAbout p {
+    margin-bottom: 10px; }
+
+/*# sourceMappingURL=about.css.map */

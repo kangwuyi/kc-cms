@@ -1,0 +1,42 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+.skinWrapper {
+  width: 300px;
+  float: right;
+  margin: 0;
+  padding: 0;
+  position: relative; }
+  .skinWrapper .skinBox {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; }
+    .skinWrapper .skinBox .skinLink {
+      float: left;
+      list-style: none; }
+      .skinWrapper .skinBox .skinLink a {
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: middle;
+        font: 0/0 a;
+        margin: 0 8px;
+        text-decoration: none;
+        border: 1px solid #fff;
+        width: 38px;
+        height: 38px;
+        cursor: pointer; }
+
+/*# sourceMappingURL=skin.css.map */

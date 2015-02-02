@@ -1,0 +1,94 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+.headerWrapper {
+  width: 100%;
+  /* position: fixed; */
+  background: url("../img/kissrain.jpg") -129px 0 no-repeat fixed;
+  /*background-attachment: scroll;*/
+  z-index: 9;
+  height: 300px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
+
+.headerDiv {
+  padding-top: 30px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 99;
+  width: 100% !important; }
+
+.logo {
+  float: left;
+  width: 600px;
+  height: 100%; }
+
+.logo span {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Georgia,"Times New Roman",Times,serif; }
+
+.logo span i {
+  font-size: 10px;
+  font-weight: normal; }
+
+.search {
+  float: right;
+  border: #cccccc 1px solid;
+  width: 250px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-right: 26px; }
+
+.searchIn {
+  padding-left: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 220px;
+  font-size: 13px;
+  line-height: 30px;
+  height: 30px;
+  border: none;
+  background: none; }
+
+.submitSearch {
+  width: 16px;
+  height: 16px;
+  background: url(http://docs.alibabagroup.com/assets2/images/cn/global/search_btn.png) top no-repeat;
+  text-indent: -9999px;
+  border: none;
+  vertical-align: top;
+  margin-top: 5px; }
+
+.lanageWrapper {
+  width: 60px;
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  color: #fff; }
+  .lanageWrapper a {
+    color: #fff; }
+    .lanageWrapper a:hover {
+      color: #fff; }
+
+.loginWrapper {
+  width: 60px;
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  color: #fff; }
+
+/*# sourceMappingURL=header.css.map */

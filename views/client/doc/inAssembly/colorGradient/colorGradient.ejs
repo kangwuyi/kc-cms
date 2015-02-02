@@ -1,0 +1,118 @@
+
+<div class="container" style="height:100px;">
+	<div class="col-md-12" style="height:50px;border:1px solid #568765;padding:3px;">
+		<style type="text/css">
+		input{
+			float: left;
+		}
+		</style>
+		<form action="/in/colorCount" method="post">
+			<input class="col-md-8" name="startColor" placeholder="输入开始的颜色"></input>
+			<input class="col-md-8" name="endColor" placeholder="输入结束的颜色"></input>
+			<input class="col-md-8" name="numColor" placeholder="间隔数"></input>
+			<input class="col-md-8" name="oneString" placeholder="参数一"></input>
+			<input class="col-md-8" name="twoString" placeholder="参数二"></input>
+			<input class="col-md-8" name="threeString" placeholder="参数三"></input>
+			<button style="height:20px;width:50px;margin-left:20px;">确定</button>
+		</form>
+	</div>
+</div>
+<p>输入开始的颜色：如#ffffff</p>
+<p>输入结束的颜色：如#000000</p>
+<p>间隔数：如30</p>
+<p>参数一：1</p>
+<p>参数二：1</p>
+<p>参数三：1</p>
+<div style="background:#678765;padding:20px;">
+	<p>利用</p>
+	<pre style="background:#eee;padding:5px;">box-shadow: h-shadow v-shadow blur spread color inset;</pre>
+	<p>或者</p>
+	<pre style="background:#eee;padding:5px;">text-shadow: h-shadow v-shadow blur color;</pre>
+	<p>实现</p>
+</div>
+<h3>效果图展示：</h3>
+<div class="container" style="height:500px;background-color: #37dffa;
+		background-image: -webkit-linear-gradient(120deg, #37dffa, #24c1f4);
+		background-image: -moz-linear-gradient(120deg, #37dffa, #24c1f4);
+		background-image: -ms-linear-gradient(120deg, #37dffa, #24c1f4);
+		background-image: -o-linear-gradient(120deg, #37dffa, #24c1f4);
+		background-image: linear-gradient(120deg, #37dffa, #24c1f4);">
+	<div class="col-md-12" style="height:490px;border:1px solid #845256;padding:3px;">
+		<p style="color:#fff;font-size:23px;">利用颜色梯度设计长阴影</p>
+		<div class="colorBox-content-one-box-left">
+			<img src="../img/phone.png" width="100%" height="100%" alt="" class="colorBox-content-one-box-img">
+		</div>
+		<div class="colorBox-content-one-box-right">
+			<img src="../img/colorNum/phone.png" width="100%" height="100%" alt="" class="colorBox-content-one-box-img-right">
+		</div>
+		<style type="text/css">
+		.colorBox-content-one-box-right{
+			float: left;
+			border: 3px solid #fff;
+			height:400px;
+		}
+		.colorBox-content-one-box-left {
+		padding-left: 120px;
+		margin-top: 50px;
+		float: left;
+		width: 50%;
+		position: relative;
+		}
+		.colorBox-content-one-box-left:before {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		height: 200px;
+		width: 177px;
+		margin-top: 0;
+		margin-left: 120px;
+		box-shadow: 0px 16px 0px #30cceb, 1px 17px 0px #30cceb, 2px 18px 0px #30cceb, 3px 19px 0px #30cceb, 4px 20px 0px #30cceb, 5px 21px 0px #30cceb, 6px 22px 0px #30cceb, 7px 23px 0px #30cceb, 8px 24px 0px #30cceb, 9px 25px 0px #30ccec, 10px 26px 0px #30ccec, 11px 27px 0px #30ccec, 12px 28px 0px #30ccec, 13px 29px 0px #30ccec, 14px 30px 0px #30ccec, 15px 31px 0px #30cdec, 16px 32px 0px #30cdec, 17px 33px 0px #30cded, 18px 34px 0px #30cded, 19px 35px 0px #30cded, 20px 36px 0px #30cded, 21px 37px 0px #30cded, 22px 38px 0px #30cded, 23px 39px 0px #30cded, 24px 40px 0px #30cded, 25px 41px 0px #30cdee, 26px 42px 0px #30cdee, 27px 43px 0px #30cdee, 28px 44px 0px #30cdee, 29px 45px 0px #30ceee, 30px 46px 0px #30ceee, 31px 47px 0px #30ceee, 32px 48px 0px #30ceee, 33px 49px 0px #30ceee, 34px 50px 0px #30ceef, 35px 51px 0px #30ceef, 36px 52px 0px #30ceef, 37px 53px 0px #30ceef, 38px 54px 0px #30ceef, 39px 55px 0px #30ceef, 40px 56px 0px #30ceef, 41px 57px 0px #30ceef, 42px 58px 0px #30cef0, 43px 59px 0px #30cff0, 44px 60px 0px #30cff0, 45px 61px 0px #30cff0, 46px 62px 0px #30cff0, 47px 63px 0px #30cff0, 48px 64px 0px #30cff0, 49px 65px 0px #30cff0, 50px 66px 0px #30cff1, 51px 67px 0px #30cff1, 52px 68px 0px #30cff1, 53px 69px 0px #30cff1, 54px 70px 0px #30cff1, 55px 71px 0px #30cff1, 56px 72px 0px #30cff1, 57px 73px 0px #30cff1, 58px 74px 0px #30d0f1, 59px 75px 0px #30d0f2, 60px 76px 0px #30d0f2, 61px 77px 0px #30d0f2, 62px 78px 0px #30d0f2, 63px 79px 0px #30d0f2, 64px 80px 0px #30d0f2, 65px 81px 0px #30d0f2, 66px 82px 0px #30d0f2, 67px 83px 0px #30d0f3, 68px 84px 0px #30d0f3, 69px 85px 0px #30d0f3, 70px 86px 0px #30d0f3, 71px 87px 0px #30d0f3, 72px 88px 0px #30d1f3, 73px 89px 0px #30d1f3, 74px 90px 0px #30d1f3, 75px 91px 0px #30d1f4, 76px 92px 0px #30d1f4, 77px 93px 0px #30d1f4, 78px 94px 0px #30d1f4, 79px 95px 0px #30d1f4, 80px 96px 0px #30d1f4, 81px 97px 0px #30d1f4, 82px 98px 0px #30d1f4, 83px 99px 0px #30d1f4, 84px 100px 0px #30d1f5, 85px 101px 0px #30d1f5, 86px 102px 0px #30d2f5, 87px 103px 0px #30d2f5, 88px 104px 0px #30d2f5, 89px 105px 0px #30d2f5, 90px 106px 0px #30d2f5, 91px 107px 0px #30d2f5, 92px 108px 0px #30d2f6, 93px 109px 0px #30d2f6, 94px 110px 0px #30d2f6, 95px 111px 0px #30d2f6, 96px 112px 0px #30d2f6, 97px 113px 0px #30d2f6, 98px 114px 0px #30d2f6, 99px 115px 0px #30d2f6;
+		}
+		 .colorBox-content-one-box-img {
+		width: 177px;
+		height: 362px;
+		position: relative;
+		z-index: 999;
+		}
+		</style>
+	</div>
+</div>
+<div class="container" style="height:500px;margin-top:40px;background-color: #7fdbf5;
+background-image: -webkit-radial-gradient(#90e0f5, #83dbf2, #7fdbf5);
+background-image: -moz-radial-gradient(#90e0f5, #83dbf2, #7fdbf5);
+background-image: -ms-radial-gradient(#90e0f5, #83dbf2, #7fdbf5);
+background-image: -o-radial-gradient(#90e0f5, #83dbf2, #7fdbf5);
+background-image: radial-gradient(#90e0f5, #83dbf2, #7fdbf5);">
+	<div class="col-md-12" style="height:490px;border:1px solid #845256;padding:3px;">
+		<p style="color:#fff;font-size:23px;">利用颜色梯度设计长阴影</p>
+		<div class="colorBox-content-two-box-left">
+			<img src="../img/2-4.png">
+		</div>
+		<div class="colorBox-content-two-box-right">
+			<img src="../img/colorNum/time.png" width="100%" height="100%" alt="" class="colorBox-content-one-box-img-right">
+		</div>
+		<style type="text/css">
+		.colorBox-content-two-box-right{
+			float: left;
+			border: 3px solid #fff;
+			height:400px;
+			width: 450px;
+		}
+		.colorBox-content-two-box-left {
+		padding-left: 120px;
+		margin-top: 50px;
+		float: left;
+		width: 50%;
+		position: relative;
+		}
+		.colorBox-content-two-box-left img {
+border-radius: 50%;
+box-shadow: 2px 3px #85d6ec, 3px 4px #85d6ec, 4px 5px #85d6ec, 5px 6px #85d6ec, 6px 7px #85d6ec, 7px 8px #85d6ec, 8px 9px #85d6ec, 9px 10px #85d6ec, 10px 11px #85d6ec, 11px 12px #85d7ed, 12px 13px #85d7ed, 13px 14px #85d7ed, 14px 15px #85d7ed, 15px 16px #85d7ed, 16px 17px #85d7ed, 17px 18px #85d7ed, 18px 19px #85d7ed, 19px 20px #85d8ee, 20px 21px #85d8ee, 21px 22px #85d8ee, 22px 23px #85d8ee, 23px 24px #85d8ee, 24px 25px #85d8ee, 25px 26px #85d8ee, 26px 27px #85d8ee, 27px 28px #85d9ef, 28px 29px #85d9ef, 29px 30px #85d9ef, 30px 31px #85d9ef, 31px 32px #85d9ef, 32px 33px #85d9ef, 33px 34px #85d9ef, 34px 35px #85d9ef, 35px 36px #85d9ef, 36px 37px #85daf0, 37px 38px #85daf0, 38px 39px #85daf0, 39px 40px #85daf0, 40px 41px #85daf0, 41px 42px #85daf0, 42px 43px #85daf0, 43px 44px #85daf0, 44px 45px #85dbf1, 45px 46px #85dbf1, 46px 47px #85dbf1, 47px 48px #85dbf1, 48px 49px #85dbf1, 49px 50px #85dbf1, 50px 51px #85dbf1, 51px 52px #85dbf1;
+}
+		</style>
+	</div>
+</div>

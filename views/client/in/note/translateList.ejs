@@ -1,0 +1,41 @@
+<article class="translateList col-md-12">
+	<% PostTranslateGet_all.forEach(	function(PostTranslateGet_all){%>
+	<div class="translateBox">
+		<div class="translateBoxImage">
+			<div class="container-fluid">
+				<span class="translateBoxImageSpan" title="<%= PostTranslateGet_all.kt_translates_titles %>">
+					<a href="/in/translatesById?translates_ids=<%= PostTranslateGet_all.kt_translates_ids %>">
+						<img  src="<%= PostTranslateGet_all.kt_translates_img %>" width="160" height="160" alt="<%= PostTranslateGet_all.kt_translates_titles %>" title="<%= PostTranslateGet_all.kt_translates_titles %>">
+					</a>
+				</span>
+			</div>
+		</div>
+		<div class="translateBoxTitle">
+			<h3 class="container-fluid translateBoxTitleH3">
+				<a href="/in/translatesById?translates_ids=<%= PostTranslateGet_all.kt_translates_ids %>" title="<%= PostTranslateGet_all.kt_translates_titles %>" target="_blank"><%= PostTranslateGet_all.kt_translates_titles %></a>
+			</h3>
+		</div>
+		<div class="translateBoxDate">
+			<h3 class="container-fluid translateBoxDateH3">
+				<%= PostTranslateGet_all.kt_Translate_tags_name %> | 
+				<%= PostTranslateGet_all.kt_translates_ri %> | 
+				<%= PostTranslateGet_all.kt_translates_yue %> | 
+				<%= PostTranslateGet_all.kt_translates_year %>
+			</h3>
+		</div>
+		<div class="translateBoxbody">
+			<div class="container-fluid translateBoxbodyP"><%- PostTranslateGet_all.kt_translates_contents.substring(0,20) %>...
+			</div>
+		</div>
+		<div class="translateBoxMore">
+			<p class="container-fluid translateBoxMoreP">
+				<a href="/in/translatesById?translates_ids=<%= PostTranslateGet_all.kt_translates_ids %>"  target="_blank">See more</a>
+			</p>
+		</div>
+	 </div>
+	<% });%>
+	<div id="pagination">
+		<%- Create_links %>
+	</div>
+	<div style="clear:both;"></div>
+</article>

@@ -1,0 +1,43 @@
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+#gotop {
+  background: url(../../img/backup.png);
+  position: fixed;
+  z-index: 93;
+  right: 30px;
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
+  bottom: 50px; }
+
+.site-footer {
+  position: relative;
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #FFF;
+  border-top: 1px solid #eee; }
+  .site-footer .right {
+    float: right; }
+  .site-footer .site-footer-links {
+    margin: 0;
+    list-style: none; }
+    .site-footer .site-footer-links li {
+      display: inline-block;
+      line-height: 16px; }
+    .site-footer .site-footer-links a {
+      color: #4183c4;
+      text-decoration: none;
+      background: transparent; }
+
+/*# sourceMappingURL=footer.css.map */
