@@ -1,6 +1,6 @@
 /*
 Error: Invalid GBK character "\xE5"
-        on line 63 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\note\blog.scss
+        on line 63 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\blog.scss
 
 58: }
 59: #reader-right{
@@ -15,7 +15,7 @@ Error: Invalid GBK character "\xE5"
 68: 	blockquote{
 
 Backtrace:
-C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\note\blog.scss:63
+C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\blog.scss:63
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1320:in `block in find_encoding_error'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each'
@@ -37,4 +37,4 @@ C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE5\"\A         on line 63 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\note\blog.scss\A \A 58: }\A 59: #reader-right{\A 60: 	ol, ul {\A 61: 		list-style-type:decimal-leading-zero;\A 62: 	}\A 63: 	/* 富文本*/\A 64: 	.cke_editable{\A 65: 		font-size: 13px;\A 66: 		line-height: 1.6;\A 67: 	}\A 68: 	blockquote{"; }
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 63 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\blog.scss\A \A 58: }\A 59: #reader-right{\A 60: 	ol, ul {\A 61: 		list-style-type:decimal-leading-zero;\A 62: 	}\A 63: 	/* 富文本*/\A 64: 	.cke_editable{\A 65: 		font-size: 13px;\A 66: 		line-height: 1.6;\A 67: 	}\A 68: 	blockquote{"; }

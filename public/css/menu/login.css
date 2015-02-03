@@ -1,6 +1,6 @@
 /*
 Error: Invalid GBK character "\xE5"
-        on line 91 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\menu\login.scss
+        on line 91 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\menu\login.scss
 
 86: 				height: 100%;
 87: 				width: 30%;
@@ -15,7 +15,7 @@ Error: Invalid GBK character "\xE5"
 96: 		p.on .user {
 
 Backtrace:
-C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\menu\login.scss:91
+C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\menu\login.scss:91
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1320:in `block in find_encoding_error'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each'
@@ -38,4 +38,4 @@ C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE5\"\A         on line 91 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\menu\login.scss\A \A 86: 				height: 100%;\A 87: 				width: 30%;\A 88: 				border: 0px;\A 89: 				color: #fefefe;\A 90: 				font-size: 18px;\A 91: 				font-family: 微软雅黑,\"Microsoft YaHei\";\A 92: 				border-radius: 3px;\A 93: 				float: right;\A 94: 			}\A 95: 		}\A 96: 		p.on .user {"; }
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 91 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\menu\login.scss\A \A 86: 				height: 100%;\A 87: 				width: 30%;\A 88: 				border: 0px;\A 89: 				color: #fefefe;\A 90: 				font-size: 18px;\A 91: 				font-family: 微软雅黑,\"Microsoft YaHei\";\A 92: 				border-radius: 3px;\A 93: 				float: right;\A 94: 			}\A 95: 		}\A 96: 		p.on .user {"; }

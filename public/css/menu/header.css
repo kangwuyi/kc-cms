@@ -11,7 +11,7 @@ body {
 .headerWrapper {
   width: 100%;
   /* position: fixed; */
-  background: url("../img/kissrain.jpg") -129px 0 no-repeat fixed;
+  background: url("../img/kissrain.jpg") -129px 0 fixed;
   /*background-attachment: scroll;*/
   z-index: 9;
   height: 300px;

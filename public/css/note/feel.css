@@ -1,6 +1,6 @@
 /*
 Error: Invalid GBK character "\xE3"
-        on line 37 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\note\feel.scss
+        on line 37 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\feel.scss
 
 32: 				}
 33: 				.feelTag{
@@ -15,7 +15,7 @@ Error: Invalid GBK character "\xE3"
 42: 				.feelDate{
 
 Backtrace:
-C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\note\feel.scss:37
+C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\feel.scss:37
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1320:in `block in find_encoding_error'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each'
@@ -37,4 +37,4 @@ C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE3\"\A         on line 37 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\note\feel.scss\A \A 32: 				}\A 33: 				.feelTag{\A 34: 					text-align:right\A 35: 				}\A 36: 				.feelTag::before {\A 37: 					content: \"《\";\A 38: 				}\A 39: 				.feelTag::after {\A 40: 					content: \"》\";\A 41: 				}\A 42: 				.feelDate{"; }
+  content: "Error: Invalid GBK character \"\xE3\"\A         on line 37 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\feel.scss\A \A 32: 				}\A 33: 				.feelTag{\A 34: 					text-align:right\A 35: 				}\A 36: 				.feelTag::before {\A 37: 					content: \"《\";\A 38: 				}\A 39: 				.feelTag::after {\A 40: 					content: \"》\";\A 41: 				}\A 42: 				.feelDate{"; }
