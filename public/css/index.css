@@ -240,6 +240,7 @@ body {
   width: 100%;
   /* position: fixed; */
   background: url("../img/kissrain.jpg") -129px 0 fixed;
+  background-position: center top;
   /*background-attachment: scroll;*/
   z-index: 9;
   height: 300px;
