@@ -1,40 +1,240 @@
-/*
-Error: Invalid GBK character "\xE5"
-        on line 63 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\blog.scss
+@charset "UTF-8";
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
 
-58: }
-59: #reader-right{
-60: 	ol, ul {
-61: 		list-style-type:decimal-leading-zero;
-62: 	}
-63: 	/* 富文本*\/
-64: 	.cke_editable{
-65: 		font-size: 13px;
-66: 		line-height: 1.6;
-67: 	}
-68: 	blockquote{
+.div-reader-title {
+  width: 100%;
+  height: 70px;
+  line-height: 60px;
+  color: #A52A9B;
+  font-size: 30px;
+  background: #fff;
+  padding: 10px 30px 0 30px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #999999; }
 
-Backtrace:
-C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\blog.scss:63
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1320:in `block in find_encoding_error'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each_with_index'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `find_encoding_error'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:896:in `check_sass_encoding'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:423:in `check_encoding!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:379:in `_to_tree'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
-C:/Program Files (x86)/Koala/bin/sass:18:in `load'
-C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE5\"\A         on line 63 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\blog.scss\A \A 58: }\A 59: #reader-right{\A 60: 	ol, ul {\A 61: 		list-style-type:decimal-leading-zero;\A 62: 	}\A 63: 	/* 富文本*/\A 64: 	.cke_editable{\A 65: 		font-size: 13px;\A 66: 		line-height: 1.6;\A 67: 	}\A 68: 	blockquote{"; }
+p.p-reader-title {
+  display: block;
+  float: left; }
+
+a.a-reader-prev, a.a-reader-next {
+  height: 20px;
+  width: 80px;
+  text-align: center;
+  line-height: 20px;
+  color: #6DAF45;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+  float: right;
+  cursor: auto; }
+
+.div-reader-text {
+  width: 100%;
+  color: #3D3238;
+  font-size: 20px;
+  background: #fff;
+  padding: 20px 30px 30px 30px; }
+
+#prettyprint li {
+  list-style: inherit; }
+
+#reader-right #prettyprint ol, ul, dl {
+  /* IE7: reset rtl list margin. (#7334) */
+  *margin-right: 0px;
+  /* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+  padding: 0; }
+
+#reader-right {
+  /* 富文本*/ }
+  #reader-right ol, #reader-right ul {
+    list-style-type: decimal-leading-zero; }
+  #reader-right .cke_editable {
+    font-size: 13px;
+    line-height: 1.6; }
+  #reader-right blockquote {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    padding: 2px 0 0 20px;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+    border-color: #ccc; }
+  #reader-right .cke_contents_ltr blockquote {
+    padding-left: 20px;
+    padding-right: 8px;
+    border-left-width: 5px; }
+  #reader-right .cke_contents_rtl blockquote {
+    padding-left: 8px;
+    padding-right: 20px;
+    border-right-width: 5px; }
+  #reader-right a {
+    color: #0782C1; }
+    #reader-right a > img {
+      padding: 1px;
+      margin: 1px;
+      border: none;
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: #0782C1; }
+  #reader-right ol, #reader-right ul, #reader-right dl {
+    /* IE7: reset rtl list margin. (#7334) */
+    *margin-right: 0px;
+    /* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+    /*  padding: 0 40px;*/ }
+  #reader-right h1, #reader-right h2, #reader-right h3, #reader-right h4, #reader-right h5, #reader-right h6 {
+    font-weight: normal;
+    line-height: 1.2; }
+  #reader-right hr {
+    border: 0px;
+    border-top-width: 0 0 0 5px;
+    border-top-style: solid;
+    border-top-color: #ccc; }
+  #reader-right img.right {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    float: right;
+    margin-left: 15px;
+    padding: 5px; }
+  #reader-right img.left {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    float: left;
+    margin-right: 15px;
+    padding: 5px; }
+  #reader-right pre {
+    white-space: pre-wrap;
+    /* CSS 2.1 */
+    word-wrap: break-word;
+    /* IE7 */
+    -webkit-tab-size: 4;
+    -moz-tab-size: 4;
+    -ms-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4; }
+  #reader-right .marker {
+    background-color: Yellow; }
+  #reader-right span[lang] {
+    font-style: italic; }
+  #reader-right figure {
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    margin: 10px 20px;
+    display: inline-block; }
+    #reader-right figure > figcaption {
+      text-align: center;
+      display: block;
+      /* For IE8 */ }
+
+.right-blogs {
+  width: 920px;
+  float: right;
+  height: auto !important;
+  margin-top: 0px; }
+
+.right-blogs-frame {
+  float: left;
+  width: 800px;
+  padding: 30px 30px 15px 30px;
+  border: solid 1px #e7e7e7;
+  border-bottom: none;
+  background: #fff; }
+  .right-blogs-frame p {
+    margin: 0 0 18px; }
+
+.right-blogs-box {
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0px 0; }
+
+.right-blogs-title {
+  font-size: 20px;
+  color: #292929;
+  margin: 0 0 15px;
+  font-family: 'Play', arial, serif;
+  font-weight: normal;
+  padding-bottom: 15px;
+  border-bottom: dotted 1px #ddd; }
+  .right-blogs-title a {
+    color: #3a3a3a; }
+
+.right-blogs-bar {
+  width: 117px;
+  background: #fff;
+  font: 11px/13px Helvetica, Arial, sans-serif;
+  float: left;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #e7e7e7;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #e7e7e7;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #e7e7e7;
+  padding: 15px 15px 25px 15px; }
+  .right-blogs-bar p {
+    margin: 0 !important; }
+
+.right-bar-date {
+  float: left;
+  width: 90px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #a4a4a4;
+  font-weight: bold;
+  font-family: 'Play', Helvetica;
+  border-bottom: dotted 1px #ccc; }
+
+.right-bar-day {
+  float: left;
+  font-size: 34px;
+  line-height: 48px;
+  color: #2e2e2e;
+  letter-spacing: -3px; }
+
+.right-bar-holder {
+  float: right;
+  width: 49px;
+  padding: 10px 0 0; }
+
+.right-bar-month {
+  color: #797979;
+  display: block;
+  margin: 0 0 -6px;
+  text-transform: uppercase; }
+
+.right-bar-title {
+  display: block;
+  font-size: 09px;
+  line-height: 12px;
+  font-weight: bold;
+  color: #494949; }
+
+.right-bar-tag {
+  float: left;
+  width: 100%;
+  padding: 15px 14px 0 0; }
+
+/*# sourceMappingURL=blog.css.map */

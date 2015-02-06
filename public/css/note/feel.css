@@ -1,40 +1,51 @@
-/*
-Error: Invalid GBK character "\xE3"
-        on line 37 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\feel.scss
+@charset "UTF-8";
+body {
+  color: rgba(255, 255, 255, 0.5);
+  zoom: 1;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
 
-32: 				}
-33: 				.feelTag{
-34: 					text-align:right
-35: 				}
-36: 				.feelTag::before {
-37: 					content: "《";
-38: 				}
-39: 				.feelTag::after {
-40: 					content: "》";
-41: 				}
-42: 				.feelDate{
+.leftFeel {
+  font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #333;
+  position: relative;
+  margin-bottom: 30px;
+  float: left; }
+  .leftFeel .leftFeelBox {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px; }
+    .leftFeel .leftFeelBox .feelBoxList {
+      list-style: none;
+      padding: 0;
+      margin: 0; }
+      .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi {
+        list-style: none;
+        border-top: 1px solid #e5e5e5; }
+        .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi a {
+          position: relative;
+          display: block;
+          padding: 15px 0px 15px 10px;
+          font-size: 14px;
+          color: #4183c4;
+          text-decoration: none;
+          background: transparent;
+          list-style: none;
+          font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+        .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelInco {
+          background: url("../../img/book.png") no-repeat center;
+          height: 20px; }
+        .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelTag {
+          text-align: right; }
+        .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelTag::before {
+          content: "《"; }
+        .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelTag::after {
+          content: "》"; }
+        .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi .feelDate {
+          text-align: right; }
 
-Backtrace:
-C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\feel.scss:37
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1320:in `block in find_encoding_error'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `each_with_index'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:1319:in `find_encoding_error'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/util.rb:896:in `check_sass_encoding'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:423:in `check_encoding!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:379:in `_to_tree'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
-C:/Program Files (x86)/Koala/bin/sass:18:in `load'
-C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE3\"\A         on line 37 of C:\Users\kangjian\Desktop\composition\kcoolBlog\public\sass\note\feel.scss\A \A 32: 				}\A 33: 				.feelTag{\A 34: 					text-align:right\A 35: 				}\A 36: 				.feelTag::before {\A 37: 					content: \"《\";\A 38: 				}\A 39: 				.feelTag::after {\A 40: 					content: \"》\";\A 41: 				}\A 42: 				.feelDate{"; }
+/*# sourceMappingURL=feel.css.map */
