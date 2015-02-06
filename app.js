@@ -25,7 +25,7 @@ app.use(cookieSession({secret : 'kangcool'}));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({"limit":"10000kb"}));
 app.use( session({ //提供会话支持
     secret: "kangcool",//这个是session加密需要的，随便写的。
     cookie : {
