@@ -43,7 +43,7 @@ body {
 
 .headerNavigationLeft {
   position: absolute;
-  left: 0;
+  left: -23px;
   width: 23px;
   top: 0;
   z-index: 999999;
@@ -72,6 +72,7 @@ body {
   list-style-type: none;
   text-align: center;
   color: #fff;
+  border-radius: 50px;
   float: left;
   padding: 0 88px 0 0; }
 
@@ -86,6 +87,7 @@ body {
   /* height: 172px; */
   width: 100%;
   left: 0px;
+  border-radius: 50px;
   top: 68px;
   z-index: 9999;
   display: none; }
