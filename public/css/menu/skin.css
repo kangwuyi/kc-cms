@@ -31,6 +31,7 @@ body {
         display: -moz-inline-stack;
         display: inline-block;
         vertical-align: middle;
+        background-size: 200%;
         font: 0/0 a;
         margin: 0 8px;
         text-decoration: none;
