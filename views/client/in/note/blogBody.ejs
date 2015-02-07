@@ -1,7 +1,24 @@
 <script>
 	$(document).ready(function(){
-		 $(".linenums").addClass("prettyprint");
-		 $("body").attr("onload","prettyPrint();");
+		$('.left-data').removeClass('col-md-3').addClass('col-md-12');
+		$('.left-data-title').addClass('header-tags-close');
+		$('.header-tags').css({'display':'none'});
+		$(".linenums").addClass("prettyprint");
+		$("body").attr("onload","prettyPrint();");
+	});
+	$(document).ready(function(){
+		$('.wrapper').on('click','.header-tags-close',function(){
+			$('.left-data-title').removeClass('header-tags-close').addClass('header-tags-open');
+			//slideDown//slideUp//show//hide//slideUp//slideToggle//fadeIn//fadeOut//fadeTo
+			$('.header-tags').fadeIn(1000,function(){
+				$('.header-tags').css({'display':'block'})
+			});
+		}).on('click','.header-tags-open',function(){
+			$('.left-data-title').removeClass('header-tags-open').addClass('header-tags-close');
+			$('.header-tags').hide(1000,function(){
+				$('.header-tags').css({'display':'none'});
+			});
+		});
 	});
 </script>
 <style>
@@ -22,7 +39,7 @@
 		text-shadow:none;color: #05A391;
 	}
 </style>
-<aside id="reader-right" class="col-md-9">
+<aside id="reader-right" class="col-md-12">
 	<% BlogsById.forEach(	function(BlogsById){%>
 	<div class="div-reader-title">
 		<p class="p-reader-title"><%= BlogsById.kt_blogs_titles %></p>

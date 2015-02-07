@@ -1,7 +1,27 @@
 <script>
 	$(document).ready(function(){
-		 $(".linenums").addClass("prettyprint");
-		 $("body").attr("onload","prettyPrint();");
+		$('.left-data').removeClass('col-md-4').addClass('col-md-12');
+		$('.left-data-title').addClass('header-tags-close');
+		$('.header-tags').css({'display':'none'});
+		$('.table-date-click').css({'display':'none'});
+		$(".linenums").addClass("prettyprint");
+		$("body").attr("onload","prettyPrint();");
+	});
+	$(document).ready(function(){
+		$('.wrapper').on('click','.header-tags-close',function(){
+			$('.left-data-title').removeClass('header-tags-close').addClass('header-tags-open');
+			//slideDown//slideUp//show//hide//slideUp//slideToggle//fadeIn//fadeOut//fadeTo
+			$('.header-tags').fadeIn(1000,function(){
+				$('.header-tags').css({'display':'block'})
+				$('.table-date-click').css({'display':'inline-table'});
+			});
+		}).on('click','.header-tags-open',function(){
+			$('.left-data-title').removeClass('header-tags-open').addClass('header-tags-close');
+			$('.header-tags').hide(1000,function(){
+				$('.header-tags').css({'display':'none'});
+				$('.table-date-click').css({'display':'none'});
+			});
+		});
 	});
 </script>
 <style>
@@ -22,7 +42,7 @@
 		text-shadow:none;color: #05A391;
 	}
 </style>
-<aside id="reader-right" class="col-md-8">
+<aside id="reader-right" class="col-md-12">
 	<% FeelsById.forEach(	function(FeelsById){%>
 	<div class="div-reader-title">
 		<p class="p-reader-title"><%= FeelsById.kt_feels_titles %></p>
