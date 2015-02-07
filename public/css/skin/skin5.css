@@ -1,6 +1,9 @@
 .skin1{
-  background:url(../../img/gb/13.gif);
+  background:url(../../img/gb/205.gif);
 }
 body{
-  background:url(../../img/gb/13.gif);
+  background:url(../../img/gb/205.gif);
+}
+.headerWrapper{
+	background-image: url(../../img/gb/005.jpg);
 }
