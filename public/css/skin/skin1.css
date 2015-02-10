@@ -7,3 +7,9 @@ body{
 .headerWrapper{
 	background-image: url(../../img/gb/001.jpg);
 }
+#jsmind_container{
+	border: 1px solid #452625;
+}
+.container aside dl dd a{
+	color:#8744DB !important;
+}
