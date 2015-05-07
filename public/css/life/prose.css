@@ -1,7 +1,7 @@
 /*
 Error: File to import not found or unreadable: definition.
-       Load path: C:/Users/KANGJIAN/Desktop/www/kcoolBlog/public/sass/life
-        on line 2 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\life\prose.scss
+       Load path: D:/workBlog/kcoolBlog/public/sass/life
+        on line 2 of D:\workBlog\kcoolBlog\public\sass\life\prose.scss
 
 1: @import '../definition';
 2: @import 'definition';
@@ -12,7 +12,7 @@ Error: File to import not found or unreadable: definition.
 7: 		@include transform(rotate(-90deg));
 
 Backtrace:
-C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\life\prose.scss:2
+D:\workBlog\kcoolBlog\public\sass\life\prose.scss:2
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -50,4 +50,4 @@ C:/Program Files (x86)/Koala/bin/sass:18:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: definition.\A        Load path: C:/Users/KANGJIAN/Desktop/www/kcoolBlog/public/sass/life\A         on line 2 of C:\Users\KANGJIAN\Desktop\www\kcoolBlog\public\sass\life\prose.scss\A \A 1: @import '../definition';\A 2: @import 'definition';\A 3: \A 4: \A 5: .closeProse{\A 6: 	h2 i{\A 7: 		@include transform(rotate(-90deg));"; }
+  content: "Error: File to import not found or unreadable: definition.\A        Load path: D:/workBlog/kcoolBlog/public/sass/life\A         on line 2 of D:\workBlog\kcoolBlog\public\sass\life\prose.scss\A \A 1: @import '../definition';\A 2: @import 'definition';\A 3: \A 4: \A 5: .closeProse{\A 6: 	h2 i{\A 7: 		@include transform(rotate(-90deg));"; }

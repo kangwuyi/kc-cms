@@ -8,9 +8,13 @@ exports.resume = function (req, res) {
 exports.enresume = function (req, res) {
 	res.render('client/doc/inDesign/resume/en', { title: '十页书｜Single page resume complex'});
 }
+exports.webTree = function (req, res) {
+    res.render('client/doc/inDesign/inWebTree/index', { title: '前端职业规划'});
+}
 exports.paginationApi = function (req, res) {
 	res.render('client/doc/inAssembly/pagination-api/index', { title: 'pagination-api'});
 }
+
 exports.paginationApiSource = function (req, res) {
 	res.render('client/doc/inAssembly/pagination-api/source', { title: 'pagination-api'});
 }

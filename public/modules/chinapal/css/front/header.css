@@ -1,0 +1,83 @@
+*{
+	margin:0;
+	padding:0;
+	}
+div.header{
+	background:#333;
+	height:70px;
+	}
+div.header div.header_auto{
+	width:990px;
+	margin:0 auto 0 auto;
+	
+	}
+div.header div.header_auto ul li{
+	height:20px;
+	line-height:20px;
+	color:#999;
+	display:block;
+	float:left;
+	font-size:16px;
+	margin:25px 0 25px 30px;
+	}
+div.header div.header_auto ul li.li_header_1{
+	width:120px;
+	height:70px;
+	margin-left:10px;
+	background:red;
+	margin:0;
+	}
+div.header div.header_auto ul li.li_header_8{
+	background: url('img/search.gif');
+	height:30px;
+	margin-top:20px;
+	}	
+	
+div.header div.header_auto ul li.li_header_8 input{
+	height:30px;
+	margin:0;
+	border: none;
+	display:block;
+	float:left;
+	color:#999;
+	}	
+div.header div.header_auto ul li.li_header_8 input.header_search{
+	width:128px;
+	padding:0 10px 0 10px;
+	background: url('img/search.gif');
+	border-right: 2px solid #333;
+	}
+div.header div.header_auto ul li.li_header_8 input.header_search_button{
+	width:30px;
+	background: url('img/search.gif') -172px -1px;
+	}
+div.header div.header_auto ul li.li_header_9{
+	margin-left:40px;
+	}
+div.header div.header_auto ul li.li_header_9 em{
+	font-style:normal;
+	}	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -40,4 +40,23 @@ body {
         height: 38px;
         cursor: pointer; }
 
+#headerTopPhoto {
+  position: absolute;
+  height: 180px;
+  width: 180px;
+  background: #4a00ff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  top: 30px;
+  left: 45%;
+  background: url("../modules/a1.png") 50% 50% no-repeat;
+  background-size: 100%;
+  /* .headerTopPhotoImg{
+  	height: 180px;
+  	width: 180px;
+  	border-radius: 50%;
+  	background:url('../modules/psb.jpg') 50% 50% no-repeat;
+  	background-size:100%;
+  } */ }
+
 /*# sourceMappingURL=skin.css.map */

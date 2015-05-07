@@ -1,9 +1,29 @@
-.skin1{
+/* .skin1{
   background:url(../../img/gb/202.png);
 }
 body{
-  background:url(../../img/gb/202.png);
+  background:url(../../img/gb/205.gif);
 }
 .headerWrapper{
 	background-image: url(../../img/gb/002.jpg);
+} */
+.textTiTle{color:#fff !important;
+	font-size: 18px;
+	text-shadow:0 0 5px #CCCCCC, 0 0 10px #CCCCCC, 0 0 15px #CCCCCC, 0 0 20px #095816, 0 0 25px #095816, 0 0 30px #095816, 0 0 50px #095816, 0 0 80px #095816, 0 0 100px #095816, 0 0 150px #095816;
+}
+.skin1{
+  background:#fff;
+}
+body{
+  background:url(../../img/gb/205.gif);
+}
+.headerWrapper{
+	background: #620F91;
+}
+.textTiTle{
+	border-radius: 50%;
+	background: #3F0C77;
+	padding: 20px 0 20px 0;
+	border: 1px solid #077626;
+	box-shadow: 0 0 50px rgba(149, 23, 176, 0.8);
 }

@@ -1,0 +1,28 @@
+	div.main div.main_auto div.main_warp div.main_right ul.main_right_ul li input{
+	height:24px;
+	}		
+div.main div.main_auto div.main_warp div.main_right a.a_baocun{
+	height:30px;display:block;
+	background-image: url(img/icon.png);
+	background-repeat: no-repeat;background-position: -223px -103px;
+	cursor: pointer;width:50px;
+	position: relative;left:130px;
+	/* top:2px; */
+	}	
+div.main div.main_auto div.main_warp div.main_right a.a_baocun span{
+	height:30px;text-align:center;width:40px;display:block;float:right;
+	line-height:30px;background-image: url(img/icon.png);padding-right:5px;
+background-repeat: no-repeat;background-position: 100% -611px;color:#fff;font-size:14px;
+	}
+div.main div.main_auto div.main_warp div.main_left ul.main_left_ul li.main_left_ul_2 a{
+	background-position: 20px -260px;
+	color: #ed5f59;z-index: 3;
+	padding: 15px 0px 15px 75px;
+	}
+div.main div.main_auto div.main_warp div.main_left ul.main_left_ul li.main_left_ul_2:hover a{
+	padding: 15px 0px 15px 75px;
+	}	
+	
+	
+	
+	

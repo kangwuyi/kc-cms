@@ -62,6 +62,7 @@ router.get('/in/wendang',About.wendang);
 router.get('/in/resume',About.resume);
 router.get('/in/enresume',About.enresume);
 router.get('/in/pagination-api',About.paginationApi);
+router.get('/in/webTree',About.webTree);
 router.get('/in/pagination-api-source',About.paginationApiSource);
 router.get('/in/kcool',About.kcool);
 router.get('/in/kcool-source',About.kcoolSource);

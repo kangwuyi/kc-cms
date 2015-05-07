@@ -1,0 +1,47 @@
+*html{
+	background-image:url(about:blank);
+	background-attachment:fixed;
+	}
+	/*解决IE6下滚动抖动的问题*/
+	/*解决IE6下不兼容 position:fixed 的问题*/
+#code,#code_hover,#gotop{ 
+	width:40px; 
+	height:48px; 
+	background:url(img/goto/icon.png) no-repeat; 
+	position:fixed; 
+	z-index:999;
+	right:10px; 
+	cursor:pointer;
+	_position:absolute;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+	}
+#code{ 
+	background-position:-276px -258px; 
+	bottom:70px;
+	_margin-bottom:70px;
+	}
+#code_hover{ 
+	background-position:-316px -258px; 
+	bottom:70px; 
+	_margin-bottom:70px;
+	}
+#gotop{ 
+	background-position:-276px -310px; 
+	bottom:20px; 
+	_margin-bottom:20px;
+	} 
+#code_img{ 
+	width:270px; 
+	height:355px; 
+	background:url(img/goto/icon.png) -4px -3px no-repeat; 
+	position:fixed; 
+	right:90px; 
+	bottom:20px; 
+	cursor:pointer; 
+	display:none;
+	_position:absolute;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); 
+	_margin-bottom:67px;
+	}

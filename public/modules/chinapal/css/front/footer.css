@@ -1,0 +1,9 @@
+div.footer{
+	background:#333;
+	padding-top:20px;
+	}
+div.footer div.footer_auto{
+	width:990px;
+	height:400px;
+	margin:0 auto 0 auto;
+	}

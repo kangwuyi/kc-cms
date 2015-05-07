@@ -206,9 +206,9 @@ body {
 
 .site-footer {
   position: relative;
-  margin-top: 40px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 12px;
   line-height: 1.5;
   color: #FFF;
@@ -227,18 +227,92 @@ body {
       background: transparent; }
 
 .footerGb {
-  height: 300px;
-  background: url(../../img/gb/13.jpg) 50% 0 repeat;
+  height: 80px;
+  background: rgba(48, 102, 101, 0.3);
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
 
 .footerContentBg {
-  background: url(../img/gb/giveusacallimage.png) no-repeat bottom center;
+  /*background: url(../img/gb/giveusacallimage.png) no-repeat bottom center;*/
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-  height: 300px; }
+  height: 80px; }
 
+/*
+#bkDiv
+{
+  // The rainbow Css3 pattern
+  background: linear-gradient(0deg, transparent 0%, #9c3a26 10%,
+          #198441 25%,#009cff 37%, #174b09 50%,
+          #2d527c 62%, #893646 75%, #3b562b 90%,transparent 100%);
+  background-color: #d04982;
+  background-size: 10px 125px;
+  background-repeat : repeat;
+  height : 80px;
+  width : 100%;
+
+  background-position:center -65px;
+  transition: background-position 1s;
+}
+//底部背景文字遮罩层
+
+#bkDiv:hover
+{
+  // on Hover the background translates 65px down
+  background-position:center 0px;
+}
+
+#bkDiv .theText
+{
+  font-family: Impact, Charcoal, sans-serif;
+  stroke-width: 5px;
+  letter-spacing: 5px;
+  fill-opacity: 0.1;
+  stroke-opacity: 1;
+  -webkit-animation: cAnim1 0.5s linear 0s infinite;
+  font-size:65px;
+  stroke:#000;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}*/
+/*
+#bkDiv
+{
+  // Red dots Css3 pattern
+  background: linear-gradient(-45deg, #036 30%,transparent 45%,transparent 55%,#036 70%),
+  linear-gradient(45deg, #036 30%,transparent 45%,transparent 55%,#036 70%);
+  background-color: #f00;
+  background-size: 15px 15px;
+  background-position:0px 0px;
+  height:80px;
+  width:100%;
+  // Animating red dots (infinite loop)
+  animation: cAnim 1s linear 0s infinite;
+  -webkit-animation: cAnim 1s linear 0s infinite;
+}
+
+@keyframes cAnim
+{
+  100% {background-position:15px 0px;}
+}
+
+#bkDiv #theText
+{
+  font-family:Impact, Charcoal, sans-serif;
+  font-size:120px;
+  stroke:#000;
+  stroke-width:5px;
+  fill-opacity:0.1;
+  stroke-opacity:1;
+  // Strobe light effect animation
+  animation: cAnim1 0.5s linear 0s infinite;
+  -webkit-animation: cAnim1 0.5s linear 0s infinite;
+}
+@keyframes cAnim1
+{
+  100% {fill-opacity:0.9;stroke-opacity:0.5;}
+}*/
 body {
   color: rgba(255, 255, 255, 0.5);
   zoom: 1;
@@ -577,8 +651,11 @@ body {
   left: 0; }
 
 .MenuFixed {
-  position: fixed;
+  /*position: fixed;
   top: -1px;
+  left: 0;*/
+  position: absolute;
+  top: 250px;
   left: 0; }
 
 .MenuWrapper {
@@ -650,7 +727,11 @@ body {
   /* height: 172px; */
   width: 100%;
   left: 0px;
-  border-radius: 50px;
+  /*border-radius: 50px;*/
+  /*position: fixed;*/
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid #645A5A;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
   top: 68px;
   z-index: 9999;
   display: none; }
@@ -679,36 +760,36 @@ body {
   text-transform: none; }
 
 .bgColor li.liColorOne {
-  background: #00a2ca;
+  background: transparent;
   text-decoration: none;
   list-style-type: none; }
 
 .bgColor li.liColorTwo {
-  background: #23e773;
+  background: transparent;
   text-decoration: none;
   list-style-type: none; }
 
 .bgColor li.liColorThree {
-  background: #ffc900;
+  background: transparent;
   text-decoration: none;
   list-style-type: none; }
 
 .bgColor li.liColorFour {
-  background: #00d3f1;
+  background: transparent;
   text-decoration: none;
   list-style-type: none; }
 
 .bgColor li.liColorOne .submenuWrapper {
-  background: #00a2ca; }
+  background: rgba(48, 102, 101, 0.3); }
 
 .bgColor li.liColorTwo .submenuWrapper {
-  background: #23e773; }
+  background: rgba(48, 102, 101, 0.3); }
 
 .bgColor li.liColorThree .submenuWrapper {
-  background: #ffc900; }
+  background: rgba(48, 102, 101, 0.3); }
 
 .bgColor li.liColorFour .submenuWrapper {
-  background: #00d3f1; }
+  background: rgba(48, 102, 101, 0.3); }
 
 .ulMenu .selected span {
   color: #fff; }
@@ -796,6 +877,25 @@ body {
         width: 38px;
         height: 38px;
         cursor: pointer; }
+
+#headerTopPhoto {
+  position: absolute;
+  height: 180px;
+  width: 180px;
+  background: #4a00ff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  top: 30px;
+  left: 45%;
+  background: url("../modules/a1.png") 50% 50% no-repeat;
+  background-size: 100%;
+  /* .headerTopPhotoImg{
+  	height: 180px;
+  	width: 180px;
+  	border-radius: 50%;
+  	background:url('../modules/psb.jpg') 50% 50% no-repeat;
+  	background-size:100%;
+  } */ }
 
 body {
   color: rgba(255, 255, 255, 0.5);
