@@ -167,7 +167,8 @@ exports.content_to_prev = function (req, res) {
 					var tags_open_next= 0;
 					var tags_open_prev= 0;
 					BlogsByPrev = BlogsByPrevs;
-					passTitle= '十页书｜'+BlogsByPrev[0].kt_blogs_titles;
+					/*passTitle= '十页书｜'+BlogsByPrev[0].kt_blogs_titles;*/
+					passTitle= '十页书｜';
 					Blog.PostBlogDate( null,function (PostBlogTagErr, PostBlogDate) {
 						if(title_to_content_add_one.length<1){
 							if(title_to_content_reduce_one.length<1){
