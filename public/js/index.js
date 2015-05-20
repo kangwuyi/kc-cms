@@ -103,7 +103,7 @@ $(function() {
 	var cssPath = "../css/skin/";
 	var styleID='skin1';
 	$(function(){
-		var $a =$(".skinBox li a");
+		var $a =$(".skinBox>li>a");
 		$a .click(function(){
 			switchSkin( this.id );
 		});
@@ -221,3 +221,30 @@ $(function() {
 		$("#header-login-bg").css({"display":"none"});
 	});
 })
+$(function() {
+	//点击头像弹出框
+	$('.userInfoWrapper').on('click','.userInfoNobody,.userInfoPhoto',function(){
+		var _this = $(this);
+		var ifYN = _this.attr('data-ifYN');
+		if(ifYN=='yes'){
+			return;
+		}
+		_this.attr('data-ifYN','yes');
+		_this.addClass('selectPhotoTop');
+		var userInfoBox = $('<div></div>').addClass('userInfoBox');
+		_this.parent().append(userInfoBox);
+		var infoBoxSkin = _this.parent().find('.skinWrapper').clone();
+		infoBoxSkin.appendTo(userInfoBox);
+
+	});
+	$('.userInfoWrapper').on('click','.selectPhotoTop',function(){
+		var _this = $(this);
+		var ifYN = _this.attr('data-ifYN');
+		if(ifYN=='no'){
+			return;
+		}
+		_this.attr('data-ifYN','no');
+		_this.removeClass('selectPhotoTop');
+		_this.parent().find('.userInfoBox').remove();
+	});
+});

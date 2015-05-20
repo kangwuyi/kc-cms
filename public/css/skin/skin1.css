@@ -21,7 +21,8 @@ body{
   background:#000;
 }
 body{
-  background:url(../../img/gb/205.gif);
+	font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+	background: transparent url('../../img/bg.png') repeat;
 }
 .headerWrapper{
 	background: #278CDE;
@@ -35,4 +36,11 @@ body{
 	padding: 20px 0 20px 0;
 	border: 1px solid #075C18;
 	box-shadow: 0 0 50px rgba(15, 104, 223, 0.8);
+	height:400px;
+}
+.textTiTlePhoto{
+	background:url(../../img/emc2.png) no-repeat 50% 50%;
+	background-size: 50%;
+	height: 360px;
+	width:100%;
 }

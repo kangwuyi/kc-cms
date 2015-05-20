@@ -36,6 +36,8 @@ app.use(function(req, res, next) {
     var error = req.flash('error');
     var success = req.flash('success');
     res.locals.user = req.session ? req.session.user:'';
+    res.locals.publicUserId = req.session ? req.session.publicUserId:'';
+    res.locals.publicUserKpi = req.session ? req.session.publicUserKpi:'';
     res.locals.cache = req.session ? req.session.cache:'';
     res.locals.error = error.length ? error : null;
     res.locals.success = success ? success : null;

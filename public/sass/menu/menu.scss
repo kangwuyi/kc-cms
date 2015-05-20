@@ -1,64 +1,30 @@
 @import '../definition';
 .MenuStatic {
-	position: absolute;
-	top: 250px;
-	left: 0;
-}
-.MenuFixed {
-	/*position: fixed;
-	top: -1px;
-	left: 0;*/
-  position: absolute;
-  top: 250px;
-  left: 0;
+
 }
 .MenuWrapper{
 	/*background-color: #fff;*/
+	display:inline-block;
+	float:left;
 	opacity: 0.9;
-	background-image: url(../img/bd-ffffff.png);
-	_background-image: url(../img/bd-ffffff.png);
 	border: none;
-	border-top: 1px solid rgba(255,255,255,0.3);
+/* 	border-top: 1px solid rgba(255,255,255,0.3);
 	border-bottom: 1px solid rgba(0,0,0,0.4);
-	box-shadow: 0 0 50px rgba(0,0,0,0.8);
+	box-shadow: 0 0 50px rgba(0,0,0,0.8); */
 	color:#ff6600;
 	font-size: 14px;
-	line-height: 20px;
-	width: 100%;
+	width: 600px;
+	height:40px;
 	text-align: center;
-	height: 68px;
-	display: block!important;
 	z-index: 9999;
 	font-weight: 400;
 }
-.MenuWrapperDivBd{
-	background: url(../img/gb/barbg.png) repeat-x;
-	position: relative;
-}
-.headerNavigationLeft{
-	position: absolute;
-    left: -23px;
-    width: 23px;
-    top: 0;
-    z-index: 999999;
-    height: 67px;
-    background: url(../img/gb/barbg.png) no-repeat 0 -150px;
-}
-.headerNavigationRight{
-    position: absolute;
-    height: 67px;
-    background: url(../img/gb/barbg.png) no-repeat 0 -150px;
-    left: 1170px;
-    width: 25px;
-    top: 0;
-    background-position: right -150px;
-}
 .ulMenu {
 	text-transform: uppercase;
-	width: 960px;
-	height: 68px;
+	width: 600px;
 	margin: 0;
 	padding:0;
+	display: inline-block;
 
 }.ulMenu > li {
 cursor: pointer;
@@ -66,71 +32,82 @@ text-decoration: none;
 list-style-type:none;
 text-align:center;
 color: #fff;
-border-radius: 50px;
+/* border-radius: 50px; */
 float: left;
-padding: 0 88px 0 0;
+padding: 0 28px 0 0;
+height:40px;
+line-height:40px;
 
 }.ulMenu > li span {
   display: inline-block;
-color:#ff6600;
-padding: 28px 10px 20px 55px;
+color:#fff;
+padding: 0 10px 0 15px;
 }.submenuWrapper {
   position: absolute;
   cursor: auto;
-  /* height: 172px; */
   width: 100%;
+  height:60px;
+  line-height: 60px;
    left: 0px;
  /*border-radius: 50px;*/
  /*position: fixed;*/
  border-top: 1px solid rgba(255, 255, 255, 0.3);
  border-bottom: 1px solid #645A5A;
- box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-top: 68px;
+/*  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); */
+top: 40px;
 z-index: 9999;
 display: none;
 }.submenuContainer {
+	height:60px;
+  line-height: 60px;
 text-align: left;
 margin: auto;
-padding: 25px 0 0 117px;
+padding: 0 0 0 117px;
 }.submenu {
-display: inline-block;
-vertical-align: top;
-width: auto;
-margin-right: 80px;
-line-height: 17px;
-}.submenu li {
-margin-bottom: 18px;
-display:block;
-float:left;
-padding: 28px 88px 20px 55px;
-}.submenu a {
-color:#fff;
-text-decoration: none;
-text-transform: none;
+	display: inline-block;
+	vertical-align: top;
+	width: auto;
+	margin-right: 80px;
+	line-height: 17px;
+	 li {
+	margin-bottom: 18px;
+	display:block;
+	float:left;
+	padding: 28px 88px 20px 55px;
+	}
+	a {
+		color:#fff;
+		text-decoration: none;
+		text-transform: none;
+		&:hover{
+			color:#fff;
+		}
+	}
 }
 .bgColor li.liColorOne{
-	background: transparent ;text-decoration: none;list-style-type:none;
+	background: #087366;text-decoration: none;list-style-type:none;
 }
 .bgColor li.liColorTwo{
-	background: transparent;text-decoration: none;list-style-type:none;
+	background: #59130D;text-decoration: none;list-style-type:none;
 }
 .bgColor li.liColorThree{
-	background: transparent;text-decoration: none;list-style-type:none;
+	background: #0D4A59;text-decoration: none;list-style-type:none;
 }
 .bgColor li.liColorFour{
-	background: transparent;text-decoration: none;list-style-type:none;
+	background: #072D49;text-decoration: none;list-style-type:none;
 }
 .bgColor li.liColorOne .submenuWrapper {
-	background:rgba(48, 102, 101, 0.3);
+	/* background:rgba(48, 102, 101, 0.3); */
+	background:#087366;
 }
 .bgColor li.liColorTwo .submenuWrapper {
-	background:rgba(48, 102, 101, 0.3);
+	background:#59130D;
 }
 .bgColor li.liColorThree .submenuWrapper {
-	background:rgba(48, 102, 101, 0.3);
+	background:#0D4A59;
 }
 .bgColor li.liColorFour .submenuWrapper {
-	background: rgba(48, 102, 101, 0.3);
+	background: #072D49;
 }
 .ulMenu .selected span{
 	color:#fff;
@@ -139,7 +116,7 @@ text-transform: none;
   display: inline-block;
 margin-top: -2px;
 border: 4px solid transparent;
-border-top: 5px solid #ff6600;
+border-top: 5px solid #fff;
 }
 /* .caratOne{
 	left: 148px;
@@ -168,4 +145,24 @@ li.liColorThree .caratThree{
 }
 li.liColorFour .caratFour{
 	border-bottom: 5px solid #fff;border-top: 4px solid transparent;margin-top: -6px;
+}
+.RLDom{
+	display:block;
+	float:right;
+	width:80px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	margin:0 10px 0 10px;
+	a{
+		color:#fff;
+		text-decoration: none;
+		&:hover{
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+	span{
+		color: #fff;
+	}
 }

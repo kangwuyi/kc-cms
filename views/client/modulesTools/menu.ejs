@@ -1,12 +1,10 @@
 <nav class="MenuWrapper MenuStatic">
-	<div class="container MenuWrapperDivBd">
-		<div class="headerNavigationLeft" ></div>
-		<ul class="ulMenu">
-			<%- include menu/menuHome %>
-			<%- include menu/menuNote %>
+	<ul class="ulMenu">
+		<%- include menu/menuHome %>
+		<%- include menu/menuNote %>
+		<% if (locals.user) {%>
 			<%- include menu/menuLife %>
 			<%- include menu/menuAbout %>
-		</ul>
-		<div class="headerNavigationRight" ></div>
-	</div>
+		<% }%>
+	</ul>
 </nav>

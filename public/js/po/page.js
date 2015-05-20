@@ -15,12 +15,12 @@ function goPage(pno,psize){
 	//前三行始终显示
 	for(i=0;i<1;i++){
 		var irow = itable.rows[i];
-		irow.style.display = "inline-block;";
+		irow.style.display = "inline-flex"
 	}
 	for(var i=1;i<num;i++){
 		var irow = itable.rows[i];
 		if(i>=startRow&&i<endRow){
-			irow.style.display = "inline-block";
+			irow.style.display = "inline-flex";
 		}else{
 			irow.style.display = "none";
 		}

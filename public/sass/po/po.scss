@@ -17,7 +17,11 @@ width: 100%;
 .poContents{
 	margin-top:30px;
 	.poName{
-		color:#fff;
+		>a{
+			color:#145871;
+			text-decoration: none;
+			text-transform: none;
+		}
 		font-size:100px;
 		width:100%;
 		height:300px;
@@ -130,6 +134,6 @@ width: 100%;
 	@include deleteModeLeftP;
 }
 .deleteBlogTh16{
-	width:16%;
+	width:16.6666%;
 	@include deleteModeLeftP;
 }

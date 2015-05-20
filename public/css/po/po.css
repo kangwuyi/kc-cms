@@ -18,12 +18,15 @@ table, tr, th, td {
 .poContents {
   margin-top: 30px; }
   .poContents .poName {
-    color: #fff;
     font-size: 100px;
     width: 100%;
     height: 300px;
     line-height: 300px;
     text-align: center; }
+    .poContents .poName > a {
+      color: #145871;
+      text-decoration: none;
+      text-transform: none; }
   .poContents .poHeader {
     height: 80px;
     line-height: 80px;
@@ -154,7 +157,7 @@ table, tr, th, td {
     padding: 0; }
 
 .deleteBlogTh16 {
-  width: 16%;
+  width: 16.6666%;
   display: block;
   float: left; }
   .deleteBlogTh16 p {

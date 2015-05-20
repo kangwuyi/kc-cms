@@ -26,7 +26,7 @@ body {
   padding-bottom: 20px;
   font-size: 12px;
   line-height: 1.5;
-  color: #FFF;
+  color: #F01818;
   border-top: 1px solid #eee; }
   .site-footer .right {
     float: right; }
@@ -43,15 +43,15 @@ body {
 
 .footerGb {
   height: 80px;
-  background: rgba(48, 102, 101, 0.3);
+  /* background: rgba(48, 102, 101, 0.3);
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); }
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); */ }
 
 .footerContentBg {
   /*background: url(../img/gb/giveusacallimage.png) no-repeat bottom center;*/
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); */
   height: 80px; }
 
 /*

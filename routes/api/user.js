@@ -25,9 +25,13 @@ exports.login = function (req, res) {
 			req.flash('error', '密码错误!');
 			return res.redirect('back');//返回之前的页面
 		}
+		req.session={
+			publicUserId : user[0].kt_user_ids,
+			publicUserKpi : user[0].kt_user_kpi,
+			user : user[0].kt_user_name
+		};
 		//用户名密码都匹配后，将用户信息存入 session
 		//console.log(user[0].kt_user_name);
-		req.session.user = user[0].kt_user_name;//console.log("session:"+req.session.user);
 		req.flash('success', '登陆成功!');
 		// res.send(req.session.user);
 		//res.redirect('back');//返回之前的页面
@@ -37,7 +41,11 @@ exports.login = function (req, res) {
 exports.leave = function (req, res) {
 	//用户名密码都匹配后，将用户信息存入 session
 	//console.log(user[0].kt_user_name);
-	req.session.user = '';//console.log("session:"+req.session.user);
+	req.session={
+		publicUserId : null,
+		publicUserKpi : null,
+		user : null
+	};
 	req.flash('success', '退出成功!');
 	// res.send(req.session.user);
 	//res.redirect('back');//返回之前的页面

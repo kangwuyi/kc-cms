@@ -4,7 +4,7 @@
 	mysqlString = {
 		k_user: {
 			getAllByName: function(username){
-				return "select kt_user_ids, kt_user_name,kt_user_password from k_user where kt_user_name='"+username+"' ";
+				return "select * from k_user where kt_user_name='"+username+"' ";
 			},
 		},
 		k_tags: {

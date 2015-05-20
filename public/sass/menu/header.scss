@@ -2,18 +2,16 @@
 .headerWrapper{
 	width: 100%;
 	/* position: fixed; */
-	background: url('../img/kissrain.jpg') -129px 0 fixed;
-	background-position: center top;
+	background: #278CDE;
+/* 	background-position: center top; */
 	/*background-attachment: scroll;*/
 	z-index: 9;
-	height: 300px;
+	height: 40px;
 	border-top: 1px solid rgba(255,255,255,0.3);
 	border-bottom: 1px solid rgba(0,0,0,0.4);
 	box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 .headerDiv{
-	padding-top: 30px;
-	height: 100px;
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -22,50 +20,57 @@
 }
 .logo{
 	float: left;
-	width: 600px;
+	width: 100px;
 	height: 100%;
 }
 .logo span{
 	color:#fff;
 	font-size:30px;
 	font-weight:bold;font-family: Georgia,"Times New Roman",Times,serif;
+	p{font-size: 12px;padding:0;margin:0;}
 }
-.logo span i{
-	font-size:10px;
-	 font-weight:normal;
-}
+
 .search{
 	float: right;
 	border: #cccccc 1px solid;
-	width: 250px;
+	width: 200px;
+	height:30px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	margin-right: 26px;
+	margin-right: 10px;
+	margin-top:5px;
+	background:#fff;
 }
 .searchIn{
 	padding-left: 10px ;
 	-webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-	width: 220px;
-font-size: 13px;
-line-height: 30px;
-height: 30px;
-border: none;
-background: none;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width: 150px;
+	font-size: 13px;
+	line-height: 30px;
+	height: 30px;
+	border: none;
+	background: none;
+	outline: none;
 }
 .submitSearch{
-	width: 16px;
-height: 16px;
-background: url(http://docs.alibabagroup.com/assets2/images/cn/global/search_btn.png) top no-repeat;
-text-indent: -9999px;
-border: none;
-vertical-align: top;
-margin-top: 5px;
+	width: 40px;
+	height: 20px;
+	background: #278CDE;
+	/* text-indent: -9999px; */
+	border: none;
+	vertical-align: top;
+	margin-top: 4px;
+	border-radius:5px;
+	font-size:12px;
+	text-align:center;
+	line-height:18px;
+	color:#fff;
 }
 .lanageWrapper {
-	width: 60px;
+	width: 40px;
 	float: right;
 	position: relative;
 	margin-top: 10px;
