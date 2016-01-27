@@ -1,9 +1,9 @@
 <nav class="userInfoWrapper">
-	<% if (locals.user) {%>
+    <span class="userInfoPhoto" data-ifYN="no"></span>
+	<!--
 		<span class="userInfoPhoto" data-ifYN="no"></span>
-	<% }%>
-	<% if (!locals.user) {%>
+
 		<span class="userInfoNobody" data-ifYN="no">!</span>
-	<% }%>
+	-->
 	<%- include skin %>
 </nav>

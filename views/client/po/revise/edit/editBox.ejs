@@ -1,0 +1,124 @@
+<%- include ../../poHeaderLoader %>
+<div class="container poContents"  id="contents">
+    <%- include ../../header %>
+    <% BlogsById.forEach(	function(BlogsById){%>
+    <form action="/<%= urlStr.from%>" method="post">
+        <div class="poAddBox">
+            <div class="poReviseCententTitle">
+                <div class="poReviseCententTitleLeft"><span style="float: none">博客后台管理</span></div>
+                <div class="poReviseCententTitleRight" style="height:30px;width:70px;border-radius:0;"><input style="  height: 30px;line-height: 26px;background-color: #546524;color: #fff;" type="submit" value="提交表单"></div>
+                <span>
+                    <% if (locals.success&&locals.success.length) { %>
+                    <%= locals.success %>
+                    <% } %>
+                    <% if (locals.error&&locals.error.length) { %>
+                    <%= locals.error %>
+                    <% } %>
+                </span>
+            </div>
+            <table class="table table-striped" style="margin-bottom:0;">
+                <tr>
+                    <td>
+                        <div class="tdLeft">
+                            <span>译文标题：</span>
+                            <input class="NewTitle"  style="width:300px;" name="blogTitle" type="text" placeholder="请输入译文标题" value="<%= BlogsById.kt_isNote_title %>">
+                        </div>
+                        <div class="tdContent">
+                            <span>选择日期：</span>
+                            <input class="noteId"  style="width:100%;" name="blogId" type="hidden" value="<%= BlogsById.kt_isNote_id %>">
+                            <input type="text" id="startDate" class=" dataPicker" onclick="WdatePicker({dateFmt:'yyyy/MM/dd',onpicked:function(dp){
+                            document.getElementById('startDateHidden').value= new Date(dp.cal.newdate.y,dp.cal.newdate.M-1,dp.cal.newdate.d,dp.cal.newdate.H,dp.cal.newdate.m,dp.cal.newdate.s).getTime()
+                            }})">
+                            <input type="hidden" class="start" name="blogDate " id="startDateHidden" value="<%= BlogsById.kt_isNote_date %>" >
+                        </div>
+                        <div class="tdRight">
+                            <span>标签：</span>
+                            <input type="hidden" id="uiSelect1BlogType" name="uiSelect1BlogType" value="<%= BlogsById.kt_isTag_id %>"/>
+                            <div id="uiSelect1" class="ui-select w150"  data-name="uiSelect1">
+                                <a href="javascript:void(0)" class="ui-select-trigger"><span>快速搜索</span><i><b></b></i></a>
+                                <ul class="ui-select-content">
+                                    <li class="ui-select-item" data-value="<%= BlogsById.kt_isTag_id %>" data-selected><%= BlogsById.kt_isTag_name %></li>
+                                    <% PostTags.forEach(	function(PostTags){
+                                    if(PostTags.kt_isTag_id != BlogsById.kt_isTag_id){%>
+                                    <li class="ui-select-item" data-value="<%= PostTags.kt_isTag_id %>" ><%= PostTags.kt_isTag_name %></li>
+                                    <%  }});%>
+                                </ul>
+                        </div>
+                            </div>
+                        <div class="tdRight">
+                            <input type="hidden" id="uiSelect2BlogType" name="uiSelect2BlogType" value="<%= BlogsById.kt_isTag2_id %>"/>
+                            <input type="hidden" id="uiSelect2InputType" value="<%= JSON.stringify(PostTags2) %>"/>
+                            <div id="uiSelect2" class="ui-select w150"  data-name="uiSelect2">
+                                <a href="javascript:void(0)" class="ui-select-trigger"><span>快速搜索</span><i><b></b></i></a>
+                                <ul class="ui-select-content">
+                                    <li class="ui-select-item" data-value="<%= BlogsById.kt_isTag_id %>" data-selected><%= BlogsById.kt_isTag_name %></li>
+                                    <% PostTags.forEach(	function(PostTags){
+                                    if(PostTags.kt_isTag_id != BlogsById.kt_isTag_id){%>
+                                    <li class="ui-select-item" data-value="<%= PostTags.kt_isTag_id %>" ><%= PostTags.kt_isTag_name %></li>
+                                    <%  }});%>
+                                </ul>
+                            </div>
+                            <a href="/<%= urlStr.tag%>">添加标签</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="poTextarea">
+            <textarea class="ckeditor" name="editor1"><%= BlogsById.kt_isNote_content %></textarea>
+        </div>
+
+    </form>
+    <% });%>
+</div>
+<%- include ../../poFooterLoader %>
+<script type="text/javascript">
+    $("#uiSelsct").selectInit({
+        callback:function(){
+            var _this = $(this);
+            var inputRefer = $("input.sendjsontext");
+            var val = _this.selectValue();
+            var textvalue = _this.find('.ui-select-content>li[data-value="'+val+'"]').text();
+            _this.find('.ui-select-input>input').attr('placeholder',textvalue)
+            inputRefer.attr('data-'+_this.attr("data-name"),val);
+            tableinit();
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#uiSelect1").selectInit({
+            callback:function(){
+                var _this = $(this);
+                var inputRefer = JSON.parse($("input#uiSelect2InputType").val());
+                var val = _this.selectValue();
+                var uiSelect2UlBox = $("#uiSelect2").find('.ui-select-content');
+                var liSelectArr = []
+                uiSelect2UlBox.empty();
+                $.each(inputRefer, function (index,item) {
+                    if (item.kt_isTag_id == val) {
+                        liSelectArr.push({value:item.kt_isTag2_id,text:item.kt_isTag2_name});
+                    }
+                });
+                $("#uiSelect2").selectReset({
+                    dataList:liSelectArr,
+                    callback:function(){
+                        var _this = $(this);
+                        var val = _this.selectValue();
+                        $('#uiSelect2BlogType').val(val)
+                    }
+                });
+                $('#uiSelect1BlogType').val(val)
+            }
+        });
+        $("#uiSelect2").selectInit({
+            callback:function(){
+                var _this = $(this);
+                var val = _this.selectValue();
+                $('#uiSelect2BlogType').val(val)
+            }
+        });
+        /*$("#uiSelect1").selectValue($('#uiSelect1BlogType').val());
+        $("#uiSelect2").selectValue($('#uiSelect2BlogType').val());*/
+    });
+</script>

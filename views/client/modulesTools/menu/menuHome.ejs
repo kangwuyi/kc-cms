@@ -7,16 +7,8 @@
 				<li>
 					<a href="/">主页</a>
 				</li>
-				<% if (locals.user) {%>
-					<li>
-						<a href="/">日志</a>
-					</li>
-					<li>
-						<a href="/">周报</a>
-					</li>
-				<% }%>
 				<li>
-					<% if (!locals.user) {%>
+					<% if (!locals.publicUserId) {%>
 						<a  class="login loginCursor">登陆</a>
 					<% } else{%>
 						<a  class="login loginCursor">退出</a>

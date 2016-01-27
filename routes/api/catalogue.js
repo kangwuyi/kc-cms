@@ -3,6 +3,8 @@ var Catalogue = require('../../models/catalogue');
 var object = require('../../models/api/object');
 var pagination = require('pagination-api');
 var myDate = require('../dateFormat')();
+var loadTagJsFn = require('./module/public/loadTagJs.js');
+var isIf = 'catalogue';
 
 exports.catalogue = function (req, res) {
 	Catalogue.PostCatalogueTag( null,function (err, PostCatalogueTag) {
@@ -15,7 +17,14 @@ exports.catalogue = function (req, res) {
 				if (err) {
 					PostCatalogue = [];
 				};//console.log(PostCatalogue);
-				res.render('client/in/catalogue', { title: '十页书｜导航',PostCatalogueTag: PostCatalogueTag,PostCatalogue: PostCatalogue});
+                loadTagJsFn(isIf,function(loadTagOjNode) {
+                    res.render('client/in/catalogue', {
+                        title: '十页书｜导航',
+                        PostCatalogueTag: PostCatalogueTag,
+                        PostCatalogue: PostCatalogue,
+                        loadTagOjNew:loadTagOjNode
+                    });
+                });
 			});
 		//}
 	});
@@ -36,7 +45,8 @@ exports.poReviseCatalogue = function (req, res) {
 		if (err) {
 			PostCatalogue = [];
 		};//console.log(PostCatalogue);
-		res.render('client/po/revise/reviseCatalogue', { title: '主页',PostCatalogue: PostCatalogue});
+        var urlStr = {addNew:'/poCatalogue',sign:'catalogue'};
+		res.render('client/po/revise/reviseCatalogue', { title: '主页',PostCatalogue: PostCatalogue,urlStr:urlStr });
 	});
 }
 exports.editCatalogueById = function (req, res) {

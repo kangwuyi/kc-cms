@@ -45,7 +45,7 @@ a.a-reader-prev, a.a-reader-next {
   width: 100%;
   color: #3D3238;
   font-size: 20px;
-  background: #fff;
+  background: #f5f5f5;
   padding: 20px 30px 30px 30px; }
 
 #prettyprint li {
@@ -58,6 +58,7 @@ a.a-reader-prev, a.a-reader-next {
   padding: 0; }
 
 #reader-right {
+  padding: 0 !important;
   /* 富文本*/ }
   #reader-right ol, #reader-right ul {
     list-style-type: decimal-leading-zero; }
@@ -157,7 +158,6 @@ a.a-reader-prev, a.a-reader-next {
   float: left;
   width: 800px;
   padding: 30px 30px 15px 30px;
-  border: solid 1px #e7e7e7;
   border-bottom: none;
   background: #fff; }
   .right-blogs-frame p {
@@ -174,7 +174,7 @@ a.a-reader-prev, a.a-reader-next {
   margin: 0 0 15px;
   font-family: 'Play', arial, serif;
   font-weight: normal;
-  padding-bottom: 15px;
+  padding-bottom: 11px;
   border-bottom: dotted 1px #ddd; }
   .right-blogs-title a {
     color: #3a3a3a; }
@@ -184,15 +184,17 @@ a.a-reader-prev, a.a-reader-next {
   background: #fff;
   font: 11px/13px Helvetica, Arial, sans-serif;
   float: left;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: #e7e7e7;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: #e7e7e7;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #e7e7e7;
+  /*border: {
+  	top: {
+  		@include Border(1px,#e7e7e7);
+  	}
+  	right: {
+  		@include Border(1px,#e7e7e7);
+  	}
+  	bottom: {
+  		@include Border(1px,#e7e7e7);
+  	}
+  }*/
   padding: 15px 15px 25px 15px; }
   .right-blogs-bar p {
     margin: 0 !important; }

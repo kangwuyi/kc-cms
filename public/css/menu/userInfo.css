@@ -1,0 +1,35 @@
+.userInfoWrapper {
+  height: 30px;
+  width: 30px;
+  margin-top: 5px;
+  border: 2px solid #fff;
+  display: block;
+  float: right; }
+  .userInfoWrapper .userInfoNobody {
+    height: 26px;
+    width: 26px;
+    display: block;
+    background: #fff;
+    line-height: 26px;
+    text-align: center;
+    font-size: 26px;
+    color: #278CDE;
+    cursor: pointer; }
+  .userInfoWrapper .userInfoPhoto {
+    height: 26px;
+    width: 26px;
+    display: block;
+    background: url("../modules/a1.png") 50% 50% no-repeat;
+    background-size: 100%;
+    cursor: pointer; }
+  .userInfoWrapper .userInfoBox {
+    width: 150px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #278CDE; }
+    .userInfoWrapper .userInfoBox .skinWrapper {
+      display: block; }
+
+/*# sourceMappingURL=userInfo.css.map */

@@ -1,10 +1,35 @@
 @import '../definition';
+.header-tags{
+  margin:0 !important;
+  padding:0 !important;
+  background-color: #fff;
+  //border: solid 1px #e7e7e7;
+  float: left;
+  .left-tag-title {
+    padding: 10px;
+    color: #3a3a3a;
+    font-size: 16px;
+    font-family: 'Play', Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0;
+    border-bottom: solid 1px #e7e7e7;
+  }
+  .header-nag-tags{
+    padding: 0;
+    .tag-box {
+      .tag-link {
+        float: left;
+      }
+    }
+  }
+}
 .tag-box {
-	background: url(../../img/darkbg.jpg);
 	display: block;
 	overflow: hidden;
 	list-style: disc;
-	margin: 0 0 9px 25px;
+	margin: 0 !important;
+    padding:0 !important;
 	font-size: 13px;
 	line-height: 18px;
 	list-style-type: disc;
@@ -13,30 +38,34 @@
 	.tag-link {
 		text-decoration: none;
 		list-style-type: none;
-		float: left;
-		margin: 0 10px 6px 0;
+		//float: left;
+		margin: 0;
+        //border: 1px solid #FFF000;
 		line-height: 1.8;
 		display: list-item;
 		text-align: -webkit-match-parent;
+        &:hover {
+          background-color: #660000;
+          a,span{
+            color: $colorWhite;
+          }
+        }
 		a {
 			display: inline-block;
 			text-decoration: none;
 			font: #{$fontStack4} 12px;
-			color: $colorWhite;
+			color: #3a3a3a;
 			height: 18px;
 			line-height: 18px;
 			margin: 5px 0 5px 8px;
-			padding: 0 5px 0 12px;
+			//padding: 0 5px 0 12px;
 			position: relative;
 			@include borderRadius(0 5px 5px 0);
 			&:-webkit-any-link {
 				cursor: auto;
 			}
-			&:hover {
-				opacity: 0.8;
-				color: $colorWhite;
-			}
-			&:before {
+
+			/*&:before {
 				content: " ";
 				width: 0px;
 				height: 0px;
@@ -50,18 +79,18 @@
 				content: " ";
 				width: 4px;
 				height: 4px;
-				background-color: $colorWhite;
+				background-color: #660000;
 				@include borderRadius(4px);
 				@include box-shadow(0px 0px 0px 1px rgba(0,0,0,0.3));
 				position: absolute;
 				top: 7px;
 				left: 2px;
-			}
+			}*/
 		}
 		span {
 			vertical-align: super;
 			font-size: 0.8em;
-			color: $colorWhite;
+			color: #3a3a3a;
 			padding-left: 3px;
 			padding-right: 3px;
 			@include box-shadow(0em 0em 0em 0em #ffffff);

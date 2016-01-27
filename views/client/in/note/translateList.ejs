@@ -1,35 +1,35 @@
 <article class="translateList col-md-12">
-	<% PostTranslateGet_all.forEach(	function(PostTranslateGet_all){%>
+	<% PostGet_all.forEach(	function(PostGet_all){%>
 	<div class="translateBox">
-		<div class="translateBoxImage">
-			<div class="container-fluid">
-				<span class="translateBoxImageSpan" title="<%= PostTranslateGet_all.kt_translates_titles %>">
-					<a href="/in/translatesById?translates_ids=<%= PostTranslateGet_all.kt_translates_ids %>">
-						<img  src="<%= PostTranslateGet_all.kt_translates_img %>" width="160" height="160" alt="<%= PostTranslateGet_all.kt_translates_titles %>" title="<%= PostTranslateGet_all.kt_translates_titles %>">
-					</a>
-				</span>
-			</div>
+		<div class="translateBoxImage" style="  background-color: #1677c8;
+  background-image: -webkit-linear-gradient(120deg, #1677c8, #2ac2d8);
+  background-image: -moz-linear-gradient(120deg, #1677c8, #2ac2d8);
+  background-image: -ms-linear-gradient(120deg, #1677c8, #2ac2d8);
+  background-image: -o-linear-gradient(120deg, #1677c8, #2ac2d8);
+  background-image: linear-gradient(120deg, #1677c8, #2ac2d8);
+    height: 224px;
+  margin-left: 5px;
+  width: 20px;
+  margin-bottom: 5px;">
 		</div>
 		<div class="translateBoxTitle">
 			<h3 class="container-fluid translateBoxTitleH3">
-				<a href="/in/translatesById?translates_ids=<%= PostTranslateGet_all.kt_translates_ids %>" title="<%= PostTranslateGet_all.kt_translates_titles %>" target="_blank"><%= PostTranslateGet_all.kt_translates_titles %></a>
+				<a href="/in/translatesById?note_ids=<%= PostGet_all.kt_isNote_id %>&tags_ids=<%= PostGet_all.kt_isTag_id %>&tags2_ids=<%= PostGet_all.kt_isTag2_id %>" title="<%= PostGet_all.kt_isNote_title %>" target="_blank"><%= PostGet_all.kt_isNote_title %></a>
 			</h3>
 		</div>
 		<div class="translateBoxDate">
 			<h3 class="container-fluid translateBoxDateH3">
-				<%= PostTranslateGet_all.kt_Translate_tags_name %> | 
-				<%= PostTranslateGet_all.kt_translates_ri %> | 
-				<%= PostTranslateGet_all.kt_translates_yue %> | 
-				<%= PostTranslateGet_all.kt_translates_year %>
+				<%= PostGet_all.kt_isTag_name %> | 
+				<%= Date(PostGet_all.kt_isNote_date) %>
 			</h3>
 		</div>
 		<div class="translateBoxbody">
-			<div class="container-fluid translateBoxbodyP"><%- PostTranslateGet_all.kt_translates_contents.substring(0,20) %>...
+			<div class="container-fluid translateBoxbodyP"><%- PostGet_all.kt_isNote_content.substring(0,20) %>...
 			</div>
 		</div>
 		<div class="translateBoxMore">
 			<p class="container-fluid translateBoxMoreP">
-				<a href="/in/translatesById?translates_ids=<%= PostTranslateGet_all.kt_translates_ids %>"  target="_blank">See more</a>
+				<a href="/in/translatesById?note_ids=<%= PostGet_all.kt_isNote_id %>&tags_ids=<%= PostGet_all.kt_isTag_id %>&tags2_ids=<%= PostGet_all.kt_isTag2_id %>"  target="_blank">See more</a>
 			</p>
 		</div>
 	 </div>

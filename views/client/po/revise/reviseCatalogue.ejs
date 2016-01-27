@@ -1,9 +1,12 @@
 <%- include ../poHeaderLoader %>
 		<div class="container poContents">
 			<%- include ../header %>
-			<%- include nav %>
 			<!-- <form action="write/baocun" method="post"> -->
 				<div class="poReviseBox">
+				<div class="poReviseCententTitle">
+                        <div class="poReviseCententTitleLeft"><span>博客后台管理</span></div>
+                        <div class="poReviseCententTitleRight"><a href="/poCatalogue">+</a></div>
+                </div>
 				<table class="table table-striped"   id="idData">
 							<tr >
 								<th  class="deleteCatalogueTh10">Id</th>
@@ -18,7 +21,10 @@
 								<td  class="deleteCatalogueTh20"><%= PostCatalogue.kt_navigation_name %></td>
 								<td  class="deleteCatalogueTh50"><a target="_blank" href="<%= PostCatalogue.kt_navigation_url %>"><%= PostCatalogue.kt_navigation_url %></a></td>
 								<td  class="deleteCatalogueTh10"><%= PostCatalogue.kt_nav_tag_name %></td>
-								<td  class="deleteCatalogueTh10"><a class="editImg"href="/editCatalogueById?navigation_ids=<%= PostCatalogue.kt_navigation_ids %>">Edit</a></td>
+								<td  class="deleteCatalogueTh10">
+								    <a class="editImg"href="/editCatalogueById?navigation_ids=<%= PostCatalogue.kt_navigation_ids %>">Edit</a>/
+								    <a class="delImg"href="/delCatalogueById?navigation_ids=<%= PostCatalogue.kt_navigation_ids %>">Del</a>
+								</td>
 							</tr>
 							<% });%>
 				</table>

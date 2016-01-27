@@ -1,0 +1,41 @@
+<%- include ../poHeaderLoader %>
+<div class="container poContents">
+    <%- include ../header %>
+    <!-- <form action="write/baocun" method="post"> -->
+    <div  class="poReviseBox ">
+        <div class="poReviseCententTitle">
+            <div class="poReviseCententTitleLeft"><span>博客后台管理</span></div>
+            <div class="poReviseCententTitleRight"><a href="<%= urlStr.addNew %>">+</a></div>
+    </div>
+        <table class="table table-striped"   id="idData">
+            <tr>
+                <th  class="col-md-2">ID</th>
+                <th  class="col-md-2">标题</th>
+                <th  class="col-md-2">日期</th>
+                <th  class="col-md-4">标签</th>
+                <th  class="col-md-2">操作</th>
+            </tr>
+            <% GetAllBlog.forEach(	function(GetAllBlog){%>
+            <tr>
+                <td  class="col-md-2"><%= GetAllBlog.kt_isNote_id %></td>
+                <td  class="col-md-2"><%= GetAllBlog.kt_isNote_title %></td>
+                <td  class="col-md-2"><%= GetAllBlog.kt_isNote_year %>:<%= GetAllBlog.kt_isNote_month %>:<%= GetAllBlog.kt_isNote_day %></td>
+                <td  class="col-md-4"><%= GetAllBlog.kt_tags_name %></td>
+                <td  class="col-md-2">
+                <a class="editImg" href="/<%= urlStr.edit %>=<%= GetAllBlog.kt_isNote_id %>">Edit</a>/
+					    	<a class="delImg" href="/<%= urlStr.del %>=<%=GetAllBlog.kt_isNote_id %>">Del</a></td>
+            </tr>
+            <% });%>
+        </table>
+        <table width="100%">
+            <tr>
+                <td>
+                    <div id="barcon" name="barcon"></div>
+                </td>
+                </td>
+        </table>
+        <script type="text/javascript" src="js/po/page.js"></script>
+    </div>
+    <!-- </form> -->
+</div>
+<%- include ../poFooterLoader %>

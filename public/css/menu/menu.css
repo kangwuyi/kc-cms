@@ -8,6 +8,15 @@ body {
   -o-transition: color 0.5s ease;
   transition: color 0.5s ease; }
 
+#main-container {
+  float: left; }
+  #main-container #sidebar {
+    position: inherit; }
+
+form {
+  padding: 0 !important;
+  margin: 0 !important; }
+
 .MenuWrapper {
   /*background-color: #fff;*/
   display: inline-block;
@@ -71,24 +80,23 @@ body {
   text-align: left;
   margin: auto;
   padding: 0 0 0 117px; }
-
-.submenu {
-  display: inline-block;
-  vertical-align: top;
-  width: auto;
-  margin-right: 80px;
-  line-height: 17px; }
-  .submenu li {
-    margin-bottom: 18px;
-    display: block;
-    float: left;
-    padding: 28px 88px 20px 55px; }
-  .submenu a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: none; }
-    .submenu a:hover {
-      color: #fff; }
+  .submenuContainer .submenu {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    margin-right: 80px;
+    line-height: 17px; }
+    .submenuContainer .submenu li {
+      margin-bottom: 18px;
+      display: block;
+      float: left;
+      padding: 28px 88px 20px 55px; }
+    .submenuContainer .submenu a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: none; }
+      .submenuContainer .submenu a:hover {
+        color: #fff; }
 
 .bgColor li.liColorOne {
   background: #087366;

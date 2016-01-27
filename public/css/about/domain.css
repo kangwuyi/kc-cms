@@ -9,10 +9,10 @@ body {
   transition: color 0.5s ease; }
 
 #droptabs {
-  padding-left: 15px;
-  padding-right: 15px; }
+  background-color: #fff;
+  height: 38px; }
   #droptabs a {
-    color: #fff; }
+    color: #428bca; }
     #droptabs a:hover {
       color: #333; }
   #droptabs .active a {

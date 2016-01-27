@@ -1,20 +1,33 @@
-var express = require('express')
+﻿var express = require('express')
 	,path = require('path')
 	,flash = require('connect-flash')
 	,favicon = require('static-favicon')
 	,logger = require('morgan')
 	,cookieParser = require('cookie-parser')
-            ,cookieSession = require('cookie-session')
+    ,cookieSession = require('cookie-session')
 	,bodyParser = require('body-parser')
 	,partials = require('express-partials')	//模板
 	,http = require('http')
 	,path = require('path')
 	,ejs = require('ejs')
 	,session    = require('express-session')
+    ,RedisStore = require('connect-redis')(session)
 
 	,settings = require('./db')	//加载
 	,routes = require('./routes/index')
-             ,apps = require('./routes/app');	//加载路由
+    ,apps = require('./routes/app');	//加载路由
+
+/*//var redis = require("redis"),
+    client = redis.createClient();
+//写入JavaScript(JSON)对象
+client.hmset('sessionid', { username: 'kris', password: 'password' }, function(err) {
+   // console.log(err)
+})
+
+//读取JavaScript(JSON)对象
+client.hgetall('sessionid', function(err, object) {
+    //console.log(object)
+})*/
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -27,20 +40,26 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({"limit":"10000kb"}));
 app.use( session({ //提供会话支持
-    secret: "kangcool",//这个是session加密需要的，随便写的。
     cookie : {
             maxAge : 60000 * 20 //20 minutes
-        }
+        },
+    store: new RedisStore({
+        host: "127.0.0.1",
+        port: 6379
+        //db: "test_kcool"
+    }),
+    secret: 'kangcool'//这个是session加密需要的，随便写的。
 }));
 app.use(function(req, res, next) {
     var error = req.flash('error');
     var success = req.flash('success');
-    res.locals.user = req.session ? req.session.user:'';
-    res.locals.publicUserId = req.session ? req.session.publicUserId:'';
-    res.locals.publicUserKpi = req.session ? req.session.publicUserKpi:'';
-    res.locals.cache = req.session ? req.session.cache:'';
+    res.locals.user = req.session.user? req.session.user:'';
+    res.locals.allTag = req.session.allTag? req.session.allTag:'';
+    res.locals.publicUserId = req.session.publicUserId || '';
+    res.locals.publicUserKpi = req.session.publicUserKpi ? req.session.publicUserKpi:'';
+    res.locals.cache = req.session.cache ? req.session.cache:'';
     res.locals.error = error.length ? error : null;
-    res.locals.success = success ? success : null;
+    res.locals.success = success ? success : null;//console.log('req.session.publicUserId:'+req.session.publicUserId+'+res.locals.publicUserId:'+res.locals.publicUserId)
     next();
 });
 app.use('/', routes);
@@ -77,7 +96,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var server = app.listen(3000, function() {
+var server = app.listen(3001, function() {
     console.log('Listening on port %d', server.address().port);
 });
 app.routes;

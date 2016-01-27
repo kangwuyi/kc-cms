@@ -6,12 +6,15 @@
 	float: left;
 	.leftFeelBox{
 		background: #fff;
-		border: 1px solid #e5e5e5;
+		//border: 1px solid #e5e5e5;
 		border-radius: 3px;
 		.feelBoxList{
 			list-style: none;
 			padding: 0;
 			margin:0;
+          li:first-child{
+            border-top:none;
+          }
 			.feelBoxListLi{
 				list-style: none;
 				border-top: 1px solid #e5e5e5;

@@ -6,248 +6,130 @@
 			getAllByName: function(username){
 				return "select * from k_user where kt_user_name='"+username+"' ";
 			},
+            postUserInfo: function(userAffirmPwd,userName,userEmail){
+                return "INSERT INTO `k_user` (`kt_user_ids`, `kt_user_name`, `kt_user_password`, `kt_user_email`) VALUES (NULL, '"+userName+"', '"+userAffirmPwd+"', '"+userEmail+"') ";
+            }
 		},
-		k_tags: {
-			PostBlogsTag: "select * from k_tags",
-			getCheckTag: function(tagName){
-				return "select * from k_tags where kt_tags_name='"+tagName+"' ";
+		k_isTag: {
+            getIsNoteAllTag: function(isIf, publicUserId) {
+                return "select t.kt_isTag_id,t.kt_isTag_name from k_isTag t where  t.kt_user_id='"+publicUserId+"' and t.kt_isNote_isIf='"+isIf+"'";
+            },
+            getIsNoteAllTag2: function(isIf, publicUserId) {
+                return "select t.kt_isTag_id,t.kt_isTag2_id,t.kt_isTag2_name from k_isTag2 t where t.kt_user_id='"+publicUserId+"' and t.kt_isNote_isIf='"+isIf+"'";
+            },
+            loadIsNoteAllTag: function(err) {
+                return "select * from k_isTag";
+            },
+            loadIsNoteAllTag2: function(err) {
+                return "select * from k_isTag2";
+            },
+			PostTag: function(isIf, publicUserId, tagName) {
+                return "select * from k_isTag where kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"'";
+            },
+            getCheckTag: function(isIf, publicUserId, tagName){
+				return "select * from k_isTag where  kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and kt_isTag_name='"+tagName+"' ";
 			},
-			postAddTagName: function(tagName){
-				return "INSERT INTO `k_tags` (`kt_tags_ids`, `kt_tags_name`) VALUES (NULL, '"+tagName+"'); ";
+			postAddTagName: function(isIf, publicUserId, tagName){
+				return "INSERT INTO `k_isTag` (`kt_isTag_id`, `kt_isTag_name`, `kt_user_id`, `kt_isNote_isIf`) VALUES (NULL, '"+tagName+"', '"+publicUserId+"', '"+isIf+"') ";
 			},
+            getCheckTag2: function(tagId1,isIf, publicUserId, tagName){
+                return "select * from k_isTag2 where  kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and kt_isTag2_name='"+tagName+"' and kt_isTag_id='"+tagId1+"'";
+            },
+            postAddTagName2: function(tagId1,isIf, publicUserId, tagName){
+                return "INSERT INTO `k_isTag2` (`kt_isTag2_id`,`kt_isTag_id`, `kt_isTag2_name`, `kt_user_id`, `kt_isNote_isIf`) VALUES (NULL, '"+tagId1+"', '"+tagName+"', '"+publicUserId+"', '"+isIf+"') ";
+            }
 		},
-		k_note_tags: {
-			PostNotesTag: "select * from k_note_tags",
-			getCheckTag: function(tagName){
-				return "select * from k_note_tags where kt_note_tags_name='"+tagName+"' ";
+		k_isDate: {
+			getAllDate: function(isIf, publicUserId) {
+                return "select * from k_isDate where kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' group by kt_isDate_date;";
+            },
+			getBlogsByData_count_all_result: function(isIf, publicUserId, riqi_dates){
+				return "select count(0) as count_all_result from k_isDate where  kt_isDate_date="+riqi_dates+" order by count_all_result desc;";
 			},
-			postAddTagName: function(tagName){
-				return "INSERT INTO `k_note_tags` (`kt_note_tags_ids`, `kt_note_tags_name`) VALUES (NULL, '"+tagName+"'); ";
+			postAddRiqi: function(isIf, publicUserId, dateRiqi,blogId){
+				return "INSERT INTO `k_isDate` (`kt_isDate_id`, `kt_isDate_date`, `kt_isNote_id`, `kt_user_id`, `kt_isNote_isIf`) VALUES (NULL, '"+dateRiqi+"', '"+blogId+"', '"+publicUserId+"', '"+isIf+"') ; ";
 			},
+			postDelBlogRiqiById: function(isIf, publicUserId, blogs_ids){
+				return "DELETE FROM `kcool_v2`.`k_isDate` WHERE `k_isDate`.`kt_isNote_id` = '"+blogs_ids+"'and `k_isDate`.`kt_user_id`='"+publicUserId+"' and `k_isDate`.`kt_isNote_isIf`='"+isIf+"' ";
+			},
+			postUpdateRiqi: function(isIf, publicUserId, dateRiqi,blogId){
+				return "UPDATE  `kcool_v2`.`k_isDate` SET  `kt_isDate_date` =  '"+dateRiqi+"' WHERE  `k_isDate`.`kt_isNote_id` ='"+blogId+"' and `k_isDate`.`kt_user_id`='"+publicUserId+"' and `k_isDate`.`kt_isNote_isIf`='"+isIf+"';";
+			}
 		},
-		k_feel_tags: {
-			PostFeelsTag: "select * from k_feel_tags",
-			getCheckTag: function(tagName){
-				return "select * from k_feel_tags where kt_feel_tags_name='"+tagName+"' ";
+        isTag_isNote: {
+            getAllBlog:function(isIf, publicUserId) {
+                return "select * from k_isNote k,k_isTag t where  k.kt_user_id='"+publicUserId+"' and k.kt_isNote_isIf='"+isIf+"' and  k.kt_isTag_id=t.kt_isTag_id";
+            },
+            getTags: function(isIf, publicUserId) {
+                return "select b.kt_isTag_id,t.kt_isTag_name , count(0) as note_tag_num from k_isTag t,k_isNote b where  b.kt_user_id='"+publicUserId+"' and b.kt_isNote_isIf='"+isIf+"' and t.kt_isTag_id=b.kt_isTag_id  group by b.kt_isTag_id order by note_tag_num desc;";
+            },
+            getBlogsById: function(isIf, publicUserId, note_id){
+				return "select * from k_isNote k, k_isTag t where k.kt_user_id='"+publicUserId+"' and k.kt_isNote_isIf='"+isIf+"' and k.kt_isTag_id = t.kt_isTag_id and  k.kt_isNote_id="+note_id;
 			},
-			postAddTagName: function(tagName){
-				return "INSERT INTO `k_feel_tags` (`kt_feel_tags_ids`, `kt_feel_tags_name`) VALUES (NULL, '"+tagName+"'); ";
+			getAll: function(isIf, publicUserId,isTag_id,isTag2_id, changePer_page,per_page){
+				return "select * from k_isNote k,k_isTag t,k_isTag2 t2 where  k.kt_user_id='"+publicUserId+"' and k.kt_isNote_isIf='"+isIf+"' and k.kt_isTag_id='"+isTag_id+"' and t2.kt_isTag2_id = k.kt_isTag2_id and k.kt_isTag2_id='"+isTag2_id+"' and k.kt_isTag_id=t.kt_isTag_id order by k.kt_isTag_id desc limit "+changePer_page+" ,"+per_page;
 			},
+			getPageByTagId: function(isIf, publicUserId, tags_ids,changePer_page,per_page){
+				return "select * from k_isNote k,k_isTag t where  k.kt_user_id='"+publicUserId+"' and k.kt_isNote_isIf='"+isIf+"' and k.kt_isTag_id="+tags_ids+" and k.kt_isTag_id=t.kt_isTag_id and k.kt_isTag_id!=0 order by k.kt_isTag_id desc limit "+changePer_page+" ,"+per_page;
+			},
+			getAppBlogByTag: function(isIf, publicUserId, tags_ids){
+				return "select * from k_isNote k,k_isTag t where  k.kt_isTag_id="+tags_ids+" and k.kt_isTag_id=t.kt_isTag_id ";
+			}
 		},
-		k_riqi: {
-			getAllRiqi: "select kt_riqi_dates from k_riqi group by kt_riqi_dates;",
-			getBlogsByData_count_all_result: function(riqi_dates){
-				return "select count(0) as count_all_result from k_riqi where  kt_riqi_dates="+riqi_dates+" order by count_all_result desc;";
+        k_isNote: {
+			getSorts_count_all_result: function(isIf, publicUserId,isTag_id,isTag2_id){
+                return "select count(0) as count_all_result from k_isNote where kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and kt_isTag_id='"+isTag_id+"' and kt_isTag2_id='"+isTag2_id+"' ";
+            },
+			getAllById_count_all_result: function(isIf, publicUserId, isTag_id){
+				return "select count(0) as count_all_result from k_isNote where kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and kt_isTag_id="+isTag_id+" order by count_all_result desc;";
 			},
-			postAddRiqi: function(dateRiqi,blogId){
-				return "INSERT INTO `k_riqi` (`kt_riqi_ids`, `kt_riqi_dates`, `kt_blogs_ids`) VALUES (NULL, '"+dateRiqi+"', '"+blogId+"'); ";
+			getBlogsByNext: function(isIf, publicUserId, blogs_ids,tags_ids,tags2_ids){
+				return "select * from k_isNote where  kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and  kt_isTag_id = "+tags_ids+ " and  kt_isTag2_id = "+tags2_ids+ " and kt_isNote_id > "+blogs_ids+ "  ORDER BY kt_isNote_id ASC LIMIT 1 ";
 			},
-			postDelBlogRiqiById: function(blogs_ids){
-				return "DELETE FROM `kcool`.`k_riqi` WHERE `k_riqi`.`kt_blogs_ids` = '"+blogs_ids+"' ";
+			getBlogsByPrev: function(isIf, publicUserId, blogs_ids,tags_ids,tags2_ids){
+				return "select * from k_isNote where  kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and kt_isTag_id = "+tags_ids+" and  kt_isTag2_id = "+tags2_ids+ " and kt_isNote_id < "+blogs_ids+"  ORDER BY kt_isNote_id DESC LIMIT 1";
 			},
-			postUpdateRiqi: function(dateRiqi,blogId){
-				return "UPDATE  `kcool`.`k_riqi` SET  `kt_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_riqi`.`kt_blogs_ids` ='"+blogId+"';";
+			getDateBackBlogId: function(isIf, publicUserId, blogDate){
+				return "select kt_isNote_id from k_isNote where  kt_user_id='"+publicUserId+"' and kt_isNote_isIf='"+isIf+"' and kt_isNote_date='"+blogDate+"' ";
 			},
+			postAddBlog: function(isIf, publicUserId, blogTitle, blogTagId,blogTagId2,blogDate,blogContent){
+				return "INSERT INTO `k_isNote` (`kt_isNote_id`, `kt_isNote_title`, `kt_isTag_id`, `kt_isTag2_id`,`kt_isNote_date`, `kt_isNote_content`,`kt_user_id`,`kt_isNote_isIf`) VALUES (NULL, '"+blogTitle+"', '"+blogTagId+"', '"+blogTagId2+"',  '"+blogDate+"', '"+blogContent+"', '"+publicUserId+"', '"+isIf+"');";
+			},
+			postDelBlogById: function(isIf, publicUserId, blogs_ids){
+				return "DELETE FROM `kcool_v2`.`k_isNote` WHERE `k_isNote`.`kt_isNote_id` = '"+blogs_ids+"' and `k_isNote`.`kt_user_id` = '"+publicUserId+"' and `k_isNote`.`kt_isNote_isIf` = '"+isIf+"'";
+			},
+			postEditBlog: function(isIf, publicUserId, blogId,blogTitle, blogTagId,blogTagId2,blogDate,blogContent){
+				return "UPDATE  `kcool_v2`.`k_isNote` SET  `kt_isNote_title` =  '"+blogTitle+"',`kt_isTag_id` = '"+blogTagId+"', `kt_isTag2_id` = '"+blogTagId2+"',`kt_isNote_date` = '"+blogDate+"',`kt_isNote_content` = '"+blogContent+"' WHERE  `k_isNote`.`kt_isNote_id` ='"+blogId+"'and `k_isNote`.`kt_user_id`='"+publicUserId+"' and `k_isNote`.`kt_isNote_isIf`='"+isIf+"';";
+			},
+            getAll: function(isIf, publicUserId, changePer_page,per_page){
+                return "select * from k_translates order by kt_translates_ids desc limit "+changePer_page+" ,"+per_page;
+            },
+            getTranslatesById: function(translatesId){
+                return "select * from k_translates where kt_translates_ids='"+translatesId+"' ";
+            },
+            getTranslatesByNext: function(translatesId){
+                return "select * from k_translates where kt_translates_ids > "+translatesId+ "  ORDER BY kt_translates_ids ASC LIMIT 1 ";
+            },
+            getTranslatesByPrev: function(translatesId){
+                return "select * from k_translates where kt_translates_ids < "+translatesId+"  ORDER BY kt_translates_ids DESC LIMIT 1";
+            },
+            postAddTranslateNew: function(date,content,title,country,author,url,introduction,year,yue,ri,img,tag){
+                return "INSERT INTO  `kcool_v2`.`k_translates` (`kt_translates_ids` ,`kt_translates_dates` ,`kt_translates_contents` ,`kt_translates_titles` ,`kt_translates_country` ,`kt_translates_author` ,`kt_translates_url` ,`kt_translates_introduction` ,`kt_translates_year` ,`kt_translates_yue` ,`kt_translates_ri` ,`kt_translates_img` ,`kt_translates_tags`,`kt_user_id`,`kt_isNote_isIf`) VALUES (NULL ,'"+date+"','"+content+"','"+title+"','"+country+"','"+author+"','"+url+"','"+introduction+"','"+year+"','"+yue+"','"+ri+"','"+img+"','"+tag+"', '"+publicUserId+"', '"+isIf+"' );";
+            },
+            postToEditTranslate: function(translateId,date,content,title,country,author,url,introduction,year,yue,ri,img,tag){
+                return "UPDATE  `kcool_v2`.`k_translates` SET  `kt_translates_dates` =  '"+date+"',`kt_translates_contents` =  '"+content+"',`kt_translates_titles` =  '"+title+"',`kt_translates_country` =  '"+country+"',`kt_translates_author` =  '"+author+"',`kt_translates_url` =  '"+url+"',`kt_translates_introduction` =  '"+introduction+"',`kt_translates_year` =  '"+year+"',`kt_translates_yue` =  '"+yue+"',`kt_translates_ri` =  '"+ri+"',`kt_translates_img` =  '"+img+"',`kt_translates_tags` =  '"+tag+"' WHERE  `k_translates`.`kt_translates_ids` ='"+translateId+"';";
+            },
+            postDelTranslateById : function(translateId){
+                return "DELETE FROM `kcool_v2`.`k_translates` WHERE `k_translates`.`kt_translates_ids` = '"+translateId+"' ";
+            }
 		},
-		k_note_riqi: {
-			getAllRiqi: "select kt_note_riqi_dates from k_note_riqi group by kt_note_riqi_dates;",
-			getNoteByData_count_all_result: function(riqiDates){
-				return "select count(0) as count_all_result from k_note_riqi where  kt_note_riqi_dates="+riqiDates+" order by count_all_result desc;";
+        isTag_isNote_isDate: {
+			getPageByData: function(isIf, publicUserId, riqi_dates,changePer_page,per_page){
+				return "select * from k_isNote k,k_isTag t ,k_isDate r where r.kt_user_id='"+publicUserId+"' and r.kt_isNote_isIf='"+isIf+"' and r.kt_isDate_date="+riqi_dates+" and k.kt_isTag_id=t.kt_isTag_id and k.kt_isNote_id=r.kt_isNote_id order by r.kt_isDate_date desc limit "+changePer_page+" ,"+per_page;
 			},
-			postAddNoteRiqi: function(dateRiqi,notesId){
-				return "INSERT INTO `k_note_riqi` (`kt_note_riqi_ids`, `kt_note_riqi_dates`, `kt_notes_ids`) VALUES (NULL, '"+dateRiqi+"', '"+notesId+"'); ";
-			},
-			postDelNoteRiqiById: function(notesId){
-				return "DELETE FROM `kcool`.`k_note_riqi` WHERE `k_note_riqi`.`kt_notes_ids` = '"+notesId+"' ";
-			},
-			postUpdateNoteRiqi: function(dateRiqi,blogId){
-				return "UPDATE  `kcool`.`k_note_riqi` SET  `kt_note_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_note_riqi`.`kt_notes_ids` ='"+blogId+"';";
-			},
-		},
-		k_feel_riqi: {
-			getAllRiqi: "select kt_feel_riqi_dates from k_feel_riqi group by kt_feel_riqi_dates;",
-			getFeelsByData_count_all_result: function(riqi_dates){
-				return "select count(0) as count_all_result from k_feel_riqi where  kt_feel_riqi_dates="+riqi_dates+" order by count_all_result desc;";
-			},
-			postAddFeelRiqi: function(dateRiqi,blogId){
-				return "INSERT INTO `k_feel_riqi` (`kt_feel_riqi_ids`, `kt_feel_riqi_dates`, `kt_feels_ids`) VALUES (NULL, '"+dateRiqi+"', '"+blogId+"'); ";
-			},
-			postDelFeelRiqiById: function(blogs_ids){
-				return "DELETE FROM `kcool`.`k_feel_riqi` WHERE `k_feel_riqi`.`kt_feels_ids` = '"+blogs_ids+"' ";
-			},
-			postUpdateFeelRiqi: function(dateRiqi,blogId){
-				return "UPDATE  `kcool`.`k_feel_riqi` SET  `kt_feel_riqi_dates` =  '"+dateRiqi+"' WHERE  `k_feel_riqi`.`kt_feels_ids` ='"+blogId+"';";
-			},
-		},
-		k_tags_k_blogs: {
-			getAllBlog: "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t where  k.kt_tags_ids=t.kt_tags_ids",
-			getTags: "select b.kt_tags_ids,t.kt_tags_name , count(0) as blogs_tags_num from k_tags t,k_blogs b where t.kt_tags_ids=b.kt_tags_ids  group by b.kt_tags_ids order by blogs_tags_num desc;",
-			getBlogsById: function(blogs_ids){
-				return "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri  from k_blogs k, k_tags t where k.kt_tags_ids = t.kt_tags_ids and  k.kt_blogs_ids="+blogs_ids;
-			},
-			getAll: function(changePer_page,per_page){
-				return "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t   where k.kt_tags_ids=t.kt_tags_ids order by k.kt_tags_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getPageByTagId: function(tags_ids,changePer_page,per_page){
-				return "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t where  k.kt_tags_ids="+tags_ids+" and k.kt_tags_ids=t.kt_tags_ids and k.kt_tags_ids!=0 order by k.kt_tags_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getAppBlogByTag: function(tags_ids){
-				return "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t where  k.kt_tags_ids="+tags_ids+" and k.kt_tags_ids=t.kt_tags_ids ";
-			},
-		},
-		k_note_tags_k_notes: {
-			getAllNote: "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_dates,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name from k_notes k,k_note_tags t where  k.kt_note_tags_ids=t.kt_note_tags_ids",
-			getTags: "select b.kt_note_tags_ids,t.kt_note_tags_name , count(0) as notes_tags_num from k_note_tags t,k_notes b where t.kt_note_tags_ids=b.kt_note_tags_ids  group by b.kt_note_tags_ids order by notes_tags_num desc;",
-			getNotesById: function(notes_ids){
-				return "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri  from k_notes k, k_note_tags t where k.kt_note_tags_ids = t.kt_note_tags_ids and  k.kt_notes_ids="+notes_ids;
-			},
-			getAll: function(changePer_page,per_page){
-				return "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_dates,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name from k_notes k,k_note_tags t   where k.kt_note_tags_ids=t.kt_note_tags_ids order by k.kt_note_tags_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getPageByNoteTagId: function(tags_ids,changePer_page,per_page){
-				return "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_dates,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name from k_notes k,k_note_tags t where  k.kt_note_tags_ids="+tags_ids+" and k.kt_note_tags_ids=t.kt_note_tags_ids and k.kt_note_tags_ids!=0 order by k.kt_note_tags_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getAppNoteByTag: function(tags_ids){
-				return "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_dates,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name from k_notes k,k_note_tags t where  k.kt_note_tags_ids="+tags_ids+" and k.kt_note_tags_ids=t.kt_note_tags_ids ";
-			},
-		},
-		k_feel_tags_k_feels: {
-			getAllFeel: "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_dates,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name from k_feels k,k_feel_tags t where  k.kt_feel_tags_ids=t.kt_feel_tags_ids",
-			getTags: "select b.kt_feel_tags_ids,t.kt_feel_tags_name , count(0) as feels_tags_num from k_feel_tags t,k_feels b where t.kt_feel_tags_ids=b.kt_feel_tags_ids  group by b.kt_feel_tags_ids order by feels_tags_num desc;",
-			getFeelsById: function(feels_ids){
-				return "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri  from k_feels k, k_feel_tags t where k.kt_feel_tags_ids = t.kt_feel_tags_ids and  k.kt_feels_ids="+feels_ids;
-			},
-			getAll: function(changePer_page,per_page){
-				return "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_dates,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name from k_feels k,k_feel_tags t   where k.kt_feel_tags_ids=t.kt_feel_tags_ids order by k.kt_feel_tags_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getPageByFeelTagId: function(tags_ids,changePer_page,per_page){
-				return "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_dates,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name from k_feels k,k_feel_tags t where  k.kt_feel_tags_ids="+tags_ids+" and k.kt_feel_tags_ids=t.kt_feel_tags_ids and k.kt_feel_tags_ids!=0 order by k.kt_feel_tags_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getAppFeelByTag: function(tags_ids){
-				return "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_dates,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name from k_feels k,k_feel_tags t where  k.kt_feel_tags_ids="+tags_ids+" and k.kt_feel_tags_ids=t.kt_feel_tags_ids ";
-			},
-		},
-		k_blogs: {
-			getSorts_count_all_result: "select count(0) as count_all_result from k_blogs ;",
-			getBlogsById_count_all_result: function(blogs_ids){
-				return "select count(0) as count_all_result from k_blogs where kt_tags_ids="+blogs_ids+" order by count_all_result desc;";
-			},
-			getBlogsByNext: function(blogs_ids,tags_ids){
-				return "select kt_blogs_titles,kt_blogs_contents,kt_blogs_ids,kt_tags_ids from k_blogs where kt_tags_ids = "+tags_ids+ " and kt_blogs_ids > "+blogs_ids+ "  ORDER BY kt_blogs_ids ASC LIMIT 1 ";
-			},
-			getBlogsByPrev: function(blogs_ids,tags_ids){
-				return "select kt_blogs_titles,kt_blogs_contents,kt_blogs_ids,kt_tags_ids from k_blogs where kt_tags_ids = "+tags_ids+" and kt_blogs_ids < "+blogs_ids+"  ORDER BY kt_blogs_ids DESC LIMIT 1";
-			},
-			getDateBackBlogId: function(blogDate){
-				return "select kt_blogs_ids from k_blogs where kt_blogs_dates='"+blogDate+"' ";
-			},
-			postAddBlog: function(blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent){
-				return "INSERT INTO `k_blogs` (`kt_blogs_ids`, `kt_blogs_titles`, `kt_tags_ids`, `kt_blogs_year`, `kt_blogs_yue`, `kt_blogs_ri`, `kt_blogs_dates`, `kt_blogs_contents`) VALUES (NULL, '"+blogTitle+"', '"+blogTagId+"', '"+blogYear+"', '"+blogYue+"', '"+blogRi+"', '"+blogDate+"', '"+blogContent+"'); ";
-			},
-			postDelBlogById: function(blogs_ids){
-				return "DELETE FROM `kcool`.`k_blogs` WHERE `k_blogs`.`kt_blogs_ids` = '"+blogs_ids+"' ";
-			},
-			postEditBlog: function(blogId,blogTitle, blogTagId,blogYear,blogYue,blogRi,blogDate,blogContent){
-				return "UPDATE  `kcool`.`k_blogs` SET  `kt_blogs_titles` =  '"+blogTitle+"',`kt_tags_ids` = '"+blogTagId+"', `kt_blogs_year` = '"+blogYear+"',`kt_blogs_yue` = '"+blogYue+"',`kt_blogs_ri` = '"+blogRi+"',`kt_blogs_dates` = '"+blogDate+"',`kt_blogs_contents` = '"+blogContent+"' WHERE  `k_blogs`.`kt_blogs_ids` ='"+blogId+"';";
-			},
-		},
-		k_notes: {
-			getSorts_count_all_result: "select count(0) as count_all_result from k_notes ;",
-			getNotesById_count_all_result: function(tags_ids){
-				return "select count(0) as count_all_result from k_notes where kt_note_tags_ids="+tags_ids+" order by count_all_result desc;";
-			},
-			getNotesByNext: function(notesId,tagsIds){
-				return "select kt_notes_titles,kt_notes_contents,kt_notes_ids,kt_note_tags_ids from k_notes where kt_note_tags_ids = "+tagsIds+ " and kt_notes_ids > "+notesId+ "  ORDER BY kt_notes_ids ASC LIMIT 1 ";
-			},
-			getNotesByPrev: function(notesId,tags_ids){
-				return "select kt_notes_titles,kt_notes_contents,kt_notes_ids,kt_note_tags_ids from k_notes where kt_note_tags_ids = "+tagsIds+" and kt_notes_ids < "+notesId+"  ORDER BY kt_notes_ids DESC LIMIT 1";
-			},
-			getDateBackNoteId: function(noteDate){
-				return "select kt_notes_ids from k_notes where kt_notes_dates='"+noteDate+"' ";
-			},
-			postAddNote: function(noteTitle, noteTagId,noteYear,noteYue,noteRi,noteDate,noteContent){
-				return "INSERT INTO `k_notes` (`kt_notes_ids`, `kt_notes_titles`, `kt_note_tags_ids`, `kt_notes_year`, `kt_notes_yue`, `kt_notes_ri`, `kt_notes_dates`, `kt_notes_contents`) VALUES (NULL, '"+noteTitle+"', '"+noteTagId+"', '"+noteYear+"', '"+noteYue+"', '"+noteRi+"', '"+noteDate+"', '"+noteContent+"'); ";
-			},
-			postDelNoteById: function(notesId){
-				return "DELETE FROM `kcool`.`k_notes` WHERE `k_notes`.`kt_notes_ids` = '"+notesId+"' ";
-			},
-			postEditNote: function(noteId,noteTitle, noteTagId,noteYear,noteYue,noteRi,noteDate,noteContent){
-				return "UPDATE  `kcool`.`k_notes` SET  `kt_notes_titles` =  '"+noteTitle+"',`kt_note_tags_ids` = '"+noteTagId+"', `kt_notes_year` = '"+noteYear+"',`kt_notes_yue` = '"+noteYue+"',`kt_notes_ri` = '"+noteRi+"',`kt_notes_dates` = '"+noteDate+"',`kt_notes_contents` = '"+noteContent+"' WHERE  `k_notes`.`kt_notes_ids` ='"+noteId+"';";
-			},
-		},
-		k_feels: {
-			getSorts_count_all_result: "select count(0) as count_all_result from k_feels ;",
-			getFeelsById_count_all_result: function(feelsTagsId){
-				return "select count(0) as count_all_result from k_feels where kt_feel_tags_ids="+feelsTagsId+" order by count_all_result desc;";
-			},
-			getFeelsByNext: function(feelsId,tagsIds){
-				return "select kt_feels_titles,kt_feels_contents,kt_feels_ids,kt_feel_tags_ids from k_feels where kt_feel_tags_ids = "+tagsIds+ " and kt_feels_ids > "+feelsId+ "  ORDER BY kt_feels_ids ASC LIMIT 1 ";
-			},
-			getFeelsByPrev: function(feelsId,tagsIds){
-				return "select kt_feels_titles,kt_feels_contents,kt_feels_ids,kt_feel_tags_ids from k_feels where kt_feel_tags_ids = "+tagsIds+" and kt_feels_ids < "+feelsId+"  ORDER BY kt_feels_ids DESC LIMIT 1";
-			},
-			getDateBackFeelId: function(feelDate){
-				return "select kt_feels_ids from k_feels where kt_feels_dates='"+feelDate+"' ";
-			},
-			postAddFeel: function(feelTitle, feelTagId,feelYear,feelYue,feelRi,feelDate,feelContent){
-				return "INSERT INTO `k_feels` (`kt_feels_ids`, `kt_feels_titles`, `kt_feel_tags_ids`, `kt_feels_year`, `kt_feels_yue`, `kt_feels_ri`, `kt_feels_dates`, `kt_feels_contents`) VALUES (NULL, '"+feelTitle+"', '"+feelTagId+"', '"+feelYear+"', '"+feelYue+"', '"+feelRi+"', '"+feelDate+"', '"+feelContent+"'); ";
-			},
-			postDelFeelById: function(feelsId){
-				return "DELETE FROM `kcool`.`k_feels` WHERE `k_feels`.`kt_feels_ids` = '"+feelsId+"' ";
-			},
-			postEditFeel: function(feelId,feelTitle, feelTagId,feelYear,feelYue,feelRi,feelDate,feelContent){
-				return "UPDATE  `kcool`.`k_feels` SET  `kt_feels_titles` =  '"+feelTitle+"',`kt_feel_tags_ids` = '"+feelTagId+"', `kt_feels_year` = '"+feelYear+"',`kt_feels_yue` = '"+feelYue+"',`kt_feels_ri` = '"+feelRi+"',`kt_feels_dates` = '"+feelDate+"',`kt_feels_contents` = '"+feelContent+"' WHERE  `k_feels`.`kt_feels_ids` ='"+feelId+"';";
-			},
-		},
-		k_tags_k_blogs_k_riqi: {
-			getPageByData: function(riqi_dates,changePer_page,per_page){
-				return "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t ,k_riqi r where  r.kt_riqi_dates="+riqi_dates+" and k.kt_tags_ids=t.kt_tags_ids and k.kt_blogs_ids=r.kt_blogs_ids order by r.kt_riqi_dates desc limit "+changePer_page+" ,"+per_page;
-			},
-			getAppBlogByData: function(riqi_dates){
-				return "select k.kt_blogs_titles,k.kt_blogs_contents,k.kt_blogs_dates,k.kt_blogs_year,k.kt_blogs_yue,k.kt_blogs_ri,k.kt_blogs_ids,k.kt_tags_ids,t.kt_tags_name from k_blogs k,k_tags t ,k_riqi r where  r.kt_riqi_dates='"+riqi_dates+"' and k.kt_tags_ids=t.kt_tags_ids and k.kt_blogs_ids=r.kt_blogs_ids ";
-			},
-		},
-		k_note_tags_k_notes_k_note_riqi: {
-			getPageByData: function(riqi_dates,changePer_page,per_page){
-				return "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_dates,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name from k_notes k,k_note_tags t ,k_note_riqi r where  r.kt_note_riqi_dates="+riqi_dates+" and k.kt_note_tags_ids=t.kt_note_tags_ids and k.kt_notes_ids=r.kt_notes_ids order by r.kt_note_riqi_dates desc limit "+changePer_page+" ,"+per_page;
-			},
-			getAppNoteByData: function(riqi_dates){
-				return "select k.kt_notes_titles,k.kt_notes_contents,k.kt_notes_dates,k.kt_notes_year,k.kt_notes_yue,k.kt_notes_ri,k.kt_notes_ids,k.kt_note_tags_ids,t.kt_note_tags_name from k_notes k,k_note_tags t ,k_note_riqi r where  r.kt_note_riqi_dates='"+riqi_dates+"' and k.kt_note_tags_ids=t.kt_note_tags_ids and k.kt_notes_ids=r.kt_notes_ids ";
-			},
-		},
-		k_feel_tags_k_feels_k_feel_riqi: {
-			getPageByData: function(riqi_dates,changePer_page,per_page){
-				return "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_dates,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name from k_feels k,k_feel_tags t ,k_feel_riqi r where  r.kt_feel_riqi_dates="+riqi_dates+" and k.kt_feel_tags_ids=t.kt_feel_tags_ids and k.kt_feels_ids=r.kt_feels_ids order by r.kt_feel_riqi_dates desc limit "+changePer_page+" ,"+per_page;
-			},
-			getAppFeelByData: function(riqi_dates){
-				return "select k.kt_feels_titles,k.kt_feels_contents,k.kt_feels_dates,k.kt_feels_year,k.kt_feels_yue,k.kt_feels_ri,k.kt_feels_ids,k.kt_feel_tags_ids,t.kt_feel_tags_name from k_feels k,k_feel_tags t ,k_feel_riqi r where  r.kt_feel_riqi_dates='"+riqi_dates+"' and k.kt_feel_tags_ids=t.kt_feel_tags_ids and k.kt_feels_ids=r.kt_feels_ids ";
-			},
-		},
-		//
-		k_translates: {
-			getAllTranslate: "select * from k_translates ;",
-			getSorts_count_all_result: "select count(0) as count_all_result from k_translates ;",
-			getAll: function(changePer_page,per_page){
-				return "select * from k_translates order by kt_translates_ids desc limit "+changePer_page+" ,"+per_page;
-			},
-			getTranslatesById: function(translatesId){
-				return "select * from k_translates where kt_translates_ids='"+translatesId+"' ";
-			},
-			getTranslatesByNext: function(translatesId){
-				return "select * from k_translates where kt_translates_ids > "+translatesId+ "  ORDER BY kt_translates_ids ASC LIMIT 1 ";
-			},
-			getTranslatesByPrev: function(translatesId){
-				return "select * from k_translates where kt_translates_ids < "+translatesId+"  ORDER BY kt_translates_ids DESC LIMIT 1";
-			},
-			postAddTranslateNew: function(date,content,title,country,author,url,introduction,year,yue,ri,img,tag){
-				return "INSERT INTO  `kcool`.`k_translates` (`kt_translates_ids` ,`kt_translates_dates` ,`kt_translates_contents` ,`kt_translates_titles` ,`kt_translates_country` ,`kt_translates_author` ,`kt_translates_url` ,`kt_translates_introduction` ,`kt_translates_year` ,`kt_translates_yue` ,`kt_translates_ri` ,`kt_translates_img` ,`kt_translates_tags`) VALUES (NULL ,'"+date+"','"+content+"','"+title+"','"+country+"','"+author+"','"+url+"','"+introduction+"','"+year+"','"+yue+"','"+ri+"','"+img+"','"+tag+"' );";
-			},
-			postToEditTranslate: function(translateId,date,content,title,country,author,url,introduction,year,yue,ri,img,tag){
-				return "UPDATE  `kcool`.`k_translates` SET  `kt_translates_dates` =  '"+date+"',`kt_translates_contents` =  '"+content+"',`kt_translates_titles` =  '"+title+"',`kt_translates_country` =  '"+country+"',`kt_translates_author` =  '"+author+"',`kt_translates_url` =  '"+url+"',`kt_translates_introduction` =  '"+introduction+"',`kt_translates_year` =  '"+year+"',`kt_translates_yue` =  '"+yue+"',`kt_translates_ri` =  '"+ri+"',`kt_translates_img` =  '"+img+"',`kt_translates_tags` =  '"+tag+"' WHERE  `k_translates`.`kt_translates_ids` ='"+translateId+"';";
-			},
-			postDelTranslateById : function(translateId){
-				return "DELETE FROM `kcool`.`k_translates` WHERE `k_translates`.`kt_translates_ids` = '"+translateId+"' ";
-			},
+			getAppBlogByData: function(isIf, publicUserId, riqi_dates){
+				return "select k.kt_isNote_title,k.kt_isNote_content,k.kt_isNote_date,k.kt_isNote_year,k.kt_isNote_month,k.kt_isNote_day,k.kt_isNote_id,k.kt_isTag_id,t.kt_isTag_name from k_isNote k,k_isTag t ,k_isDate r where  r.kt_isDate_date='"+riqi_dates+"' and k.kt_isTag_id=t.kt_isTag_id and k.kt_isNote_id=r.kt_isNote_id ";
+			}
 		},
 		k_prose: {
 			getProse: "select * from k_prose",
@@ -258,10 +140,10 @@
 				return "INSERT INTO `k_prose` (`kt_prose_ids`, `kt_prose_dates`, `kt_prose_titles`, `kt_prose_contents`) VALUES (NULL, '"+proseDate+"', '"+proseTitle+"', '"+proseContent+"'); ";
 			},
 			postEditProse: function(proseId,proseTitle,proseDate,proseContent){
-				return "UPDATE  `kcool`.`k_prose` SET  `kt_prose_titles` =  '"+proseTitle+"',`kt_prose_dates` = '"+proseDate+"',`kt_prose_contents` = '"+proseContent+"' WHERE  `k_prose`.`kt_prose_ids` ='"+proseId+"';";
+				return "UPDATE  `kcool_v2`.`k_prose` SET  `kt_prose_titles` =  '"+proseTitle+"',`kt_prose_dates` = '"+proseDate+"',`kt_prose_contents` = '"+proseContent+"' WHERE  `k_prose`.`kt_prose_ids` ='"+proseId+"';";
 			},
 			postDelProseById: function(prose_ids){
-				return "DELETE FROM `kcool`.`k_prose` WHERE `k_prose`.`kt_prose_ids` = '"+prose_ids+"' ";
+				return "DELETE FROM `kcool_v2`.`k_prose` WHERE `k_prose`.`kt_prose_ids` = '"+prose_ids+"' ";
 			},
 		},
 		k_nav_tag: {
@@ -281,10 +163,10 @@
 				return "INSERT INTO `k_navigation` (`kt_navigation_ids`, `kt_navigation_name`, `kt_navigation_url`, `kt_nav_tag_ids`) VALUES (NULL, '"+catalogueTitle+"', '"+catalogueUrl+"', '"+catalogueTypeId+"'); ";
 			},
 			postEditCatalogue: function(catalogueId,catalogueTitle,catalogueUrl,catalogueTypeId){
-				return "UPDATE  `kcool`.`k_navigation` SET  `kt_navigation_name` =  '"+catalogueTitle+"',`kt_navigation_url` = '"+catalogueUrl+"',`kt_nav_tag_ids` = '"+catalogueTypeId+"' WHERE  `k_navigation`.`kt_navigation_ids` ='"+catalogueId+"';";
+				return "UPDATE  `kcool_v2`.`k_navigation` SET  `kt_navigation_name` =  '"+catalogueTitle+"',`kt_navigation_url` = '"+catalogueUrl+"',`kt_nav_tag_ids` = '"+catalogueTypeId+"' WHERE  `k_navigation`.`kt_navigation_ids` ='"+catalogueId+"';";
 			},
 			postDelCatalogueById: function(navigation_ids){
-				return "DELETE FROM `kcool`.`k_navigation` WHERE `k_navigation`.`kt_navigation_ids` = '"+navigation_ids+"' ";
+				return "DELETE FROM `kcool_v2`.`k_navigation` WHERE `k_navigation`.`kt_navigation_ids` = '"+navigation_ids+"' ";
 			},
 		},
 		k_navigation_k_nav_tag: {

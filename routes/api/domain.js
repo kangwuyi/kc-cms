@@ -3,6 +3,8 @@ var Domain = require('../../models/domain');
 var object = require('../../models/api/object');
 var pagination = require('pagination-api');
 var myDate = require('../dateFormat')();
+var loadTagJsFn = require('./module/public/loadTagJs.js');
+var isIf = 'domain';
 
 exports.domains = function (req, res) {
 	Domain.PostGetDomainsite( null,function (PostGetDomainsiteErr, PostGetDomainsite) {
@@ -15,7 +17,14 @@ exports.domains = function (req, res) {
 					PostGetDomainsuffixErr = [];
 					break;
 			}
-			res.render('client/in/domain', { title: '十页书｜域名',PostGetDomainsite:PostGetDomainsite,PostGetDomainsuffix:PostGetDomainsuffix});
+            loadTagJsFn(isIf,function(loadTagOjNode) {
+                res.render('client/in/domain', {
+                    title: '十页书｜域名',
+                    PostGetDomainsite: PostGetDomainsite,
+                    PostGetDomainsuffix: PostGetDomainsuffix,
+                    loadTagOjNew:loadTagOjNode
+                });
+            });
 		});
 	});
 }

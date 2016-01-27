@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    $('#sidebar-collapse').on('click','.icon-double-angle-left',function(){
+        var sidebarCollapseSign = $(this);
+        if(sidebarCollapseSign.parent().find('.icon-double-angle-right').length != 0){
+            $('.main-content').css({'margin-left':'190px'});
+        }else{
+            $('.main-content').css({'margin-left':'43px'});
+        }
+    })
+    //=============
 	var colorClassNameCache;
 	$(".ulMenu li span").bind({
 		"click":function(){
@@ -247,4 +256,14 @@ $(function() {
 		_this.removeClass('selectPhotoTop');
 		_this.parent().find('.userInfoBox').remove();
 	});
+    $('body').on('click','.onClickLinkedin',function(){
+        /*location.href = 'http://www.baidu.com';*/
+        window.open('http://www.linkedin.com/profile/view?id=385682547&trk=hp-identity-name');
+    }).on('click','.onClickQQ',function(){
+        window.open('http://user.qzone.qq.com/122478499');
+    }).on('click','.onClickGithub',function(){
+        window.open('https://github.com/kahn1990');
+    }).on('click','.onClickWeibo',function(){
+        window.open('http://weibo.com/kangxiaolang');
+    })
 });

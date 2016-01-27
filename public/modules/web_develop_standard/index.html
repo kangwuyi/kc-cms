@@ -1,0 +1,601 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Web前端开发规范文档</title>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="lib/prettify/prettify.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/main.js"></script>
+        <script src="lib/jquery/jquery-2.1.1.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/prettify/prettify.js"></script>
+    </head>
+    <body onload="prettyPrint();">
+        <header id="1" class="iHeight">
+            <div class="divTop"></div>
+            <nav>
+                <h1>Web前端开发规范文档</h1>
+                <ul id="ulCss">
+                    <li class="level3"><p><a href="#1">规范目的</a></p></li>
+                    <li class="level3"><p><a href="#2">通用规范</a></p></li>
+                    <li class="level3"><p><a href="#3">文件规范</p></li>
+                    <li class="level3"><p><a href="#4">html书写规范</p></li>
+                    <li class="level3"><p><a href="#5">css书写规范</a></p></li>
+                    <li class="level3"><p><a href="#6">javaScript书写规范</a></p></li>
+                    <li class="level3"><p><a href="#7">图片规范</a></p></li>
+                    <li class="level3"><p><a href="#8">注释规范</a></p></li>
+                    <li class="level3"><p><a href="#9">开发及测试工具规范</a></p></li>
+                </ul>
+            </nav>
+            <!--规范目的 -->
+             <h3 id="1">规范目的：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>使开发流程更加规范化。</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--通用规范 -->
+             <h3 id="2">通用规范：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p><kbd>TAB</kbd>键用两个空格代替（<code>WINDOWS</code>下<kbd>TAB</kbd>键占四个空格，<code>LINUX</code>下<kbd>TAB</kbd>键占八个空格）。</p>
+                    </li>
+                    <li>
+                        <p><code>CSS</code>样式属性或者<code>JAVASCRIPT</code>代码后加“<kbd>;</kbd>”方便压缩工具“断句”。</p>
+                    </li>
+                    <li>
+                        <p>文件内容编码均统一为<code>UTF-8</code>。</p>
+                    </li>
+                    <li>
+                        <p><code>CSS</code>、<code>JAVASCRIPT</code>中的非注释类中文字符须转换成<kbd>unicode</kbd>编码使用, 以避免编码错误时乱码显示。</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--文件规范 -->
+             <h3 id="3">文件规范：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>文件名用英文单词，多个单词用驼峰命名法。</p>
+                    </li>
+                    <li>
+                        <p>一些浏览器会将含有这些词的作为广告拦截：<code>ad</code>、<code>ads</code>、<code>adv</code>、<code>banner</code>、<code>sponsor</code>、<code>gg</code>、<code>guangg</code>、<code>guanggao</code>等，文件命名、<kbd>ID</kbd>、<kbd>CLASS</kbd>等所有命名避免以上词汇。</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--html书写规范 -->
+             <h3 id="4">html书写规范：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>为每个<code>HTML</code>页面的第一行添加标准模式（<kbd>standard mode</kbd>）的声明，确保在每个浏览器中拥有一致的展现。
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;</pre>
+                        <code>文档类型声明</code>统一为<kbd>HTML5</kbd>声明类型，<code>编码</code>统一为<kbd>UTF-8</kbd>。
+<pre class="prettyprint linenums">
+&lt;meta charset="UTF-8"&gt;</pre>
+                            <code>&lt;HEAD&gt;</code>中添加信息。
+<pre class="prettyprint linenums">
+&lt;meta name="author" content="smile@kang.cool"&gt;//作者
+&lt;meta name="description" content="hello"&gt;//网页描述
+&lt;meta name="keywords" content="a,b,c"&gt;//关键字,“<kbd>，</kbd>”分隔
+&lt;meta http-equiv="expires" content="Wed, 26 Feb 1997 08：21：57 GMT"&gt;//设定网页的到期时间。一旦网页过期，必须到服务器上重新调阅
+&lt;meta http-equiv="Pragma" content="no-cache"&gt;//禁止浏览器从本地机的缓存中调阅页面内容
+&lt;meta http-equiv="Window-target" content="_top"&gt;//用来防止别人在框架里调用你的页面
+&lt;meta http-equiv="Refresh" content="5;URL=http://kahn1990.com/"&gt;//跳转页面，<kbd>5</kbd>指时间停留5秒 网页搜索机器人向导。用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引
+&lt;meta name="robots" content="none"&gt;//content的参数有<kbd>all</kbd>,<kbd>none</kbd>,<kbd>index</kbd>,<kbd>noindex</kbd>,<kbd>follow</kbd>,<kbd>nofollow</kbd>，默认是<kbd>all</kbd>
+&lt;link rel="Shortcut Icon" href="favicon.ico"&gt;//收藏图标
+&lt;meta http-equiv="Cache-Control" content="no-cache, must-revalidate"&gt;//网页不会被缓存</pre>
+                            <code>IE</code>支持通过特定<kbd>&lt;meta&gt;</kbd>标签来确定绘制当前页面所应该采用的<code>IE</code>版本。除非有强烈的特殊需求，否则最好是设置为<kbd>edge mode</kbd> ，从而通知<code>IE</code>采用其所支持的最新的模式。
+<pre class="prettyprint linenums">
+&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;</pre></p>
+                    </li>
+                    <li>
+                        <p>非特殊情况下<code>CSS</code>样式文件外链至<kbd>HEAD</kbd>之间，<code>JAVASCRIPT</code>文件外链至页面底部。
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="css/main.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 逻辑代码 --&gt;
+    &lt;!-- 逻辑代码底部 --&gt;
+    &lt;script src="lib/jquery/jquery-2.1.1.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                            引入<code>JAVASCRIPT</code>库文件，文件名须包含库名称及版本号及是否为压缩版。
+<pre class="prettyprint linenums">
+jQuery-1.8.3.min.js</pre>
+                        引入<code>JAVASCRIPT</code>插件, 文件名格式为库名称+<code>.</code>+插件名称。
+<pre class="prettyprint linenums">
+jQuery.cookie.js</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p><code>HTML</code>属性应当按照以下给出的顺序依次排列，来确保代码的易读性。
+<pre class="prettyprint linenums">
+class
+id 、 name
+data-*
+src、for、 type、 href
+title、alt
+aria-*、 role</pre>
+                            编码均遵循<code>XHTML</code>标准, <kbd>标签</kbd>、<kbd>属性</kbd>、<kbd>属性命名</kbd>由小写英文、数字和<kbd>_</kbd>组成，且所有标签必须闭合，属性值必须用双引号<kbd>""</kbd>, 避免使用中文拼音尽量简易并要求语义化。
+<pre class="prettyprint linenums">
+CLASS --> nHeadTitle --> <kbd>CLASS</kbd>遵循小驼峰命名法（<kbd>little camel-case</kbd>）
+ID --> n_head_title --> <kbd>ID</kbd>遵循名称+<kbd>_</kbd>
+NAME --> N_Head_Title --> <kbd>NAME</kbd>属性命名遵循首个字母大写+<kbd>_</kbd>
+&lt;div class="nHeadTitle" id="n_head_title" name="N_Head_Title"&gt;&lt;/div&gt;</pre>
+                            当<code>JAVASCRIPT</code>获取单个元素时，通常使用<kbd>document.getElementById</kbd>来获取<kbd>dom</kbd>元素，<kbd>document.getElementById</kbd>兼容所有浏览器，但<kbd>IE</kbd>浏览器会混淆元素的<kbd>ID</kbd>和<kbd>NAME</kbd>属性，所以要区分<kbd>ID</kbd>和<kbd>NAME</kbd>命名。
+<pre class="prettyprint linenums">
+&lt;input type="text" name="test"&gt;
+&lt;div id="test"&gt;&lt;/div&gt;
+&lt;button onclick="alert(document.getElementById('test').tagName)"&gt;&lt;/button&gt;
+&lt;!-- ie6下为INPUT --&gt;</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>特殊符号应使用转意符。
+<pre class="prettyprint linenums">
+&lt;    -->    <i>&</i>lt;
+&gt;    -->    <i>&</i>gt;
+空格  -->    <i>&</i>nbsp;</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>含有描述性表单元素（<code>INPUT</code>，<code>TEXTAREA</code>）添加<code>LABEL</code>。
+<pre class="prettyprint linenums">
+&lt;p&gt;
+    &lt;label for="test"&gt;测试&lt;/label&gt;
+    &lt;input type="text" id="test" /&gt;
+&lt;/p&gt;</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>多用无兼容性问题的<code>HTML</code>内置标签, 比如<kbd>SPAN</kbd>、<kbd>EM</kbd>、<kbd>STRONG</kbd>、<kbd>OPTGROUP</kbd>、<kbd>LABEL</kbd>等,需要自定义<code>HTML</code>标签属性时，首先考虑是否存在已有的合适标签可替换，如果没有, 可使用须以“<code>data-</code>”为前缀来添加自定义属性，避免使用其他命名方式。</p>
+                    </li>
+                    <li>
+                        <p>语义化<code>HTML</code>。</p>
+                    </li>
+                    <li>
+                        <p>尽可能减少<code>&lt;DIV&gt;</code>嵌套。</p>
+                    </li>
+                    <li>
+                        <p>书写链接地址时避免重定向。
+<pre class="prettyprint linenums">
+href="http://www.kahn1990.com/" //即在URL地址后面加“<kbd>/</kbd>”</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p><code>HTML</code>中对于属性的定义，确保全部使用双引号，绝不要使用单引号</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--css书写规范 -->
+             <h3 id="5">css书写规范：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>为了欺骗<code>W3C</code>的验证工具,可将代码分为两个文件，一个是针对所有浏览器,一个只针对<kbd>IE</kbd>。即将所有符合<code>W3C</code>的代码写到一个文件中,而一些<kbd>IE</kbd>中必须而又不能通过<code>W3C</code>验证的代码（如: <code>cursor:hand;</code>）放到另一个文件中，再用下面的方法导入。
+<pre class="prettyprint linenums">
+&lt;!-- 放置所有浏览器样式--&gt;
+&lt;link rel="stylesheet" type="text/css" href=""&gt;
+&lt;!-- 只放置IE必须，而不能通过w3c的--&gt;
+&lt;!--[if IE]
+    &lt;link rel="stylesheet" href=""&gt;
+&lt;![endif]--&gt;</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p><code>CSS</code>样式新建或修改尽量遵循以下原则。
+<pre class="prettyprint linenums">
+根据新建样式的适用范围分为三级：全站级、产品级、页面级。
+尽量通过继承和层叠重用已有样式。
+不要轻易改动全站级CSS。改动后，要经过全面测试。</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p><code>CSS</code>属性显示顺序。
+<pre class="prettyprint linenums">
+显示属性
+元素位置
+元素属性
+元素内容属性</pre>
+                            <code>CSS</code>书写顺序。
+<pre class="prettyprint linenums">
+.header {
+/* 显示属性 */
+    display || visibility
+    list-style
+    position top || right || bottom || left
+    z-index
+    clear
+    float
+/* 自身属性 */
+    width max-width || min-width
+    height max-height || min-height
+    overflow || clip
+    margin
+    padding
+    outline
+    border
+    background
+/* 文本属性 */
+    color
+    font
+    text-overflow
+    text-align
+    text-indent
+    line-height
+    white-space
+    vertical-align
+    cursor
+    content
+    };</pre>
+                            兼容多个浏览器时，将标准属性写在底部。
+<pre class="prettyprint linenums">
+-moz-border-radius: 15px; /* <kbd>Firefox</kbd> */
+-webkit-border-radius: 15px; /* <kbd>Safari</kbd>和<kbd>Chrome</kbd> */
+border-radius: 15px; /* <kbd>Opera 10.5+</kbd>, 以及使用了<kbd>IE-CSS3</kbd>的<kbd>IE</kbd>浏览器 *//标准属性</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>使用选择器时，命名比较短的词汇或者缩写的不允许直接定义样式。
+<pre class="prettyprint linenums">
+.hd,.bd,.td{};//如这些命名</pre>
+                        可用上级节点进行限定。
+<pre class="prettyprint linenums">
+.recommend-mod .hd</pre>
+                        多选择器规则之间换行，即当样式针对多个选择器时每个选择器占一行。
+<pre class="prettyprint linenums">
+button.btn,
+input.btn,
+input[type="button"] {…};</pre>
+                            优化<code>CSS</code>选择器。
+<pre class="prettyprint linenums">
+#header a { color: #444; };/*<kbd>CSS</kbd>选择器是从右边到左边进行匹配*/</pre>
+                            浏览器将检查整个文档中的所有链接和每个链接的父元素，并遍历文档树去查找<kbd>ID</kbd>为<kbd>header</kbd>的祖先元素，如果找不到<kbd>header</kbd>将追溯到文档的根节点，解决方法如下。
+<pre class="prettyprint linenums">
+避免使用通配规则和相邻兄弟选择符、子选择符,、后代选择符、属性选择符等选择器
+不要限定id选择符，如<kbd>div#header</kbd>（提权的除外）
+不要限定类选择器，如<kbd>ul.recommend</kbd>（提权的除外）
+不要使用 ul li a 这样长的选择符
+避免使用标签子选择符，如<kbd>#header > li > a</kbd>
+</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>使用<code>z-index</code>属性尽量<code>z-index</code>的值不要超过<kbd>150</kbd>（通用组的除外），页面中的元素内容的<code>z-index</code>不能超过<kbd>10</kbd>（提示框等模块除外但维持在<kbd>150</kbd>以下），不允许直接使用（<kbd>999</kbd>~<kbd>9999</kbd>）之间大值。</p>
+                    </li>
+                    <li>
+                        <p>尽量避免使用<kbd>CSS Hack</kbd>。
+<pre class="prettyprint linenums">
+property:value; /* 所有浏览器 */
++property:value; /* IE7 */
+_property:value; /* IE6 */
+*property:value; /* IE6/7 */
+property:value\9; /* IE6/7/8/9，即所有IE浏览器 */
+</pre>
+<pre class="prettyprint linenums">
+* html selector { … }; /* IE6 */
+*:first-child+html selector { … }; /* IE7 */
+html>body selector { … }; /* 非IE6 */
+@-moz-document url-prefix() { … }; /* firefox */
+@media all and (-webkit-min-device-pixel-ratio:0) { … }; /* saf3+/chrome1+ */
+@media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { … }; /* opera */
+@media screen and (max-device-width: 480px) { … }; /* iPhone/mobile webkit */
+</pre>
+                            避免使用低效的选择器。
+<pre class="prettyprint linenums">
+body > * {…};
+ul > li > a {…};
+#footer > h3 {…};
+ul#top_blue_nav {…};
+#searbar span.submit a { … }; /* 反面示例 */
+</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>六个不要三个避免一个使用。
+<pre class="prettyprint linenums">
+不要在标签上直接写样式
+不要在<kbd>CSS</kbd>中使用<kbd>expression</kbd>
+不要在<kbd>CSS</kbd>中使用<kbd>@import</kbd>
+不要在<kbd>CSS</kbd>中使用<kbd>!important</kbd>
+不要在<kbd>CSS</kbd>中使用“<kbd>*</kbd>”选择符
+不要将<kbd>CSS</kbd>样式写为单行
+避免使用<kbd>filter</kbd>
+避免使用行内（<kbd>inline</kbd>）样式
+避免使用“<kbd>*</kbd>”设置<kbd>{margin: 0; padding: 0;}</kbd>
+使用<kbd>after</kbd>或<kbd>overflow</kbd>的方式清浮动</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>减少使用影响性能的属性。
+<pre class="prettyprint linenums">
+position:absolute;
+float:left;//如这些定位或浮动属性</pre>
+                            减少在<code>CSS</code>中使用滤镜表达式和图片<kbd>repeat</kbd>, 尤其在body当中,渲染性能极差, 如果需要用<kbd>repeat</kbd>的话, 图片的宽或高不能少于<kbd>8px</kbd>。</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--javaScript书写规范 -->
+             <h3 id="6">javaScript书写规范：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>命名规范。
+<pre class="prettyprint linenums">
+常量名
+    -->全部大写并单词间用下划线分隔
+    -->如：<kbd>CSS_BTN_CLOSE</kbd>、<kbd>TXT_LOADING</kbd>
+
+对象的属性或方法名
+    -->小驼峰式（<kbd>little camel-case</kbd>）
+    -->如：<kbd>init</kbd>、<kbd>bindEvent</kbd>、<kbd>updatePosition</kbd>
+    -->示例：Dialog.prototype = {
+                init: function () {},
+                bindEvent: function () {},
+                updatePosition: function () {}
+                …
+                };
+类名（构造器）
+    -->小驼峰式但首字母大写
+    -->如：<kbd>Current</kbd>、<kbd>DefaultConfig</kbd>
+函数名
+    -->小驼峰式
+    -->如：<kbd>current()</kbd>、<kbd>defaultConfig()</kbd>
+变量名
+    -->小驼峰式
+    -->如：<kbd>current</kbd>、<kbd>defaultConfig</kbd>
+私有变量名
+    -->小驼峰式但需要用<kbd>_</kbd>开头
+    -->如：<kbd>_current</kbd>、<kbd>_defaultConfig</kbd>
+变量名的前缀
+    -->续
+</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>代码格式。
+<pre class="prettyprint linenums">
+"<kbd>()</kbd>"前后需要跟空格
+"<kbd>=</kbd>"前后需要跟空格
+"<kbd>,</kbd>"后面需要跟空格
+<kbd>JSON</kbd>对象需格式化对象参数
+<kbd>if</kbd>、<kbd>while</kbd>、<kbd>for</kbd>、<kbd>do</kbd>语句的执行体用"<kbd>{}</kbd>"括起来
+</pre>
+                            "<kbd>{}</kbd>"格式如下。
+<pre class="prettyprint linenums">
+if (a==1) {
+    //代码
+};
+</pre>
+                            避免额外的逗号。
+<pre class="prettyprint linenums">
+var arr = [1,2,3,];</pre>
+                            <code>for-in</code>循环体中必须用<code>hasOwnProperty</code>方法检查成员是否为自身成员，避免来自原型链上的污染。
+                        </p>
+                    </li>
+                    <li>
+                        <p>长语句可考虑断行。
+<pre class="prettyprint linenums">
+TEMPL_SONGLIST.replace('{TABLE}', da['results'])
+    .replace('{PREV_NUM}', prev)
+    .replace('{NEXT_NUM}', next)
+    .replace('{CURRENT_NUM}', current)
+    .replace('{TOTAL_NUM}', da.page_total);</pre>
+                         为了避免和<code>JSLint</code>的检验机制冲突，“<kbd>.</kbd>”或“<kbd>+</kbd>”这类操作符放在行尾。
+<pre class="prettyprint linenums">
+TEMPL_SONGLIST.replace('{TABLE}', da['results']).
+    replace('{PREV_NUM}', prev).
+    replace('{NEXT_NUM}', next).
+    replace('{CURRENT_NUM}', current).
+    replace('{TOTAL_NUM}', da.page_total);</pre>
+                            如果模块代码中，使用其它全局变量想跳过JSLint的检查，可以在该文件中加入<code>/*global*/</code>声明。
+<pre class="prettyprint linenums">
+/*global alert: true, console: true, top: true, setTimeout: true */</pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>使用严格的条件判断符。用===代替==，用!==代替!=，避免掉入==造成的陷阱 在条件判断时，这样的一些值表示false。
+<pre class="prettyprint linenums">
+null
+undefined与null相等
+字符串''
+数字0
+NaN
+</pre>
+                        在==时，则会有一些让人难以理解的陷阱。
+<pre class="prettyprint linenums">
+(function () {
+    var undefined;
+    undefined == null; // true
+    1 == true; //true
+    2 == true; // false
+    0 == false; // true
+    0 == ''; // true
+    NaN == NaN;// false
+    [] == false; // true
+    [] == ![]; // true
+})();
+</pre>
+                            对于不同类型的 == 判断，有这样一些规则，顺序自上而下：
+<pre class="prettyprint linenums">
+undefined与null相等
+一个是number一个是string时，会尝试将string转换为number
+尝试将boolean转换为number
+0或1
+尝试将Object转换成number或string
+</pre>
+                            而这些取决于另外一个对比量，即<kbd>值的类型</kbd>，所以对于0、空字符串的判断，建议使用<code>===</code> 。<code>===</code>会先判断两边的值类型，类型不匹配时为<code>false</code>。
+                        </p>
+                    </li>
+                    <li>
+                        <p>下面类型的对象不建议用new构造。
+<pre class="prettyprint linenums">
+new Number
+new String
+new Boolean
+new Object //用{}代替
+new Array //用[]代替
+</pre>
+                            引用对象成员用<code>obj.prop</code>代替<code>obj["prop"]</code>，除非属性名是变量。</p>
+                    </li>
+                    <li>
+                        <p>从number到string的转换。
+<pre class="prettyprint linenums">
+/** 推荐写法*/
+var a = 1;
+typeof(a); //"number"
+console.log(a); //1
+var aa=a+'';
+typeof(aa); //"string"
+console.log(aa); //'1'
+/** 不推荐写法*/
+new String(a)或a.toString()
+</pre>
+                            从string到number的转换，使用parseInt，必须显式指定第二个参数的进制。
+<pre class="prettyprint linenums">
+/** 推荐写法*/
+var a = '1';
+var aa = parseInt(a,10);
+typeof(a); //"string"
+console.log(a); //'1'
+typeof(aa); //"number"
+console.log(aa); //1
+</pre>
+                            从float到integer的转换。
+<pre class="prettyprint linenums">
+/** 推荐写法*/
+Math.floor/Math.round/Math.ceil
+/** 不推荐写法*/
+parseInt
+</pre>
+                            字符串拼接应使用数组保存字符串片段，使用时调用join方法。避免使用<kbd>+</kbd>或<kbd>+=</kbd>的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能。
+<pre class="prettyprint linenums">
+/**推荐的拼接方式<kbd>array</kbd>的<kbd>push</kbd>、<kbd>join</kbd>*/
+var str=[],
+    list=['测试A','测试B'];
+for (var i=0 , len=list.length; i &lt; len; i++) {
+    str.push( '&lt;div&gt;'+ list[i] + '&lt;/div&gt;');
+};
+console.log(str.join('')); //&lt;div&gt;测试A&lt;/div&gt;&lt;div&gt;测试B&lt;/div&gt;
+/** 不推荐的拼接方式<kbd>+=</kbd>*/
+var str = '',
+    list=['测试A','测试B'];
+for (var i = 0, len = list.length; i&lt; len; i++) {
+    str+='&lt;div&gt;' + list[i] + '&lt;/div&gt;';
+};
+console.log(str); //&lt;div&gt;测试A&lt;/div&gt;&lt;div&gt;测试B&lt;/div&gt;
+</pre>
+                            </p>
+                    </li>
+                    <li><p>尽量避免使用存在兼容性及消耗资源的方法或属性。
+<pre class="prettyprint linenums">
+不要使用with，void，evil，eval_r，innerText
+</pre></p>
+                    </li>
+                    <li>
+                        <p>注重<code>HTML</code>分离, 减小<code>reflow</code>, 注重性能。</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--图片规范 -->
+             <h3 id="7">图片规范：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>命名应用<code>小写英文</code>、<code>数字</code>、<code>_</code>组合，便于团队其他成员理解。</p>
+<pre class="prettyprint linenums">
+header_btn.gif
+header_btn2.gif
+</pre>
+                    </li>
+                    <li>
+                        <p>页面元素类图片均放入<code>img</code>文件夹, 测试用图片放于<code>img/testimg</code>文件夹，<kbd>psd</kbd>源图放入<code>img/psdimg</code>文件夹。</p>
+                    </li>
+                    <li>
+                        <p>图片格式仅限于<code>gif</code>、<code>png</code>、<code>jpg</code>等。</p>
+                    </li>
+                    <li>
+                        <p>用<code>png</code>图片做图片时, 要求图片格式为<code>png-8</code>格式,若<code>png-8</code>实在影响图片质量或其中有半透明效果, 请为<code>ie-6</code>单独定义背景，并尽量避免使用半透明的png图片。</p>
+                    </li>
+                    <li>
+                        <p>背景图片请尽可能使用<code>sprite</code>技术, 减小<code>http</code>请求。</p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--注释规范 -->
+             <h3 id="8">注释规范：</h3>
+
+            <blockquote>
+                <ul>
+                 <li>
+                        <p><code>JAVASCRIPT</code>、<code>CSS</code>文件注释需要标明作者、文件版本、创建/修改时间、重大版本修改记录、函数描述、文件版本、创建或者修改时间、功能、作者等信息。
+<pre class="prettyprint linenums">
+/* * 注释块 */
+</pre>
+                            中间可添加如下信息。
+<pre class="prettyprint linenums">
+@file 文件名
+@addon 把一个函数标记为另一个函数的扩张，另一个函数的定义不在源文件中
+@argument 用大括号中的自变量类型描述一个自变量
+@author 函数/类作者的姓名
+@base 如果类是继承得来，定义提供的类名称
+@class 用来给一个类提供描述，不能用于构造器的文档中
+@constructor 描述一个类的构造器
+@deprecated 表示函数/类已被忽略
+@exception 描述函数/类产生的一个错误
+@exec @extends 表示派生出当前类的另一个类
+@fileoverview 表示文档块将用于描述当前文件，这个标签应该放在其它任何标签之前
+@final 指出函数/类
+@ignore 让jsdoc忽视随后的代码
+@link 类似于@link标签，用于连接许多其它页面
+@member 定义随后的函数为提供的类名称的一个成员
+@param 用大括号中的参数类型描述一个参数
+@private 表示函数/类为私有，不应包含在生成的文档中
+@requires 表示需要另一个函数/类
+@return 描述一个函数的返回值
+@see 连接到另一个函数/类
+@throws 描述函数/类可能产生的错误
+@type 指定函数/成员的返回类型
+@version 函数/类的版本号
+</pre>
+                        </p>
+                    </li>
+                </ul>
+            </blockquote>
+            <!--开发及测试工具约定 -->
+             <h3 id="9">开发及测试工具约定：</h3>
+
+            <blockquote>
+                <ul>
+                    <li>
+                        <p>编码格式化，三码统一。</p>
+                    </li>
+                    <li>
+                        <p>测试工具: 前期开发仅测试FireFox & IE6 & IE7 & IE8 & IE9 & Opera & Chrome & Safari</p>
+                    </li>
+                </ul>
+
+            </blockquote>
+            <!--END声明 -->
+             <h3>参考和借鉴了大家的经验，收集整理了这一篇开发规范，感谢所有的原作者，众人拾柴火焰高，技术无国界，持续更新中。</h3>
+        </header>
+    </body>
+
+</html>

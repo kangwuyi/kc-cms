@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+.w150{width:150px;}
+div.w150>.ui-select-input{height: 28px;}
+div.w150>.ui-select-input>input{width:150px !important;}
+div.ui-select-down .ui-select-content{  margin-top: 27px;}
+/* ========================== select-box ========================== */
+.ui-select-box { border: 1px solid #dfdfdf; }
+.ui-select-box .select-box-content { height: auto; max-height: 250px; overflow: auto; padding: 12px; }
+.ui-select-box .select-box-title { height: 32px; line-height: 32px; background: #f3f3f3; border-bottom: 1px solid #dbdbdb; }
+.ui-select-box .select-box-title h5 { float: left; margin: 0; padding-left: 12px; height: 32px; line-height: 32px; color: #666; }
+.ui-select-box .select-box-title span { float: right; padding-right: 12px; font-size: 12px; color: #333; }
+.ui-select-box .select-box-title span em { color: red; }
+.ui-select-box .select-box-content { clear: both; }
+.ui-select-box .select-box-content dl { clear: both; border-bottom: 1px solid #dbdbdb; padding-bottom: 16px; margin-bottom: 16px; }
+.ui-select-box .select-box-content dl.last { border-bottom: none; }
+.ui-select-box .select-box-content dl dt { width: 7em; text-align: right; float: left; font-size: 14px; color: #555; line-height: 28px; }
+.ui-select-box .select-box-content dl dt .module-rightAll { position: relative; top: -2px; margin-right: 5px; }
+.ui-select-box .select-box-content dl dd { margin-left: 115px; }
+/* 模块管理 */
+.pform.splab .pure-form-aligned .select-box-content label { width: 8em; }
+.ui-select-box .select-box-content dl dd label { width: auto; }
+.ui-select-box .select-box-content dl dd label input { width: 14px; position: relative; top: -2px; margin-right: 5px; }
+/* ========= ui-select ========== */
+.chartHead div.ui-select a,.chartHead a.ui-select-trigger,.chartHead .ui-select-input,div.ui-select a, a.ui-select-trigger, .ui-select-input { color: #7d7d7d; font-size: 12px; text-decoration: none; position: relative; margin-right: -2px; }
+.chartHead div.ui-select a:hover,.chartHead a.ui-select-trigger:hover,div.ui-select a:hover, a.ui-select-trigger:hover { text-decoration: none }
+div.ui-select a:visited,div .ui-select a:focus,div .ui-select a:active { color: #7d7d7d }
+.ui-select { display: inline-block; *display:inline;
+border-right: 2px solid transparent; *zoom:1;
+background: #fff; color: #7d7d7d; font-size: 14px; position: relative; height: 28px; vertical-align: middle; }
+.ui-select[disabled=true] .ui-select-trigger { background: #eee }
+.ui-select .ui-select-input>input{width:100% !important;}
+.ui-select-content { margin: 0; margin-top: -1px; padding: 5px 0; overflow: auto; height: auto; max-height: 115px; _zoom: 1; list-style: none; border: 1px solid #ccc; _float: left; display: none; position: absolute; background-color: #fff; width: inherit; z-index: 10000; }
+.ui-select.ui-select-down .ui-select-content { border: 1px solid #ccc; border-top: 1px solid #DDD; }
+.ui-select-item { display: block; padding: 5px 5px; cursor: pointer; overflow: hidden; white-space: nowrap; font-size: 14px; margin: 0 5px; }
+.ui-select-item:hover, .ui-select-item-hover { background: #428bca; color: #fff; }
+.ui-select-item-disabled, .ui-select-item-disabled a { cursor: not-allowed; color: #ccc; }
+.ui-select-item-disabled:hover, .ui-select-item-disabled a:hover { background: #fff; color: #ccc; }
+.ui-select-trigger { position: relative; display: inline-block; *display:inline;
+*zoom:1;
+border: 1px solid #eee; height: 26px; line-height: 26px; text-indent: 8px }
+.ui-select-trigger>span { background: #fff;display: block;  max-height: 100%; font-size: 14px; color: #444; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.ui-select-input { position: relative; display: inline-block; *display:inline;
+*zoom:1;
+border: 1px solid #c8c8c8; height: 26px; line-height: 26px; text-indent: 0px; }
+.ui-select-input input { width: 100%; height: 26px!important; border: none!important; text-indent: 8px!important; padding: 0!important;/* padding-right:28px!important; */ line-height: inherit!important; box-shadow: none!important; transition: none!important; -webkit-transition: none!important; font-size: inherit!important; vertical-align: baseline!important; box-size: content-box!important; }
+.w200 .ui-select-input input { width: 200px; }
+.ui-select-trigger i, .ui-select-input i { height:100%;width:30px;background: #eee;position: absolute; top: 0px; right: 0px; line-height: 26px; font-size: 14px; cursor: pointer; }
+.ui-select-trigger b, .ui-select-input b { margin-top: 0px;  margin-left: 5px;display: block; width: 19px; height: 26px; background: url("./select2.png") 1px 0 no-repeat transparent }
+.ui-select-down .ui-select-trigger b, .ui-select-down .ui-select-input b { background-position: -17px 0 }
+.ui-select-trigger:hover, .ui-select-input:hover{border: 1px solid #ccc;}
+.ui-select-down .ui-select-trigger{border: 1px solid #ccc !important;border: 1px solid #ccc;}
+.ui-select-trigger:hover, .ui-select-input:hover, .ui-select.ui-select-down .ui-select-trigger, .ui-select.ui-select-down .ui-select-input { border: 1px solid #B3B3B3 }
+/*  下面注释的内容别删，会出错 */
+.ui-select.ui-select-down .ui-select-trigger, .ui-select.ui-select-down .ui-select-input { /* background: -webkit-linear-gradient(top, #f5f5f5, #fff);
+background: -moz-linear-gradient(top, #f5f5f5, #fff);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#f5f5f5, endColorstr=#fff); */ }
+.ui-select .ui-select-trigger, .ui-select .ui-select-input { display: block; background: transparent;/* background: -webkit-linear-gradient(top, #fbfbfb, #f3f3f3);
+background: -moz-linear-gradient(top, #fbfbfb, #f3f3f3);
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#fbfbfb, endColorstr=#f3f3f3); */ }
+.ui-select-disabled, .ui-select-disabled .ui-select-trigger, .ui-select-disabled i, .ui-select .ui-select-disabled { color: #aaa; cursor: not-allowed; background: -webkit-linear-gradient(top, #fbfbfb, #f3f3f3); background: -moz-linear-gradient(top, #fbfbfb, #f3f3f3); background: -ms-linear-gradient(top, #fbfbfb, #f3f3f3); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#fbfbfb, endColorstr=#f3f3f3);
+}

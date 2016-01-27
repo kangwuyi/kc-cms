@@ -2,6 +2,13 @@
 .MenuStatic {
 
 }
+#main-container{
+  float:left;
+  #sidebar{
+    position: inherit;
+  }
+}
+form{padding:0 !important;margin:0 !important;}
 .MenuWrapper{
 	/*background-color: #fff;*/
 	display:inline-block;
@@ -58,32 +65,33 @@ top: 40px;
 z-index: 9999;
 display: none;
 }.submenuContainer {
-	height:60px;
-  line-height: 60px;
-text-align: left;
-margin: auto;
-padding: 0 0 0 117px;
-}.submenu {
-	display: inline-block;
-	vertical-align: top;
-	width: auto;
-	margin-right: 80px;
-	line-height: 17px;
-	 li {
-	margin-bottom: 18px;
-	display:block;
-	float:left;
-	padding: 28px 88px 20px 55px;
-	}
-	a {
-		color:#fff;
-		text-decoration: none;
-		text-transform: none;
-		&:hover{
-			color:#fff;
-		}
-	}
-}
+      height:60px;
+      line-height: 60px;
+      text-align: left;
+      margin: auto;
+      padding: 0 0 0 117px;
+      .submenu {
+      display: inline-block;
+      vertical-align: top;
+      width: auto;
+      margin-right: 80px;
+      line-height: 17px;
+       li {
+      margin-bottom: 18px;
+      display:block;
+      float:left;
+      padding: 28px 88px 20px 55px;
+      }
+      a {
+          color:#fff;
+          text-decoration: none;
+          text-transform: none;
+          &:hover{
+              color:#fff;
+          }
+      }
+      }
+    }
 .bgColor li.liColorOne{
 	background: #087366;text-decoration: none;list-style-type:none;
 }
@@ -166,3 +174,4 @@ li.liColorFour .caratFour{
 		color: #fff;
 	}
 }
+

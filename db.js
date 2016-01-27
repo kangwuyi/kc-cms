@@ -15,6 +15,7 @@
 				conn.connect();
 			} else {
 				conn = new mysql.createConnection(connMysql.db);
+                //conn = mysql.createConnection(connMysql.db);
 				conn.connect();
 			}
 		} catch (_error) {

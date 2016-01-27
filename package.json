@@ -10,6 +10,7 @@
     "express-partials": ">= 0.3.0",
     "express-session": ">= 1.7.0",
     "static-favicon": ">= 1.0.0",
+    "connect-redis": ">= 2.3.0",
     "morgan": ">= 1.0.0",
     "body-parser": ">= 1.0.0",
     "ejs": ">= 0.8.5",

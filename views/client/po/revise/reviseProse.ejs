@@ -1,9 +1,12 @@
 <%- include ../poHeaderLoader %>
 		<div class="container poContents">
 			<%- include ../header %>
-		<%- include nav %>
 			<!-- <form action="write/baocun" method="post"> -->
 				<div class="poReviseBox">
+				<div class="poReviseCententTitle">
+                        <div class="poReviseCententTitleLeft"><span>博客后台管理</span></div>
+                        <div class="poReviseCententTitleRight"><a href="/poProse">+</a></div>
+                </div>
 				<table class="table table-striped" id="idData" >
 							<tr >
 								<th  class="deleteProseTh20">Id</th>
@@ -18,7 +21,9 @@
 								<td  class="deleteProseTh20"><%= PostGetProse.kt_prose_titles %></td>
 								<td  class="deleteProseTh20"><%= PostGetProse.dataYear %>:<%= PostGetProse.dataMonth %></td>
 								<td  class="deleteProseTh20"><%- PostGetProse.kt_prose_contents.substring(0,10) %></td>
-								<td  class="deleteProseTh20"><a class="editImg" href="/editProseById?prose_ids=<%= PostGetProse.kt_prose_ids %>">Edit</a></td>
+								<td  class="deleteProseTh20"><a class="editImg" href="/editProseById?prose_ids=<%= PostGetProse.kt_prose_ids %>">Edit</a>/
+								<a class="delImg" href="/delProseById?prose_ids=<%- PostGetProse.kt_prose_ids %>">Del</a>
+								</td>
 							</tr>
 							<% });%>
 					</table>

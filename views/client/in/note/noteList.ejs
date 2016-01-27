@@ -1,23 +1,21 @@
 
-<article class="noteList col-md-9">
+<article class="noteList col-md-12">
 	<ul class="noteBox">
-	<% PostNoteGet_all.forEach(	function(PostNoteGet_all){%>
+	<% PostGet_all.forEach(	function(PostGet_all){%>
 		<li class="noteLink container-fluid">
 			<div class="noteBoxTitle col-md-8">
 				<h3 class="container-fluid">
-					<p  title="<%= PostNoteGet_all.kt_notes_titles %>" target="_blank"><%= PostNoteGet_all.kt_notes_titles %></p>
+					<p  title="<%= PostGet_all.kt_isNote_title %>" target="_blank"><%= PostGet_all.kt_isNote_title %></p>
 				</h3>
 			</div>
 			<div class="noteBoxDate col-md-4">
 				<span class="container-fluid">
-				<%= PostNoteGet_all.kt_note_tags_name %> |
-					<%= PostNoteGet_all.kt_notes_ri %>
-					<%= PostNoteGet_all.kt_notes_yue %>
-					<%= PostNoteGet_all.kt_notes_year %>
+				<%= PostGet_all.kt_isTag_name %> |
+					<%= Date(PostGet_all.kt_isNote_date) %>
 				</span>
 			</div>
 			<div class="noteBoxbody col-md-12">
-				<p class="container-fluid"><%- PostNoteGet_all.kt_notes_contents %>
+				<p class="container-fluid"><%- PostGet_all.kt_isNote_content %>
 				</p>
 			</div>
 		</li>

@@ -1,12 +1,11 @@
 var kcool = require('../../public/lib/kcool');
-var Blog = require('../../models/blog');
-var Note = require('../../models/note');
-var Feel = require('../../models/feel');
 var User = require('../../models/user');
 var Prose = require('../../models/prose');
 var object = require('../../models/api/object');
 var pagination = require('pagination-api');
 var myDate = require('../dateFormat')();
+var loadTagJsFn = require('./module/public/loadTagJs.js');
+var isIf = 'prose';
 
 exports.prose = function (req, res) {
 	Date.prototype.Format = function (fmt) {
@@ -50,11 +49,15 @@ exports.prose = function (req, res) {
 			return result;
 		}
 		PostDataProse = new unique(PostDataProse);//console.log(PostDataProse)
-		res.render('client/in/prose', { title: '十页书｜说说',PostGetProse: PostGetProse,PostDataProse:PostDataProse});
+        loadTagJsFn(isIf,function(loadTagOjNode) {
+            res.render('client/in/prose', {title: '十页书｜说说', PostGetProse: PostGetProse, PostDataProse: PostDataProse,loadTagOjNew:loadTagOjNode});
+        });
 	});
 }
 exports.poProse = function (req, res) {
-	res.render('client/po/add/prose', { title: '主页'});
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/po/add/prose', {title: '主页',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.poReviseProse = function (req, res) {
 	Prose.PostGetProse( null,function (err, PostGetProse) {
@@ -65,13 +68,18 @@ exports.poReviseProse = function (req, res) {
 			PostGetProse[p].dataYear = new Date(PostGetProse[p].kt_prose_dates).format("yyyy");
 			PostGetProse[p].dataMonth = new Date(PostGetProse[p].kt_prose_dates).format("MM")
 		}
-		res.render('client/po/revise/reviseProse', { title: '主页',PostGetProse: PostGetProse});
+        var urlStr = {addNew:'/poProse',sign:'prose'};
+        loadTagJsFn(isIf,function(loadTagOjNode) {
+            res.render('client/po/revise/reviseProse', {title: '主页', PostGetProse: PostGetProse, urlStr: urlStr,loadTagOjNew:loadTagOjNode});
+        });
 	});
 }
 exports.editProseById = function (req, res) {
 	var prose_ids = req.query.prose_ids ? kcool.trim(req.query.prose_ids):1;
 	Prose.getProseById(prose_ids,function (err, getProseById) {
-		res.render('client/po/revise/edit/editProse', { title: '主页',getProseById: getProseById});
+        loadTagJsFn(isIf,function(loadTagOjNode) {
+            res.render('client/po/revise/edit/editProse', {title: '主页', getProseById: getProseById,loadTagOjNew:loadTagOjNode});
+        });
 	});
 }
 exports.toEditProse = function (req, res) {
@@ -92,8 +100,10 @@ exports.poDeleteProse = function (req, res) {
 		for(var p = 0; p < PostGetProse.length; p++){
 			PostGetProse[p].dataYear = new Date(PostGetProse[p].kt_prose_dates).format("yyyy");
 			PostGetProse[p].dataMonth = new Date(PostGetProse[p].kt_prose_dates).format("MM")
-		}
-		res.render('client/po/delete/deleteProse', { title: '主页',PostGetProse: PostGetProse});
+		};
+        loadTagJsFn(isIf,function(loadTagOjNode) {
+            res.render('client/po/delete/deleteProse', {title: '主页', PostGetProse: PostGetProse,loadTagOjNew:loadTagOjNode});
+        });
 	});
 }
 exports.delProseById = function (req, res) {

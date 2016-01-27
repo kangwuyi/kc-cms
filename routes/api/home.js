@@ -1,8 +1,15 @@
+var loadTagJsFn = require('./module/public/loadTagJs.js');
+var isIf = 'index';
+
 exports.indexs = function (req, res) {
-	res.render('client/index', { title: '十页书，每天阅读十页好书'});
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/index', {title: '十页书，每天阅读十页好书',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.about = function (req, res) {
-	res.render('client/in/about', { title: '十页书｜友链'});
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/in/about', {title: '十页书｜友链',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.abcd = function (req, res) {
 	var idss;
@@ -13,16 +20,27 @@ exports.abcd = function (req, res) {
 		idss = req.body.idss;//console.log("post");
 	}
 	console.log(idss);
-	res.render('client/in/design', { title: '十页书｜友链'});
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/in/design', {title: '十页书｜友链',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.design = function (req, res) {
-	res.render('client/in/design', { title: '十页书｜设计'});
+    isIf = 'design';
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/in/design', {title: '十页书｜设计',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.photo = function (req, res) {
-	res.render('client/in/photo', { title: '十页书｜相册'});
+    isIf = 'photo';
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/in/photo', {title: '十页书｜相册',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.assembly = function (req, res) {
-	res.render('client/in/assembly', { title: '十页书｜组件'});
+    isIf = 'assembly';
+    loadTagJsFn(isIf,function(loadTagOjNode) {
+        res.render('client/in/assembly', {title: '十页书｜组件',loadTagOjNew:loadTagOjNode});
+    });
 }
 exports.toPoIndex = function (req, res) {
 	res.render('client/po/index', { title: '主页'});

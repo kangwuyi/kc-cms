@@ -1,5 +1,7 @@
 <div class="RLDom">
-	<a href="">注册</a>
+    <% if (!locals.publicUserId) {%>
+	<a href="/in/registerToInfo">注册</a>
 	<span>/</span>
 	<a class="login loginCursor">登录</a>
+    <% }%>
 </div>

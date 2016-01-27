@@ -1,19 +1,17 @@
 
-<div class="leftFeel col-md-8">
+<div class="leftFeel col-md-12">
 	<article class="leftFeelBox clearfix">
 		<ul class="feelBoxList">
-		<% PostFeelGet_all.forEach(	function(PostFeelGet_all){%>
+		<% PostGet_all.forEach(	function(PostGet_all){%>
 			<li class="feelBoxListLi">
-				<a class="container-fluid" href="/in/feelsById?feels_ids=<%= PostFeelGet_all.kt_feels_ids %>&tags_ids=<%= PostFeelGet_all.kt_feel_tags_ids %>"  target="_blank">
+				<a class="container-fluid" href="/in/feelsById?note_ids=<%= PostGet_all.kt_isNote_id %>&tags_ids=<%= PostGet_all.kt_isTag_id %>"  target="_blank">
 					<span class="feelInco col-md-1"></span>
-					<span class="feelTitle col-md-5" title="<%= PostFeelGet_all.kt_feels_titles %>"><%= PostFeelGet_all.kt_feels_titles %></span>
+					<span class="feelTitle col-md-5" title="<%= PostGet_all.kt_isNote_title %>"><%= PostGet_all.kt_isNote_title %></span>
 					<span class="feelTag col-md-4">
-						<%= PostFeelGet_all.kt_feel_tags_name %>
+						<%= PostGet_all.kt_isTag2_name %>
 					</span>
 					<span class="feelDate col-md-2">
-						<%= PostFeelGet_all.kt_feels_ri %>
-						<%= PostFeelGet_all.kt_feels_yue %>
-						<%= PostFeelGet_all.kt_feels_year %>
+						<!--<%= Date(PostGet_all.kt_isNote_date) %>-->
 					</span>
 				</a>
 			</li>

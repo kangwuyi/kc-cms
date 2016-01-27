@@ -12,14 +12,60 @@ table, tr, th, td {
   margin: 0;
   padding: 0; }
 
+.poReviseCententTitle {
+  height: 40px;
+  background-color: #f5f5f5; }
+  .poReviseCententTitle .poReviseCententTitleLeft {
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    line-height: 30px;
+    margin: 5px;
+    float: left;
+    background-color: #fff; }
+  .poReviseCententTitle .poReviseCententTitleRight {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin: 5px;
+    float: left;
+    background-color: #fff; }
+    .poReviseCententTitle .poReviseCententTitleRight a {
+      color: #0A9916;
+      font-size: 20px;
+      text-decoration: none; }
+
+.poReviseCententTitleSign {
+  background-color: #004F66 !important; }
+
 .poContents tr {
   width: 100%; }
 
 .poContents {
-  margin-top: 30px; }
+  margin: 0px !important;
+  padding: 0px !important;
+  width: 100% !important; }
+  .poContents .poHeaderTop {
+    z-index: 50;
+    width: 100%;
+    height: 40px;
+    background-color: #004F66;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    border-bottom: 1px solid #fff; }
+    .poContents .poHeaderTop .topTitle {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      width: 200px;
+      margin-left: 10px;
+      color: #fff;
+      font-size: 23px; }
   .poContents .poName {
     font-size: 100px;
-    width: 100%;
     height: 300px;
     line-height: 300px;
     text-align: center; }
@@ -28,66 +74,75 @@ table, tr, th, td {
       text-decoration: none;
       text-transform: none; }
   .poContents .poHeader {
-    height: 80px;
-    line-height: 80px;
-    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    position: absolute;
+    width: 100px;
+    padding: 40px 0 0 0 !important;
     float: left;
-    border: 5px solid #934642;
-    background: #154673;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px; }
+    background: #004F66; }
     .poContents .poHeader ul > li {
       text-decoration: none;
       list-style-type: none;
       text-align: center; }
-  .poContents .poDeleteBox {
-    width: 100%;
-    float: left;
-    background: #fff;
-    border: 5px solid #459846;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px; }
-    .poContents .poDeleteBox table th {
-      text-align: center; }
-    .poContents .poDeleteBox table td {
-      text-align: center; }
-      .poContents .poDeleteBox table td a.delImg {
-        background: url(../../img/po/del.gif);
-        color: #9d9c9a;
-        font-size: 10px;
-        text-decoration: none;
-        padding: 0 0 0 14px;
-        background-repeat: no-repeat;
-        background-position: 0 0; }
+    .poContents .poHeader ul {
+      display: block;
+      height: auto; }
+      .poContents .poHeader ul li {
+        padding: 0 !important;
+        display: block;
+        float: left; }
+        .poContents .poHeader ul li a {
+          color: #f5f5f5;
+          padding: 0 5px;
+          width: 80px;
+          height: 30px;
+          line-height: 30px;
+          display: block;
+          margin: 5px auto;
+          border: 1px dotted #fff;
+          text-decoration: none; }
+          .poContents .poHeader ul li a:hover {
+            background-color: #f5f5f5;
+            text-decoration: none;
+            color: #660000; }
   .poContents .poAddBox {
-    width: 20%;
-    float: left;
-    background: #fff;
-    border: 5px solid #459846;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px; }
+    margin: 40px 0 0 100px;
+    background: #f5f5f5;
+    padding: 0 !important;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff; }
+    .poContents .poAddBox table {
+      margin: 0 !important; }
+      .poContents .poAddBox table tr td {
+        padding: 0 !important; }
+        .poContents .poAddBox table tr td .tdLeft, .poContents .poAddBox table tr td .tdContent, .poContents .poAddBox table tr td .tdRight {
+          height: 30px;
+          line-height: 30px;
+          margin-left: 10px;
+          float: left; }
+        .poContents .poAddBox table tr td .tdLeft {
+          width: 370px; }
+        .poContents .poAddBox table tr td .tdLeft > span, .poContents .poAddBox table tr td .tdContent > span, .poContents .poAddBox table tr td .tdRight > span {
+          margin-top: 1px; }
+        .poContents .poAddBox table tr td .tdRight > a {
+          margin-left: 10px; }
+        .poContents .poAddBox table tr td .tdLeft > input, .poContents .poAddBox table tr td .tdContent > input, .poContents .poAddBox table tr td .tdRight > input {
+          height: 28px;
+          margin-top: 1px;
+          border: 1px solid #c8c8c8; }
+    .poContents .poAddBox span, .poContents .poAddBox input {
+      display: block;
+      float: left; }
   .poContents .poReviseBox {
-    width: 100%;
-    float: left;
+    margin: 40px 0 0 100px;
     background: #fff;
-    border: 5px solid #459846;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px; }
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff; }
     .poContents .poReviseBox table th {
       text-align: center; }
     .poContents .poReviseBox table td {
+      padding: 0 !important;
       text-align: center; }
       .poContents .poReviseBox table td a.editImg {
         background: url(../../img/po/edit.gif);
@@ -97,10 +152,17 @@ table, tr, th, td {
         padding: 0 0 0 14px;
         background-repeat: no-repeat;
         background-position: 0 0; }
+      .poContents .poReviseBox table td a.delImg {
+        background: url(../../img/po/del.gif);
+        color: #9d9c9a;
+        font-size: 10px;
+        text-decoration: none;
+        padding: 0 0 0 14px;
+        background-repeat: no-repeat;
+        background-position: 0 0; }
   .poContents .poNav {
     height: 80px;
     line-height: 80px;
-    width: 100%;
     float: left;
     border: 5px solid #647863;
     background: #652347;
@@ -114,10 +176,9 @@ table, tr, th, td {
       list-style-type: none;
       text-align: center; }
   .poContents .poTextarea {
-    width: 80%;
-    float: left;
-    border: 5px solid #564975;
+    border-left: 1px solid #fff;
     background: #564975;
+    margin-left: 100px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;

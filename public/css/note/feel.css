@@ -17,12 +17,13 @@ body {
   float: left; }
   .leftFeel .leftFeelBox {
     background: #fff;
-    border: 1px solid #e5e5e5;
     border-radius: 3px; }
     .leftFeel .leftFeelBox .feelBoxList {
       list-style: none;
       padding: 0;
       margin: 0; }
+      .leftFeel .leftFeelBox .feelBoxList li:first-child {
+        border-top: none; }
       .leftFeel .leftFeelBox .feelBoxList .feelBoxListLi {
         list-style: none;
         border-top: 1px solid #e5e5e5; }

@@ -23,18 +23,18 @@
 	}
 </style>
 <aside id="reader-right" class="col-md-12">
-	<% TranslatesById.forEach(	function(TranslatesById){%>
+	<% BlogsById.forEach(	function(BlogsById){%>
 	<div class="div-reader-title">
-		<p class="p-reader-title"><%= TranslatesById.kt_translates_titles %></p>
-		<a class="a-reader-next a-hover" id="a_reader_next" href="/in/translatesByNext?translates_ids=<%= TranslatesById.kt_translates_ids %>">Next
+		<p class="p-reader-title"><%= BlogsById.kt_isNote_title %></p>
+		<a class="a-reader-next a-hover" id="a_reader_next" href="/in/translatesByNext?note_ids=<%= BlogsById.kt_isNote_id %>">Next
 		</a>
-		<a class="a-reader-prev a-hover" id="a_reader_prev" href="/in/translatesByPrev?translates_ids=<%= TranslatesById.kt_translates_ids %>">Prev
+		<a class="a-reader-prev a-hover" id="a_reader_prev" href="/in/translatesByPrev?note_ids=<%= BlogsById.kt_isNote_id %>">Prev
 		</a>
 		<a class="a-reader-next a-hover" href="/in/translatesByMenu">Menu
 		</a>
 	</div>
 	<div class="div-reader-text">
-		<p class="p-reader-text"><%- TranslatesById.kt_translates_contents %></p>
+		<p class="p-reader-text"><%- BlogsById.kt_isNote_content %></p>
 	</div><% });%>
 	<input class="tags_open_next" id="tags_open_next" style="height:0px;width:0px;" name="tags_open_next" type="hidden"  value="<%= tags_open_next %>">
 	<input class="tags_open_prev" id="tags_open_prev" style="height:0px;width:0px;" name="tags_open_prev" type="hidden"  value="<%= tags_open_prev %>">
